@@ -2,23 +2,47 @@ package com.example.smallbusinessmanagementsystem.service;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
+import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
+import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 
-import java.io.Console;
 import java.util.List;
 
 public class VartotojasService {
     VartotojasPersistenceController vartotojasPersistenceController;
+    VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
     public VartotojasService()
     {
         vartotojasPersistenceController = new VartotojasPersistenceController();
+        vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+    }
+    public VartotojoTipas rastiAdministratoriausVartotojoTipa()
+    {
+        List<VartotojoTipas> visiVartotojuTipai;
+        VartotojoTipas vartotojoTipas = null;
+        visiVartotojuTipai = vartotojoTipasPersistenceController.getVartotojoTipasListFromDatabase();
+        for(int i=0; i<visiVartotojuTipai.size(); i++) {
+            vartotojoTipas = visiVartotojuTipai.get(i);
+            if (vartotojoTipas.getFinansai() && vartotojoTipas.getKlientai() &&
+                    vartotojoTipas.getKonfiguracija() && vartotojoTipas.getPardavimai() &&
+                    vartotojoTipas.getSandelis() && vartotojoTipas.getStatistika())
+            {
+                return vartotojoTipas;
+            }
+        }
+        return null;
     }
     public void createAdminIfNoUsers()
     {
         if(vartotojasPersistenceController.getVartotojasListFromDatabase().isEmpty())
         {
-            Vartotojas vartotojas = new Vartotojas("admin","admin");
+            VartotojoTipas vartotojoTipas = new VartotojoTipas("Administratorius", true,true,true,true,true,true);
+            vartotojoTipasPersistenceController.create(vartotojoTipas);
+
+            Vartotojas vartotojas = new Vartotojas("Vardas","Pavarde","Telefonas","Apibrėžimas","admin","admin",vartotojoTipas);
             vartotojasPersistenceController.create(vartotojas);
+
+
         }
     }
 

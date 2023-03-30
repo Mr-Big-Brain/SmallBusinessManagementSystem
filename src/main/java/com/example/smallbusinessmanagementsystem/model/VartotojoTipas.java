@@ -1,10 +1,12 @@
 package com.example.smallbusinessmanagementsystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+@Entity
 public class VartotojoTipas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +25,22 @@ public class VartotojoTipas {
     private Boolean finansai;
     @Column
     private Boolean statistika;
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "vartotojoTipas", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OrderBy("id ASC")
+    private List<Vartotojas> vartotojai = new ArrayList<>();
+    public VartotojoTipas() {
+
+    }
+    public VartotojoTipas(String pavadinimas, Boolean pardavimai, Boolean sandelis, Boolean klientai, Boolean konfiguracija, Boolean finansai, Boolean statistika) {
+        this.pavadinimas = pavadinimas;
+        this.pardavimai = pardavimai;
+        this.sandelis = sandelis;
+        this.klientai = klientai;
+        this.konfiguracija = konfiguracija;
+        this.finansai = finansai;
+        this.statistika = statistika;
+    }
 
     public int getId() {
         return id;
@@ -87,4 +105,5 @@ public class VartotojoTipas {
     public void setStatistika(Boolean statistika) {
         this.statistika = statistika;
     }
+
 }
