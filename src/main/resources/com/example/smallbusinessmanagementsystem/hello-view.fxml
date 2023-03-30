@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="766.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.HelloController">
+   <children>
+   
+                <Label fx:id="welcomeText" />
+      <TabPane prefHeight="766.0" prefWidth="1320.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabPardavimai" text="Pardavimai">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="220.0" prefWidth="200.0">
+                     <children>
+                         <Button layoutX="625.0" layoutY="14.0" onAction="#onHelloButtonClick" text="Naujas pardavimas" />
+                        <Button layoutX="625.0" layoutY="57.0" mnemonicParsing="false" text="Redaguoti pardavimą" />
+                        <Button layoutX="625.0" layoutY="101.0" mnemonicParsing="false" text="Ištrinti pardavimą" />
+                        <Button layoutX="625.0" layoutY="143.0" mnemonicParsing="false" text="Rasti pardavimą" />
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                            <TableColumn prefWidth="75.0" text="Pirkėjas" />
+                              <TableColumn prefWidth="75.0" text="Data" />
+                              <TableColumn prefWidth="75.0" text="Suma" />
+                              <TableColumn prefWidth="75.0" text="Darbuotojas" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabSandelis" text="Sandėlis">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="631.0" layoutY="14.0" mnemonicParsing="false" text="Pridėti prekę" />
+                        <Button layoutX="631.0" layoutY="55.0" mnemonicParsing="false" text="Ištrinti prekę" />
+                        <Button layoutX="631.0" layoutY="99.0" mnemonicParsing="false" text="Redaguoti prekę" />
+                        <Button layoutX="631.0" layoutY="144.0" mnemonicParsing="false" text="Rasti prekę" />
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Produktas" />
+                            <TableColumn prefWidth="75.0" text="Kiekis" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabTvarkarastis" text="Tvarkaraštis">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="738.0" prefWidth="1320.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Mano tvarkaraštis">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Data nuo" />
+                                                <TableColumn prefWidth="75.0" text="Data iki" />
+                                              <TableColumn prefWidth="88.0" text="Pavadinimas" />
+                                                <TableColumn prefWidth="75.0" text="Aprašymas" />
+                                            </columns>
+                                          </TableView>
+                                          <DatePicker layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                          <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                          <DatePicker layoutX="249.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                          <Label layoutX="211.0" layoutY="18.0" text="Iki" />
+                                          <Button layoutX="16.0" layoutY="312.0" mnemonicParsing="false" text="Sukurti renginį" />
+                                          <Button layoutX="132.0" layoutY="312.0" mnemonicParsing="false" text="Ištrinti renginį" />
+                                          <Button layoutX="253.0" layoutY="312.0" mnemonicParsing="false" text="Atnaujinti renginį" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Sukurti tvarkaraščiai">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="Data nuo" />
+                                                <TableColumn prefWidth="75.0" text="Data iki" />
+                                                <TableColumn prefWidth="87.0" text="Pavadinimas" />
+                                                <TableColumn prefWidth="77.0" text="Aprašymas" />
+                                             </columns>
+                                          </TableView>
+                                          <DatePicker layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                          <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                          <DatePicker layoutX="249.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                          <Label layoutX="211.0" layoutY="18.0" text="Iki" />
+                                          <Button layoutX="16.0" layoutY="312.0" mnemonicParsing="false" text="Sukurti renginį" />
+                                          <Button layoutX="132.0" layoutY="312.0" mnemonicParsing="false" text="Ištrinti renginį" />
+                                          <Button layoutX="253.0" layoutY="312.0" mnemonicParsing="false" text="Atnaujinti renginį" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabKlientai" text="Klientai">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+                          <columns>
+                            <TableColumn prefWidth="27.0" text="ID" />
+                            <TableColumn prefWidth="44.0" text="Vardas" />
+                              <TableColumn prefWidth="58.0" text="Pavardė" />
+                              <TableColumn prefWidth="48.0" text="Įmonė" />
+                              <TableColumn prefWidth="71.0" text="Telefonas" />
+                              <TableColumn prefWidth="57.0" text="El.Paštas" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="14.0" layoutY="427.0" mnemonicParsing="false" text="Pridėti" />
+                        <Button layoutX="131.0" layoutY="427.0" mnemonicParsing="false" text="Redaguoti" />
+                        <Button layoutX="255.0" layoutY="427.0" mnemonicParsing="false" text="Ištrinti" />
+                        <TableView layoutX="496.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="ID" />
+                              <TableColumn prefWidth="75.0" text="Pavadinimas" />
+                              <TableColumn prefWidth="75.0" text="Apibrėžimas" />
+                              <TableColumn prefWidth="75.0" text="Produktas" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="496.0" layoutY="427.0" mnemonicParsing="false" text="Pridėti" />
+                        <Button layoutX="613.0" layoutY="427.0" mnemonicParsing="false" text="Redaguoti" />
+                        <Button layoutX="737.0" layoutY="427.0" mnemonicParsing="false" text="Ištrinti" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabKonfiguracija" text="Konfigūracija">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="738.0" prefWidth="1314.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Darbuotojai">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="262.0">
+                                       <children>
+                                          <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="ID" />
+                                              <TableColumn prefWidth="75.0" text="Role" />
+                                                <TableColumn prefWidth="75.0" text="Name" />
+                                                <TableColumn prefWidth="75.0" text="Surname" />
+                                                <TableColumn prefWidth="75.0" text="Phone" />
+                                                <TableColumn prefWidth="75.0" text="Description" />
+                                            </columns>
+                                          </TableView>
+                                          <Button layoutX="631.0" layoutY="14.0" mnemonicParsing="false" text="Add new" />
+                                          <Button layoutX="631.0" layoutY="50.0" mnemonicParsing="false" text="Manage" />
+                                          <Button layoutX="632.0" layoutY="89.0" mnemonicParsing="false" text="Remove" />
+                                          <TableView layoutX="14.0" layoutY="289.0" prefHeight="200.0" prefWidth="600.0">
+                                             <columns>
+                                                <TableColumn prefWidth="43.0" text="ID" />
+                                                <TableColumn prefWidth="57.0" text="Name" />
+                                                <TableColumn prefWidth="60.0" text="Sales" />
+                                                <TableColumn prefWidth="61.0" text="Finance" />
+                                                <TableColumn prefWidth="61.0" text="Stash" />
+                                                <TableColumn prefWidth="54.0" text="Clients" />
+                                                <TableColumn prefWidth="119.0" text="Assign Schedule" />
+                                                <TableColumn prefWidth="57.0" text="Statistics" />
+                                                <TableColumn prefWidth="87.0" text="Configuration" />
+                                             </columns>
+                                          </TableView>
+                                          <Button layoutX="631.0" layoutY="289.0" mnemonicParsing="false" text="Add new" />
+                                          <Button layoutX="633.0" layoutY="330.0" mnemonicParsing="false" text="Manage" />
+                                          <Button layoutX="634.0" layoutY="370.0" mnemonicParsing="false" text="Remove" />
+                                          <Label layoutX="14.0" layoutY="263.0" text="Roles" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Produktai">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+                                            <columns>
+                                              <TableColumn prefWidth="50.0" text="ID" />
+                                              <TableColumn prefWidth="62.0" text="Name" />
+                                                <TableColumn prefWidth="67.0" text="Buy Price" />
+                                                <TableColumn prefWidth="120.0" text="Recomended Price" />
+                                            </columns>
+                                          </TableView>
+                                          <TableView layoutX="555.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="Tag" />
+                                             </columns>
+                                          </TableView>
+                                          <Button layoutX="336.0" layoutY="14.0" mnemonicParsing="false" text="Add" />
+                                          <Button layoutX="336.0" layoutY="56.0" mnemonicParsing="false" text="Edit" />
+                                          <Button layoutX="336.0" layoutY="97.0" mnemonicParsing="false" text="Remove" />
+                                          <Button layoutX="880.0" layoutY="15.0" mnemonicParsing="false" text="Add" />
+                                          <Button layoutX="880.0" layoutY="57.0" mnemonicParsing="false" text="Edit" />
+                                          <Button layoutX="880.0" layoutY="98.0" mnemonicParsing="false" text="Remove" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Žymės">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="14.0" layoutY="53.0" prefHeight="316.0" prefWidth="357.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="ID" />
+                                              <TableColumn prefWidth="87.0" text="Pavadinimas" />
+                                                <TableColumn prefWidth="63.0" text="Tipas" />
+                                            </columns>
+                                          </TableView>
+                                          <ChoiceBox layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
+                                          <Label layoutX="179.0" layoutY="18.0" text="Choice between all, finance and products" />
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabStatistika" text="Statistika">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="7.0" prefHeight="738.0" prefWidth="1313.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Produktai">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <LineChart layoutX="14.0" layoutY="59.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <TableView layoutX="630.0" layoutY="59.0" prefHeight="400.0" prefWidth="600.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Product" />
+                                            </columns>
+                                          </TableView>
+                                          <Button layoutX="631.0" layoutY="480.0" mnemonicParsing="false" text="Add product" />
+                                          <Button layoutX="871.0" layoutY="480.0" mnemonicParsing="false" text="Remove" />
+                                          <DatePicker layoutX="50.0" layoutY="20.0" />
+                                          <DatePicker layoutX="242.0" layoutY="20.0" />
+                                          <Label layoutX="224.0" layoutY="451.0" text="Line chart" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Klientai">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <BarChart layoutX="14.0" layoutY="58.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                          <TableView layoutX="705.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Client" />
+                                            </columns>
+                                          </TableView>
+                                          <TableView layoutX="705.0" layoutY="310.0" prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Tag" />
+                                            </columns>
+                                          </TableView>
+                                          <Button layoutX="705.0" layoutY="529.0" mnemonicParsing="false" text="Select top 10" />
+                                          <Button layoutX="805.0" layoutY="529.0" mnemonicParsing="false" text="Add" />
+                                          <Button layoutX="867.0" layoutY="529.0" mnemonicParsing="false" text="Remove" />
+                                          <Button layoutX="219.0" layoutY="458.0" mnemonicParsing="false" text="Show" />
+                                          <DatePicker layoutX="57.0" layoutY="24.0" />
+                                          <DatePicker layoutX="272.0" layoutY="24.0" />
+                                          <Label layoutX="345.0" layoutY="450.0" text="BarChart" />
+                                          <Label layoutX="936.0" layoutY="137.0" text="Ne listas o viemas klientas" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Finansai">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <BarChart layoutX="24.0" layoutY="75.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                          <TableView layoutX="657.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Tag" />
+                                            </columns>
+                                          </TableView>
+                                          <Button layoutX="657.0" layoutY="250.0" mnemonicParsing="false" text="Top 10" />
+                                          <Button layoutX="731.0" layoutY="250.0" mnemonicParsing="false" text="Add" />
+                                          <Button layoutX="798.0" layoutY="250.0" mnemonicParsing="false" text="Remove" />
+                                          <DatePicker layoutX="30.0" layoutY="19.0" />
+                                          <DatePicker layoutX="226.0" layoutY="19.0" />
+                                          <ChoiceBox layoutX="425.0" layoutY="19.0" prefWidth="150.0" />
+                                          <Label layoutX="447.0" layoutY="52.0" text="Income/expence" />
+                                          <Button layoutX="248.0" layoutY="475.0" mnemonicParsing="false" text="Show" />
+                                          <Label layoutX="889.0" layoutY="123.0" text="Jei be tagu ima bendrai" />
+                                          <Label layoutX="348.0" layoutY="479.0" text="Bar chart" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Žymės">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <LineChart layoutX="28.0" layoutY="55.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <TableView layoutX="638.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Žymė" />
+                                            </columns>
+                                          </TableView>
+                                          <Label layoutX="253.0" layoutY="455.0" text="LineChar jeigu produkto barchart jeigu finansut" />
+                                          <Button layoutX="638.0" layoutY="255.0" mnemonicParsing="false" text="Top 10" />
+                                          <Button layoutX="718.0" layoutY="255.0" mnemonicParsing="false" text="Pridėti" />
+                                          <DatePicker layoutX="32.0" layoutY="20.0" />
+                                          <DatePicker layoutX="234.0" layoutY="20.0" />
+                                          <Button layoutX="779.0" layoutY="255.0" mnemonicParsing="false" text="Ištrinti" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="tabFinansai" text="Finansai">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="631.0" layoutY="52.0" mnemonicParsing="false" text="Naujas finansas" />
+                        <Button layoutX="631.0" layoutY="92.0" mnemonicParsing="false" text="Redaguoti finansą" />
+                        <Button layoutX="631.0" layoutY="134.0" mnemonicParsing="false" text="Ištrinti finansą" />
+                        <CheckBox layoutX="14.0" layoutY="463.0" mnemonicParsing="false" text="Su pardavimais" />
+                        <Button layoutX="631.0" layoutY="176.0" mnemonicParsing="false" text="Rasti finansą" />
+                        <TableView layoutX="14.0" layoutY="52.0" prefHeight="400.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                            <TableColumn prefWidth="75.0" text="Tipas" />
+                              <TableColumn prefWidth="75.0" text="Kiekis" />
+                              <TableColumn text="Pavadinimas" />
+                              <TableColumn prefWidth="91.0" text="Apibūdinimas" />
+                              <TableColumn prefWidth="54.0" text="Data" />
+                              <TableColumn prefWidth="75.0" text="Žymės" />
+                              <TableColumn prefWidth="75.0" text="Darbuotojas" />
+                          </columns>
+                        </TableView>
+                        <ChoiceBox layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
+                        <Label layoutX="183.0" layoutY="18.0" text="Pajamos/išlaidos/abu" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

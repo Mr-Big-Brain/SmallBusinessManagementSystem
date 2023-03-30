@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.LoginController">
+   <children>
+      <Button fx:id="buttonPrisijungti" layoutX="69.0" layoutY="219.0" mnemonicParsing="false" onAction="#prisijungti" text="Prisijungi" />
+      <Button fx:id="buttonRedaguoti" layoutX="253.0" layoutY="219.0" mnemonicParsing="false" text="Redaguoti savo paskyrą" />
+      <TextField fx:id="textFieldVardas" layoutX="70.0" layoutY="69.0" />
+      <TextField fx:id="textFieldSlaptazodis" layoutX="70.0" layoutY="145.0" />
+      <Label layoutX="70.0" layoutY="52.0" text="Vartotojo vardas:" />
+      <Label layoutX="70.0" layoutY="128.0" text="Slapražodis:" />
+   </children>
+</AnchorPane>
