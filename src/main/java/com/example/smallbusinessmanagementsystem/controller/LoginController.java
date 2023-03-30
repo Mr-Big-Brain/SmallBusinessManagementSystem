@@ -1,8 +1,7 @@
 package com.example.smallbusinessmanagementsystem.controller;
 
-import com.example.smallbusinessmanagementsystem.Start;
-import com.example.smallbusinessmanagementsystem.model.User;
-import com.example.smallbusinessmanagementsystem.persistenceController.UserPersistenceController;
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
+import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,7 @@ import java.io.IOException;
 
 public class LoginController {
 
-    public UserPersistenceController userPersistenceController;
+    public VartotojasPersistenceController vartotojasPersistenceController;
 
     //FXML
     private Stage stage;
@@ -25,7 +24,7 @@ public class LoginController {
     private Scene scene;
 
     public LoginController() {
-        userPersistenceController = new UserPersistenceController();
+        vartotojasPersistenceController = new VartotojasPersistenceController();
     }
 
     @FXML
@@ -42,10 +41,10 @@ public class LoginController {
 
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
-        if(userPersistenceController.getUserListFromDatabase().isEmpty())
+        if(vartotojasPersistenceController.getVartotojasListFromDatabase().isEmpty())
         {
-            User user = new User("admin","admin");
-            userPersistenceController.create(user);
+            Vartotojas vartotojas = new Vartotojas("admin","admin");
+            vartotojasPersistenceController.create(vartotojas);
         }
         FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("/com/example/smallbusinessmanagementsystem/hello-view.fxml"));
         root = (Parent)fxmlLoader.load();

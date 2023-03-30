@@ -3,7 +3,7 @@ package com.example.smallbusinessmanagementsystem.model;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class Vartotojas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -11,9 +11,9 @@ public class User {
     private String prisijungimoVardas;
     @Column
     private String slaptazodis;
-    public User() {
+    public Vartotojas() {
     }
-    public User(String prisijungimoVardas, String slaptazodis) {
+    public Vartotojas(String prisijungimoVardas, String slaptazodis) {
         this.prisijungimoVardas = prisijungimoVardas;
         this.slaptazodis = slaptazodis;
     }

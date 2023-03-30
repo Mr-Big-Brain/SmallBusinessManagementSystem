@@ -1,6 +1,6 @@
 package com.example.smallbusinessmanagementsystem.persistenceController;
 
-import com.example.smallbusinessmanagementsystem.model.User;
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,9 +9,9 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-public class UserPersistenceController {
+public class VartotojasPersistenceController {
     private EntityManagerFactory entityManagerFactory;
-    public UserPersistenceController() //removed void
+    public VartotojasPersistenceController() //removed void
     {
         entityManagerFactory = Persistence.createEntityManagerFactory("kontrolinis");
     }
@@ -20,13 +20,13 @@ public class UserPersistenceController {
         entityManagerFactory = Persistence.createEntityManagerFactory("kontrolinis");
         return entityManagerFactory.createEntityManager();
     }
-    public void create(User user)
+    public void create(Vartotojas vartotojas)
     {
         EntityManager entityManager = null;
         try {
             entityManager = getEntityManager();
             entityManager.getTransaction().begin();
-            entityManager.persist(user);
+            entityManager.persist(vartotojas);
             entityManager.getTransaction().commit();
         }
         catch (Exception e)
@@ -41,13 +41,13 @@ public class UserPersistenceController {
             }
         }
     }
-    public void update(User user) {
+    public void update(Vartotojas vartotojas) {
         EntityManager entityManager = null;
 
         try {
             entityManager = getEntityManager();
             entityManager.getTransaction().begin();
-            user = entityManager.merge(user);
+            vartotojas = entityManager.merge(vartotojas);
             entityManager.getTransaction().commit();
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -57,11 +57,11 @@ public class UserPersistenceController {
             }
         }
     }
-    public List<User> getUserListFromDatabase(){
+    public List<Vartotojas> getVartotojasListFromDatabase(){
         EntityManager  entityManager = getEntityManager();
         try {
             CriteriaQuery query = entityManager.getCriteriaBuilder().createQuery();
-            query.select(query.from(User.class));
+            query.select(query.from(Vartotojas.class));
             Query q = entityManager.createQuery(query);
 
             return q.getResultList();
