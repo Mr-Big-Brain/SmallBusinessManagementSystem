@@ -13,11 +13,11 @@ public class VartotojasPersistenceController {
     private EntityManagerFactory entityManagerFactory;
     public VartotojasPersistenceController() //removed void
     {
-        entityManagerFactory = Persistence.createEntityManagerFactory("kontrolinis");
+        entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
     }
     private EntityManager getEntityManager()
     {
-        entityManagerFactory = Persistence.createEntityManagerFactory("kontrolinis");
+        entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
         return entityManagerFactory.createEntityManager();
     }
     public void create(Vartotojas vartotojas)
