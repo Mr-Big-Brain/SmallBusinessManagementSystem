@@ -1,6 +1,5 @@
 package com.example.smallbusinessmanagementsystem.controller;
 
-import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import javafx.event.ActionEvent;
@@ -46,7 +45,7 @@ public class LoginController {
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("/com/example/smallbusinessmanagementsystem/hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("/com/example/smallbusinessmanagementsystem/main-view.fxml"));
         root = (Parent)fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

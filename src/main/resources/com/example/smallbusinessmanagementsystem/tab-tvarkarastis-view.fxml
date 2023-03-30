@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.smallbusinessmanagementsystem.controller.TvarkarastisTabController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TabPane prefHeight="738.0" prefWidth="1320.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Mano tvarkaraštis">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                    <columns>
+                                        <TableColumn fx:id="columnTvarkarastisManoDataNuo" prefWidth="75.0" text="Data nuo" />
+                                        <TableColumn fx:id="columnTvarkarastisManoDataIki" prefWidth="75.0" text="Data iki" />
+                                        <TableColumn fx:id="columnTvarkarastisManoPavadinimas" prefWidth="88.0" text="Pavadinimas" />
+                                        <TableColumn fx:id="columnTvarkarastisManoAprasymas" prefWidth="75.0" text="Aprašymas" />
+                                    </columns>
+                                </TableView>
+                                <DatePicker layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                <DatePicker layoutX="249.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                <Label layoutX="211.0" layoutY="18.0" text="Iki" />
+                                <Button layoutX="16.0" layoutY="312.0" mnemonicParsing="false" text="Sukurti renginį" />
+                                <Button layoutX="132.0" layoutY="312.0" mnemonicParsing="false" text="Ištrinti renginį" />
+                                <Button layoutX="253.0" layoutY="312.0" mnemonicParsing="false" text="Atnaujinti renginį" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="columnTvarkarastisSukurtiDataNuo" text="Sukurti tvarkaraščiai">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="Data nuo" />
+                                        <TableColumn fx:id="columnTvarkarastisSukurtiDataIki" prefWidth="75.0" text="Data iki" />
+                                        <TableColumn fx:id="columnTvarkarastisSukurtiPavadinimas" prefWidth="87.0" text="Pavadinimas" />
+                                        <TableColumn fx:id="columnTvarkarastisSukurtiAprasymas" prefWidth="77.0" text="Aprašymas" />
+                                    </columns>
+                                </TableView>
+                                <DatePicker layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                <DatePicker layoutX="249.0" layoutY="14.0" prefHeight="25.0" prefWidth="115.0" />
+                                <Label layoutX="211.0" layoutY="18.0" text="Iki" />
+                                <Button layoutX="16.0" layoutY="312.0" mnemonicParsing="false" text="Sukurti renginį" />
+                                <Button layoutX="132.0" layoutY="312.0" mnemonicParsing="false" text="Ištrinti renginį" />
+                                <Button layoutX="253.0" layoutY="312.0" mnemonicParsing="false" text="Atnaujinti renginį" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
