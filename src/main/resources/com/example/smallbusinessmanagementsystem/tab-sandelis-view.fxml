@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.SandelisTabController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.SandelisTabController">
     <children>
-        <Button layoutX="631.0" layoutY="14.0" mnemonicParsing="false" text="Pridėti prekę" />
-        <Button layoutX="631.0" layoutY="55.0" mnemonicParsing="false" text="Ištrinti prekę" />
-        <Button layoutX="631.0" layoutY="99.0" mnemonicParsing="false" text="Redaguoti prekę" />
-        <Button layoutX="631.0" layoutY="144.0" mnemonicParsing="false" text="Rasti prekę" />
-        <TableView layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+        <Button fx:id="buttonPridetiProdukta" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti produktą" />
+        <Button fx:id="buttonIstrintiProdukta" layoutX="631.0" layoutY="55.0" mnemonicParsing="false" onAction="#istrintiProdukta" text="Ištrinti produktą" />
+        <Button fx:id="buttonRedaguotiProdukta" layoutX="614.0" layoutY="99.0" mnemonicParsing="false" onAction="#redaguotiProdukta" text="Redaguoti produktą" />
+        <Button fx:id="buttonRastiProdukta" layoutX="631.0" layoutY="144.0" mnemonicParsing="false" onAction="#rastiProdukta" text="Rasti produktą" />
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="columnSandelisProduktas" prefWidth="75.0" text="Produktas" />
                 <TableColumn fx:id="columnSandelisKiekis" prefWidth="75.0" text="Kiekis" />

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.StatistikaFinansaiTabController">
+    <children>
+        <BarChart fx:id="barChart" layoutX="24.0" layoutY="75.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <TableView fx:id="tableVIewZymes" layoutX="657.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="columnZyme" prefWidth="75.0" text="Žymė" />
+            </columns>
+        </TableView>
+        <Button fx:id="buttonTop" layoutX="657.0" layoutY="250.0" mnemonicParsing="false" onAction="#top" text="Top 10" />
+        <Button fx:id="buttonPridėti" layoutX="731.0" layoutY="250.0" mnemonicParsing="false" onAction="#prideti" text="Pridėti" />
+        <Button fx:id="buttonPašalinti" layoutX="798.0" layoutY="250.0" mnemonicParsing="false" onAction="#pasalinti" text="Pašalinti" />
+        <DatePicker fx:id="datePickerNuo" layoutX="30.0" layoutY="19.0" />
+        <DatePicker fx:id="datePickerIki" layoutX="226.0" layoutY="19.0" />
+        <ChoiceBox fx:id="choiceBoxType" layoutX="425.0" layoutY="19.0" prefWidth="150.0" />
+        <Label layoutX="447.0" layoutY="52.0" text="Income/expence" />
+        <Button fx:id="buttonRodyti" layoutX="248.0" layoutY="475.0" mnemonicParsing="false" onAction="#rodyti" text="Rodyti" />
+        <Label layoutX="889.0" layoutY="123.0" text="Jei be tagu ima bendrai" />
+        <Label layoutX="348.0" layoutY="479.0" text="Bar chart" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.smallbusinessmanagementsystem.controller.StatistikaZymesTabController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <LineChart fx:id="lineChart" layoutX="28.0" layoutY="55.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <TableView fx:id="tableViewZymes" layoutX="638.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="columnZyme" prefWidth="75.0" text="Žymė" />
+            </columns>
+        </TableView>
+        <Label layoutX="253.0" layoutY="455.0" text="LineChar jeigu produkto barchart jeigu finansut" />
+        <Button fx:id="buttonTop" layoutX="638.0" layoutY="255.0" mnemonicParsing="false" onAction="#top" text="Top 10" />
+        <Button fx:id="buttonPrideti" layoutX="718.0" layoutY="255.0" mnemonicParsing="false" onAction="#prideti" text="Pridėti" />
+        <DatePicker fx:id="datePickerNuo" layoutX="32.0" layoutY="20.0" />
+        <DatePicker fx:id="datePickerIki" layoutX="234.0" layoutY="20.0" />
+        <Button fx:id="buttonIstrinti" layoutX="779.0" layoutY="255.0" mnemonicParsing="false" onAction="#istrinti" text="Ištrinti" />
+    </children>
+</AnchorPane>
