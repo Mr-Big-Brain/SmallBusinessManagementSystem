@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.smallbusinessmanagementsystem.controller.Statistika.StatistikaKlientaiTabController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <BarChart fx:id="barChart" layoutX="14.0" layoutY="58.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <TableView fx:id="tableViewKlientai" layoutX="705.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="columnKlientas" prefWidth="75.0" text="Klientas" />
+            </columns>
+        </TableView>
+        <TableView fx:id="tableViewZymes" layoutX="705.0" layoutY="310.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="columnZyme" prefWidth="75.0" text="Žymė" />
+            </columns>
+        </TableView>
+        <Button fx:id="buttonTop" layoutX="705.0" layoutY="529.0" mnemonicParsing="false" onAction="#top" text="Top 10" />
+        <Button fx:id="buttonPrideti" layoutX="805.0" layoutY="529.0" mnemonicParsing="false" onAction="#prideti" text="Pridėti" />
+        <Button fx:id="buttonIstrinti" layoutX="867.0" layoutY="529.0" mnemonicParsing="false" onAction="#Istrinti" text="Ištrinti" />
+        <Button fx:id="buttonRodyti" layoutX="219.0" layoutY="458.0" mnemonicParsing="false" onAction="#rodyti" text="Rodyti" />
+        <DatePicker fx:id="datePickerNuo" layoutX="57.0" layoutY="24.0" />
+        <DatePicker fx:id="datePickerIki" layoutX="272.0" layoutY="24.0" />
+        <Label layoutX="345.0" layoutY="450.0" text="BarChart" />
+        <Label layoutX="936.0" layoutY="137.0" text="Ne listas o viemas klientas" />
+    </children>
+</AnchorPane>

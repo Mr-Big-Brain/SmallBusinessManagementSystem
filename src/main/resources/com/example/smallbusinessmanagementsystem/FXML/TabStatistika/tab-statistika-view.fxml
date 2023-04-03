@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Statistika.StatistikaTabController">
+    <children>
+        <TabPane layoutX="7.0" prefHeight="738.0" prefWidth="1313.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabProduktai" text="Produktai">
+                    <content>
+                        <fx:include source="tab-statistika-produktai-view.fxml"/>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabKlientai" text="Klientai">
+                    <content>
+                        <fx:include source="tab-statistika-klientai-view.fxml"/>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabFinansai" text="Finansai">
+                    <content>
+                        <fx:include source="tab-statistika-finansai-view.fxml"/>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabZymes" text="Žymės">
+                    <content>
+                        <fx:include source="tab-statistika-zymes-view.fxml"/>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
