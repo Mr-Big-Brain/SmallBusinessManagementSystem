@@ -149,8 +149,15 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     }
 
     @FXML
-    void rolesRedaguoti(ActionEvent event) {
-
+    void rolesRedaguoti(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(KonfiguracijaDarbuotojaiTabController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/TabDarbuotojai/update-vartotojo-role-view.fxml"));
+        root = (Parent)fxmlLoader.load();
+        UpdateVartotojoRoleController updateVartotojoRoleController = fxmlLoader.getController();
+        updateVartotojoRoleController.setData(tableViewRoles.getSelectionModel().getSelectedItem());
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void fillRolesTable()

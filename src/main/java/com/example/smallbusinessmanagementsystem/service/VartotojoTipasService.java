@@ -32,4 +32,8 @@ public class VartotojoTipasService {
     {
         vartotojoTipasPersistenceController.delete(id);
     }
+    public void atnaujintiVartotojoTipa(VartotojoTipas vartotojoTipas)
+    {
+        vartotojoTipasPersistenceController.update(vartotojoTipas);
+    }
 }
