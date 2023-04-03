@@ -1,7 +1,10 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai;
 
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
+import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,38 +32,44 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     private Scene scene;
 
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
+    VartotojasPersistenceController vartotojasPersistenceController;
 
     public KonfiguracijaDarbuotojaiTabController()
     {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+        vartotojasPersistenceController = new VartotojasPersistenceController();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillRolesTable();
+        fillDarbuotojaiTable();
     }
     @FXML
-    private TableView<?> tableViewDarbuotojai;
+    private TableView<Vartotojas> tableViewDarbuotojai;
 
     @FXML
     private TableView<VartotojoTipas> tableViewRoles;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiID;
+    private TableColumn<Vartotojas, Integer> columnDarbuotojaiID;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiVardas;
+    private TableColumn<Vartotojas, String> columnDarbuotojaiVardas;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiPavarde;
+    private TableColumn<Vartotojas, String> columnDarbuotojaiPavarde;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiTelefonas;
+    private TableColumn<Vartotojas, String> columnDarbuotojaiTelefonas;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiRole;
+    private TableColumn<Vartotojas, String> columnDarbuotojaiRole;
 
     @FXML
-    private TableColumn<?, ?> columnDarbuotojaiApibrezimas;
+    private TableColumn<Vartotojas, String> columnDarbuotojaiApibrezimas;
+
+    @FXML
+    private TableColumn<Vartotojas, String> columnDarbuotojaiPrisijungimas;
 
     @FXML
     private Button buttonDarbuotojaiPrideti;
@@ -151,5 +160,24 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
         columnRolesSandelis.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,Boolean>("sandelis"));
         columnRolesPardavimai.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,Boolean>("pardavimai"));
         tableViewRoles.setItems(vartotojoTipai);
+    }
+
+    public void fillDarbuotojaiTable()
+    {
+        ObservableList<Vartotojas> vartotojai = FXCollections.observableList(vartotojasPersistenceController.getVartotojasListFromDatabase());
+        columnDarbuotojaiID.setCellValueFactory(new PropertyValueFactory<Vartotojas,Integer>("id"));
+        columnDarbuotojaiApibrezimas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("apibrezimas"));
+        columnDarbuotojaiPavarde.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("pavarde"));
+        columnDarbuotojaiTelefonas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("telefonas"));
+        columnDarbuotojaiVardas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vardas"));
+        columnDarbuotojaiPrisijungimas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("prisijungimoVardas"));
+        columnDarbuotojaiRole.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vartotojoTipas"));
+        columnDarbuotojaiRole.setCellValueFactory(cellData -> {
+            int rolesId = cellData.getValue().getVartotojoTipas().getId();
+            VartotojoTipas vartotojoTipas = vartotojoTipasPersistenceController.getVartotojoTipasById(rolesId);
+            String vartotojoTipoPavadinimas = (vartotojoTipas != null) ? vartotojoTipas.getPavadinimas() : "";
+            return new SimpleStringProperty(vartotojoTipoPavadinimas);
+        });
+        tableViewDarbuotojai.setItems(vartotojai);
     }
 }

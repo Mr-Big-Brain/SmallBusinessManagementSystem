@@ -78,4 +78,19 @@ public class VartotojoTipasPersistenceController {
         }
         return null;
     }
+    public VartotojoTipas getVartotojoTipasById(int id) {
+        EntityManager entityManager = null;
+        VartotojoTipas vartotojoTipas = null;
+
+        try {
+            entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
+            vartotojoTipas = entityManager.getReference(VartotojoTipas.class, id);
+            vartotojoTipas.getId();
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println("Vartotojas su tokiu ID neegzistuoja");
+        }
+        return vartotojoTipas;
+    }
 }

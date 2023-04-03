@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="642.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.CreateVartotojaController">
    <children>
       <Label layoutX="36.0" layoutY="42.0" text="Vardas" />
@@ -20,7 +19,7 @@
       <TextField fx:id="textFieldApibrezimas" layoutX="36.0" layoutY="239.0" prefHeight="139.0" prefWidth="149.0" />
       <TableView fx:id="tableViewRoles" layoutX="301.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="199.0" text="Rolė" />
+          <TableColumn fx:id="columnRole" prefWidth="199.0" text="Rolė" />
         </columns>
       </TableView>
       <Button fx:id="buttonSukurti" layoutX="401.0" layoutY="412.0" mnemonicParsing="false" onAction="#sukurti" text="Sukurti" />

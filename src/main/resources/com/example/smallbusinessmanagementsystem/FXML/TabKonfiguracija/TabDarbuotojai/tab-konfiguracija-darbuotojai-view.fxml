@@ -16,6 +16,7 @@
                 <TableColumn fx:id="columnDarbuotojaiTelefonas" prefWidth="75.0" text="Telefonas" />
                 <TableColumn fx:id="columnDarbuotojaiRole" prefWidth="75.0" text="Rolė" />
                 <TableColumn fx:id="columnDarbuotojaiApibrezimas" prefWidth="75.0" text="Apibrėžimas" />
+            <TableColumn fx:id="columnDarbuotojaiPrisijungimas" prefWidth="139.0" text="Prisijungimo vardas" />
             </columns>
         </TableView>
         <Button fx:id="buttonDarbuotojaiPrideti" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" onAction="#darbuotojaiPrideti" text="Pridėti" />
