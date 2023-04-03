@@ -4,6 +4,7 @@ import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
+import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,11 +34,13 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
     VartotojasPersistenceController vartotojasPersistenceController;
+    VartotojoTipasService vartotojoTipasService;
 
     public KonfiguracijaDarbuotojaiTabController()
     {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
         vartotojasPersistenceController = new VartotojasPersistenceController();
+        vartotojoTipasService = new VartotojoTipasService();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -130,7 +133,9 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void rolesIstrinti(ActionEvent event) {
-
+        int id = tableViewRoles.getSelectionModel().getSelectedItem().getId();
+        vartotojoTipasService.istrintiVartotojoTipa(id);
+        fillRolesTable();
     }
 
     @FXML

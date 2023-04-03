@@ -93,4 +93,26 @@ public class VartotojoTipasPersistenceController {
         }
         return vartotojoTipas;
     }
+    public void delete(int id) {
+        EntityManager entityManager = null;
+        try {
+            entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
+            VartotojoTipas vartotojoTipas = null;
+            try {
+                vartotojoTipas = entityManager.getReference(VartotojoTipas.class, id);
+                vartotojoTipas.getId();
+            } catch (Exception e) {
+                System.out.println("UserType with given id doesn't exist");
+            }
+            entityManager.remove(vartotojoTipas);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+        }
+    }
 }

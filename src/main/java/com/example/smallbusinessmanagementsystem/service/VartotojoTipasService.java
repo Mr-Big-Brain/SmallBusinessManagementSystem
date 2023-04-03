@@ -28,4 +28,8 @@ public class VartotojoTipasService {
         }
 
     }
+    public void istrintiVartotojoTipa(int id)
+    {
+        vartotojoTipasPersistenceController.delete(id);
+    }
 }
