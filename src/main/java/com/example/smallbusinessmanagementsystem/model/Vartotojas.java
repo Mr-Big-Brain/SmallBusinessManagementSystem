@@ -25,7 +25,6 @@ public class Vartotojas {
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
     private VartotojoTipas vartotojoTipas;
-
     public Vartotojas() {
     }
 
