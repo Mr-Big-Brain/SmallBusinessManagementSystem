@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.KonfiguracijaDarbuotojaiTabController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.KonfiguracijaDarbuotojaiTabController">
     <children>
-        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
+        <TableView fx:id="tableViewDarbuotojai" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="columnDarbuotojaiID" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="columnDarbuotojaiVardas" prefWidth="75.0" text="Vardas" />
@@ -24,7 +21,7 @@
         <Button fx:id="buttonDarbuotojaiPrideti" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" onAction="#darbuotojaiPrideti" text="Pridėti" />
         <Button fx:id="buttonDarbuotojaiRedaguoti" layoutX="631.0" layoutY="50.0" mnemonicParsing="false" onAction="#darbuotojaiRedaguoti" text="Redaguoti" />
         <Button fx:id="buttonDarbuotojaiIstrinti" layoutX="632.0" layoutY="89.0" mnemonicParsing="false" onAction="#darbuotojaiIstrinti" text="Ištrinti" />
-        <TableView layoutX="14.0" layoutY="289.0" prefHeight="200.0" prefWidth="600.0">
+        <TableView fx:id="tableViewRoles" layoutX="14.0" layoutY="289.0" prefHeight="200.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="columnRolesID" prefWidth="43.0" text="ID" />
                 <TableColumn fx:id="columnRolesPavadinimas" prefWidth="87.0" text="Pavadinimas" />
