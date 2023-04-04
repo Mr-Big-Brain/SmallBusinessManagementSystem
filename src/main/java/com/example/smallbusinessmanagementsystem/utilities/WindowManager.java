@@ -1,8 +1,10 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
+import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.UpdateVartotojoRoleController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.KonfiguracijaTabController;
 import com.example.smallbusinessmanagementsystem.controller.Login.LoginController;
 import com.example.smallbusinessmanagementsystem.controller.MainController;
+import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -254,6 +256,22 @@ public void showLogin(ActionEvent event) {
 
 
             nestedTabStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showRedaguotiRoles(ActionEvent event, VartotojoTipas vartotojoTipas) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/TabDarbuotojai/update-vartotojo-role-view.fxml"));
+            Parent root = loader.load();
+            UpdateVartotojoRoleController updateVartotojoRoleController = loader.getController();
+            updateVartotojoRoleController.setData(vartotojoTipas);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

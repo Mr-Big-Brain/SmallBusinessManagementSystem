@@ -5,6 +5,7 @@ import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,12 +36,14 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
     VartotojasPersistenceController vartotojasPersistenceController;
     VartotojoTipasService vartotojoTipasService;
+    WindowManager windowManager;
 
     public KonfiguracijaDarbuotojaiTabController()
     {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojoTipasService = new VartotojoTipasService();
+        windowManager = new WindowManager();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -150,14 +153,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void rolesRedaguoti(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(KonfiguracijaDarbuotojaiTabController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/TabDarbuotojai/update-vartotojo-role-view.fxml"));
-        root = (Parent)fxmlLoader.load();
-        UpdateVartotojoRoleController updateVartotojoRoleController = fxmlLoader.getController();
-        updateVartotojoRoleController.setData(tableViewRoles.getSelectionModel().getSelectedItem());
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        windowManager.showRedaguotiRoles(event, tableViewRoles.getSelectionModel().getSelectedItem());
     }
 
     public void fillRolesTable()
