@@ -1,7 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller.Login;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -14,6 +16,7 @@ public class LoginEditController {
 
     public VartotojasPersistenceController vartotojasPersistenceController;
     public VartotojasService vartotojasService;
+    WindowManager windowManager;
 
     //FXML
     private Stage stage;
@@ -23,6 +26,7 @@ public class LoginEditController {
     public LoginEditController() {
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojasService = new VartotojasService();
+        windowManager = new WindowManager();
     }
 
     @FXML
@@ -45,7 +49,7 @@ public class LoginEditController {
 
     @FXML
     void griztiAtgal(ActionEvent event) {
-
+        windowManager.showLogin(event);
     }
 
     @FXML
@@ -53,6 +57,12 @@ public class LoginEditController {
         if(vartotojasService.vartotojasEgzistuoja(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText()))
         {
             vartotojasService.keistiVartotojoPrisijungima(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText(), TextFieldVardasNaujas.getText(), TextFieldSlaptazodisNaujas.getText());
+            windowManager.showLogin(event);
+        }
+        else
+        {
+            AllertBox.display("Klaida", "Toks vartotojas nerastas");
+            windowManager.showLogin(event);
         }
     }
 }

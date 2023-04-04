@@ -2,6 +2,7 @@ package com.example.smallbusinessmanagementsystem.controller.Login;
 
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ public class LoginController {
 
     public VartotojasPersistenceController vartotojasPersistenceController;
     public VartotojasService vartotojasService;
+    public WindowManager windowManager;
 
     //FXML
     private Stage stage;
@@ -27,6 +29,7 @@ public class LoginController {
     public LoginController() {
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojasService = new VartotojasService();
+        windowManager = new WindowManager();
     }
 
     @FXML
@@ -44,25 +47,12 @@ public class LoginController {
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
-        root = (Parent)fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setScene(scene);
-        stage.show();
+        windowManager.showTabKonfiguracijaZymes(event);
     }
     @FXML
     void redaguotiPaskyra(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/Login/login-edit-view.fxml"));
-        root = (Parent)fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        windowManager.showLoginEdit(event);
     }
 
 }

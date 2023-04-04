@@ -26,6 +26,8 @@ module com.example.smallbusinessmanagementsystem {
     opens com.example.smallbusinessmanagementsystem.persistenceController to com.example.smallbusinessmanagementsystem.controller, org.hibernate.orm.core;
     exports com.example.smallbusinessmanagementsystem.persistenceController;
 
+    exports com.example.smallbusinessmanagementsystem.utilities;
+
     opens com.example.smallbusinessmanagementsystem.service to com.example.smallbusinessmanagementsystem.controller, org.hibernate.orm.core;
     exports com.example.smallbusinessmanagementsystem.service;
     exports com.example.smallbusinessmanagementsystem.controller.Konfiguracija;
