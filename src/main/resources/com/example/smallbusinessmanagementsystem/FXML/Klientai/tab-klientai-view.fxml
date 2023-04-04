@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.KlientaiTabController">
+<AnchorPane prefHeight="452.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.KlientaiTabController">
     <children>
         <TableView fx:id="tableViewKlientai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
             <columns>
@@ -20,16 +20,17 @@
         <Button fx:id="buttonKlientaiPrideti" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" onAction="#pridetiKlienta" text="Pridėti" />
         <Button fx:id="buttonKlientaiRedaguoti" layoutX="131.0" layoutY="427.0" mnemonicParsing="false" onAction="#redaguotiKlienta" text="Redaguoti" />
         <Button fx:id="buttonKlientaiIstrinti" layoutX="255.0" layoutY="427.0" mnemonicParsing="false" onAction="#istrintiKlienta" text="Ištrinti" />
-        <TableView fx:id="tableViewKomunikacijos" layoutX="496.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+        <TableView fx:id="tableViewKomunikacijos" layoutX="399.0" layoutY="14.0" prefHeight="400.0" prefWidth="352.0">
             <columns>
                 <TableColumn fx:id="columnKomunikacijosID" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="columnKomunikacijosPavadinimas" prefWidth="75.0" text="Pavadinimas" />
                 <TableColumn fx:id="columnKomunikacijosApibrezimas" prefWidth="75.0" text="Apibrėžimas" />
                 <TableColumn fx:id="columnKomunikacijosProduktas" prefWidth="75.0" text="Produktas" />
+            <TableColumn fx:id="columnKomunikacijosData" prefWidth="75.0" text="Data" />
             </columns>
         </TableView>
-        <Button fx:id="buttonKomunikacijosPrideti" layoutX="496.0" layoutY="427.0" mnemonicParsing="false" onAction="#pridetiKomunikacija" text="Pridėti" />
-        <Button fx:id="buttonKomunikacijosRedaguoti" layoutX="613.0" layoutY="427.0" mnemonicParsing="false" onAction="#redaguotiKomunikacija" text="Redaguoti" />
-        <Button fx:id="buttonKomunikacijosIstrinti" layoutX="737.0" layoutY="427.0" mnemonicParsing="false" onAction="#istrintiKomunikacija" text="Ištrinti" />
+        <Button fx:id="buttonKomunikacijosPrideti" layoutX="451.0" layoutY="427.0" mnemonicParsing="false" onAction="#pridetiKomunikacija" text="Pridėti" />
+        <Button fx:id="buttonKomunikacijosRedaguoti" layoutX="568.0" layoutY="427.0" mnemonicParsing="false" onAction="#redaguotiKomunikacija" text="Redaguoti" />
+        <Button fx:id="buttonKomunikacijosIstrinti" layoutX="692.0" layoutY="427.0" mnemonicParsing="false" onAction="#istrintiKomunikacija" text="Ištrinti" />
     </children>
 </AnchorPane>

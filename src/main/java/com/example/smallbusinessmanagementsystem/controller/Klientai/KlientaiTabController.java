@@ -53,6 +53,9 @@ public class KlientaiTabController {
     private TableColumn<?, ?> columnKomunikacijosProduktas;
 
     @FXML
+    private TableColumn<?, ?> columnKomunikacijosData;
+
+    @FXML
     private Button buttonKomunikacijosPrideti;
 
     @FXML

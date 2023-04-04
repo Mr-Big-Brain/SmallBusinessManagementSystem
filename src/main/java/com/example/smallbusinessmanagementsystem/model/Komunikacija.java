@@ -4,6 +4,8 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Komunikacija {
@@ -14,6 +16,8 @@ public class Komunikacija {
     private String pavadinimas;
     @Column
     private String apibrezimas;
+    @Column
+    private LocalDate data;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
     private Produktas produktas;

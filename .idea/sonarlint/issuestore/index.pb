@@ -1,7 +1,5 @@
 
 
-Osrc/main/java/com/example/smallbusinessmanagementsystem/model/Komunikacija.java,e\2\e2d731feeb32c99cff7b95e68aee9d9480656176
-
 Osrc/main/java/com/example/smallbusinessmanagementsystem/model/Tvarkarastis.java,8\c\8c1d49a7e4eb8be64519b70a66184eae06443e93
 |
 Lsrc/main/java/com/example/smallbusinessmanagementsystem/model/Produktas.java,a\f\afa6bae3cbfa88a1d4b983911a0bb2b2e3ddd363
@@ -23,16 +21,12 @@ Ksrc/main/java/com/example/smallbusinessmanagementsystem/model/Finansas.java,0\
 Qsrc/main/java/com/example/smallbusinessmanagementsystem/model/VartotojoTipas.java,8\c\8c298bfd205bb941378a43a119d74e1df0e7b496
 }
 Msrc/main/java/com/example/smallbusinessmanagementsystem/model/Pardavimas.java,4\3\43645ea700b4738a164ff5cf7a1abc2e37b1d11d
-–
-fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Klientai/KlientaiTabController.java,3\0\30067f9adb57e391dcfc7222f1ba1e9856b49930
 š
 jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/StatistikaTabController.java,c\0\c05fe03144519e94d241ec39b9fd6f016e4d641f
 –
 fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Sandelis/SandelisTabController.java,b\0\b01fc5381906d8dc4ac901daf04ed4c381286ff0
 ž
 nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis/TvarkarastisTabController.java,7\4\743e8430cdf87369f0ae5aecbba819ae4ee6d1be
-š
-jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/PardavimaiTabController.java,a\2\a2a2629507e1d4565340ad9fb152a3d4b2ae434a
 ¯
 src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Darbuotojai/CreateVartotojoRoleController.java,2\1\21460a7f3c6441d540d4d537bbdd7f7a41607872
 ¢
