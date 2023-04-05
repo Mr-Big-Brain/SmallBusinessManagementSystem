@@ -10,17 +10,17 @@
             <tabs>
                 <Tab fx:id="tabDarbuotojai" text="Darbuotojai">
                     <content>
-                        <fx:include source="TabDarbuotojai/tab-konfiguracija-darbuotojai-view.fxml" />
+                        <fx:include source="Darbuotojai/tab-konfiguracija-darbuotojai-view.fxml" />
                     </content>
                 </Tab>
                 <Tab fx:id="tabProduktai" text="Produktai">
                     <content>
-                        <fx:include source="TabProduktai/tab-konfiguracija-produktai-view.fxml" />
+                        <fx:include source="Produktai/tab-konfiguracija-produktai-view.fxml" />
                     </content>
                 </Tab>
                 <Tab fx:id="tabZymes" text="Žymės">
                     <content>
-                        <fx:include source="TabZymes/tab-konfiguracija-zymes-view.fxml" />
+                        <fx:include source="Zymes/tab-konfiguracija-zymes-view.fxml" />
                     </content>
                 </Tab>
             </tabs>

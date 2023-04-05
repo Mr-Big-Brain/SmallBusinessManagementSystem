@@ -52,6 +52,14 @@ module com.example.smallbusinessmanagementsystem {
     opens com.example.smallbusinessmanagementsystem.controller.Sandelis to javafx.fxml;
     exports com.example.smallbusinessmanagementsystem.controller.Tvarkarastis;
     opens com.example.smallbusinessmanagementsystem.controller.Tvarkarastis to javafx.fxml;
+    exports com.example.smallbusinessmanagementsystem.controller.Statistika.Finansai;
+    opens com.example.smallbusinessmanagementsystem.controller.Statistika.Finansai to javafx.fxml;
+    exports com.example.smallbusinessmanagementsystem.controller.Statistika.Klientai;
+    opens com.example.smallbusinessmanagementsystem.controller.Statistika.Klientai to javafx.fxml;
+    exports com.example.smallbusinessmanagementsystem.controller.Statistika.Produktai;
+    opens com.example.smallbusinessmanagementsystem.controller.Statistika.Produktai to javafx.fxml;
+    exports com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes;
+    opens com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes to javafx.fxml;
 
 
 }

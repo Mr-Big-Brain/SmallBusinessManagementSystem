@@ -47,7 +47,7 @@ public class LoginController {
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
-        windowManager.showTabKonfiguracijaZymes(event);
+        windowManager.showTabKonfiguracijaDarbuotojai(event);
     }
     @FXML
     void redaguotiPaskyra(ActionEvent event) throws IOException {

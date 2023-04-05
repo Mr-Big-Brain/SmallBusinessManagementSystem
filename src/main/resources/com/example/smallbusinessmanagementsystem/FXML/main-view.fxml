@@ -33,7 +33,7 @@
             </Tab>
             <Tab fx:id="tabKonfiguracija" text="Konfigūracija">
                <content>
-                   <fx:include source="TabKonfiguracija/tab-konfiguracija-view.fxml" />
+                   <fx:include source="Konfiguracija/tab-konfiguracija-view.fxml" />
                </content>
             </Tab>
           <Tab fx:id="tabFinansai" text="Finansai">

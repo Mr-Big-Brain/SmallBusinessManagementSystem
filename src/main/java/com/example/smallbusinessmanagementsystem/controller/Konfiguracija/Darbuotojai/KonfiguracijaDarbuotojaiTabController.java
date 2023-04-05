@@ -143,7 +143,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void rolesPrideti(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(KonfiguracijaDarbuotojaiTabController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/TabDarbuotojai/create-vartotojo-role-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(KonfiguracijaDarbuotojaiTabController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/create-vartotojo-role-view.fxml"));
         root = (Parent)fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

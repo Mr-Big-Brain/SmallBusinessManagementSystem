@@ -1,4 +1,4 @@
-package com.example.smallbusinessmanagementsystem.controller.Statistika;
+package com.example.smallbusinessmanagementsystem.controller.Statistika.Finansai;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

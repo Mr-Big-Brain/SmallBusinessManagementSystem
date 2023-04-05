@@ -2,19 +2,14 @@ package com.example.smallbusinessmanagementsystem.utilities;
 
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.UpdateVartotojoRoleController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.KonfiguracijaTabController;
-import com.example.smallbusinessmanagementsystem.controller.Login.LoginController;
 import com.example.smallbusinessmanagementsystem.controller.MainController;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -185,7 +180,7 @@ public void showLogin(ActionEvent event) {
 
             mainController.showTabKonfiguracija();
 
-            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/tab-konfiguracija-view.fxml"));
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/tab-konfiguracija-view.fxml"));
             Parent tabRoot = tabLoader.load();
             KonfiguracijaTabController tabController = tabLoader.getController();
 
@@ -213,7 +208,7 @@ public void showLogin(ActionEvent event) {
 
             mainController.showTabKonfiguracija();
 
-            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/tab-konfiguracija-view.fxml"));
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/tab-konfiguracija-view.fxml"));
             Parent tabRoot = tabLoader.load();
             KonfiguracijaTabController tabController = tabLoader.getController();
 
@@ -241,7 +236,7 @@ public void showLogin(ActionEvent event) {
 
             mainController.showTabKonfiguracija();
 
-            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/tab-konfiguracija-view.fxml"));
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/tab-konfiguracija-view.fxml"));
             Parent tabRoot = tabLoader.load();
             KonfiguracijaTabController tabController = tabLoader.getController();
 
@@ -262,7 +257,7 @@ public void showLogin(ActionEvent event) {
     }
     public void showRedaguotiRoles(ActionEvent event, VartotojoTipas vartotojoTipas) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabKonfiguracija/TabDarbuotojai/update-vartotojo-role-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/update-vartotojo-role-view.fxml"));
             Parent root = loader.load();
             UpdateVartotojoRoleController updateVartotojoRoleController = loader.getController();
             updateVartotojoRoleController.setData(vartotojoTipas);
