@@ -1,18 +1,4 @@
 
-
-Osrc/main/java/com/example/smallbusinessmanagementsystem/model/Tvarkarastis.java,8\c\8c1d49a7e4eb8be64519b70a66184eae06443e93
-w
-Gsrc/main/java/com/example/smallbusinessmanagementsystem/model/Zyme.java,b\1\b1baa739aa24f0cec14462754bbf67b2aa2fc442
-{
-Ksrc/main/java/com/example/smallbusinessmanagementsystem/model/Klientas.java,8\0\80c397b7c46034fc867828b6c3ecf4cf96b8c408
-É
-Ssrc/main/java/com/example/smallbusinessmanagementsystem/utilities/FinansoTipas.java,6\4\6461a2d9e9f04aba7f84337760eb87f597413afc
-Ä
-Psrc/main/java/com/example/smallbusinessmanagementsystem/model/SandelioPreke.java,1\4\146a11981ed64853f21104a7b5e72523808779ff
-Å
-Qsrc/main/java/com/example/smallbusinessmanagementsystem/model/VartotojoTipas.java,8\c\8c298bfd205bb941378a43a119d74e1df0e7b496
-}
-Msrc/main/java/com/example/smallbusinessmanagementsystem/model/Pardavimas.java,4\3\43645ea700b4738a164ff5cf7a1abc2e37b1d11d
 ö
 jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/StatistikaTabController.java,c\0\c05fe03144519e94d241ec39b9fd6f016e4d641f
 ñ
@@ -25,14 +11,10 @@ nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis
 {src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Zymes/KonfiguracijaZymesTabController.java,e\f\ef12dfe4d997284951b346c4d0402f696f1eef43
 ¥
 Ésrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/KonfiguracijaProduktaiTabController.java,4\3\4332394faaecda007eed5914ffc0b8164f2cab96
-}
-Msrc/main/java/com/example/smallbusinessmanagementsystem/model/Vartotojas.java,d\b\db3c673638a619b95513fd52fa0ac9034fe25f4c
 ¢
 rsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/VartotojasPersistenceController.java,4\8\4817b35ea9400407c247b560ba76ce297b9be1cb
 ´
 {src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Darbuotojai/CreateVartotojaController.java,7\0\7091a229d7534b0e488c5aeaf829f42aa8a227de
-¶
-vsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/VartotojoTipasPersistenceController.java,2\7\27be5eaa400928daced28c7d50e2f710ad96b6bc
 Ü
 Vsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojasService.java,f\8\f81dcc2ed964ffb2a78ce52ca0930627a081bc13
 Ø

@@ -28,4 +28,81 @@ public class Finansas {
     private List<Zyme> zymes;
     @ManyToOne
     private Vartotojas vartotojas;
+
+    public Finansas() {
+    }
+
+    public Finansas(FinansoTipas tipas, double kiekis, String pavadinimas, String apibudinimas, LocalDate data, List<Zyme> zymes, Vartotojas vartotojas) {
+        this.tipas = tipas;
+        this.kiekis = kiekis;
+        this.pavadinimas = pavadinimas;
+        this.apibudinimas = apibudinimas;
+        this.data = data;
+        this.zymes = zymes;
+        this.vartotojas = vartotojas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public FinansoTipas getTipas() {
+        return tipas;
+    }
+
+    public void setTipas(FinansoTipas tipas) {
+        this.tipas = tipas;
+    }
+
+    public double getKiekis() {
+        return kiekis;
+    }
+
+    public void setKiekis(double kiekis) {
+        this.kiekis = kiekis;
+    }
+
+    public String getPavadinimas() {
+        return pavadinimas;
+    }
+
+    public void setPavadinimas(String pavadinimas) {
+        this.pavadinimas = pavadinimas;
+    }
+
+    public String getApibudinimas() {
+        return apibudinimas;
+    }
+
+    public void setApibudinimas(String apibudinimas) {
+        this.apibudinimas = apibudinimas;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public List<Zyme> getZymes() {
+        return zymes;
+    }
+
+    public void setZymes(List<Zyme> zymes) {
+        this.zymes = zymes;
+    }
+
+    public Vartotojas getVartotojas() {
+        return vartotojas;
+    }
+
+    public void setVartotojas(Vartotojas vartotojas) {
+        this.vartotojas = vartotojas;
+    }
 }

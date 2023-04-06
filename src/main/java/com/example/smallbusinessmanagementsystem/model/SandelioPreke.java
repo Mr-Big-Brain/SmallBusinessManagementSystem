@@ -15,4 +15,36 @@ public class SandelioPreke {
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
     private Produktas produktas;
+
+    public SandelioPreke() {
+    }
+
+    public SandelioPreke(int kiekis, Produktas produktas) {
+        this.kiekis = kiekis;
+        this.produktas = produktas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getKiekis() {
+        return kiekis;
+    }
+
+    public void setKiekis(int kiekis) {
+        this.kiekis = kiekis;
+    }
+
+    public Produktas getProduktas() {
+        return produktas;
+    }
+
+    public void setProduktas(Produktas produktas) {
+        this.produktas = produktas;
+    }
 }
