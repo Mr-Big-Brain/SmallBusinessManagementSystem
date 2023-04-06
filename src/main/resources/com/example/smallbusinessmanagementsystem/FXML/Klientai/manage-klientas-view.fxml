@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="411.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController">
+   <children>
+      <Label layoutX="41.0" layoutY="51.0" text="Vardas" />
+      <TextField fx:id="textFieldVardas" layoutX="41.0" layoutY="68.0" />
+      <Label layoutX="41.0" layoutY="105.0" text="Pavardė" />
+      <TextField fx:id="textFieldPavarde" layoutX="41.0" layoutY="122.0" />
+      <Label layoutX="41.0" layoutY="160.0" text="Įmonė" />
+      <TextField fx:id="textFieldImone" layoutX="41.0" layoutY="177.0" />
+      <Label layoutX="41.0" layoutY="221.0" text="Telefono numeris" />
+      <TextField fx:id="textFieldTelefonoNumeris" layoutX="41.0" layoutY="238.0" />
+      <Label layoutX="41.0" layoutY="281.0" text="Elektoroninis paštas" />
+      <TextField fx:id="textFieldElektroninisPastas" layoutX="41.0" layoutY="298.0" />
+      <Button fx:id="buttonAtgal" layoutX="37.0" layoutY="343.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="134.0" layoutY="343.0" mnemonicParsing="false" onAction="#action" text="Action" />
+   </children>
 </AnchorPane>

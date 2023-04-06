@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController">
+   <children>
+      <TextField fx:id="textFieldProduktas" layoutX="62.0" layoutY="67.0" />
+      <Button fx:id="buttonPasirinktiProdukta" layoutX="232.0" layoutY="67.0" mnemonicParsing="false" onAction="#pasirinktiProdukta" prefHeight="25.0" prefWidth="31.0" text="Button" />
+      <Label layoutX="62.0" layoutY="50.0" text="Produktas" />
+      <TextField fx:id="textFieldKiekis" layoutX="62.0" layoutY="134.0" />
+      <Label layoutX="62.0" layoutY="117.0" text="Kiekis" />
+      <Button fx:id="buttonAtgal" layoutX="63.0" layoutY="235.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="226.0" layoutY="235.0" mnemonicParsing="false" onAction="#action" text="Action" />
+   </children>
 </AnchorPane>
