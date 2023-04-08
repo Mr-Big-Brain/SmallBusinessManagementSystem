@@ -78,4 +78,41 @@ public class VartotojasPersistenceController {
         }
         return null;
     }
+    public Vartotojas getVartotojasById(int id) {
+        EntityManager entityManager = null;
+        Vartotojas vartotojas = null;
+
+        try {
+            entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
+            vartotojas = entityManager.getReference(Vartotojas.class, id);
+            vartotojas.getId();
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println("Vartotojas su tokiu ID neegzistuoja");
+        }
+        return vartotojas;
+    }
+    public void delete(int id) {
+        EntityManager entityManager = null;
+        try {
+            entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
+            Vartotojas vartotojas = null;
+            try {
+                vartotojas = entityManager.getReference(Vartotojas.class, id);
+                vartotojas.getId();
+            } catch (Exception e) {
+                System.out.println("Vartotojas su tokiu ID neegzistuoja");
+            }
+            entityManager.remove(vartotojas);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+        }
+    }
 }
