@@ -1,10 +1,17 @@
 package com.example.smallbusinessmanagementsystem.controller.Finansai;
 
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class FinansaiTabController {
+    WindowManager windowManager;
+    FinansaiTabController()
+    {
+        windowManager = new WindowManager();
+    }
+
     @FXML
     private Button buttonNaujasFinansas;
 

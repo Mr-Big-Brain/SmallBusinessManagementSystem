@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +9,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class PardavimaiTabController {
+    WindowManager windowManager;
+    PardavimaiTabController()
+    {
+        windowManager = new WindowManager();
+    }
     @FXML
     private Button buttonNaujasPardavimas;
 
