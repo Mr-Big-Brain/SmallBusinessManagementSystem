@@ -5,6 +5,7 @@ import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -143,17 +144,12 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void rolesPrideti(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(KonfiguracijaDarbuotojaiTabController.class.getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/create-vartotojo-role-view.fxml"));
-        root = (Parent)fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        windowManager.showManageRole(event, ControllerOperation.CREATE,null);
     }
 
     @FXML
     void rolesRedaguoti(ActionEvent event) throws IOException {
-        windowManager.showRedaguotiRoles(event, tableViewRoles.getSelectionModel().getSelectedItem());
+        windowManager.showManageRole(event, ControllerOperation.UPDATE,tableViewRoles.getSelectionModel().getSelectedItem());
     }
 
     public void fillRolesTable()

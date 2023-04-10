@@ -1,6 +1,6 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
-import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.UpdateVartotojoRoleController;
+import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageRoleController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.KonfiguracijaTabController;
 import com.example.smallbusinessmanagementsystem.controller.MainController;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
@@ -255,12 +255,14 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showRedaguotiRoles(ActionEvent event, VartotojoTipas vartotojoTipas) {
+    public void showManageRole(ActionEvent event, ControllerOperation controllerOperation, VartotojoTipas vartotojoTipas) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/update-vartotojo-role-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/manage-role-view.fxml"));
+            ManageRoleController manageRoleController = new ManageRoleController(controllerOperation, vartotojoTipas);
+            loader.setController(manageRoleController); // set the controller instance
+
             Parent root = loader.load();
-            UpdateVartotojoRoleController updateVartotojoRoleController = loader.getController();
-            updateVartotojoRoleController.setData(vartotojoTipas);
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

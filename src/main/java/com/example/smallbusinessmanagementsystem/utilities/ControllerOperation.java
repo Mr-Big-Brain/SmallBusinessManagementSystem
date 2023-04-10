@@ -1,6 +1,6 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
-public enum ControllerOperations {
+public enum ControllerOperation {
     CREATE,
     UPDATE;
 }
