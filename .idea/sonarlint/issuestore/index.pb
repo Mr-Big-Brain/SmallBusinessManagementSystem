@@ -1,14 +1,6 @@
 
 ö
 jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/StatistikaTabController.java,c\0\c05fe03144519e94d241ec39b9fd6f016e4d641f
-ñ
-fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Sandelis/SandelisTabController.java,b\0\b01fc5381906d8dc4ac901daf04ed4c381286ff0
-û
-nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis/TvarkarastisTabController.java,7\4\743e8430cdf87369f0ae5aecbba819ae4ee6d1be
-´
-{src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Zymes/KonfiguracijaZymesTabController.java,e\f\ef12dfe4d997284951b346c4d0402f696f1eef43
-¥
-Ésrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/KonfiguracijaProduktaiTabController.java,4\3\4332394faaecda007eed5914ffc0b8164f2cab96
 Ü
 Vsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojasService.java,f\8\f81dcc2ed964ffb2a78ce52ca0930627a081bc13
 v
@@ -17,14 +9,6 @@ r
 Bsrc/main/java/com/example/smallbusinessmanagementsystem/Start.java,8\8\8852936bb3ff1ce82c1635d4d7b1b6a367fc6a45
 ë
 asrc/main/java/com/example/smallbusinessmanagementsystem/controller/Login/LoginEditController.java,5\4\548ab602cad3a52127192608023577c3cc6660d7
-Ü
-Vsrc/main/java/com/example/smallbusinessmanagementsystem/controller/MainController.java,6\a\6ac01b30ab55a2bab327ea28b1a25ca86607c53b
-†
-psrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/KonfiguracijaTabController.java,9\b\9b93f4aeff9cdf82e60dc7f2778a97becf43ea01
-ö
-jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/PardavimaiTabController.java,a\2\a2a2629507e1d4565340ad9fb152a3d4b2ae434a
-ñ
-fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Klientai/KlientaiTabController.java,3\0\30067f9adb57e391dcfc7222f1ba1e9856b49930
 Å
 Qsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ZymesTipas.java,c\e\ce2fb9d4e6c15d7f9dd66663d0c7e4f6502a0687
 ç

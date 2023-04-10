@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController">
+<AnchorPane prefHeight="400.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldProduktas" layoutX="62.0" layoutY="67.0" />
       <Button fx:id="buttonPasirinktiProdukta" layoutX="232.0" layoutY="67.0" mnemonicParsing="false" onAction="#pasirinktiProdukta" prefHeight="25.0" prefWidth="31.0" text="Button" />

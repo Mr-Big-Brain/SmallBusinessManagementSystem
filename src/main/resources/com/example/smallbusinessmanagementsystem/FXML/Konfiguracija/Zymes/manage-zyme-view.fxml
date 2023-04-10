@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="273.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.ManageZymeController">
+<AnchorPane prefHeight="273.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldPavadinimas" layoutX="50.0" layoutY="81.0" />
       <Label layoutX="50.0" layoutY="64.0" text="Pavadinimas" />

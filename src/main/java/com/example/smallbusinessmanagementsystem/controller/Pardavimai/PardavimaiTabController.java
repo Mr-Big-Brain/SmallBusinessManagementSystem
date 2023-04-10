@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.control.TableView;
 
 public class PardavimaiTabController {
     WindowManager windowManager;
-    PardavimaiTabController()
+    public PardavimaiTabController()
     {
         windowManager = new WindowManager();
     }
@@ -57,7 +58,7 @@ public class PardavimaiTabController {
 
     @FXML
     void naujasPardavimas(ActionEvent event) {
-
+        windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null);
     }
 
     @FXML

@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.TableView;
 
 public class KonfiguracijaProduktaiTabController {
     WindowManager windowManager;
-    KonfiguracijaProduktaiTabController()
+    public KonfiguracijaProduktaiTabController()
     {
         windowManager = new WindowManager();
     }
@@ -61,7 +62,7 @@ public class KonfiguracijaProduktaiTabController {
 
     @FXML
     void pridetiProdukta(ActionEvent event) {
-
+        windowManager.showManageProduktas(event, ControllerOperation.CREATE,null);
     }
 
     @FXML

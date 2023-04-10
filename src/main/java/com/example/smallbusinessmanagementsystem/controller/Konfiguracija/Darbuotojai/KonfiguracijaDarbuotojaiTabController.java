@@ -127,7 +127,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void darbuotojaiPrideti(ActionEvent event) {
-
+        windowManager.showManageVartotojas(event,ControllerOperation.CREATE,null);
     }
 
     @FXML

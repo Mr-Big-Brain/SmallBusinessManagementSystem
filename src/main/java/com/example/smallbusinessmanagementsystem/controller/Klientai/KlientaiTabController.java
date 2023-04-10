@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Klientai;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.TableView;
 
 public class KlientaiTabController {
     WindowManager windowManager;
-    KlientaiTabController()
+    public KlientaiTabController()
     {
         windowManager = new WindowManager();
     }
@@ -82,7 +83,7 @@ public class KlientaiTabController {
 
     @FXML
     void pridetiKlienta(ActionEvent event) {
-
+        windowManager.showManageKlientas(event, ControllerOperation.CREATE,null);
     }
 
     @FXML

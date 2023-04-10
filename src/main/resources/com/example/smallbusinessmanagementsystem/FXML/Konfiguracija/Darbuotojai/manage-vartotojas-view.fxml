@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="642.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageVartotojasController">
+<AnchorPane prefHeight="642.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label layoutX="36.0" layoutY="42.0" text="Vardas" />
         <TextField fx:id="textFieldVardas" layoutX="36.0" layoutY="59.0" />

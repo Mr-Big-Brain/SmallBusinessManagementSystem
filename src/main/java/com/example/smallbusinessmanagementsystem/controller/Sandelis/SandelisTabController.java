@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Sandelis;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.TableView;
 
 public class SandelisTabController {
     WindowManager windowManager;
-    SandelisTabController()
+    public SandelisTabController()
     {
         windowManager = new WindowManager();
     }
@@ -41,7 +42,7 @@ public class SandelisTabController {
 
     @FXML
     void pridetiProdukta(ActionEvent event) {
-
+        windowManager.showManageSandelioPreke(event, ControllerOperation.CREATE,null);
     }
 
     @FXML

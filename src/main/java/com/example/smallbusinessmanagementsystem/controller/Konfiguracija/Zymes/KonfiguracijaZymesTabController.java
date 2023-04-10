@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.control.TableView;
 
 public class KonfiguracijaZymesTabController {
     WindowManager windowManager;
-    KonfiguracijaZymesTabController()
+    public KonfiguracijaZymesTabController()
     {
         windowManager = new WindowManager();
     }
@@ -50,7 +51,7 @@ public class KonfiguracijaZymesTabController {
 
     @FXML
     void pridetiZyme(ActionEvent event) {
-
+        windowManager.showManageZyme(event, ControllerOperation.CREATE,null);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Tvarkarastis;
 
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.control.TableView;
 
 public class TvarkarastisTabController {
     WindowManager windowManager;
-    TvarkarastisTabController()
+    public TvarkarastisTabController()
     {
         windowManager = new WindowManager();
     }
@@ -80,7 +81,7 @@ public class TvarkarastisTabController {
 
     @FXML
     void manoSukurtiRengini(ActionEvent event) {
-
+        windowManager.showManageRenginis(event, ControllerOperation.CREATE,null);
     }
 
     @FXML
