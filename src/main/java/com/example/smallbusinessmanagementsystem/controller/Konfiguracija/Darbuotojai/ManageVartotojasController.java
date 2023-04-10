@@ -1,5 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai;
 
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
+import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +12,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class ManageVartotojasController {
+    VartotojasService vartotojasService;
+    Vartotojas vartotojasModifikacijai;
+    WindowManager windowManager;
+    ControllerOperation controllerOperation;
+    public ManageVartotojasController(ControllerOperation controllerOperationn, Vartotojas vartotojas)
+    {
+        windowManager = new WindowManager();
+        vartotojasService = new VartotojasService();
+        vartotojasModifikacijai = vartotojas;
+        controllerOperation = controllerOperationn;
+    }
 
     @FXML
     private TextField textFieldVardas;

@@ -1,5 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
+import com.example.smallbusinessmanagementsystem.model.Pardavimas;
+import com.example.smallbusinessmanagementsystem.service.PardavimasService;
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +12,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class ManagePardavimasController {
-
+    PardavimasService pardavimasService;
+    Pardavimas pardavimasModifikacijai;
+    WindowManager windowManager;
+    ControllerOperation controllerOperation;
+    public ManagePardavimasController(ControllerOperation controllerOperationn, Pardavimas pardavimas)
+    {
+        windowManager = new WindowManager();
+        pardavimasService = new PardavimasService();
+        pardavimasModifikacijai = pardavimas;
+        controllerOperation = controllerOperationn;
+    }
     @FXML
     private TableView<?> tableViewPardavimoLinijos;
 

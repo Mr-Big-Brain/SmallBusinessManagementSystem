@@ -1,5 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller.Tvarkarastis;
 
+import com.example.smallbusinessmanagementsystem.model.Tvarkarastis;
+import com.example.smallbusinessmanagementsystem.service.TvarkarastisService;
+import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +12,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ManageRenginisController {
-
+    TvarkarastisService tvarkarastisService;
+    Tvarkarastis tvarkarastisModifikacijai;
+    WindowManager windowManager;
+    ControllerOperation controllerOperation;
+    public ManageRenginisController(ControllerOperation controllerOperationn, Tvarkarastis tvarkarastis)
+    {
+        windowManager = new WindowManager();
+        tvarkarastisService = new TvarkarastisService();
+        tvarkarastisModifikacijai = tvarkarastis;
+        controllerOperation = controllerOperationn;
+    }
     @FXML
     private TextField textFieldPavadinimas;
 
