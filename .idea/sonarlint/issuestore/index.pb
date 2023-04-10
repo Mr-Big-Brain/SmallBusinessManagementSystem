@@ -11,8 +11,6 @@ nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis
 ƒsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/KonfiguracijaProduktaiTabController.java,4\3\4332394faaecda007eed5914ffc0b8164f2cab96
 †
 Vsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojasService.java,f\8\f81dcc2ed964ffb2a78ce52ca0930627a081bc13
-Š
-Zsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojoTipasService.java,6\e\6e3bfad137a042926d5c455a0c2976fae315abeb
 v
 Fsrc/main/java/com/example/smallbusinessmanagementsystem/AllertBox.java,3\0\3071851cf3baf3ee156c3b83871cf6eb93a6954b
 r
@@ -35,8 +33,6 @@ Qsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ZymesTipas.ja
 {src/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/Klientai/StatistikaKlientaiTabController.java,0\6\06f39012e265d1b167fbe4f48faab8c2f98bc2ae
 «
 {src/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/Finansai/StatistikaFinansaiTabController.java,8\b\8ba3fc3dba71d578c183b5629b2da6ed1c1223a3
-¬
-|src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Darbuotojai/ManageVartotojasController.java,6\6\665bb8834d177299a62ee5ab97b778d91b8ee7e7
 ¥
 usrc/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/Zymes/StatistikaZymesTabController.java,5\8\58594bc0b9298f62e93e48e6e0dd4942fbf76fec
 ­
