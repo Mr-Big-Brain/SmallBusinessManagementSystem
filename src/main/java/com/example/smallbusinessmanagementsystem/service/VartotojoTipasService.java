@@ -14,7 +14,7 @@ public class VartotojoTipasService {
     {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
     }
-    public void sukurtiNaujaVartotojoTipa(String pavadinimas, boolean finansai, boolean klientai, boolean konfiguracija, boolean pardavimai, boolean sandelis, boolean statistika)
+    public void createVartotojoTipa(String pavadinimas, boolean finansai, boolean klientai, boolean konfiguracija, boolean pardavimai, boolean sandelis, boolean statistika)
     {
         if(Objects.equals(pavadinimas, ""))
         {
@@ -26,14 +26,14 @@ public class VartotojoTipasService {
             vartotojoTipasPersistenceController.create(vartotojoTipas);
             AllertBox.display("Pavyko","Nauja darbuotojo rolė sukurta");
         }
-
     }
-    public void istrintiVartotojoTipa(int id)
-    {
-        vartotojoTipasPersistenceController.delete(id);
-    }
-    public void atnaujintiVartotojoTipa(VartotojoTipas vartotojoTipas)
+    public void updateVartotojoTipa(VartotojoTipas vartotojoTipas)
     {
         vartotojoTipasPersistenceController.update(vartotojoTipas);
     }
+    public void deleteVartotojoTipa(int id)
+    {
+        vartotojoTipasPersistenceController.delete(id);
+    }
+
 }

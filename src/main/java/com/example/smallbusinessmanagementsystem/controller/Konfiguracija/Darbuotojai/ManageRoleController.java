@@ -91,12 +91,12 @@ public class ManageRoleController implements Initializable {
             vartotojoTipasModifikacijai.setSandelis(checkBoxSandelis.isSelected());
             vartotojoTipasModifikacijai.setStatistika(checkBoxStatistika.isSelected());
 
-            vartotojoTipasService.atnaujintiVartotojoTipa(vartotojoTipasModifikacijai);
+            vartotojoTipasService.updateVartotojoTipa(vartotojoTipasModifikacijai);
             windowManager.showTabKonfiguracijaDarbuotojai(event);
         }
         else if(controllerOperation==ControllerOperation.CREATE)
         {
-            vartotojoTipasService.sukurtiNaujaVartotojoTipa(
+            vartotojoTipasService.createVartotojoTipa(
                     textFieldPavadinimas.getText(),checkBoxFinansai.isSelected(),
                     checkBoxKlientai.isSelected(),checkBoxKonfiguracija.isSelected(),
                     checkBoxPardavimai.isSelected(),checkBoxSandelis.isSelected(),checkBoxStatistika.isSelected());

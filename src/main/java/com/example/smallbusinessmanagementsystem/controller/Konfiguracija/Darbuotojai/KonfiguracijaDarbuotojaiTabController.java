@@ -12,9 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -138,7 +136,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     @FXML
     void rolesIstrinti(ActionEvent event) {
         int id = tableViewRoles.getSelectionModel().getSelectedItem().getId();
-        vartotojoTipasService.istrintiVartotojoTipa(id);
+        vartotojoTipasService.deleteVartotojoTipa(id);
         fillRolesTable();
     }
 
