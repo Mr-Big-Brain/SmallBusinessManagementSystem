@@ -1,6 +1,7 @@
 package com.example.smallbusinessmanagementsystem.controller.Login;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
@@ -54,15 +55,21 @@ public class LoginEditController {
 
     @FXML
     void keistiDuomenis(ActionEvent event) {
-        if(vartotojasService.vartotojasEgzistuoja(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText()))
+        if(vartotojasService.prisijungimasEgzistuoja(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText()))
         {
-            vartotojasService.keistiVartotojoPrisijungima(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText(), TextFieldVardasNaujas.getText(), TextFieldSlaptazodisNaujas.getText());
-            windowManager.showLogin(event);
+            Vartotojas senasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
+            Vartotojas naujasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
+            naujasVartotojas.setPrisijungimoVardas(TextFieldVardasNaujas.getText());
+            naujasVartotojas.setSlaptazodis(TextFieldSlaptazodisNaujas.getText());
+            if(vartotojasService.tryUpdateVartotojas(naujasVartotojas, senasVartotojas))
+            {
+                AllertBox.display("Pavyko","Vartotojas atnaujintas");
+                windowManager.showLogin(event);
+            }
         }
         else
         {
             AllertBox.display("Klaida", "Toks vartotojas nerastas");
-            windowManager.showLogin(event);
         }
     }
 }

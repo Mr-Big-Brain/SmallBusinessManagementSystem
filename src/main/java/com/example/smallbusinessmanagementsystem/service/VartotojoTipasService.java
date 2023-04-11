@@ -21,19 +21,25 @@ public class VartotojoTipasService {
     public boolean tryCreateVartotojoTipa(String pavadinimas, boolean finansai, boolean klientai, boolean konfiguracija, boolean pardavimai, boolean sandelis, boolean statistika)
     {
         VartotojoTipas vartotojoTipas = new VartotojoTipas(pavadinimas,pardavimai,sandelis,klientai,konfiguracija,finansai,statistika);
-        if(validateVartotojoTipas(vartotojoTipas))
+        if(validateUniqueRolesPavadinimas(vartotojoTipas) && validateEmptyStrings(vartotojoTipas))
         {
             vartotojoTipasPersistenceController.create(vartotojoTipas);
             return true;
         }
         return false;
     }
-    public boolean tryUpdateVartotojoTipa(VartotojoTipas vartotojoTipas)
+    public boolean tryUpdateVartotojoTipa(VartotojoTipas newVartotojoTipas, VartotojoTipas oldVartotojoTipas)
     {
-        if(validateVartotojoTipas(vartotojoTipas))
+
+
+        if(validateEmptyStrings(newVartotojoTipas))
         {
-            vartotojoTipasPersistenceController.update(vartotojoTipas);;
-            return true;
+            if(Objects.equals(newVartotojoTipas.getPavadinimas(), oldVartotojoTipas.getPavadinimas()) || validateUniqueRolesPavadinimas(newVartotojoTipas))
+            {
+                vartotojoTipasPersistenceController.update(newVartotojoTipas);;
+                return true;
+            }
+            return false;
         }
         return false;
 
@@ -51,16 +57,20 @@ public class VartotojoTipasService {
             return true;
         }
     }
-    public boolean validateVartotojoTipas(VartotojoTipas vartotojoTipas)
+    public boolean validateUniqueRolesPavadinimas(VartotojoTipas vartotojoTipas)
+    {
+        if(vartotojoTipoPavadinimasEgzistuoja(vartotojoTipas.getPavadinimas()))
+        {
+            AllertBox.display("Klaida","Toks rolės pavadinimas jau egzistuoja");
+            return false;
+        }
+        return true;
+    }
+    public boolean validateEmptyStrings(VartotojoTipas vartotojoTipas)
     {
         if(Objects.equals(vartotojoTipas.getPavadinimas(), ""))
         {
             AllertBox.display("Klaida","Jus pamiršote pridėti rolės pavadinimą");
-            return false;
-        }
-        if(vartotojoTipoPavadinimasEgzistuoja(vartotojoTipas.getPavadinimas()))
-        {
-            AllertBox.display("Klaida","Toks rolės pavadinimas jau egzistuoja");
             return false;
         }
         return true;

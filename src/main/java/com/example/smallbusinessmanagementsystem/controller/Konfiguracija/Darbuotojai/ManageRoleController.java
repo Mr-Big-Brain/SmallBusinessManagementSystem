@@ -84,14 +84,14 @@ public class ManageRoleController implements Initializable {
     void action(ActionEvent event) {
         if(controllerOperation==ControllerOperation.UPDATE)
         {
-            vartotojoTipasModifikacijai.setPavadinimas(textFieldPavadinimas.getText());
-            vartotojoTipasModifikacijai.setFinansai(checkBoxFinansai.isSelected());
-            vartotojoTipasModifikacijai.setKlientai(checkBoxKlientai.isSelected());
-            vartotojoTipasModifikacijai.setKonfiguracija(checkBoxKonfiguracija.isSelected());
-            vartotojoTipasModifikacijai.setPardavimai(checkBoxPardavimai.isSelected());
-            vartotojoTipasModifikacijai.setSandelis(checkBoxSandelis.isSelected());
-            vartotojoTipasModifikacijai.setStatistika(checkBoxStatistika.isSelected());
-            if(vartotojoTipasService.tryUpdateVartotojoTipa(vartotojoTipasModifikacijai))
+            VartotojoTipas naujasVartotojoTipas = new VartotojoTipas(
+                    textFieldPavadinimas.getText(),checkBoxPardavimai.isSelected(),
+                    checkBoxSandelis.isSelected(),checkBoxKlientai.isSelected(),
+                    checkBoxKonfiguracija.isSelected(),checkBoxFinansai.isSelected(),
+                    checkBoxStatistika.isSelected());
+
+            naujasVartotojoTipas.setId(vartotojoTipasModifikacijai.getId());
+            if(vartotojoTipasService.tryUpdateVartotojoTipa(naujasVartotojoTipas, vartotojoTipasModifikacijai))
             {
                 AllertBox.display("Pavyko", "Rolė atnaujinta");
                 windowManager.showTabKonfiguracijaDarbuotojai(event);

@@ -48,7 +48,6 @@ public class ManageVartotojasController implements Initializable {
 
             fillRolesTable();
             tableViewRoles.getSelectionModel().select(tableViewRoles.getItems().indexOf(vartotojasModifikacijai.getVartotojoTipas()));
-            //tableViewRoles.getSelectionModel().select(2);
             textFieldApibrezimas.setText(vartotojasModifikacijai.getApibrezimas());
             textFieldPavarde.setText(vartotojasModifikacijai.getPavarde());
             textFieldTelefonas.setText(vartotojasModifikacijai.getTelefonas());
@@ -104,14 +103,14 @@ public class ManageVartotojasController implements Initializable {
         }
         if(controllerOperation == ControllerOperation.UPDATE)
         {
-            vartotojasModifikacijai.setVardas(textFieldVardas.getText());
-            vartotojasModifikacijai.setPavarde(textFieldPavarde.getText());
-            vartotojasModifikacijai.setTelefonas(textFieldTelefonas.getText());
-            vartotojasModifikacijai.setApibrezimas(textFieldApibrezimas.getText());
-            vartotojasModifikacijai.setPrisijungimoVardas(textFieldPrisijungimoVardas.getText());
-            vartotojasModifikacijai.setSlaptazodis(textFieldSlaptazodis.getText());
-            vartotojasModifikacijai.setVartotojoTipas(tableViewRoles.getSelectionModel().getSelectedItem());
-            if(vartotojasService.tryUpdateVartotojas(vartotojasModifikacijai))
+            Vartotojas naujasVartotojas = new Vartotojas(textFieldVardas.getText(),textFieldPavarde.getText(),
+                    textFieldTelefonas.getText(),textFieldApibrezimas.getText(),
+                    textFieldPrisijungimoVardas.getText(),textFieldSlaptazodis.getText(),
+                    tableViewRoles.getSelectionModel().getSelectedItem());
+            naujasVartotojas.setId(vartotojasModifikacijai.getId());
+
+
+            if(vartotojasService.tryUpdateVartotojas(naujasVartotojas, vartotojasModifikacijai))
             {
                 AllertBox.display("Pavyko","Vartotojas atnaujintas");
                 windowManager.showTabKonfiguracijaDarbuotojai(event);

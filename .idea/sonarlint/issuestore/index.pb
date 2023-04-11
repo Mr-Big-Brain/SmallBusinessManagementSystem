@@ -5,8 +5,6 @@ v
 Fsrc/main/java/com/example/smallbusinessmanagementsystem/AllertBox.java,3\0\3071851cf3baf3ee156c3b83871cf6eb93a6954b
 r
 Bsrc/main/java/com/example/smallbusinessmanagementsystem/Start.java,8\8\8852936bb3ff1ce82c1635d4d7b1b6a367fc6a45
-ë
-asrc/main/java/com/example/smallbusinessmanagementsystem/controller/Login/LoginEditController.java,5\4\548ab602cad3a52127192608023577c3cc6660d7
 Å
 Qsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ZymesTipas.java,c\e\ce2fb9d4e6c15d7f9dd66663d0c7e4f6502a0687
 ç
@@ -31,8 +29,6 @@ qsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/P
 usrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/SandelioPrekePersistenceController.java,7\6\7628155bbd0c4cbf0fcd9e20b8f6dcef736724b9
 ß
 wsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/PardavimoLinijaPersistenceController.java,e\1\e19df1f0edcdf72be5dac7f95e789aaa6d9bb2f0
-¢
-rsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/VartotojasPersistenceController.java,4\8\4817b35ea9400407c247b560ba76ce297b9be1cb
 §
 tsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/TvarkarastisPersistenceController.java,9\5\95ed59ff032472e192ea3adf54f8c0a8d6868eba
 ¢

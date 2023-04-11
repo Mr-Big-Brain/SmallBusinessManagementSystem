@@ -17,43 +17,54 @@ public class VartotojasService {
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
     }
-    public boolean validateVartotojas(Vartotojas vartotojas)
+    public boolean validateVartotojoTipas(Vartotojas vartotojas)
+    {
+        if(vartotojas.getVartotojoTipas() == null)
+        {
+            AllertBox.display("Klaida", "Nepasirinktas vartotojo tipas");
+            return false;
+        }
+        return true;
+    }
+    public boolean validateEmptyStrings(Vartotojas vartotojas)
     {
         if(Objects.equals(vartotojas.getVardas(), "") || Objects.equals(vartotojas.getPavarde(), "")|| Objects.equals(vartotojas.getTelefonas(), "") || Objects.equals(vartotojas.getPrisijungimoVardas(), ""))
         {
             AllertBox.display("Klaida", "Vardo, pavardės, prisijungimo vardo, arba telefono laukai neužpildyti");
             return false;
         }
-        else if(vartotojasEgzistuoja(vartotojas.getPrisijungimoVardas()))
+        return true;
+    }
+    public boolean validateUniquePrisijungimoVardas(Vartotojas vartotojas)
+    {
+        if(prisijungimoVardasEgzistuoja(vartotojas.getPrisijungimoVardas()))
         {
             AllertBox.display("Klaida", "Toks vartotojo vardas jau egzistuoja");
             return false;
         }
-        else if(vartotojas.getVartotojoTipas() == null)
-        {
-            AllertBox.display("Klaida", "Nepasirinktas vartotojo tipas");
-            return false;
-        }
-
         return true;
     }
     public boolean tryCreateVartotojas(String vardas, String pavarde, String telefonas, String apibrezimas, String prisijungimoVardas, String slaptazodis, VartotojoTipas vartotojoTipas)
     {
         Vartotojas vartotojas = new Vartotojas(vardas,pavarde,telefonas,apibrezimas,prisijungimoVardas,slaptazodis,vartotojoTipas);
 
-        if(validateVartotojas(vartotojas))
+        if(validateVartotojoTipas(vartotojas) && validateUniquePrisijungimoVardas(vartotojas) && validateEmptyStrings(vartotojas))
         {
             vartotojasPersistenceController.create(vartotojas);
             return true;
         }
         return false;
     }
-    public boolean tryUpdateVartotojas(Vartotojas vartotojas)
+    public boolean tryUpdateVartotojas(Vartotojas newVartotojas, Vartotojas oldVartotojas)
     {
-        if(validateVartotojas(vartotojas))
+        if(validateEmptyStrings(newVartotojas) && validateVartotojoTipas(newVartotojas))
         {
-            vartotojasPersistenceController.update(vartotojas);
-            return true;
+            if(Objects.equals(newVartotojas.getPrisijungimoVardas(), oldVartotojas.getPrisijungimoVardas()) || validateUniquePrisijungimoVardas(newVartotojas))
+            {
+                vartotojasPersistenceController.update(newVartotojas);
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -92,7 +103,7 @@ public class VartotojasService {
         }
     }
 
-    public boolean vartotojasEgzistuoja(String prisijungimoVardas)
+    public boolean prisijungimoVardasEgzistuoja(String prisijungimoVardas)
     {
         List<Vartotojas> visiVartotojai;
         visiVartotojai = vartotojasPersistenceController.getVartotojasListFromDatabase();
@@ -104,7 +115,7 @@ public class VartotojasService {
         return false;
     }
 
-    public boolean vartotojasEgzistuoja(String prisijungimoVardas, String slaptazodis)
+    public boolean prisijungimasEgzistuoja(String prisijungimoVardas, String slaptazodis)
     {
         List<Vartotojas> visiVartotojai;
         visiVartotojai = vartotojasPersistenceController.getVartotojasListFromDatabase();
@@ -149,6 +160,18 @@ public class VartotojasService {
             {
                 return visiVartotojai.get(i);
             }
+        return null;
+    }
+    public Vartotojas getVartotojasByPrisijungimoVardas(String prisijungimoVardas)
+    {
+        List<Vartotojas> vartotojai = vartotojasPersistenceController.getVartotojasListFromDatabase();
+        for(int i=0;i<vartotojai.size();i++)
+        {
+            if(Objects.equals(vartotojai.get(i).getPrisijungimoVardas(), prisijungimoVardas))
+            {
+                return vartotojai.get(i);
+            }
+        }
         return null;
     }
 }
