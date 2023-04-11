@@ -1,39 +1,79 @@
 package com.example.smallbusinessmanagementsystem.service;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 
+import java.util.List;
 import java.util.Objects;
 
 public class VartotojoTipasService {
 
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
+    VartotojasService vartotojasService;
 
     public VartotojoTipasService()
     {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+        vartotojasService = new VartotojasService();
     }
-    public void createVartotojoTipa(String pavadinimas, boolean finansai, boolean klientai, boolean konfiguracija, boolean pardavimai, boolean sandelis, boolean statistika)
+    public boolean tryCreateVartotojoTipa(String pavadinimas, boolean finansai, boolean klientai, boolean konfiguracija, boolean pardavimai, boolean sandelis, boolean statistika)
     {
-        if(Objects.equals(pavadinimas, ""))
+        VartotojoTipas vartotojoTipas = new VartotojoTipas(pavadinimas,pardavimai,sandelis,klientai,konfiguracija,finansai,statistika);
+        if(validateVartotojoTipas(vartotojoTipas))
         {
-            AllertBox.display("Klaida","Jus pamiršote pridėti rolės pavadinimą");
+            vartotojoTipasPersistenceController.create(vartotojoTipas);
+            return true;
+        }
+        return false;
+    }
+    public boolean tryUpdateVartotojoTipa(VartotojoTipas vartotojoTipas)
+    {
+        if(validateVartotojoTipas(vartotojoTipas))
+        {
+            vartotojoTipasPersistenceController.update(vartotojoTipas);;
+            return true;
+        }
+        return false;
+
+    }
+    public boolean tryDeleteVartotojoTipa(int id)
+    {
+        if(vartotojasService.vartotojaiTuriRole(id))
+        {
+            AllertBox.display("Klaida", "Vartotojo rolė priskirta bent vienam vartotojui");
+            return false;
         }
         else
         {
-            VartotojoTipas vartotojoTipas=new VartotojoTipas(pavadinimas,pardavimai,sandelis,klientai,konfiguracija,finansai,statistika);
-            vartotojoTipasPersistenceController.create(vartotojoTipas);
-            AllertBox.display("Pavyko","Nauja darbuotojo rolė sukurta");
+            vartotojoTipasPersistenceController.delete(id);
+            return true;
         }
     }
-    public void updateVartotojoTipa(VartotojoTipas vartotojoTipas)
+    public boolean validateVartotojoTipas(VartotojoTipas vartotojoTipas)
     {
-        vartotojoTipasPersistenceController.update(vartotojoTipas);
+        if(Objects.equals(vartotojoTipas.getPavadinimas(), ""))
+        {
+            AllertBox.display("Klaida","Jus pamiršote pridėti rolės pavadinimą");
+            return false;
+        }
+        if(vartotojoTipoPavadinimasEgzistuoja(vartotojoTipas.getPavadinimas()))
+        {
+            AllertBox.display("Klaida","Toks rolės pavadinimas jau egzistuoja");
+            return false;
+        }
+        return true;
     }
-    public void deleteVartotojoTipa(int id)
+    public boolean vartotojoTipoPavadinimasEgzistuoja(String pavadinimas)
     {
-        vartotojoTipasPersistenceController.delete(id);
+        List<VartotojoTipas> visiVartotojoTipai;
+        visiVartotojoTipai = vartotojoTipasPersistenceController.getVartotojoTipasListFromDatabase();
+        for(int i=0; i<visiVartotojoTipai.size(); i++)
+            if(visiVartotojoTipai.get(i).getPavadinimas().equals(pavadinimas))
+            {
+                return true;
+            }
+        return false;
     }
-
 }

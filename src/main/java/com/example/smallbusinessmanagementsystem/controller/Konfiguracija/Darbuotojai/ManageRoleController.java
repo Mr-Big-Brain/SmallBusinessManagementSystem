@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
@@ -90,17 +91,22 @@ public class ManageRoleController implements Initializable {
             vartotojoTipasModifikacijai.setPardavimai(checkBoxPardavimai.isSelected());
             vartotojoTipasModifikacijai.setSandelis(checkBoxSandelis.isSelected());
             vartotojoTipasModifikacijai.setStatistika(checkBoxStatistika.isSelected());
-
-            vartotojoTipasService.updateVartotojoTipa(vartotojoTipasModifikacijai);
-            windowManager.showTabKonfiguracijaDarbuotojai(event);
+            if(vartotojoTipasService.tryUpdateVartotojoTipa(vartotojoTipasModifikacijai))
+            {
+                AllertBox.display("Pavyko", "Rolė atnaujinta");
+                windowManager.showTabKonfiguracijaDarbuotojai(event);
+            }
         }
         else if(controllerOperation==ControllerOperation.CREATE)
         {
-            vartotojoTipasService.createVartotojoTipa(
+            if(vartotojoTipasService.tryCreateVartotojoTipa(
                     textFieldPavadinimas.getText(),checkBoxFinansai.isSelected(),
                     checkBoxKlientai.isSelected(),checkBoxKonfiguracija.isSelected(),
-                    checkBoxPardavimai.isSelected(),checkBoxSandelis.isSelected(),checkBoxStatistika.isSelected());
-            windowManager.showTabKonfiguracijaDarbuotojai(event);
+                    checkBoxPardavimai.isSelected(),checkBoxSandelis.isSelected(),checkBoxStatistika.isSelected()))
+            {
+                AllertBox.display("Pavyko", "Rolė sukurta");
+                windowManager.showTabKonfiguracijaDarbuotojai(event);
+            }
         }
     }
 

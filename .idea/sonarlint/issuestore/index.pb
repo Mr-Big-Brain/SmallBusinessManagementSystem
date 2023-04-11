@@ -29,8 +29,6 @@ lsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/Z
 qsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/ProduktasPersistenceController.java,1\2\12f36397ae3e938a7356cfdcf979ef48c0119fc3
 ¥
 usrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/SandelioPrekePersistenceController.java,7\6\7628155bbd0c4cbf0fcd9e20b8f6dcef736724b9
-¦
-vsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/VartotojoTipasPersistenceController.java,2\7\27be5eaa400928daced28c7d50e2f710ad96b6bc
 §
 wsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/PardavimoLinijaPersistenceController.java,e\1\e19df1f0edcdf72be5dac7f95e789aaa6d9bb2f0
 ¢

@@ -144,8 +144,11 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     @FXML
     void rolesIstrinti(ActionEvent event) {
         int id = tableViewRoles.getSelectionModel().getSelectedItem().getId();
-        vartotojoTipasService.deleteVartotojoTipa(id);
-        fillRolesTable();
+        if(vartotojoTipasService.tryDeleteVartotojoTipa(id))
+        {
+            AllertBox.display("Pavyko", "Rolė ištrinta");
+            fillRolesTable();
+        }
     }
 
     @FXML

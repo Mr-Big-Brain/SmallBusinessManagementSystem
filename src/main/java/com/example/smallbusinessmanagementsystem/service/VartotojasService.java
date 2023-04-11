@@ -128,6 +128,18 @@ public class VartotojasService {
 
         vartotojasPersistenceController.update(vartotojas);
     }
+    public boolean vartotojaiTuriRole(int rolesId)
+    {
+        List<Vartotojas> vartotojai = vartotojasPersistenceController.getVartotojasListFromDatabase();
+        for(int i=0;i<vartotojai.size();i++)
+        {
+            if(vartotojai.get(i).getVartotojoTipas().getId()==rolesId)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private Vartotojas getVartotojasById(String prisijungimoVardas, String slaptazodis)
     {
         List<Vartotojas> visiVartotojai;
