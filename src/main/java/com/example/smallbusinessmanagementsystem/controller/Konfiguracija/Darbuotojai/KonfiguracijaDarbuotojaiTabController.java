@@ -1,9 +1,11 @@
 package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
+import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
@@ -35,6 +37,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
     VartotojasPersistenceController vartotojasPersistenceController;
     VartotojoTipasService vartotojoTipasService;
+    VartotojasService vartotojasService;
     WindowManager windowManager;
 
     public KonfiguracijaDarbuotojaiTabController()
@@ -42,6 +45,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojoTipasService = new VartotojoTipasService();
+        vartotojasService = new VartotojasService();
         windowManager = new WindowManager();
     }
     @Override
@@ -120,7 +124,11 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void darbuotojaiIstrinti(ActionEvent event) {
-
+        if(vartotojasService.tryDeleteVartotojas(tableViewDarbuotojai.getSelectionModel().getSelectedItem().getId()))
+        {
+            AllertBox.display("Pavyko", "Vartotojas ištrintas");
+            fillDarbuotojaiTable();
+        }
     }
 
     @FXML
@@ -130,7 +138,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     @FXML
     void darbuotojaiRedaguoti(ActionEvent event) {
-
+        windowManager.showManageVartotojas(event,ControllerOperation.UPDATE,tableViewDarbuotojai.getSelectionModel().getSelectedItem());
     }
 
     @FXML

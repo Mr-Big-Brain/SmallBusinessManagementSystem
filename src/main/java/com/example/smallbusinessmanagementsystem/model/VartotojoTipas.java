@@ -6,6 +6,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 @Entity
 public class VartotojoTipas {
     @Id
@@ -25,10 +27,6 @@ public class VartotojoTipas {
     private Boolean finansai;
     @Column
     private Boolean statistika;
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "vartotojoTipas", orphanRemoval = true)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @OrderBy("id ASC")
-    private List<Vartotojas> vartotojai = new ArrayList<>();
     public VartotojoTipas() {
 
     }
@@ -106,4 +104,14 @@ public class VartotojoTipas {
         this.statistika = statistika;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        VartotojoTipas that = (VartotojoTipas) o;
+        return getId() == that.getId() && Objects.equals(getPavadinimas(), that.getPavadinimas()) && Objects.equals(getPardavimai(), that.getPardavimai()) && Objects.equals(getSandelis(), that.getSandelis()) && Objects.equals(getKlientai(), that.getKlientai()) && Objects.equals(getKonfiguracija(), that.getKonfiguracija()) && Objects.equals(getFinansai(), that.getFinansai()) && Objects.equals(getStatistika(), that.getStatistika());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getPavadinimas(), getPardavimai(), getSandelis(), getKlientai(), getKonfiguracija(), getFinansai(), getStatistika());
+    }
 }

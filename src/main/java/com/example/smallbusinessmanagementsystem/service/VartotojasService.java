@@ -7,6 +7,7 @@ import com.example.smallbusinessmanagementsystem.persistenceController.Vartotoja
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 
 import java.util.List;
+import java.util.Objects;
 
 public class VartotojasService {
     VartotojasPersistenceController vartotojasPersistenceController;
@@ -15,6 +16,51 @@ public class VartotojasService {
     {
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+    }
+    public boolean validateVartotojas(Vartotojas vartotojas)
+    {
+        if(Objects.equals(vartotojas.getVardas(), "") || Objects.equals(vartotojas.getPavarde(), "")|| Objects.equals(vartotojas.getTelefonas(), "") || Objects.equals(vartotojas.getPrisijungimoVardas(), ""))
+        {
+            AllertBox.display("Klaida", "Vardo, pavardės, prisijungimo vardo, arba telefono laukai neužpildyti");
+            return false;
+        }
+        else if(vartotojasEgzistuoja(vartotojas.getPrisijungimoVardas()))
+        {
+            AllertBox.display("Klaida", "Toks vartotojo vardas jau egzistuoja");
+            return false;
+        }
+        else if(vartotojas.getVartotojoTipas() == null)
+        {
+            AllertBox.display("Klaida", "Nepasirinktas vartotojo tipas");
+            return false;
+        }
+
+        return true;
+    }
+    public boolean tryCreateVartotojas(String vardas, String pavarde, String telefonas, String apibrezimas, String prisijungimoVardas, String slaptazodis, VartotojoTipas vartotojoTipas)
+    {
+        Vartotojas vartotojas = new Vartotojas(vardas,pavarde,telefonas,apibrezimas,prisijungimoVardas,slaptazodis,vartotojoTipas);
+
+        if(validateVartotojas(vartotojas))
+        {
+            vartotojasPersistenceController.create(vartotojas);
+            return true;
+        }
+        return false;
+    }
+    public boolean tryUpdateVartotojas(Vartotojas vartotojas)
+    {
+        if(validateVartotojas(vartotojas))
+        {
+            vartotojasPersistenceController.update(vartotojas);
+            return true;
+        }
+        return false;
+    }
+    public boolean tryDeleteVartotojas(int id)
+    {
+        vartotojasPersistenceController.delete(id);
+        return true;
     }
     public VartotojoTipas rastiAdministratoriausVartotojoTipa()
     {
