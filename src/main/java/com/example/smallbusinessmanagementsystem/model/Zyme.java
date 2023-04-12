@@ -24,7 +24,10 @@ public class Zyme {
 
     public Zyme() {
     }
-
+    public Zyme(String pavadinimas, ZymesTipas tipas) {
+        this.pavadinimas = pavadinimas;
+        this.tipas = tipas;
+    }
     public Zyme(String pavadinimas, ZymesTipas tipas, List<Finansas> finansai, List<Produktas> produktai) {
         this.pavadinimas = pavadinimas;
         this.tipas = tipas;

@@ -30,8 +30,6 @@ public class VartotojoTipasService {
     }
     public boolean tryUpdateVartotojoTipa(VartotojoTipas newVartotojoTipas, VartotojoTipas oldVartotojoTipas)
     {
-
-
         if(validateEmptyStrings(newVartotojoTipas))
         {
             if(Objects.equals(newVartotojoTipas.getPavadinimas(), oldVartotojoTipas.getPavadinimas()) || validateUniqueRolesPavadinimas(newVartotojoTipas))
