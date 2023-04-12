@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController">
     <children>
         <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
             <columns>
                 <TableColumn fx:id="columnProduktaiID" prefWidth="50.0" text="ID" />
                 <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="64.0" text="Pavadinimas" />
                 <TableColumn fx:id="columnProduktaiPirkimoKaina" prefWidth="65.0" text="Pirkimo kaina" />
-                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="120.0" text="Rekomenduojama kaina" />
+                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="65.0" text="Rekomenduojama kaina" />
+            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="65.0" text="Apibrėžimas" />
             </columns>
         </TableView>
         <TableView fx:id="tableViewZymes" layoutX="555.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">

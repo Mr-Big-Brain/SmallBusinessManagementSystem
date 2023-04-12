@@ -39,10 +39,6 @@ tsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/K
 psrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/KlientasPersistenceController.java,9\c\9c37ceca5028b6ba6596b631d931f6d0a3bc66ac
 ä
 Zsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ControllerOperation.java,7\e\7e78ed7d3193225816d2796dadabe896bf7e0e99
-©
-ysrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/ManageProduktasController.java,5\4\543294bcc477721f70c0bf66d420426270e0b040
-ù
-msrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/ManagePardavimasController.java,3\c\3c6ee343098cf2b2d2efc3ab85350096777064fb
 ô
 isrc/main/java/com/example/smallbusinessmanagementsystem/controller/Klientai/ManageKlientasController.java,6\d\6d5238cc68d5ba1456500d40cec5032d26b356fb
 ¢
@@ -59,8 +55,6 @@ Vsrc/main/java/com/example/smallbusinessmanagementsystem/controller/MainControll
 fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Klientai/KlientaiTabController.java,3\0\30067f9adb57e391dcfc7222f1ba1e9856b49930
 ñ
 fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Finansai/FinansaiTabController.java,5\b\5b8c1e2545e81cb3259a9df5693abe4a231f202b
-¥
-Ésrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/KonfiguracijaProduktaiTabController.java,4\3\4332394faaecda007eed5914ffc0b8164f2cab96
 û
 nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis/TvarkarastisTabController.java,7\4\743e8430cdf87369f0ae5aecbba819ae4ee6d1be
 ö
@@ -71,8 +65,6 @@ fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Sandelis/San
 Ksrc/main/java/com/example/smallbusinessmanagementsystem/model/Klientas.java,8\0\80c397b7c46034fc867828b6c3ecf4cf96b8c408
 
 Osrc/main/java/com/example/smallbusinessmanagementsystem/model/Komunikacija.java,e\2\e2d731feeb32c99cff7b95e68aee9d9480656176
-|
-Lsrc/main/java/com/example/smallbusinessmanagementsystem/model/Produktas.java,a\f\afa6bae3cbfa88a1d4b983911a0bb2b2e3ddd363
 Ä
 Psrc/main/java/com/example/smallbusinessmanagementsystem/model/SandelioPreke.java,1\4\146a11981ed64853f21104a7b5e72523808779ff
 

@@ -30,6 +30,9 @@ public class KonfiguracijaProduktaiTabController {
     private TableColumn<?, ?> columnProduktaiRekomenduojamaKaina;
 
     @FXML
+    private TableColumn<?, ?> columnProduktaiApibrezimas;
+
+    @FXML
     private TableView<?> tableViewZymes;
 
     @FXML
