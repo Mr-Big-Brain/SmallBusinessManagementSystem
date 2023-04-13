@@ -42,7 +42,18 @@ public class ZymeService {
     public boolean tryDeleteZyme(int id)
     {
         zymePersistenceController.delete(id);
-        return true;
+
+        try{
+            if (zymePersistenceController.getZymeById(id).getPavadinimas() != null) {
+                AllertBox.display("Klaida", "Žymė kažkur naudojama");
+                return false;
+            }
+            return false;
+        }
+        catch (Exception ex)
+        {
+            return true;
+        }
     }
     private boolean validateEmptyValues(Zyme zyme)
     {

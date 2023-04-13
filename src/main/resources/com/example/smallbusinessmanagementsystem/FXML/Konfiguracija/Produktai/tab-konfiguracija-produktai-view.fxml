@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController">
     <children>
-        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="400.0" prefWidth="300.0">
             <columns>
                 <TableColumn fx:id="columnProduktaiID" prefWidth="50.0" text="ID" />
                 <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="64.0" text="Pavadinimas" />

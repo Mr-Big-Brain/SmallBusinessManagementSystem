@@ -2,15 +2,19 @@ package com.example.smallbusinessmanagementsystem.service;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
+import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.persistenceController.ProduktasPersistenceController;
+import com.example.smallbusinessmanagementsystem.persistenceController.ZymePersistenceController;
 
 import java.util.Objects;
 
 public class ProduktasService {
     ProduktasPersistenceController produktasPersistenceController;
+    ZymePersistenceController zymePersistenceController;
     public ProduktasService()
     {
         produktasPersistenceController = new ProduktasPersistenceController();
+        zymePersistenceController = new ZymePersistenceController();
     }
     public boolean tryCreateProduktas(String pavadinimas, String apibrezimas, Double pirkimoKaina, Double rekomenduojamaKaina)
     {
@@ -36,7 +40,17 @@ public class ProduktasService {
         produktasPersistenceController.delete(id);
         return true;
     }
-
+    public boolean addZyme(Produktas produktas, int zymeID)
+    {
+        Zyme zyme = zymePersistenceController.getZymeById(zymeID);
+        produktas.addZyme(zyme);
+        return tryUpdateProduktas(produktas, produktas);
+    }
+    public boolean removeZyme(Produktas produktas, int zymeID)
+    {
+        produktas.removeZyme(zymeID);
+        return tryUpdateProduktas(produktas,produktas);
+    }
     private boolean validateEmptyValues(Produktas produktas)
     {
         if(Objects.equals(produktas.getPavadinimas(), ""))
@@ -55,4 +69,5 @@ public class ProduktasService {
         }
         return true;
     }
+
 }

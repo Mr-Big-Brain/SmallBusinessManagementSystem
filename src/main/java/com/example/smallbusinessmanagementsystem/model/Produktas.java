@@ -1,6 +1,10 @@
 package com.example.smallbusinessmanagementsystem.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +21,7 @@ public class Produktas {
     @Column
     private double rekomenduojamaKaina;
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Zyme> zymes;
 
     public Produktas() {
@@ -83,5 +88,24 @@ public class Produktas {
 
     public void setZymes(List<Zyme> zymes) {
         this.zymes = zymes;
+    }
+
+    public void addZyme(Zyme zyme)
+    {
+        if (this.zymes == null) {
+            this.zymes = new ArrayList<>();
+        }
+        this.zymes.add(zyme);
+    }
+    public void removeZyme(int zymesID)
+    {
+        for(int i=0;i<this.zymes.size();i++)
+        {
+            if(this.zymes.get(i).getId()==zymesID)
+            {
+                this.zymes.remove(i);
+                break;
+            }
+        }
     }
 }

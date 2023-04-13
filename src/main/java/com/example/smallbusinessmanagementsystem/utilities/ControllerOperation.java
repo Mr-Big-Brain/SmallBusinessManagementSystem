@@ -2,5 +2,6 @@ package com.example.smallbusinessmanagementsystem.utilities;
 
 public enum ControllerOperation {
     CREATE,
-    UPDATE;
+    UPDATE,
+    FIND_FOR_PRODUKTAS;
 }

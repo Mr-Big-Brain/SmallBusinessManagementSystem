@@ -1,6 +1,7 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
 import com.example.smallbusinessmanagementsystem.controller.Finansai.ManageFinansasController;
+import com.example.smallbusinessmanagementsystem.controller.FindZymeController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageRoleController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageVartotojasController;
@@ -431,6 +432,24 @@ public void showLogin(ActionEvent event) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Tvarkarastis/manage-renginis-view.fxml"));
             ManageRenginisController manageRenginisController = new ManageRenginisController(controllerOperation, tvarkarastis);
             loader.setController(manageRenginisController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, Produktas produktas) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
+            FindZymeController findZymeController = new FindZymeController(controllerOperation, produktas);
+            loader.setController(findZymeController); // set the controller instance
 
             Parent root = loader.load();
 

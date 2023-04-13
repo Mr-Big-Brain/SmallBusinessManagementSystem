@@ -23,8 +23,8 @@ public class Finansas {
     private String apibudinimas;
     @Column
     private LocalDate data;
-    @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Zyme> zymes;
     @ManyToOne
     private Vartotojas vartotojas;

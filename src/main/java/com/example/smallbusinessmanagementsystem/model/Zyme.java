@@ -16,10 +16,11 @@ public class Zyme {
     private String pavadinimas;
     @Column
     private ZymesTipas tipas;
-    @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Finansas> finansai;
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Produktas> produktai;
 
     public Zyme() {
