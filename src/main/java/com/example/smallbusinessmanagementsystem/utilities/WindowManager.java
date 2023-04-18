@@ -1,8 +1,10 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
 import com.example.smallbusinessmanagementsystem.controller.Finansai.ManageFinansasController;
+import com.example.smallbusinessmanagementsystem.controller.FindProduktasController;
 import com.example.smallbusinessmanagementsystem.controller.FindZymeController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController;
+import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKomunikacijaController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageRoleController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageVartotojasController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.KonfiguracijaTabController;
@@ -445,11 +447,47 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void showManageKomunikacija(ActionEvent event, ControllerOperation controllerOperation, Komunikacija komunikacija) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Klientai/manage-komunikacija-view.fxml"));
+            ManageKomunikacijaController manageKomunikacijaController = new ManageKomunikacijaController(controllerOperation, komunikacija);
+            loader.setController(manageKomunikacijaController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, Produktas produktas) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
             FindZymeController findZymeController = new FindZymeController(controllerOperation, produktas);
             loader.setController(findZymeController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindProduktas(ActionEvent event, ControllerOperation controllerOperation, Komunikacija komunikacijaModifikacijai) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-produktas-view.fxml"));
+            FindProduktasController findProduktasController = new FindProduktasController(controllerOperation, komunikacijaModifikacijai);
+            loader.setController(findProduktasController); // set the controller instance
 
             Parent root = loader.load();
 

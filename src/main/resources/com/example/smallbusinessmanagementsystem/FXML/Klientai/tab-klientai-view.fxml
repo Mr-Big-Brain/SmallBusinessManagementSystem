@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="452.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.KlientaiTabController">
     <children>
-        <TableView fx:id="tableViewKlientai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+        <TableView fx:id="tableViewKlientai" onMouseClicked="#openKomunikacijos" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
             <columns>
                 <TableColumn fx:id="columnKlientaiID" prefWidth="27.0" text="ID" />
                 <TableColumn fx:id="columnKlientaiVardas" prefWidth="44.0" text="Vardas" />

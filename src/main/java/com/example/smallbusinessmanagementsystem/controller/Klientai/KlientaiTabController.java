@@ -1,39 +1,70 @@
 package com.example.smallbusinessmanagementsystem.controller.Klientai;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Klientas;
+import com.example.smallbusinessmanagementsystem.model.Komunikacija;
+import com.example.smallbusinessmanagementsystem.model.Produktas;
+import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
+import com.example.smallbusinessmanagementsystem.persistenceController.KlientasPersistenceController;
+import com.example.smallbusinessmanagementsystem.service.KlientasService;
+import com.example.smallbusinessmanagementsystem.service.KomunikacijaService;
+import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
-public class KlientaiTabController {
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+public class KlientaiTabController implements Initializable {
     WindowManager windowManager;
+    KlientasPersistenceController klientasPersistenceController;
+    KlientasService klientasService;
+    ProduktasService produktasService;
+    KomunikacijaService komunikacijaService;
     public KlientaiTabController()
     {
+        klientasPersistenceController = new KlientasPersistenceController();
+        klientasService = new KlientasService();
         windowManager = new WindowManager();
+        produktasService = new ProduktasService();
+        komunikacijaService = new KomunikacijaService();
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        fillKlientaiTable();
     }
     @FXML
-    private TableView<?> tableViewKlientai;
+    private TableView<Klientas> tableViewKlientai;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiID;
+    private TableColumn<Klientas, Integer> columnKlientaiID;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiVardas;
+    private TableColumn<Klientas, String> columnKlientaiVardas;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiPavarde;
+    private TableColumn<Klientas, String> columnKlientaiPavarde;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiImone;
+    private TableColumn<Klientas, String> columnKlientaiImone;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiTelefonas;
+    private TableColumn<Klientas, String> columnKlientaiTelefonas;
 
     @FXML
-    private TableColumn<?, ?> columnKlientaiPastas;
+    private TableColumn<Klientas, String> columnKlientaiPastas;
 
     @FXML
     private Button buttonKlientaiPrideti;
@@ -45,22 +76,22 @@ public class KlientaiTabController {
     private Button buttonKlientaiIstrinti;
 
     @FXML
-    private TableView<?> tableViewKomunikacijos;
+    private TableView<Komunikacija> tableViewKomunikacijos;
 
     @FXML
-    private TableColumn<?, ?> columnKomunikacijosID;
+    private TableColumn<Komunikacija, Integer> columnKomunikacijosID;
 
     @FXML
-    private TableColumn<?, ?> columnKomunikacijosPavadinimas;
+    private TableColumn<Komunikacija, String> columnKomunikacijosPavadinimas;
 
     @FXML
-    private TableColumn<?, ?> columnKomunikacijosApibrezimas;
+    private TableColumn<Komunikacija, String> columnKomunikacijosApibrezimas;
 
     @FXML
-    private TableColumn<?, ?> columnKomunikacijosProduktas;
+    private TableColumn<Komunikacija, String> columnKomunikacijosProduktas;
 
     @FXML
-    private TableColumn<?, ?> columnKomunikacijosData;
+    private TableColumn<Komunikacija, LocalDate> columnKomunikacijosData;
 
     @FXML
     private Button buttonKomunikacijosPrideti;
@@ -73,11 +104,20 @@ public class KlientaiTabController {
 
     @FXML
     void istrintiKlienta(ActionEvent event) {
-
+        if (klientasService.tryDeleteKlientas(tableViewKlientai.getSelectionModel().getSelectedItem().getId()))
+        {
+            AllertBox.display("Pavyko", "Klientas ir jo komunikacijų istorija ištrinti");
+            fillKlientaiTable();
+        }
     }
 
     @FXML
     void istrintiKomunikacija(ActionEvent event) {
+        if(komunikacijaService.tryDeleteKomunikacija(tableViewKomunikacijos.getSelectionModel().getSelectedItem().getId()))
+        {
+            AllertBox.display("Pavyko","Komunikacija ištrinta");
+            fillKomunikacijosTable(tableViewKlientai.getSelectionModel().getSelectedItem());
+        }
 
     }
 
@@ -88,16 +128,53 @@ public class KlientaiTabController {
 
     @FXML
     void pridetiKomunikacija(ActionEvent event) {
-
+        Komunikacija komunikacija = new Komunikacija();
+        komunikacija.setKlientas(tableViewKlientai.getSelectionModel().getSelectedItem());
+        windowManager.showManageKomunikacija(event,ControllerOperation.CREATE,komunikacija);
     }
 
     @FXML
     void redaguotiKlienta(ActionEvent event) {
-
+        windowManager.showManageKlientas(event, ControllerOperation.UPDATE,tableViewKlientai.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void redaguotiKomunikacija(ActionEvent event) {
-
+        windowManager.showManageKomunikacija(event,ControllerOperation.UPDATE,tableViewKomunikacijos.getSelectionModel().getSelectedItem());
+    }
+    @FXML
+    void openKomunikacijos(MouseEvent event) {
+        fillKomunikacijosTable(tableViewKlientai.getSelectionModel().getSelectedItem());
+    }
+    public void fillKlientaiTable()
+    {
+        ObservableList<Klientas> klientai = FXCollections.observableList(klientasPersistenceController.getKlientasListFromDatabase());
+        columnKlientaiID.setCellValueFactory(new PropertyValueFactory<Klientas,Integer>("id"));
+        columnKlientaiImone.setCellValueFactory(new PropertyValueFactory<Klientas,String>("imone"));
+        columnKlientaiPastas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("pastas"));
+        columnKlientaiPavarde.setCellValueFactory(new PropertyValueFactory<Klientas,String>("pavarde"));
+        columnKlientaiVardas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("vardas"));
+        columnKlientaiTelefonas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("telefonas"));
+        tableViewKlientai.setItems(klientai);
+    }
+    public void fillKomunikacijosTable(Klientas klientas)
+    {
+        ObservableList<Komunikacija> komunikacijos = FXCollections.observableList(klientasService.getKomunikacijosByKlientas(klientas));
+        columnKomunikacijosID.setCellValueFactory(new PropertyValueFactory<Komunikacija,Integer>("id"));
+        columnKomunikacijosApibrezimas.setCellValueFactory(new PropertyValueFactory<Komunikacija,String>("apibrezimas"));
+        columnKomunikacijosData.setCellValueFactory(new PropertyValueFactory<Komunikacija,LocalDate>("data"));
+        columnKomunikacijosPavadinimas.setCellValueFactory(new PropertyValueFactory<Komunikacija,String>("pavadinimas"));
+        columnKomunikacijosProduktas.setCellValueFactory(new PropertyValueFactory<Komunikacija,String>("produktas"));
+        columnKomunikacijosProduktas.setCellValueFactory(cellData -> {
+            if(cellData.getValue().getProduktas()!=null)
+            {
+                int produktoId = cellData.getValue().getProduktas().getId();
+                Produktas produktas = produktasService.getProduktasById(produktoId);
+                String produktoPavadinimas = (produktas != null) ? produktas.getId() + ", " + produktas.getPavadinimas() : "";
+                return new SimpleStringProperty(produktoPavadinimas);
+            }
+            else return new SimpleStringProperty("");
+        });
+        tableViewKomunikacijos.setItems(komunikacijos);
     }
 }

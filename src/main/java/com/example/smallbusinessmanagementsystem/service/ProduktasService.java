@@ -6,6 +6,7 @@ import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.persistenceController.ProduktasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.ZymePersistenceController;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ProduktasService {
@@ -69,5 +70,12 @@ public class ProduktasService {
         }
         return true;
     }
-
+    public List<Produktas> getAllProduktai()
+    {
+        return produktasPersistenceController.getProduktasListFromDatabase();
+    }
+    public Produktas getProduktasById(int id)
+    {
+        return produktasPersistenceController.getProduktasById(id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.controller.Klientai;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Finansas;
 import com.example.smallbusinessmanagementsystem.model.Klientas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
@@ -65,11 +66,22 @@ public class ManageKlientasController implements Initializable {
     void action(ActionEvent event) {
         if(controllerOperation==ControllerOperation.UPDATE)
         {
-
+            klientasModifikacijai.setImone(textFieldImone.getText());
+            klientasModifikacijai.setPastas(textFieldElektroninisPastas.getText());
+            klientasModifikacijai.setPavarde(textFieldPavarde.getText());
+            klientasModifikacijai.setTelefonas(textFieldTelefonoNumeris.getText());
+            klientasModifikacijai.setVardas(textFieldVardas.getText());
+            if(klientasService.tryUpdateKlientas(klientasModifikacijai))
+            {
+                AllertBox.display("Pavyko","Kliento informacija atnaujinta");
+                windowManager.showTabKlientai(event);
+            }
         }
         else if(controllerOperation==ControllerOperation.CREATE)
         {
-
+            klientasService.tryCreateKlientas(textFieldVardas.getText(), textFieldPavarde.getText(),textFieldImone.getText(),textFieldTelefonoNumeris.getText(),textFieldElektroninisPastas.getText());
+            AllertBox.display("Pavyko","Klientas sukurtas");
+            windowManager.showTabKlientai(event);
         }
     }
 
@@ -79,6 +91,10 @@ public class ManageKlientasController implements Initializable {
     }
     public void setData(Klientas klientas)
     {
-
+        textFieldImone.setText(klientasModifikacijai.getImone());
+        textFieldPavarde.setText(klientasModifikacijai.getPavarde());
+        textFieldVardas.setText(klientasModifikacijai.getVardas());
+        textFieldElektroninisPastas.setText(klientasModifikacijai.getPastas());
+        textFieldTelefonoNumeris.setText(klientasModifikacijai.getTelefonas());
     }
 }

@@ -18,11 +18,11 @@ public class Komunikacija {
     private String apibrezimas;
     @Column
     private LocalDate data;
-    @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Produktas produktas;
-    @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Klientas klientas;
 
     public Komunikacija() {

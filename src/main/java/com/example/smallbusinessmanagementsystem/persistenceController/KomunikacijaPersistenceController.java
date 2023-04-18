@@ -31,7 +31,7 @@ public class KomunikacijaPersistenceController {
         }
         catch (Exception e)
         {
-            System.out.println("Komunikacija nesukurtas, klaida");
+            System.out.println("Komunikacija nesukurta, klaida");
             e.printStackTrace();
         }
         finally {
