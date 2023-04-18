@@ -1,17 +1,19 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
+import com.example.smallbusinessmanagementsystem.model.Finansas;
 import com.example.smallbusinessmanagementsystem.model.Pardavimas;
 import com.example.smallbusinessmanagementsystem.service.PardavimasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-public class ManagePardavimasController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ManagePardavimasController implements Initializable {
     PardavimasService pardavimasService;
     Pardavimas pardavimasModifikacijai;
     WindowManager windowManager;
@@ -22,6 +24,18 @@ public class ManagePardavimasController {
         pardavimasService = new PardavimasService();
         pardavimasModifikacijai = pardavimas;
         controllerOperation = controllerOperationn;
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(controllerOperation == ControllerOperation.UPDATE)
+        {
+            buttonAction.setText("Atnaujinti");
+            setData(pardavimasModifikacijai);
+        }
+        else if(controllerOperation == ControllerOperation.CREATE)
+        {
+            buttonAction.setText("Sukurti");
+        }
     }
     @FXML
     private TableView<?> tableViewPardavimoLinijos;
@@ -60,8 +74,29 @@ public class ManagePardavimasController {
     private Button buttonAtgal;
 
     @FXML
-    void atgal(ActionEvent event) {
+    private Button buttonAction;
 
+    @FXML
+    private DatePicker datePickerData;
+
+    @FXML
+    private TextField textFieldLaikas;
+
+    @FXML
+    void action(ActionEvent event) {
+        if(controllerOperation==ControllerOperation.UPDATE)
+        {
+
+        }
+        else if(controllerOperation==ControllerOperation.CREATE)
+        {
+
+        }
+    }
+
+    @FXML
+    void atgal(ActionEvent event) {
+        windowManager.showTabPardavimai(event);
     }
 
     @FXML
@@ -88,5 +123,8 @@ public class ManagePardavimasController {
     void pridetiPirkeja(ActionEvent event) {
 
     }
+    public void setData(Pardavimas pardavimas)
+    {
 
+    }
 }
