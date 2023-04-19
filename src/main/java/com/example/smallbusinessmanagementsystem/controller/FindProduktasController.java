@@ -1,10 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller;
 
-import com.example.smallbusinessmanagementsystem.model.Klientas;
-import com.example.smallbusinessmanagementsystem.model.Komunikacija;
-import com.example.smallbusinessmanagementsystem.model.Produktas;
-import com.example.smallbusinessmanagementsystem.model.Zyme;
+import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.*;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
+import com.example.smallbusinessmanagementsystem.service.SandelioPrekeService;
 import com.example.smallbusinessmanagementsystem.service.ZymeService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
@@ -26,21 +25,28 @@ public class FindProduktasController implements Initializable {
     ControllerOperation controllerOperation;
     WindowManager windowManager;
     Komunikacija komunikacijaModifikacijai;
+    SandelioPreke sandelioPrekeModifikacijai;
     ProduktasService produktasService;
+    SandelioPrekeService sandelioPrekeService;
     ZymeService zymeService;
-    public FindProduktasController(ControllerOperation controllerOperationn, Komunikacija newKomunikacija) {
+    public FindProduktasController(ControllerOperation controllerOperationn, Object object) {
         controllerOperation = controllerOperationn;
         windowManager = new WindowManager();
-        komunikacijaModifikacijai = newKomunikacija;
         produktasService = new ProduktasService();
         zymeService = new ZymeService();
+        sandelioPrekeService = new SandelioPrekeService();
+        if(object instanceof Komunikacija)
+        {
+            komunikacijaModifikacijai = (Komunikacija) object;
+        }
+        else if(object instanceof SandelioPreke)
+        {
+            sandelioPrekeModifikacijai = (SandelioPreke) object;
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(controllerOperation == ControllerOperation.FIND_FOR_KOMUNIKACIJA)
-        {
             fillProduktasTable();
-        }
     }
     @FXML
     private TableView<Produktas> tableViewProduktai;
@@ -113,7 +119,29 @@ public class FindProduktasController implements Initializable {
                 komunikacijaModifikacijai.setProduktas(tableViewProduktai.getSelectionModel().getSelectedItem());
                 windowManager.showManageKomunikacija(event,ControllerOperation.CREATE, komunikacijaModifikacijai);
             }
-
+        }
+        else if(controllerOperation == ControllerOperation.INCREASE || controllerOperation == ControllerOperation.DECREASE)
+        {
+            if(sandelioPrekeModifikacijai == null)
+            {
+                sandelioPrekeModifikacijai = new SandelioPreke();
+            }
+            sandelioPrekeModifikacijai.setProduktas(tableViewProduktai.getSelectionModel().getSelectedItem());
+            windowManager.showManageSandelioPreke(event,controllerOperation,sandelioPrekeModifikacijai);
+        }
+        else if(controllerOperation == ControllerOperation.FIND_FOR_SANDELIS)
+        {
+            Produktas produktas = tableViewProduktai.getSelectionModel().getSelectedItem();
+            SandelioPreke sandelioPreke = sandelioPrekeService.getSandelioPrekeByProduktas(produktas.getId());
+            if(sandelioPreke == null || sandelioPreke.getKiekis()==0)
+            {
+                AllertBox.display("Informacija", produktas.getPavadinimas() + " produkto sandėlyje nėra");
+            }
+            else
+            {
+                AllertBox.display("Informacija","Liko " + sandelioPreke.getKiekis() + " " + produktas.getPavadinimas() + " vienetų");
+            }
+            windowManager.showTabSandelis(event);
         }
     }
 

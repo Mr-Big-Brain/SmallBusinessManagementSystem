@@ -483,10 +483,10 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showFindProduktas(ActionEvent event, ControllerOperation controllerOperation, Komunikacija komunikacijaModifikacijai) {
+    public void showFindProduktas(ActionEvent event, ControllerOperation controllerOperation, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-produktas-view.fxml"));
-            FindProduktasController findProduktasController = new FindProduktasController(controllerOperation, komunikacijaModifikacijai);
+            FindProduktasController findProduktasController = new FindProduktasController(controllerOperation, object);
             loader.setController(findProduktasController); // set the controller instance
 
             Parent root = loader.load();

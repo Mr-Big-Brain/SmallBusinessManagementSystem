@@ -7,15 +7,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Sandelis.SandelisTabController">
     <children>
-        <Button fx:id="buttonPridetiProdukta" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti produktą" />
-        <Button fx:id="buttonIstrintiProdukta" layoutX="631.0" layoutY="55.0" mnemonicParsing="false" onAction="#istrintiProdukta" text="Ištrinti produktą" />
-        <Button fx:id="buttonRedaguotiProdukta" layoutX="614.0" layoutY="99.0" mnemonicParsing="false" onAction="#redaguotiProdukta" text="Redaguoti produktą" />
-        <Button fx:id="buttonRastiProdukta" layoutX="631.0" layoutY="144.0" mnemonicParsing="false" onAction="#rastiProdukta" text="Rasti produktą" />
-        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+        <Button fx:id="buttonPridetiProdukta" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti produktą" />
+        <Button fx:id="buttonIstrintiProdukta" layoutX="427.0" layoutY="87.0" mnemonicParsing="false" onAction="#istrintiProdukta" text="Ištrinti produktą" />
+        <Button fx:id="buttonRastiProdukta" layoutX="426.0" layoutY="124.0" mnemonicParsing="false" onAction="#rastiProdukta" text="Rasti produkto kiekį" />
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="403.0">
             <columns>
-                <TableColumn fx:id="columnSandelisProduktas" prefWidth="75.0" text="Produktas" />
-                <TableColumn fx:id="columnSandelisKiekis" prefWidth="75.0" text="Kiekis" />
+                <TableColumn fx:id="columnSandelisProduktas" prefWidth="294.0" text="Produktas" />
+                <TableColumn fx:id="columnSandelisKiekis" prefWidth="108.0" text="Kiekis" />
             </columns>
         </TableView>
+      <Button fx:id="buttonNurasytiProdukta" layoutX="426.0" layoutY="49.0" mnemonicParsing="false" onAction="#nurasytiProdukta" text="Nurašyti produktą" />
     </children>
 </AnchorPane>
