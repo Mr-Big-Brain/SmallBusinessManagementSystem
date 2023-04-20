@@ -2,6 +2,7 @@ package com.example.smallbusinessmanagementsystem.controller.Login;
 
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,11 +21,6 @@ public class LoginController {
     public VartotojasPersistenceController vartotojasPersistenceController;
     public VartotojasService vartotojasService;
     public WindowManager windowManager;
-
-    //FXML
-    private Stage stage;
-    private Parent root;
-    private Scene scene;
 
     public LoginController() {
         vartotojasPersistenceController = new VartotojasPersistenceController();
@@ -47,7 +43,14 @@ public class LoginController {
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
-        windowManager.showTabFinansai(event);
+
+        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(),textFieldSlaptazodis.getText()))
+        {
+            CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
+            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
+            windowManager.showTabFinansai(event);
+        }
+
     }
     @FXML
     void redaguotiPaskyra(ActionEvent event) throws IOException {

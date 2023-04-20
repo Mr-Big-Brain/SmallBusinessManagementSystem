@@ -130,7 +130,7 @@ public class VartotojasService {
 
     public void keistiVartotojoPrisijungima(String senasPrisijungimoVardas, String senasSlaptazodis, String naujasPrisijungimoVardas, String naujasSlaptazodis)
     {
-        Vartotojas vartotojas = getVartotojasById(senasPrisijungimoVardas, senasSlaptazodis);
+        Vartotojas vartotojas = getVartotojasByPrisijungimasSlaptazodis(senasPrisijungimoVardas, senasSlaptazodis);
         if(!naujasPrisijungimoVardas.isEmpty() && !naujasSlaptazodis.isEmpty())
         {
             vartotojas.setPrisijungimoVardas(naujasPrisijungimoVardas);
@@ -151,7 +151,7 @@ public class VartotojasService {
         }
         return false;
     }
-    private Vartotojas getVartotojasById(String prisijungimoVardas, String slaptazodis)
+    public Vartotojas getVartotojasByPrisijungimasSlaptazodis(String prisijungimoVardas, String slaptazodis)
     {
         List<Vartotojas> visiVartotojai;
         visiVartotojai = vartotojasPersistenceController.getVartotojasListFromDatabase();
