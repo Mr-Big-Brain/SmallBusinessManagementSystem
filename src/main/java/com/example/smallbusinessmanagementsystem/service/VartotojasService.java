@@ -174,4 +174,12 @@ public class VartotojasService {
         }
         return null;
     }
+    public List<Vartotojas> getAllVartotojas()
+    {
+        return vartotojasPersistenceController.getVartotojasListFromDatabase();
+    }
+    public Vartotojas getVartotojasById(int id)
+    {
+        return vartotojasPersistenceController.getVartotojasById(id);
+    }
 }

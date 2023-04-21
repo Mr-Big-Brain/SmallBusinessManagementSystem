@@ -84,4 +84,8 @@ public class VartotojoTipasService {
             }
         return false;
     }
+    public VartotojoTipas getVartotojoTipasById(int id)
+    {
+        return vartotojoTipasPersistenceController.getVartotojoTipasById(id);
+    }
 }

@@ -2,6 +2,7 @@ package com.example.smallbusinessmanagementsystem.utilities;
 
 import com.example.smallbusinessmanagementsystem.controller.Finansai.ManageFinansasController;
 import com.example.smallbusinessmanagementsystem.controller.FindProduktasController;
+import com.example.smallbusinessmanagementsystem.controller.FindVartotojasController;
 import com.example.smallbusinessmanagementsystem.controller.FindZymeController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKomunikacijaController;
@@ -488,6 +489,24 @@ public void showLogin(ActionEvent event) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-produktas-view.fxml"));
             FindProduktasController findProduktasController = new FindProduktasController(controllerOperation, object);
             loader.setController(findProduktasController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindVartotojas(ActionEvent event, ControllerOperation controllerOperation, Object object) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-vartotojas-view.fxml"));
+            FindVartotojasController findVartotojasController = new FindVartotojasController(controllerOperation, object);
+            loader.setController(findVartotojasController); // set the controller instance
 
             Parent root = loader.load();
 

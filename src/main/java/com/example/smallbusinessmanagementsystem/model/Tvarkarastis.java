@@ -4,6 +4,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,9 +13,7 @@ public class Tvarkarastis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private LocalDateTime dataNuo;
-    @Column
-    private LocalDateTime dataIki;
+    private LocalDate data;
     @Column
     private String pavadinimas;
     @Column
@@ -29,9 +28,8 @@ public class Tvarkarastis {
     public Tvarkarastis() {
     }
 
-    public Tvarkarastis(LocalDateTime dataNuo, LocalDateTime dataIki, String pavadinimas, String aprasymas, Vartotojas kasSukure, Vartotojas kamSukure) {
-        this.dataNuo = dataNuo;
-        this.dataIki = dataIki;
+    public Tvarkarastis(LocalDate data, String pavadinimas, String aprasymas, Vartotojas kasSukure, Vartotojas kamSukure) {
+        this.data = data;
         this.pavadinimas = pavadinimas;
         this.aprasymas = aprasymas;
         this.kasSukure = kasSukure;
@@ -46,20 +44,12 @@ public class Tvarkarastis {
         this.id = id;
     }
 
-    public LocalDateTime getDataNuo() {
-        return dataNuo;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataNuo(LocalDateTime dataNuo) {
-        this.dataNuo = dataNuo;
-    }
-
-    public LocalDateTime getDataIki() {
-        return dataIki;
-    }
-
-    public void setDataIki(LocalDateTime dataIki) {
-        this.dataIki = dataIki;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public String getPavadinimas() {
