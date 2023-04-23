@@ -7,6 +7,7 @@ public enum ControllerOperation {
     FIND_FOR_KOMUNIKACIJA,
     FIND_FOR_SANDELIS,
     FIND_FOR_TVARKARASTIS,
+    FIND_FOR_FINANSAS,
     INCREASE,
     DECREASE;
 }

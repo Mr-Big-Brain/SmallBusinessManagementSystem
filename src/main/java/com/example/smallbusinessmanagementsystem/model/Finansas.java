@@ -105,4 +105,17 @@ public class Finansas {
     public void setVartotojas(Vartotojas vartotojas) {
         this.vartotojas = vartotojas;
     }
+
+    public void addZyme(Zyme zyme)
+    {
+        List<Zyme> tempZymes = getZymes();
+        tempZymes.add(zyme);
+        setZymes(tempZymes);
+    }
+
+    public void removeZyme(Zyme zyme) {
+        List<Zyme> tempZymes = getZymes();
+        tempZymes.remove(zyme);
+        setZymes(tempZymes);
+    }
 }

@@ -27,7 +27,7 @@
                 <TableColumn fx:id="columnDarbuotojas" prefWidth="75.0" text="Darbuotojas" />
             </columns>
         </TableView>
-        <ChoiceBox fx:id="choiceBoxTipas" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="choiceBoxTipas" onAction="#sortFinansai" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
         <Label layoutX="183.0" layoutY="18.0" text="Pajamos/išlaidos/abu" />
     </children>
 </AnchorPane>

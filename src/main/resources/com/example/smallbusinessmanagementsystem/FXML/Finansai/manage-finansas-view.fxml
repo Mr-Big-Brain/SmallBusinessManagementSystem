@@ -4,10 +4,11 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="589.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -17,17 +18,21 @@
       <Label layoutX="35.0" layoutY="150.0" text="Data" />
       <TextField fx:id="textFieldKiekis" layoutX="35.0" layoutY="116.0" />
       <Label layoutX="35.0" layoutY="99.0" text="Kiekis" />
-      <ListView fx:id="listViewZymes" layoutX="314.0" layoutY="67.0" prefHeight="197.0" prefWidth="200.0" />
       <Label layoutX="314.0" layoutY="50.0" text="Žymės" />
       <TextField fx:id="textFieldDarbuotojas" layoutX="35.0" layoutY="222.0" />
       <Label layoutX="35.0" layoutY="205.0" text="Darbuotojas" />
       <ChoiceBox fx:id="choiceBoxTipas" layoutX="35.0" layoutY="274.0" prefWidth="150.0" />
       <Label layoutX="35.0" layoutY="257.0" text="Tipas" />
-      <TextField fx:id="textFieldApibudinimas" layoutX="35.0" layoutY="339.0" prefHeight="97.0" prefWidth="479.0" />
       <Label layoutX="35.0" layoutY="322.0" text="Apibūdinimas" />
       <Button fx:id="buttonAtgal" layoutX="34.0" layoutY="456.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
       <Button fx:id="buttonAction" layoutX="110.0" layoutY="456.0" mnemonicParsing="false" onAction="#action" text="Action" />
       <Button fx:id="buttonPridetiZyme" layoutX="314.0" layoutY="274.0" mnemonicParsing="false" onAction="#prideti" text="Pridėti" />
       <Button fx:id="buttonIstrintiZyme" layoutX="464.0" layoutY="274.0" mnemonicParsing="false" onAction="#istrinti" text="Ištrinti" />
+      <TableView fx:id="tableViewZymes" layoutX="314.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="columnZyme" prefWidth="199.0" text="Žymė" />
+        </columns>
+      </TableView>
+      <TextArea fx:id="textAreaApibudinimas" layoutX="36.0" layoutY="339.0" prefHeight="109.0" prefWidth="472.0" />
    </children>
 </AnchorPane>

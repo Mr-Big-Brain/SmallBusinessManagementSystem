@@ -1,6 +1,7 @@
 package com.example.smallbusinessmanagementsystem.controller;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Finansas;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
@@ -28,14 +29,23 @@ public class FindZymeController implements Initializable {
     ProduktasService produktasService;
     ZymeService zymeService;
     ControllerOperation controllerOperation;
-    Produktas produktas;
+    Produktas produktasModifikacijai;
+    Finansas finansasModifikacijai;
     WindowManager windowManager;
-    public FindZymeController(ControllerOperation controllerOperationn, Produktas produktass) {
+    public FindZymeController(ControllerOperation controllerOperationn, Object object) {
         produktasService = new ProduktasService();
         zymeService = new ZymeService();
         controllerOperation = controllerOperationn;
         windowManager = new WindowManager();
-        produktas = produktass;
+        if(object instanceof Produktas)
+        {
+            produktasModifikacijai = (Produktas) object;
+        }
+        if(object instanceof Finansas)
+        {
+            finansasModifikacijai = (Finansas) object;
+        }
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,10 +89,23 @@ public class FindZymeController implements Initializable {
     void pasirinkti(ActionEvent event) {
         if(controllerOperation==ControllerOperation.FIND_FOR_PRODUKTAS)
         {
-            if(produktasService.addZyme(produktas,tableViewZymes.getSelectionModel().getSelectedItem().getId()))
+            if(produktasService.addZyme(produktasModifikacijai,tableViewZymes.getSelectionModel().getSelectedItem().getId()))
             {
                 AllertBox.display("Pavyko","Žymė pridėta");
                 windowManager.showTabKonfiguracijaProduktai(event);
+            }
+        }
+        if(controllerOperation==ControllerOperation.FIND_FOR_FINANSAS)
+        {
+            finansasModifikacijai.addZyme(tableViewZymes.getSelectionModel().getSelectedItem());
+            if(finansasModifikacijai.getId()==0)
+            {
+
+                windowManager.showManageFinansas(event,ControllerOperation.CREATE,finansasModifikacijai);
+            }
+            else
+            {
+                windowManager.showManageFinansas(event,ControllerOperation.UPDATE,finansasModifikacijai);
             }
         }
     }
@@ -92,9 +115,9 @@ public class FindZymeController implements Initializable {
         if(controllerOperation==ControllerOperation.FIND_FOR_PRODUKTAS)
         {
             zymes = FXCollections.observableList(zymeService.getAllProduktaiZyme());
-            if(!produktas.getZymes().isEmpty()&&!zymes.isEmpty())
+            if(!produktasModifikacijai.getZymes().isEmpty()&&!zymes.isEmpty())
             {
-                List<Zyme> produktasZymes = produktas.getZymes();
+                List<Zyme> produktasZymes = produktasModifikacijai.getZymes();
                 for(int i=zymes.size()-1;i>=0;i--)
                 {
                     for(int j=produktasZymes.size()-1;j>=0;j--)
@@ -106,7 +129,24 @@ public class FindZymeController implements Initializable {
                     }
                 }
             }
-
+        }
+        if(controllerOperation==ControllerOperation.FIND_FOR_FINANSAS)
+        {
+            zymes = FXCollections.observableList(zymeService.getAllFinansaiZyme());
+            if(!finansasModifikacijai.getZymes().isEmpty()&&!zymes.isEmpty())
+            {
+                List<Zyme> finansasZymes = finansasModifikacijai.getZymes();
+                for(int i=zymes.size()-1;i>=0;i--)
+                {
+                    for(int j=finansasZymes.size()-1;j>=0;j--)
+                    {
+                        if(zymes.get(i).getId()==finansasZymes.get(j).getId())
+                        {
+                            zymes.remove(i);
+                        }
+                    }
+                }
+            }
         }
         columnID.setCellValueFactory(new PropertyValueFactory<Zyme,Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Zyme,String>("pavadinimas"));

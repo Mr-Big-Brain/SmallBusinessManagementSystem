@@ -466,10 +466,10 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, Produktas produktas) {
+    public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
-            FindZymeController findZymeController = new FindZymeController(controllerOperation, produktas);
+            FindZymeController findZymeController = new FindZymeController(controllerOperation, object);
             loader.setController(findZymeController); // set the controller instance
 
             Parent root = loader.load();

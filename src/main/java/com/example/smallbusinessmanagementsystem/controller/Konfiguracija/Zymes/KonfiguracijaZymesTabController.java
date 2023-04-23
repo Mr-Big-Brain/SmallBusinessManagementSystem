@@ -108,6 +108,7 @@ public class KonfiguracijaZymesTabController implements Initializable {
     }
     private void setChoiceBox(String pasirinkimas)
     {
+        choiceBoxZymiuTipai.getItems().clear();
         choiceBoxZymiuTipai.getItems().addAll("Visos","Finansai","Produktai");
         if(Objects.equals(pasirinkimas, "Visos"))
         {

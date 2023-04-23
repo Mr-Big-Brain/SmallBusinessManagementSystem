@@ -116,6 +116,10 @@ public class ZymeService {
             return Collections.emptyList();
         }
     }
+    public Zyme getZymeById(int id)
+    {
+        return zymePersistenceController.getZymeById(id);
+    }
     private boolean pavadinimasEgzistuoja(String pavadinimas)
     {
         List<Zyme> visosZymes = zymePersistenceController.getZymeListFromDatabase();
