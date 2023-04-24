@@ -28,8 +28,9 @@ import java.io.IOException;
 
 public class WindowManager {
     private Stage currentStage;
+    WindowLoader windowLoader;
     public WindowManager() {
-
+        windowLoader = WindowLoader.getInstance();
     }
     public void showMain(ActionEvent event) {
         try {
@@ -74,6 +75,7 @@ public void showLogin(ActionEvent event) {
     }
     public void showTabPardavimai(ActionEvent event) {
         try {
+            windowLoader.setTabPardavimai(true);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent root = fxmlLoader.load();
             MainController mainController = fxmlLoader.getController();
@@ -84,12 +86,14 @@ public void showLogin(ActionEvent event) {
             stage.setTitle("Main");
 
             stage.show();
+            windowLoader.setTabPardavimai(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void showTabSandelis(ActionEvent event) {
         try {
+            windowLoader.setTabSandelis(true);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent root = fxmlLoader.load();
             MainController mainController = fxmlLoader.getController();
@@ -100,12 +104,14 @@ public void showLogin(ActionEvent event) {
             stage.setTitle("Main");
 
             stage.show();
+            windowLoader.setTabSandelis(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void showTabTvarkarastis(ActionEvent event) {
         try {
+            windowLoader.setTabTvarkarastis(true);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent root = fxmlLoader.load();
             MainController mainController = fxmlLoader.getController();
@@ -116,12 +122,14 @@ public void showLogin(ActionEvent event) {
             stage.setTitle("Main");
 
             stage.show();
+            windowLoader.setTabTvarkarastis(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void showTabKlientai(ActionEvent event) {
         try {
+            windowLoader.setTabKlientai(true);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent root = fxmlLoader.load();
             MainController mainController = fxmlLoader.getController();
@@ -132,12 +140,15 @@ public void showLogin(ActionEvent event) {
             stage.setTitle("Main");
 
             stage.show();
+            windowLoader.setTabKlientai(false);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void showTabFinansai(ActionEvent event) {
         try {
+            windowLoader.setTabFinansai(true);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent root = fxmlLoader.load();
             MainController mainController = fxmlLoader.getController();
@@ -148,6 +159,7 @@ public void showLogin(ActionEvent event) {
             stage.setTitle("Main");
 
             stage.show();
+            windowLoader.setTabFinansai(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -187,6 +199,7 @@ public void showLogin(ActionEvent event) {
 
     public void showTabKonfiguracijaZymes(ActionEvent event) {
         try {
+            windowLoader.setTabKonfiguracijaZymes(true);
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent mainRoot = mainLoader.load();
             MainController mainController = mainLoader.getController();
@@ -208,6 +221,7 @@ public void showLogin(ActionEvent event) {
 
 
             nestedTabStage.show();
+            windowLoader.setTabKonfiguracijaZymes(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -215,6 +229,7 @@ public void showLogin(ActionEvent event) {
 
     public void showTabKonfiguracijaDarbuotojai(ActionEvent event) {
         try {
+            windowLoader.setTabKonfiguracijaDarbuotojai(true);
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent mainRoot = mainLoader.load();
             MainController mainController = mainLoader.getController();
@@ -236,6 +251,7 @@ public void showLogin(ActionEvent event) {
 
 
             nestedTabStage.show();
+            windowLoader.setTabKonfiguracijaDarbuotojai(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -243,6 +259,7 @@ public void showLogin(ActionEvent event) {
 
     public void showTabKonfiguracijaProduktai(ActionEvent event) {
         try {
+            windowLoader.setTabKonfiguracijaProduktai(true);
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
             Parent mainRoot = mainLoader.load();
             MainController mainController = mainLoader.getController();
@@ -264,6 +281,7 @@ public void showLogin(ActionEvent event) {
 
 
             nestedTabStage.show();
+            windowLoader.setTabKonfiguracijaProduktai(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

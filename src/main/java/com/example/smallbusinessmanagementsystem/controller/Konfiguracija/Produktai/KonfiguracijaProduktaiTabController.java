@@ -7,6 +7,7 @@ import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.persistenceController.ProduktasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,15 +27,21 @@ public class KonfiguracijaProduktaiTabController implements Initializable {
     WindowManager windowManager;
     ProduktasPersistenceController produktasPersistenceController;
     ProduktasService produktasService;
+    WindowLoader windowLoader;
     public KonfiguracijaProduktaiTabController()
     {
-        windowManager = new WindowManager();
-        produktasPersistenceController = new ProduktasPersistenceController();
-        produktasService = new ProduktasService();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabKonfiguracijaProduktai()) {
+            windowManager = new WindowManager();
+            produktasPersistenceController = new ProduktasPersistenceController();
+            produktasService = new ProduktasService();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillProduktaiTableView();
+        if(windowLoader.isTabKonfiguracijaProduktai()) {
+            fillProduktaiTableView();
+        }
     }
 
     @FXML

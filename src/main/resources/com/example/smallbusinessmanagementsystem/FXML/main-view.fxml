@@ -9,7 +9,7 @@
    <children>
    
                 <Label fx:id="welcomeText" />
-      <TabPane fx:id="tabPaneKategorijos" prefHeight="766.0" prefWidth="1320.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPaneKategorijos" onMouseClicked="#onMouseClicked" prefHeight="766.0" prefWidth="1320.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tabPardavimai" text="Pardavimai">
             <content>

@@ -7,6 +7,7 @@ import com.example.smallbusinessmanagementsystem.model.SandelioPreke;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.service.SandelioPrekeService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -26,15 +27,22 @@ public class SandelisTabController implements Initializable {
     WindowManager windowManager;
     SandelioPrekeService sandelioPrekeService;
     ProduktasService produktasService;
+    WindowLoader windowLoader;
     public SandelisTabController()
     {
-        windowManager = new WindowManager();
-        sandelioPrekeService = new SandelioPrekeService();
-        produktasService = new ProduktasService();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabSandelis()) {
+            windowManager = new WindowManager();
+            sandelioPrekeService = new SandelioPrekeService();
+            produktasService = new ProduktasService();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillTableProduktai(null);
+        if(windowLoader.isTabSandelis())
+        {
+            fillTableProduktai(null);
+        }
     }
     @FXML
     private Button buttonPridetiProdukta;

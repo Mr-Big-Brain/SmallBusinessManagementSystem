@@ -5,6 +5,7 @@ import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.ZymeService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import com.example.smallbusinessmanagementsystem.utilities.ZymesTipas;
 import javafx.collections.FXCollections;
@@ -25,14 +26,20 @@ import java.util.ResourceBundle;
 public class KonfiguracijaZymesTabController implements Initializable {
     WindowManager windowManager;
     ZymeService zymeService;
+    WindowLoader windowLoader;
     public KonfiguracijaZymesTabController()
     {
-        windowManager = new WindowManager();
-        zymeService = new ZymeService();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabKonfiguracijaZymes()) {
+            windowManager = new WindowManager();
+            zymeService = new ZymeService();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setData("Visos");
+        if(windowLoader.isTabKonfiguracijaZymes()) {
+            setData("Visos");
+        }
     }
     @FXML
     private TableView<Zyme> tableViewZymes;

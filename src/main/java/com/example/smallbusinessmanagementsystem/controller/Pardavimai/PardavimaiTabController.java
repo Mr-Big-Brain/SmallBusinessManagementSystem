@@ -1,19 +1,36 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class PardavimaiTabController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PardavimaiTabController implements Initializable {
     WindowManager windowManager;
+    WindowLoader windowLoader;
     public PardavimaiTabController()
     {
-        windowManager = new WindowManager();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabPardavimai())
+        {
+            windowManager = new WindowManager();
+        }
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(windowLoader.isTabPardavimai())
+        {
+
+        }
     }
     @FXML
     private Button buttonNaujasPardavimas;

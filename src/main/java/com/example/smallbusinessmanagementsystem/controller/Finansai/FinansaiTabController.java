@@ -7,10 +7,7 @@ import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.FinansasService;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.service.ZymeService;
-import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
-import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
-import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
-import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
+import com.example.smallbusinessmanagementsystem.utilities.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,18 +27,25 @@ public class FinansaiTabController implements Initializable {
     CurrentVartotojas currentVartotojas;
     VartotojasService vartotojasService;
     ZymeService zymeService;
+    WindowLoader windowLoader;
     public FinansaiTabController()
     {
-        windowManager = new WindowManager();
-        finansasService = new FinansasService();
-        currentVartotojas = CurrentVartotojas.getInstance();
-        vartotojasService = new VartotojasService();
-        zymeService = new ZymeService();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabFinansai()) {
+            windowManager = new WindowManager();
+            finansasService = new FinansasService();
+            currentVartotojas = CurrentVartotojas.getInstance();
+            vartotojasService = new VartotojasService();
+            zymeService = new ZymeService();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillChoiceBox(FinansoTipas.VISI);
-        fillTableViewFinansai(FinansoTipas.VISI);
+        if(windowLoader.isTabFinansai())
+        {
+            fillChoiceBox(FinansoTipas.VISI);
+            fillTableViewFinansai(FinansoTipas.VISI);
+        }
     }
     @FXML
     private Button buttonNaujasFinansas;

@@ -9,6 +9,7 @@ import com.example.smallbusinessmanagementsystem.service.TvarkarastisService;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -30,17 +31,23 @@ public class TvarkarastisTabController implements Initializable {
     TvarkarastisService tvarkarastisService;
     VartotojasService vartotojasService;
     CurrentVartotojas currentVartotojas;
+    WindowLoader windowLoader;
     public TvarkarastisTabController()
     {
-        windowManager = new WindowManager();
-        tvarkarastisService = new TvarkarastisService();
-        vartotojasService = new VartotojasService();
-        currentVartotojas = CurrentVartotojas.getInstance();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabTvarkarastis()) {
+            windowManager = new WindowManager();
+            tvarkarastisService = new TvarkarastisService();
+            vartotojasService = new VartotojasService();
+            currentVartotojas = CurrentVartotojas.getInstance();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillTableManoRenginiai(datePickerManoNuo.getValue(),datePickerManoIki.getValue());
-        fillTableSukurtiRenginiai(datePickerSukurtiNuo.getValue(),datePickerSukurtiIki.getValue());
+        if(windowLoader.isTabTvarkarastis()) {
+            fillTableManoRenginiai(datePickerManoNuo.getValue(), datePickerManoIki.getValue());
+            fillTableSukurtiRenginiai(datePickerSukurtiNuo.getValue(), datePickerSukurtiIki.getValue());
+        }
     }
     @FXML
     private TableView<Tvarkarastis> tableViewManoTvarkarastis;

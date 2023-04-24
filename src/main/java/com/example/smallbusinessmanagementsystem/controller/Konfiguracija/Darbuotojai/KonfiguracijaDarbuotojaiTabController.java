@@ -8,6 +8,7 @@ import com.example.smallbusinessmanagementsystem.persistenceController.Vartotojo
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -29,29 +30,30 @@ import java.util.ResourceBundle;
 
 public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
-    //FXML
-    private Stage stage;
-    private Parent root;
-    private Scene scene;
-
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
     VartotojasPersistenceController vartotojasPersistenceController;
     VartotojoTipasService vartotojoTipasService;
     VartotojasService vartotojasService;
     WindowManager windowManager;
-
+    WindowLoader windowLoader;
     public KonfiguracijaDarbuotojaiTabController()
     {
-        vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
-        vartotojasPersistenceController = new VartotojasPersistenceController();
-        vartotojoTipasService = new VartotojoTipasService();
-        vartotojasService = new VartotojasService();
-        windowManager = new WindowManager();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabKonfiguracijaDarbuotojai()) {
+            vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+            vartotojasPersistenceController = new VartotojasPersistenceController();
+            vartotojoTipasService = new VartotojoTipasService();
+            vartotojasService = new VartotojasService();
+            windowManager = new WindowManager();
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillRolesTable();
-        fillDarbuotojaiTable();
+        if(windowLoader.isTabKonfiguracijaDarbuotojai())
+        {
+            fillRolesTable();
+            fillDarbuotojaiTable();
+        }
     }
     @FXML
     private TableView<Vartotojas> tableViewDarbuotojai;

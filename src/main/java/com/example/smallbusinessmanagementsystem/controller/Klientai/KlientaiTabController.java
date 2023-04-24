@@ -10,6 +10,7 @@ import com.example.smallbusinessmanagementsystem.service.KlientasService;
 import com.example.smallbusinessmanagementsystem.service.KomunikacijaService;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -33,17 +34,27 @@ public class KlientaiTabController implements Initializable {
     KlientasService klientasService;
     ProduktasService produktasService;
     KomunikacijaService komunikacijaService;
+    WindowLoader windowLoader;
     public KlientaiTabController()
     {
-        klientasPersistenceController = new KlientasPersistenceController();
-        klientasService = new KlientasService();
-        windowManager = new WindowManager();
-        produktasService = new ProduktasService();
-        komunikacijaService = new KomunikacijaService();
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabKlientai())
+        {
+            klientasPersistenceController = new KlientasPersistenceController();
+            klientasService = new KlientasService();
+            windowManager = new WindowManager();
+            produktasService = new ProduktasService();
+            komunikacijaService = new KomunikacijaService();
+            windowLoader = WindowLoader.getInstance();
+        }
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillKlientaiTable();
+        if(windowLoader.isTabKlientai())
+        {
+            fillKlientaiTable();
+        }
     }
     @FXML
     private TableView<Klientas> tableViewKlientai;
