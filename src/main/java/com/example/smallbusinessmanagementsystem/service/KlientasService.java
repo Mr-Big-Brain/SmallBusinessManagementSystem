@@ -59,4 +59,8 @@ public class KlientasService {
     {
         return klientasPersistenceController.getKlientasById(id);
     }
+    public List<Klientas> getAllKlientai()
+    {
+        return klientasPersistenceController.getKlientasListFromDatabase();
+    }
 }

@@ -1,29 +1,21 @@
 package com.example.smallbusinessmanagementsystem.controller.Login;
 
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class LoginController {
 
-    public VartotojasPersistenceController vartotojasPersistenceController;
     public VartotojasService vartotojasService;
     public WindowManager windowManager;
 
     public LoginController() {
-        vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojasService = new VartotojasService();
         windowManager = new WindowManager();
     }

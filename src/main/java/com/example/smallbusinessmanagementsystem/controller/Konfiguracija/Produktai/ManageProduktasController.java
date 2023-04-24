@@ -2,10 +2,7 @@ package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produ
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
-import com.example.smallbusinessmanagementsystem.model.Vartotojas;
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
-import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;

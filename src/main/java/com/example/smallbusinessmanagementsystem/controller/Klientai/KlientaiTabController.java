@@ -4,8 +4,6 @@ import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Klientas;
 import com.example.smallbusinessmanagementsystem.model.Komunikacija;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
-import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
-import com.example.smallbusinessmanagementsystem.persistenceController.KlientasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.KlientasService;
 import com.example.smallbusinessmanagementsystem.service.KomunikacijaService;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
@@ -30,7 +28,6 @@ import java.util.ResourceBundle;
 
 public class KlientaiTabController implements Initializable {
     WindowManager windowManager;
-    KlientasPersistenceController klientasPersistenceController;
     KlientasService klientasService;
     ProduktasService produktasService;
     KomunikacijaService komunikacijaService;
@@ -40,7 +37,6 @@ public class KlientaiTabController implements Initializable {
         windowLoader = WindowLoader.getInstance();
         if(windowLoader.isTabKlientai())
         {
-            klientasPersistenceController = new KlientasPersistenceController();
             klientasService = new KlientasService();
             windowManager = new WindowManager();
             produktasService = new ProduktasService();
@@ -159,7 +155,7 @@ public class KlientaiTabController implements Initializable {
     }
     public void fillKlientaiTable()
     {
-        ObservableList<Klientas> klientai = FXCollections.observableList(klientasPersistenceController.getKlientasListFromDatabase());
+        ObservableList<Klientas> klientai = FXCollections.observableList(klientasService.getAllKlientai());
         columnKlientaiID.setCellValueFactory(new PropertyValueFactory<Klientas,Integer>("id"));
         columnKlientaiImone.setCellValueFactory(new PropertyValueFactory<Klientas,String>("imone"));
         columnKlientaiPastas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("pastas"));

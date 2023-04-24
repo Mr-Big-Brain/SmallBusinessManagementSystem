@@ -3,8 +3,6 @@ package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbu
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
@@ -16,13 +14,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,8 +25,6 @@ import java.util.ResourceBundle;
 
 public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
-    VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
-    VartotojasPersistenceController vartotojasPersistenceController;
     VartotojoTipasService vartotojoTipasService;
     VartotojasService vartotojasService;
     WindowManager windowManager;
@@ -40,8 +33,6 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
     {
         windowLoader = WindowLoader.getInstance();
         if(windowLoader.isTabKonfiguracijaDarbuotojai()) {
-            vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
-            vartotojasPersistenceController = new VartotojasPersistenceController();
             vartotojoTipasService = new VartotojoTipasService();
             vartotojasService = new VartotojasService();
             windowManager = new WindowManager();
@@ -165,7 +156,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     public void fillRolesTable()
     {
-        ObservableList<VartotojoTipas> vartotojoTipai = FXCollections.observableList(vartotojoTipasPersistenceController.getVartotojoTipasListFromDatabase());
+        ObservableList<VartotojoTipas> vartotojoTipai = FXCollections.observableList(vartotojoTipasService.getAllVartotojoTipas());
         columnRolesID.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,Integer>("id"));
         columnRolesFinansai.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,Boolean>("finansai"));
         columnRolesKlientai.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,Boolean>("klientai"));
@@ -179,7 +170,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
 
     public void fillDarbuotojaiTable()
     {
-        ObservableList<Vartotojas> vartotojai = FXCollections.observableList(vartotojasPersistenceController.getVartotojasListFromDatabase());
+        ObservableList<Vartotojas> vartotojai = FXCollections.observableList(vartotojasService.getAllVartotojas());
         columnDarbuotojaiID.setCellValueFactory(new PropertyValueFactory<Vartotojas,Integer>("id"));
         columnDarbuotojaiApibrezimas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("apibrezimas"));
         columnDarbuotojaiPavarde.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("pavarde"));
@@ -189,7 +180,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
         columnDarbuotojaiRole.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vartotojoTipas"));
         columnDarbuotojaiRole.setCellValueFactory(cellData -> {
             int rolesId = cellData.getValue().getVartotojoTipas().getId();
-            VartotojoTipas vartotojoTipas = vartotojoTipasPersistenceController.getVartotojoTipasById(rolesId);
+            VartotojoTipas vartotojoTipas = vartotojoTipasService.getVartotojoTipasById(rolesId);
             String vartotojoTipoPavadinimas = (vartotojoTipas != null) ? vartotojoTipas.getPavadinimas() : "";
             return new SimpleStringProperty(vartotojoTipoPavadinimas);
         });

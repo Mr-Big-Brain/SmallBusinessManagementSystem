@@ -88,4 +88,8 @@ public class VartotojoTipasService {
     {
         return vartotojoTipasPersistenceController.getVartotojoTipasById(id);
     }
+    public List<VartotojoTipas> getAllVartotojoTipas()
+    {
+        return vartotojoTipasPersistenceController.getVartotojoTipasListFromDatabase();
+    }
 }

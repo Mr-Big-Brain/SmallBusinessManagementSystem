@@ -3,8 +3,8 @@ package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbu
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.service.VartotojoTipasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.collections.FXCollections;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class ManageVartotojasController implements Initializable {
     VartotojasService vartotojasService;
-    VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
+    VartotojoTipasService vartotojoTipasService;
     Vartotojas vartotojasModifikacijai;
     WindowManager windowManager;
     ControllerOperation controllerOperation;
@@ -31,9 +31,9 @@ public class ManageVartotojasController implements Initializable {
     {
         windowManager = new WindowManager();
         vartotojasService = new VartotojasService();
-        vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
         vartotojasModifikacijai = vartotojas;
         controllerOperation = controllerOperationn;
+        vartotojoTipasService = new VartotojoTipasService();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -124,7 +124,7 @@ public class ManageVartotojasController implements Initializable {
     }
     public void fillRolesTable()
     {
-        ObservableList<VartotojoTipas> vartotojoTipai = FXCollections.observableList(vartotojoTipasPersistenceController.getVartotojoTipasListFromDatabase());
+        ObservableList<VartotojoTipas> vartotojoTipai = FXCollections.observableList(vartotojoTipasService.getAllVartotojoTipas());
         columnRole.setCellValueFactory(new PropertyValueFactory<VartotojoTipas,String>("pavadinimas"));
         tableViewRoles.setItems(vartotojoTipai);
     }

@@ -2,7 +2,6 @@ package com.example.smallbusinessmanagementsystem.controller.Login;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
-import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import javafx.stage.Stage;
 
 public class LoginEditController {
 
-    public VartotojasPersistenceController vartotojasPersistenceController;
     public VartotojasService vartotojasService;
     WindowManager windowManager;
 
@@ -25,7 +23,6 @@ public class LoginEditController {
     private Scene scene;
 
     public LoginEditController() {
-        vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojasService = new VartotojasService();
         windowManager = new WindowManager();
     }

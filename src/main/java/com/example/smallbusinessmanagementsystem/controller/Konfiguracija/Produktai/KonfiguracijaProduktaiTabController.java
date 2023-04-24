@@ -2,9 +2,7 @@ package com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produ
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
-import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
-import com.example.smallbusinessmanagementsystem.persistenceController.ProduktasPersistenceController;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
@@ -25,7 +23,6 @@ import java.util.ResourceBundle;
 
 public class KonfiguracijaProduktaiTabController implements Initializable {
     WindowManager windowManager;
-    ProduktasPersistenceController produktasPersistenceController;
     ProduktasService produktasService;
     WindowLoader windowLoader;
     public KonfiguracijaProduktaiTabController()
@@ -33,7 +30,6 @@ public class KonfiguracijaProduktaiTabController implements Initializable {
         windowLoader = WindowLoader.getInstance();
         if(windowLoader.isTabKonfiguracijaProduktai()) {
             windowManager = new WindowManager();
-            produktasPersistenceController = new ProduktasPersistenceController();
             produktasService = new ProduktasService();
         }
     }
@@ -123,7 +119,7 @@ public class KonfiguracijaProduktaiTabController implements Initializable {
 
     private void fillProduktaiTableView()
     {
-        ObservableList<Produktas> produktai = FXCollections.observableList(produktasPersistenceController.getProduktasListFromDatabase());
+        ObservableList<Produktas> produktai = FXCollections.observableList(produktasService.getAllProduktai());
         columnProduktaiID.setCellValueFactory(new PropertyValueFactory<Produktas,Integer>("id"));
         columnProduktaiPavadinimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("pavadinimas"));
         columnProduktaiApibrezimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("apibrezimas"));
