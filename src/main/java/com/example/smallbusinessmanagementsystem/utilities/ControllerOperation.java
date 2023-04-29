@@ -8,6 +8,7 @@ public enum ControllerOperation {
     FIND_FOR_SANDELIS,
     FIND_FOR_TVARKARASTIS,
     FIND_FOR_FINANSAS,
+    FIND_FOR_PARDAVIMAS,
     INCREASE,
     DECREASE;
 }

@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FindProduktasController implements Initializable {
@@ -26,6 +27,9 @@ public class FindProduktasController implements Initializable {
     WindowManager windowManager;
     Komunikacija komunikacijaModifikacijai;
     SandelioPreke sandelioPrekeModifikacijai;
+    Pardavimas pardavimasModifikacijai;
+    List<PardavimoLinija> pardavimoLinijosModifikacijai;
+    Integer linijosNum;
     ProduktasService produktasService;
     SandelioPrekeService sandelioPrekeService;
     ZymeService zymeService;
@@ -43,6 +47,16 @@ public class FindProduktasController implements Initializable {
         {
             sandelioPrekeModifikacijai = (SandelioPreke) object;
         }
+    }
+    public FindProduktasController(ControllerOperation controllerOperationn, Pardavimas pardavimas, List<PardavimoLinija> pardavimoLinijos, Integer linijosNumm)
+    {
+        controllerOperation = controllerOperationn;
+        windowManager = new WindowManager();
+        produktasService = new ProduktasService();
+        zymeService = new ZymeService();
+        pardavimasModifikacijai = pardavimas;
+        pardavimoLinijosModifikacijai = pardavimoLinijos;
+        linijosNum = linijosNumm;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -142,6 +156,12 @@ public class FindProduktasController implements Initializable {
                 AllertBox.display("Informacija","Liko " + sandelioPreke.getKiekis() + " " + produktas.getPavadinimas() + " vienetų");
             }
             windowManager.showTabSandelis(event);
+        }
+        else if(controllerOperation == ControllerOperation.FIND_FOR_PARDAVIMAS)
+        {
+            pardavimoLinijosModifikacijai.get(linijosNum).setProduktas(tableViewProduktai.getSelectionModel().getSelectedItem());
+            pardavimoLinijosModifikacijai.get(linijosNum).setKainaUzViena(tableViewProduktai.getSelectionModel().getSelectedItem().getRekomenduojamaKaina());
+            windowManager.showManagePardavimoLinija(event,ControllerOperation.CREATE,pardavimasModifikacijai,pardavimoLinijosModifikacijai,linijosNum);
         }
     }
 

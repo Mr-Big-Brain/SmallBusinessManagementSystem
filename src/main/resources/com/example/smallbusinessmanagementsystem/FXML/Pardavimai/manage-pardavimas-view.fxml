@@ -22,7 +22,6 @@
       <Button fx:id="buttonPridetiPirkeja" layoutX="217.0" layoutY="45.0" mnemonicParsing="false" onAction="#pridetiPirkeja" prefHeight="25.0" prefWidth="33.0" text="+" />
       <TextField fx:id="textFieldDarbuotojas" layoutX="54.0" layoutY="101.0" />
       <Label layoutX="54.0" layoutY="84.0" text="Darbuotojas" />
-      <Button fx:id="buttonPridetiDarbuotoja" layoutX="217.0" layoutY="101.0" mnemonicParsing="false" onAction="#pridetiDarbuotoja" prefHeight="25.0" prefWidth="33.0" text="+" />
       <Button fx:id="buttonPridetiPardavimoLinija" layoutX="61.0" layoutY="454.0" mnemonicParsing="false" onAction="#pridetiPardavimoLinija" text="Pridėti" />
       <Button fx:id="buttonPakeistiPardavimoLinija" layoutX="189.0" layoutY="454.0" mnemonicParsing="false" onAction="#pakeistiPardavimoLinija" text="Pakeisti" />
       <Button fx:id="buttonIstrintiPardavimoLinija" layoutX="330.0" layoutY="454.0" mnemonicParsing="false" onAction="#istrintiPardavimoLinija" text="Ištrinti" />

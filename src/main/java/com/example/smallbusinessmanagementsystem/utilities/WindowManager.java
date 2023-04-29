@@ -1,9 +1,7 @@
 package com.example.smallbusinessmanagementsystem.utilities;
 
+import com.example.smallbusinessmanagementsystem.controller.*;
 import com.example.smallbusinessmanagementsystem.controller.Finansai.ManageFinansasController;
-import com.example.smallbusinessmanagementsystem.controller.FindProduktasController;
-import com.example.smallbusinessmanagementsystem.controller.FindVartotojasController;
-import com.example.smallbusinessmanagementsystem.controller.FindZymeController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKlientasController;
 import com.example.smallbusinessmanagementsystem.controller.Klientai.ManageKomunikacijaController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuotojai.ManageRoleController;
@@ -11,7 +9,6 @@ import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Darbuo
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.KonfiguracijaTabController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.ManageProduktasController;
 import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.ManageZymeController;
-import com.example.smallbusinessmanagementsystem.controller.MainController;
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimasController;
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimoLinijaController;
 import com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController;
@@ -25,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class WindowManager {
     private Stage currentStage;
@@ -394,10 +392,10 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showManagePardavimas(ActionEvent event, ControllerOperation controllerOperation, Pardavimas pardavimas) {
+    public void showManagePardavimas(ActionEvent event, ControllerOperation controllerOperation, Pardavimas pardavimas, List<PardavimoLinija> pardavimoLinijos) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Pardavimai/manage-pardavimas-view.fxml"));
-            ManagePardavimasController managePardavimasController = new ManagePardavimasController(controllerOperation, pardavimas);
+            ManagePardavimasController managePardavimasController = new ManagePardavimasController(controllerOperation, pardavimas, pardavimoLinijos);
             loader.setController(managePardavimasController); // set the controller instance
 
             Parent root = loader.load();
@@ -412,10 +410,10 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showManagePardavimoLinija(ActionEvent event, ControllerOperation controllerOperation, PardavimoLinija pardavimoLinija) {
+    public void showManagePardavimoLinija(ActionEvent event, ControllerOperation controllerOperation, Pardavimas pardavimas, List<PardavimoLinija> pardavimoLinijos, Integer linijosNum) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Pardavimai/manage-pardavimo-linija-view.fxml"));
-            ManagePardavimoLinijaController managePardavimoLinijaController = new ManagePardavimoLinijaController(controllerOperation, pardavimoLinija);
+            ManagePardavimoLinijaController managePardavimoLinijaController = new ManagePardavimoLinijaController(controllerOperation, pardavimas, pardavimoLinijos, linijosNum);
             loader.setController(managePardavimoLinijaController); // set the controller instance
 
             Parent root = loader.load();
@@ -520,6 +518,24 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void showFindProduktas(ActionEvent event, ControllerOperation controllerOperationn, Pardavimas pardavimas, List<PardavimoLinija> pardavimoLinijos, Integer linijosNumm) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-produktas-view.fxml"));
+            FindProduktasController findProduktasController = new FindProduktasController(controllerOperationn,pardavimas,pardavimoLinijos,linijosNumm);
+            loader.setController(findProduktasController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showFindVartotojas(ActionEvent event, ControllerOperation controllerOperation, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-vartotojas-view.fxml"));
@@ -538,5 +554,22 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void showFindKlientas(ActionEvent event, ControllerOperation controllerOperation, Object object, List<PardavimoLinija> pardavimoLinijos) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-klientas-view.fxml"));
+            FindKlientasController findKlientasController = new FindKlientasController(controllerOperation, object, pardavimoLinijos);
+            loader.setController(findKlientasController); // set the controller instance
 
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     }

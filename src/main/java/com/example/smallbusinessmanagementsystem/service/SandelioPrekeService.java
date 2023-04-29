@@ -89,6 +89,15 @@ public class SandelioPrekeService {
             return null;
         }
     }
+    public boolean canBeDecreased(Produktas produktas, Integer kiekis)
+    {
+        SandelioPreke sandelioPreke = getSandelioPrekeByProduktas(produktas.getId());
+        if(sandelioPreke!=null && sandelioPreke.getKiekis()>=kiekis)
+        {
+            return true;
+        }
+        return false;
+    }
 
 
 }

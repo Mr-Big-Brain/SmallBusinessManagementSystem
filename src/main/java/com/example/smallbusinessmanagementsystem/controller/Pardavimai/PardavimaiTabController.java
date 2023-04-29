@@ -1,8 +1,20 @@
 package com.example.smallbusinessmanagementsystem.controller.Pardavimai;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Klientas;
+import com.example.smallbusinessmanagementsystem.model.Pardavimas;
+import com.example.smallbusinessmanagementsystem.model.Produktas;
+import com.example.smallbusinessmanagementsystem.model.Vartotojas;
+import com.example.smallbusinessmanagementsystem.service.KlientasService;
+import com.example.smallbusinessmanagementsystem.service.PardavimasService;
+import com.example.smallbusinessmanagementsystem.service.PardavimoLinijaService;
+import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
 import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,26 +22,36 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class PardavimaiTabController implements Initializable {
     WindowManager windowManager;
     WindowLoader windowLoader;
+    PardavimasService pardavimasService;
+    VartotojasService vartotojasService;
+    KlientasService klientasService;
+    PardavimoLinijaService pardavimoLinijaService;
     public PardavimaiTabController()
     {
         windowLoader = WindowLoader.getInstance();
         if(windowLoader.isTabPardavimai())
         {
             windowManager = new WindowManager();
+            pardavimasService = new PardavimasService();
+            pardavimoLinijaService = new PardavimoLinijaService();
+            vartotojasService = new VartotojasService();
+            klientasService = new KlientasService();
         }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(windowLoader.isTabPardavimai())
         {
-
+            fillTable();
         }
     }
     @FXML
@@ -45,22 +67,22 @@ public class PardavimaiTabController implements Initializable {
     private Button buttonRastiPardavima;
 
     @FXML
-    private TableView<?> tableVIewPardavimai;
+    private TableView<Pardavimas> tableVIewPardavimai;
 
     @FXML
-    private TableColumn<?, ?> columnPardavimaiID;
+    private TableColumn<Pardavimas, Integer> columnPardavimaiID;
 
     @FXML
-    private TableColumn<?, ?> columnPardavimaiData;
+    private TableColumn<Pardavimas, LocalDateTime> columnPardavimaiData;
 
     @FXML
-    private TableColumn<?, ?> columnPardavimaiSuma;
+    private TableColumn<Pardavimas, String> columnPardavimaiSuma;
 
     @FXML
-    private TableColumn<?, ?> columnPardavimaiDarbuotojas;
+    private TableColumn<Pardavimas, String> columnPardavimaiDarbuotojas;
 
     @FXML
-    private TableColumn<?, ?> columnPardavimaiPirkejas;
+    private TableColumn<Pardavimas, String> columnPardavimaiPirkejas;
 
     @FXML
     private DatePicker datePickerNuo;
@@ -70,12 +92,16 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void istrintiPardavima(ActionEvent event) {
-
+        if(pardavimasService.tryDeletePardavimas(tableVIewPardavimai.getSelectionModel().getSelectedItem().getId()))
+        {
+            AllertBox.display("Pavyko","Pardavimas ir jo pardavimo linijos ištrinti");
+            fillTable();
+        }
     }
 
     @FXML
     void naujasPardavimas(ActionEvent event) {
-        windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null);
+        windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null,null);
     }
 
     @FXML
@@ -85,7 +111,43 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void redaguotiPardavima(ActionEvent event) {
+        windowManager.showManagePardavimas(event, ControllerOperation.UPDATE,tableVIewPardavimai.getSelectionModel().getSelectedItem(),pardavimoLinijaService.getPardavimoLinijosByPardavimas(tableVIewPardavimai.getSelectionModel().getSelectedItem().getId()));
+    }
+    private void fillTable()
+    {
+        ObservableList<Pardavimas> pardavimai = FXCollections.observableList(pardavimasService.getAllPardavimai(datePickerNuo.getValue(),datePickerIki.getValue()));
+        columnPardavimaiID.setCellValueFactory(new PropertyValueFactory<Pardavimas,Integer>("id"));
+        columnPardavimaiData.setCellValueFactory(new PropertyValueFactory<Pardavimas,LocalDateTime>("data"));
+        columnPardavimaiDarbuotojas.setCellValueFactory(new PropertyValueFactory<Pardavimas,String>("pardavejas"));
+        columnPardavimaiDarbuotojas.setCellValueFactory(cellData -> {
+            if(cellData.getValue().getPardavejas()!=null)
+            {
+                int vartotojoId = cellData.getValue().getPardavejas().getId();
+                Vartotojas vartotojasTemp = vartotojasService.getVartotojasById(vartotojoId);
+                String vartotojas = (vartotojasTemp != null) ? vartotojasTemp.getVardas() + ", " + vartotojasTemp.getPavarde() : "";
+                return new SimpleStringProperty(vartotojas);
+            }
+            else return new SimpleStringProperty("");
+        });
+        columnPardavimaiPirkejas.setCellValueFactory(new PropertyValueFactory<Pardavimas,String>("klientas"));
+        columnPardavimaiPirkejas.setCellValueFactory(cellData -> {
+            if(cellData.getValue().getKlientas()!=null)
+            {
+                int klientoId = cellData.getValue().getKlientas().getId();
+                Klientas klientasTemp = klientasService.getKlientasById(klientoId);
+                String vartotojas = (klientasTemp != null) ? klientasTemp.getId() + ", " + klientasTemp.getPavarde() : "";
+                return new SimpleStringProperty(vartotojas);
+            }
+            else return new SimpleStringProperty("");
+        });
+        columnPardavimaiSuma.setCellValueFactory(new PropertyValueFactory<Pardavimas,String>("id"));
+        columnPardavimaiSuma.setCellValueFactory(cellData -> {
+                int pardavimoId = cellData.getValue().getId();
+                double suma = pardavimoLinijaService.getPardavimoSuma(pardavimoId);
+                return new SimpleStringProperty(String.valueOf(suma));
+        });
+        tableVIewPardavimai.setItems(pardavimai);
+
 
     }
-
 }
