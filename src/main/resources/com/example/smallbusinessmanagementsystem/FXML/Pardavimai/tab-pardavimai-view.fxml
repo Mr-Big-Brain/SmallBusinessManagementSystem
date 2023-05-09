@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Pardavimai.PardavimaiTabController">
+<AnchorPane prefHeight="524.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Pardavimai.PardavimaiTabController">
     <children>
         <Button fx:id="buttonNaujasPardavimas" layoutX="625.0" layoutY="14.0" onAction="#naujasPardavimas" text="Naujas pardavimas" />
         <Button fx:id="buttonRedaguotiPardavima" layoutX="625.0" layoutY="57.0" mnemonicParsing="false" onAction="#redaguotiPardavima" text="Redaguoti pardavimą" />
@@ -16,10 +16,10 @@
         <TableView fx:id="tableVIewPardavimai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="columnPardavimaiID" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="columnPardavimaiData" prefWidth="75.0" text="Data" />
-                <TableColumn fx:id="columnPardavimaiSuma" prefWidth="75.0" text="Suma" />
-                <TableColumn fx:id="columnPardavimaiDarbuotojas" prefWidth="75.0" text="Darbuotojas" />
-                <TableColumn fx:id="columnPardavimaiPirkejas" prefWidth="75.0" text="Pirkėjas" />
+                <TableColumn fx:id="columnPardavimaiData" prefWidth="118.0" text="Data" />
+                <TableColumn fx:id="columnPardavimaiSuma" prefWidth="132.0" text="Suma" />
+                <TableColumn fx:id="columnPardavimaiDarbuotojas" prefWidth="162.0" text="Darbuotojas" />
+                <TableColumn fx:id="columnPardavimaiPirkejas" prefWidth="112.0" text="Pirkėjas" />
             </columns>
         </TableView>
         <DatePicker fx:id="datePickerNuo" layoutX="14.0" layoutY="455.0" />

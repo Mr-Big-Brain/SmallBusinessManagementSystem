@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.KonfiguracijaZymesTabController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.KonfiguracijaZymesTabController">
     <children>
         <TableView fx:id="tableViewZymes" layoutX="14.0" layoutY="53.0" prefHeight="316.0" prefWidth="357.0">
             <columns>
-                <TableColumn fx:id="columnZymesID" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="columnZymesPavadinimas" prefWidth="87.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnZymesTipas" prefWidth="63.0" text="Tipas" />
+                <TableColumn fx:id="columnZymesID" prefWidth="55.0" text="ID" />
+                <TableColumn fx:id="columnZymesPavadinimas" prefWidth="182.0" text="Pavadinimas" />
+                <TableColumn fx:id="columnZymesTipas" prefWidth="119.0" text="Tipas" />
             </columns>
         </TableView>
-        <ChoiceBox fx:id="choiceBoxZymiuTipai" onAction="#sortZymes" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
-        <Label layoutX="179.0" layoutY="18.0" text="Choice between all, finance and products" />
-        <Button fx:id="buttonZymesPrideti" layoutX="397.0" layoutY="53.0" mnemonicParsing="false" onAction="#pridetiZyme" text="Pridėti" />
-        <Button fx:id="buttonZymesPervadinti" layoutX="398.0" layoutY="89.0" mnemonicParsing="false" onAction="#pervadintiZyme" text="Pervadinti" />
-        <Button fx:id="buttonZymesIstrinti" layoutX="398.0" layoutY="129.0" mnemonicParsing="false" onAction="#istrintiZyme" text="Ištrinti" />
+        <ChoiceBox fx:id="choiceBoxZymiuTipai" layoutX="14.0" layoutY="14.0" onAction="#sortZymes" prefWidth="150.0" />
+        <Button fx:id="buttonZymesPrideti" layoutX="382.0" layoutY="53.0" mnemonicParsing="false" onAction="#pridetiZyme" text="Pridėti" />
+        <Button fx:id="buttonZymesPervadinti" layoutX="382.0" layoutY="90.0" mnemonicParsing="false" onAction="#pervadintiZyme" text="Pervadinti" />
+        <Button fx:id="buttonZymesIstrinti" layoutX="383.0" layoutY="129.0" mnemonicParsing="false" onAction="#istrintiZyme" text="Ištrinti" />
     </children>
 </AnchorPane>

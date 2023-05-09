@@ -42,7 +42,6 @@ public class LoginController {
             currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
             windowManager.showTabStatistikaProduktai(event,"Testas1");
         }
-
     }
     @FXML
     void redaguotiPaskyra(ActionEvent event) throws IOException {

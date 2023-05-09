@@ -117,3 +117,13 @@ Lsrc/main/java/com/example/smallbusinessmanagementsystem/model/Produktas.java,a
 Psrc/main/java/com/example/smallbusinessmanagementsystem/model/SandelioPreke.java,1\4\146a11981ed64853f21104a7b5e72523808779ff
 
 Osrc/main/java/com/example/smallbusinessmanagementsystem/model/Tvarkarastis.java,8\c\8c1d49a7e4eb8be64519b70a66184eae06443e93
+}
+Msrc/main/java/com/example/smallbusinessmanagementsystem/model/Vartotojas.java,d\b\db3c673638a619b95513fd52fa0ac9034fe25f4c
+ 
+psrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/KonfiguracijaTabController.java,9\b\9b93f4aeff9cdf82e60dc7f2778a97becf43ea01
+š
+jsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/StatistikaTabController.java,c\0\c05fe03144519e94d241ec39b9fd6f016e4d641f
+„
+Tsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/WindowManager.java,9\2\92603e37feb58d42ce44da6b196e061cf5a2a7af
+­
+}src/main/java/com/example/smallbusinessmanagementsystem/controller/Statistika/Produktai/StatistikaProduktaiTabController.java,b\c\bcd71fd5abc64de7ca7657aa26fcdb9f0da11b88

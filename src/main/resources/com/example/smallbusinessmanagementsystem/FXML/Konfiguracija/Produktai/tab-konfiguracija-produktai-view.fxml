@@ -5,26 +5,26 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController">
+<AnchorPane prefHeight="513.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController">
     <children>
-        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="400.0" prefWidth="300.0">
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="394.0" prefWidth="624.0">
             <columns>
                 <TableColumn fx:id="columnProduktaiID" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="64.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnProduktaiPirkimoKaina" prefWidth="65.0" text="Pirkimo kaina" />
-                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="65.0" text="Rekomenduojama kaina" />
-            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="65.0" text="Apibrėžimas" />
+                <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="139.0" text="Pavadinimas" />
+                <TableColumn fx:id="columnProduktaiPirkimoKaina" prefWidth="108.0" text="Pirkimo kaina" />
+                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="183.0" text="Rekomenduojama kaina" />
+            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="143.0" text="Apibrėžimas" />
             </columns>
         </TableView>
-        <TableView fx:id="tableViewZymes" layoutX="555.0" layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+        <TableView fx:id="tableViewZymes" layoutX="818.0" layoutY="14.0" prefHeight="400.0" prefWidth="216.0">
             <columns>
-                <TableColumn fx:id="columnZyme" prefWidth="75.0" text="Žymė" />
+                <TableColumn fx:id="columnZyme" prefWidth="215.0" text="Žymė" />
             </columns>
         </TableView>
-        <Button fx:id="buttonProduktaiPrideti" layoutX="336.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti" />
-        <Button fx:id="buttonProduktaiRedaguoti" layoutX="336.0" layoutY="56.0" mnemonicParsing="false" onAction="#redaguotiProdukta" text="Redaguoti" />
-        <Button fx:id="buttonProduktaiIštrinti" layoutX="336.0" layoutY="97.0" mnemonicParsing="false" onAction="#istrintiProdukta" text="Ištrinti" />
-        <Button fx:id="buttonZymePrideti" layoutX="880.0" layoutY="15.0" mnemonicParsing="false" onAction="#pridetiZyme" text="Pridėti" />
-        <Button fx:id="buttonZymeIstrinti" layoutX="881.0" layoutY="56.0" mnemonicParsing="false" onAction="#istrintiZyme" text="Ištrinti" />
+        <Button fx:id="buttonProduktaiPrideti" layoutX="647.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti" />
+        <Button fx:id="buttonProduktaiRedaguoti" layoutX="647.0" layoutY="55.0" mnemonicParsing="false" onAction="#redaguotiProdukta" text="Redaguoti" />
+        <Button fx:id="buttonProduktaiIštrinti" layoutX="648.0" layoutY="98.0" mnemonicParsing="false" onAction="#istrintiProdukta" text="Ištrinti" />
+        <Button fx:id="buttonZymePrideti" layoutX="1059.0" layoutY="15.0" mnemonicParsing="false" onAction="#pridetiZyme" text="Pridėti" />
+        <Button fx:id="buttonZymeIstrinti" layoutX="1060.0" layoutY="56.0" mnemonicParsing="false" onAction="#istrintiZyme" text="Ištrinti" />
     </children>
 </AnchorPane>
