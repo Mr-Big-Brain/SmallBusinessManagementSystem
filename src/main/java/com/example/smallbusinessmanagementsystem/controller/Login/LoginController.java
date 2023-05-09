@@ -40,7 +40,7 @@ public class LoginController {
         {
             CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
             currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
-            windowManager.showTabFinansai(event);
+            windowManager.showTabStatistikaProduktai(event,"Testas1");
         }
 
     }

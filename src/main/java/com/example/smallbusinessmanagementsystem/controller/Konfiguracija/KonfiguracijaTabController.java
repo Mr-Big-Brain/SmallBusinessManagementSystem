@@ -31,7 +31,6 @@ public class KonfiguracijaTabController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-        System.out.println("clicked " + tabPaneKonfiguracija.getSelectionModel().getSelectedItem().getId());
         MouseEvent mouseEvent = event;
         ActionEvent actionEvent = new ActionEvent(mouseEvent.getSource(),mouseEvent.getTarget());
         if(tabPaneKonfiguracija.getSelectionModel().getSelectedItem()==tabDarbuotojai)

@@ -12,6 +12,8 @@ import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimasController;
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimoLinijaController;
 import com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController;
+import com.example.smallbusinessmanagementsystem.controller.Statistika.Produktai.StatistikaProduktaiTabController;
+import com.example.smallbusinessmanagementsystem.controller.Statistika.StatistikaTabController;
 import com.example.smallbusinessmanagementsystem.controller.Tvarkarastis.ManageRenginisController;
 import com.example.smallbusinessmanagementsystem.model.*;
 import javafx.event.ActionEvent;
@@ -284,6 +286,86 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void WORKSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSshowTabStatistikaProduktai(ActionEvent event, String testString) {
+        try {
+            windowLoader.setTabKonfiguracijaProduktai(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabProduktai();
+
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            //new starts
+
+            StatistikaProduktaiTabController statistikaProduktaiTabController = new StatistikaProduktaiTabController(testString);
+            mainLoader.setController(statistikaProduktaiTabController);
+            mainRoot = mainLoader.load();
+
+            //new ends
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabKonfiguracijaProduktai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showTabStatistikaProduktai(ActionEvent event, String testString) {
+        try {
+            windowLoader.setTabStatistikaProduktai(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabProduktai();
+
+            //mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot); it was here
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            //new starts
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-produktai-view.fxml"));
+            StatistikaProduktaiTabController statistikaProduktaiTabControllernew = new StatistikaProduktaiTabController(testString);
+            subTabLoader.setController(statistikaProduktaiTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaProduktaiTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+            //new ends
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaProduktai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showManageRole(ActionEvent event, ControllerOperation controllerOperation, VartotojoTipas vartotojoTipas) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Konfiguracija/Darbuotojai/manage-role-view.fxml"));
@@ -302,6 +384,7 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+
     public void showManageFinansas(ActionEvent event, ControllerOperation controllerOperation, Finansas finansas) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/Finansai/manage-finansas-view.fxml"));
