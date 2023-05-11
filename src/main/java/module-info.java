@@ -60,6 +60,8 @@ module com.example.smallbusinessmanagementsystem {
     opens com.example.smallbusinessmanagementsystem.controller.Statistika.Produktai to javafx.fxml;
     exports com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes;
     opens com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes to javafx.fxml;
+    exports com.example.smallbusinessmanagementsystem.statistika;
+    opens com.example.smallbusinessmanagementsystem.statistika to com.example.smallbusinessmanagementsystem.controller, org.hibernate.orm.core;
 
 
 }

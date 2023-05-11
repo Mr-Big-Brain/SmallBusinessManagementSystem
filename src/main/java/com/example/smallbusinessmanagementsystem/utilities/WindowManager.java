@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class WindowManager {
@@ -286,45 +287,7 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void WORKSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSshowTabStatistikaProduktai(ActionEvent event, String testString) {
-        try {
-            windowLoader.setTabKonfiguracijaProduktai(true);
-            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
-            Parent mainRoot = mainLoader.load();
-            MainController mainController = mainLoader.getController();
-
-            mainController.showTabStatistika();
-
-            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
-            Parent tabRoot = tabLoader.load();
-            StatistikaTabController tabController = tabLoader.getController();
-
-            tabController.showTabProduktai();
-
-            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
-
-            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            //new starts
-
-            StatistikaProduktaiTabController statistikaProduktaiTabController = new StatistikaProduktaiTabController(testString);
-            mainLoader.setController(statistikaProduktaiTabController);
-            mainRoot = mainLoader.load();
-
-            //new ends
-            Scene nestedTabScene = new Scene(mainRoot);
-            nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
-
-
-            nestedTabStage.show();
-
-            windowLoader.setTabKonfiguracijaProduktai(false);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void showTabStatistikaProduktai(ActionEvent event, String testString) {
+    public void showTabStatistikaProduktai(ActionEvent event, List<Produktas> produktasList, LocalDate nuo, LocalDate iki) {
         try {
             windowLoader.setTabStatistikaProduktai(true);
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
@@ -345,7 +308,7 @@ public void showLogin(ActionEvent event) {
 
             //new starts
             FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-produktai-view.fxml"));
-            StatistikaProduktaiTabController statistikaProduktaiTabControllernew = new StatistikaProduktaiTabController(testString);
+            StatistikaProduktaiTabController statistikaProduktaiTabControllernew = new StatistikaProduktaiTabController(produktasList,nuo,iki);
             subTabLoader.setController(statistikaProduktaiTabControllernew);
             Parent subTabRoot = subTabLoader.load();
             StatistikaProduktaiTabController subTabController = subTabLoader.getController();

@@ -38,7 +38,7 @@ public class StatistikaTabController {
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabProduktai)
         {
             windowLoader.setTabStatistikaProduktai(true);
-            windowManager.showTabStatistikaProduktai(actionEvent,"ITWORKS");
+            windowManager.showTabStatistikaProduktai(actionEvent,null,null,null);
             windowLoader.setTabStatistikaProduktai(false);
         }
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabKlientai)
