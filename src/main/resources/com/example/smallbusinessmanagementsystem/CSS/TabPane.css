@@ -1,0 +1,22 @@
+.tab-pane .tab-header-area .tab:selected {
+    /* Set the background color of the selected tab */
+    -fx-background-color: #404040;
+    /* Set the font color of the selected tab */
+    -fx-text-fill: red;
+}
+.tab-pane .tab-header-area .tab {
+    /* Set the background color of the selected tab */
+    -fx-background-color: #333333;
+    /* Set the font color of the selected tab */
+    -fx-text-fill: white;
+}
+.tab-pane .tab-content-area {
+    /* Set the background color of the tab content area */
+    -fx-background-color: #404040;
+}
+.tab-pane .tab-header-background {
+    -fx-background-color: #262626;
+}
+.tab-label{
+    -fx-text-fill: white;
+}

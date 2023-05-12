@@ -34,14 +34,15 @@ public class LoginController {
 
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
-        vartotojasService.createAdminIfNoUsers();
-
-        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(),textFieldSlaptazodis.getText()))
-        {
-            CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
-            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
-            windowManager.showTabStatistikaProduktai(event,null,null,null);
-        }
+        windowManager.showTabKonfiguracijaZymes(event);
+//        vartotojasService.createAdminIfNoUsers();
+//
+//        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(),textFieldSlaptazodis.getText()))
+//        {
+//            CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
+//            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
+//            windowManager.showTabStatistikaProduktai(event,null,null,null);
+//        }
     }
     @FXML
     void redaguotiPaskyra(ActionEvent event) throws IOException {
