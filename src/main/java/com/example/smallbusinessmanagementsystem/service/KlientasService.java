@@ -14,7 +14,6 @@ public class KlientasService {
     {
         klientasPersistenceController = new KlientasPersistenceController();
         komunikacijaService = new KomunikacijaService();
-
     }
     public boolean tryCreateKlientas(String vardas, String pavarde, String imone, String telefonas, String pastas)
     {

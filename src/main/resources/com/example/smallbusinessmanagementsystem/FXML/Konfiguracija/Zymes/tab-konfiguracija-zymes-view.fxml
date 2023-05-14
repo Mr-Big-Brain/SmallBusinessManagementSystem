@@ -15,7 +15,7 @@
                 <TableColumn fx:id="columnZymesTipas" prefWidth="119.0" text="Tipas" />
             </columns>
         </TableView>
-        <ChoiceBox fx:id="choiceBoxZymiuTipai" layoutX="14.0" layoutY="14.0" onAction="#sortZymes" prefWidth="150.0" />
+        <ChoiceBox fx:id="choiceBoxZymiuTipai" layoutX="14.0" layoutY="14.0" onAction="#sortZymes" prefWidth="150.0" stylesheets="@../../../CSS/ChoiceBox.css" />
         <Button fx:id="buttonZymesPrideti" layoutX="382.0" layoutY="53.0" mnemonicParsing="false" onAction="#pridetiZyme" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
         <Button fx:id="buttonZymesPervadinti" layoutX="382.0" layoutY="90.0" mnemonicParsing="false" onAction="#pervadintiZyme" stylesheets="@../../../CSS/ButtonUpdate.css" text="Pervadinti" />
         <Button fx:id="buttonZymesIstrinti" layoutX="383.0" layoutY="129.0" mnemonicParsing="false" onAction="#istrintiZyme" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />

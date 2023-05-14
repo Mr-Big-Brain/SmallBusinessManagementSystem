@@ -25,8 +25,6 @@ lsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/Z
 tsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/KomunikacijaPersistenceController.java,a\a\aa7bb353cf17cf4438116243d685cbba7f803bd1
 ¢
 rsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/PardavimasPersistenceController.java,f\f\ff33071c6c231984b035dfab624b7dac9f54ee88
-à
-Xsrc/main/java/com/example/smallbusinessmanagementsystem/service/KomunikacijaService.java,b\4\b4508b19c3d8b33a1c61da907d84c647b448480a
 Ä
 Psrc/main/java/com/example/smallbusinessmanagementsystem/service/ZymeService.java,4\9\4941b83d2188441a392f8963795646d5ecf5c88f
 à
@@ -51,8 +49,6 @@ msrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis
 Zsrc/main/java/com/example/smallbusinessmanagementsystem/controller/FindZymeController.java,2\a\2acfe0257cadf9eef23eac9554d50749c41410ab
 ë
 asrc/main/java/com/example/smallbusinessmanagementsystem/controller/Login/LoginEditController.java,5\4\548ab602cad3a52127192608023577c3cc6660d7
-Ñ
-Tsrc/main/java/com/example/smallbusinessmanagementsystem/service/KlientasService.java,9\4\94a231b5168fab648fd6433be13afb3200a3e68f
 ¨
 |src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Darbuotojai/ManageVartotojasController.java,6\6\665bb8834d177299a62ee5ab97b778d91b8ee7e7
 ä
@@ -61,8 +57,6 @@ Zsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojoTipasS
 ysrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/ManageProduktasController.java,5\4\543294bcc477721f70c0bf66d420426270e0b040
 ß
 wsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/PardavimoLinijaPersistenceController.java,e\1\e19df1f0edcdf72be5dac7f95e789aaa6d9bb2f0
-Ñ
-Tsrc/main/java/com/example/smallbusinessmanagementsystem/service/FinansasService.java,8\a\8a4553162383de3edc39a40b8faaa0f758ee5060
 ô
 isrc/main/java/com/example/smallbusinessmanagementsystem/controller/Finansai/ManageFinansasController.java,2\d\2d103d78224cafea4d945df1f3146ec5e4fbbacc
 â
@@ -75,8 +69,6 @@ Zsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ControllerOpe
 rsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/ManagePardavimoLinijaController.java,6\4\649fd4df05493027b6275a8c94d3f92c851dffcd
 é
 ^src/main/java/com/example/smallbusinessmanagementsystem/controller/FindKlientasController.java,5\e\5ec30f3560f637c36a62435e9ba20858cc803374
-Ü
-Vsrc/main/java/com/example/smallbusinessmanagementsystem/service/PardavimasService.java,a\8\a8fd9a071f3ff2e4b1ea55b1f4acf6158feefa1b
 ã
 [src/main/java/com/example/smallbusinessmanagementsystem/service/PardavimoLinijaService.java,7\7\7746290ffc9c6e70d98bb1e8620cb4c7702796f8
 ñ
@@ -139,8 +131,6 @@ Gsrc/main/java/com/example/smallbusinessmanagementsystem/model/Zyme.java,b\1\b1
 Qsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ZymesTipas.java,c\e\ce2fb9d4e6c15d7f9dd66663d0c7e4f6502a0687
 è
 _src/main/java/com/example/smallbusinessmanagementsystem/controller/FindProduktasController.java,a\1\a11e5ea63b86419d9dd663bb992f653d984180fd
-í
-bsrc/main/java/com/example/smallbusinessmanagementsystem/statistika/StatistikaProduktaiService.java,5\6\5661aaa64bd1f8333c86432d3b07b019a34a5e63
 å
 \src/main/java/com/example/smallbusinessmanagementsystem/statistika/StatistikosElementas.java,6\b\6b2f4d1a0fa86728c279c391dee45eed1611d887
 ö
@@ -153,3 +143,7 @@ r
 Bsrc/main/java/com/example/smallbusinessmanagementsystem/Start.java,8\8\8852936bb3ff1ce82c1635d4d7b1b6a367fc6a45
 Ñ
 Tsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/WindowManager.java,9\2\92603e37feb58d42ce44da6b196e061cf5a2a7af
+ç
+]src/main/java/com/example/smallbusinessmanagementsystem/controller/Login/LoginController.java,0\f\0fc308efcbec46b58e84672e78a29be742bd3408
+í
+bsrc/main/java/com/example/smallbusinessmanagementsystem/statistika/StatistikaProduktaiService.java,5\6\5661aaa64bd1f8333c86432d3b07b019a34a5e63
