@@ -29,5 +29,6 @@
         </TableView>
         <ChoiceBox fx:id="choiceBoxTipas" layoutX="14.0" layoutY="14.0" onAction="#sortFinansai" prefWidth="150.0" />
         <Label layoutX="183.0" layoutY="18.0" text="Pajamos/išlaidos/abu" />
+      <Button fx:id="buttonPerziuretiFinansa" layoutX="836.0" layoutY="213.0" mnemonicParsing="false" onAction="#perziuretiFinansa" text="Peržiūrėti finansą" />
     </children>
 </AnchorPane>

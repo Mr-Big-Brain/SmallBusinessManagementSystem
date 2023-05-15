@@ -45,7 +45,16 @@ public class ManageFinansasController implements Initializable{
         else if(controllerOperation == ControllerOperation.CREATE)
         {
             buttonAction.setText("Sukurti");
-
+        }
+        else if(controllerOperation == ControllerOperation.REVIEW)
+        {
+            textFieldKiekis.setEditable(false);
+            textFieldPavadinimas.setEditable(false);
+            textAreaApibudinimas.setEditable(false);
+            datePickerData.setEditable(false);
+            buttonAction.setVisible(false);
+            buttonIstrintiZyme.setVisible(false);
+            buttonPridetiZyme.setVisible(false);
         }
         setData(finansasModifikacijai);
         fillTableZymes();

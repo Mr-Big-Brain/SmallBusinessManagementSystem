@@ -63,6 +63,9 @@ public class FinansaiTabController implements Initializable {
     private Button buttonRastiFinansa;
 
     @FXML
+    private Button buttonPerziuretiFinansa;
+
+    @FXML
     private TableView<Finansas> tableViewFinansai;
 
     @FXML
@@ -111,6 +114,10 @@ public class FinansaiTabController implements Initializable {
     @FXML
     void rastiFinansa(ActionEvent event) {
 
+    }
+    @FXML
+    void perziuretiFinansa(ActionEvent event) {
+        windowManager.showManageFinansas(event, ControllerOperation.REVIEW,tableViewFinansai.getSelectionModel().getSelectedItem());
     }
 
     @FXML
