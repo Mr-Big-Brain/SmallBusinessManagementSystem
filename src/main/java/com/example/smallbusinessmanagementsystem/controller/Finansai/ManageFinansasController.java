@@ -37,7 +37,7 @@ public class ManageFinansasController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textFieldDarbuotojas.setEditable(false);
-        fillChoiceBox(FinansoTipas.ISLAIDOS);
+        fillChoiceBox(FinansoTipas.IŠLAIDOS);
         if(controllerOperation == ControllerOperation.UPDATE)
         {
             buttonAction.setText("Atnaujinti");
@@ -170,12 +170,14 @@ public class ManageFinansasController implements Initializable{
                 fillTableZymes();
             }
     }
-    public void constructFinansas()
-    {
+    public void constructFinansas() {
         finansasModifikacijai.setData(datePickerData.getValue());
         finansasModifikacijai.setPavadinimas(textFieldPavadinimas.getText());
         finansasModifikacijai.setApibudinimas(textAreaApibudinimas.getText());
-        finansasModifikacijai.setKiekis(Double.parseDouble(textFieldKiekis.getText()));
+        if (!Objects.equals(textFieldKiekis.getText(), ""))
+        {
+            finansasModifikacijai.setKiekis(Double.parseDouble(textFieldKiekis.getText()));
+        }
         finansasModifikacijai.setTipas(choiceBoxTipas.getValue());
         if(finansasModifikacijai.getVartotojas()==null)
         {
@@ -214,7 +216,7 @@ public class ManageFinansasController implements Initializable{
     private void fillChoiceBox(FinansoTipas finansoTipas)
     {
         choiceBoxTipas.getItems().clear();
-        choiceBoxTipas.getItems().addAll(FinansoTipas.ISLAIDOS,FinansoTipas.PAJAMOS);
+        choiceBoxTipas.getItems().addAll(FinansoTipas.IŠLAIDOS,FinansoTipas.PAJAMOS);
         choiceBoxTipas.setValue(finansoTipas);
     }
 }

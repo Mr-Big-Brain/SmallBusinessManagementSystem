@@ -63,7 +63,7 @@ public class FinansasService {
         {
             for(int i=finansai.size()-1;i>=0;i--)
             {
-                if(finansai.get(i).getTipas()!=FinansoTipas.ISLAIDOS)
+                if(finansai.get(i).getTipas()!=FinansoTipas.IŠLAIDOS)
                 {
                     finansai.remove(i);
                 }

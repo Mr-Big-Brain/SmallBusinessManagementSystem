@@ -124,7 +124,7 @@ public class FinansaiTabController implements Initializable {
     private void fillChoiceBox(FinansoTipas finansoTipas)
     {
         choiceBoxTipas.getItems().clear();
-        choiceBoxTipas.getItems().addAll(FinansoTipas.VISI,FinansoTipas.ISLAIDOS,FinansoTipas.PAJAMOS);
+        choiceBoxTipas.getItems().addAll(FinansoTipas.VISI,FinansoTipas.IŠLAIDOS,FinansoTipas.PAJAMOS);
         choiceBoxTipas.setValue(finansoTipas);
     }
     private void fillTableViewFinansai(FinansoTipas finansoTipas)
@@ -176,7 +176,7 @@ public class FinansaiTabController implements Initializable {
         {
             finansai = FXCollections.observableList(finansasService.getAllFinanasai());
         }
-        if(finansoTipas == FinansoTipas.ISLAIDOS)
+        if(finansoTipas == FinansoTipas.IŠLAIDOS)
         {
             finansai = FXCollections.observableList(finansasService.getAllIslaidos());
         }

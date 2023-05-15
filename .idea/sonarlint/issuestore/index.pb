@@ -57,14 +57,10 @@ Zsrc/main/java/com/example/smallbusinessmanagementsystem/service/VartotojoTipasS
 ysrc/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Produktai/ManageProduktasController.java,5\4\543294bcc477721f70c0bf66d420426270e0b040
 ß
 wsrc/main/java/com/example/smallbusinessmanagementsystem/persistenceController/PardavimoLinijaPersistenceController.java,e\1\e19df1f0edcdf72be5dac7f95e789aaa6d9bb2f0
-ô
-isrc/main/java/com/example/smallbusinessmanagementsystem/controller/Finansai/ManageFinansasController.java,2\d\2d103d78224cafea4d945df1f3146ec5e4fbbacc
 â
 Ysrc/main/java/com/example/smallbusinessmanagementsystem/service/SandelioPrekeService.java,f\1\f13774cfd54d105ad7240f00167e4d44cee775c1
 ù
 msrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/ManagePardavimasController.java,3\c\3c6ee343098cf2b2d2efc3ab85350096777064fb
-ä
-Zsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ControllerOperation.java,7\e\7e78ed7d3193225816d2796dadabe896bf7e0e99
 ¢
 rsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/ManagePardavimoLinijaController.java,6\4\649fd4df05493027b6275a8c94d3f92c851dffcd
 é
@@ -83,8 +79,6 @@ nsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Tvarkarastis
 {src/main/java/com/example/smallbusinessmanagementsystem/controller/Konfiguracija/Zymes/KonfiguracijaZymesTabController.java,e\f\ef12dfe4d997284951b346c4d0402f696f1eef43
 Ü
 Vsrc/main/java/com/example/smallbusinessmanagementsystem/controller/MainController.java,6\a\6ac01b30ab55a2bab327ea28b1a25ca86607c53b
-É
-Ssrc/main/java/com/example/smallbusinessmanagementsystem/utilities/FinansoTipas.java,6\4\6461a2d9e9f04aba7f84337760eb87f597413afc
 {
 Ksrc/main/java/com/example/smallbusinessmanagementsystem/model/Klientas.java,8\0\80c397b7c46034fc867828b6c3ecf4cf96b8c408
 
@@ -109,8 +103,6 @@ Qsrc/main/java/com/example/smallbusinessmanagementsystem/model/VartotojoTipas.ja
 fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Sandelis/SandelisTabController.java,b\0\b01fc5381906d8dc4ac901daf04ed4c381286ff0
 Ö
 Usrc/main/java/com/example/smallbusinessmanagementsystem/service/ProduktasService.java,b\6\b6179a2d9ae4d82a51ef34d35153302d02ed537b
-ñ
-fsrc/main/java/com/example/smallbusinessmanagementsystem/controller/Finansai/FinansaiTabController.java,5\b\5b8c1e2545e81cb3259a9df5693abe4a231f202b
 {
 Ksrc/main/java/com/example/smallbusinessmanagementsystem/model/Finansas.java,0\a\0aa9deee9711916fdb1b9618783eb89dbecc05cd
 ∏
@@ -143,7 +135,5 @@ r
 Bsrc/main/java/com/example/smallbusinessmanagementsystem/Start.java,8\8\8852936bb3ff1ce82c1635d4d7b1b6a367fc6a45
 Ñ
 Tsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/WindowManager.java,9\2\92603e37feb58d42ce44da6b196e061cf5a2a7af
-ç
-]src/main/java/com/example/smallbusinessmanagementsystem/controller/Login/LoginController.java,0\f\0fc308efcbec46b58e84672e78a29be742bd3408
 í
 bsrc/main/java/com/example/smallbusinessmanagementsystem/statistika/StatistikaProduktaiService.java,5\6\5661aaa64bd1f8333c86432d3b07b019a34a5e63
