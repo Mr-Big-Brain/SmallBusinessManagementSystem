@@ -81,9 +81,6 @@ public class FinansaiTabController implements Initializable {
     private TableColumn<Finansas, String> columnPavadinimas;
 
     @FXML
-    private TableColumn<Finansas, String> columnApibudinimas;
-
-    @FXML
     private TableColumn<Finansas, LocalDate> columnData;
 
     @FXML
@@ -138,7 +135,6 @@ public class FinansaiTabController implements Initializable {
     {
         ObservableList<Finansas> finansai = FXCollections.observableArrayList();
         columnID.setCellValueFactory(new PropertyValueFactory<Finansas, Integer>("id"));
-        columnApibudinimas.setCellValueFactory(new PropertyValueFactory<Finansas,String>("apibudinimas"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Finansas,String>("pavadinimas"));
         columnData.setCellValueFactory(new PropertyValueFactory<Finansas, LocalDate>("data"));
         columnKiekis.setCellValueFactory(new PropertyValueFactory<Finansas, Double>("kiekis"));
@@ -147,9 +143,7 @@ public class FinansaiTabController implements Initializable {
         columnDarbuotojas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getVartotojas()!=null)
             {
-                int vartotojoId = cellData.getValue().getVartotojas().getId();
-                Vartotojas vartotojasTemp = vartotojasService.getVartotojasById(vartotojoId);
-                String vartotojas = (vartotojasTemp != null) ? vartotojasTemp.getVardas() + ", " + vartotojasTemp.getPavarde() : "";
+                String vartotojas = (cellData.getValue().getVartotojas() != null) ? cellData.getValue().getVartotojas().getVardas() + " " + cellData.getValue().getVartotojas().getPavarde() : "";
                 return new SimpleStringProperty(vartotojas);
             }
             else return new SimpleStringProperty("");
@@ -160,11 +154,10 @@ public class FinansaiTabController implements Initializable {
             {
                 int zymesCount = cellData.getValue().getZymes().size();
                 String zymesString = "";
-                int zymesId;
+                Zyme zymeTemp;
                 for(int i=0;i<zymesCount;i++)
                 {
-                    zymesId = cellData.getValue().getZymes().get(i).getId();
-                    Zyme zymeTemp = zymeService.getZymeById(zymesId);
+                     zymeTemp = cellData.getValue().getZymes().get(i);
 
                     if(i==0)
                     {
