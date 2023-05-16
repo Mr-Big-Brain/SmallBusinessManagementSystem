@@ -57,12 +57,6 @@ public class FinansaiTabController implements Initializable {
     private Button buttonIstrintiFinansa;
 
     @FXML
-    private CheckBox checkBoxSuPardavimais;
-
-    @FXML
-    private Button buttonRastiFinansa;
-
-    @FXML
     private Button buttonPerziuretiFinansa;
 
     @FXML
@@ -93,6 +87,9 @@ public class FinansaiTabController implements Initializable {
     private ChoiceBox<FinansoTipas> choiceBoxTipas;
 
     @FXML
+    private TextField textFieldPaieska;
+
+    @FXML
     void istrintiFinansa(ActionEvent event) {
         if(finansasService.tryDeleteFinansas(tableViewFinansai.getSelectionModel().getSelectedItem().getId()))
         {
@@ -109,8 +106,7 @@ public class FinansaiTabController implements Initializable {
     }
 
     @FXML
-    void rastiFinansa(ActionEvent event) {
-
+    void ieskoti(ActionEvent event) {
     }
     @FXML
     void perziuretiFinansa(ActionEvent event) {
