@@ -101,7 +101,6 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void naujasPardavimas(ActionEvent event) {
-        System.out.println(pardavimoLinijaService.getPardavimoSuma(1));
         windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null,null);
     }
 

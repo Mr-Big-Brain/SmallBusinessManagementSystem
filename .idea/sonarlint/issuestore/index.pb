@@ -131,15 +131,9 @@ Tsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/WindowManager
 bsrc/main/java/com/example/smallbusinessmanagementsystem/statistika/StatistikaProduktaiService.java,5\6\5661aaa64bd1f8333c86432d3b07b019a34a5e63
 Ñ
 Tsrc/main/java/com/example/smallbusinessmanagementsystem/service/KlientasService.java,9\4\94a231b5168fab648fd6433be13afb3200a3e68f
-Ü
-Vsrc/main/java/com/example/smallbusinessmanagementsystem/service/PardavimasService.java,a\8\a8fd9a071f3ff2e4b1ea55b1f4acf6158feefa1b
 à
 Xsrc/main/java/com/example/smallbusinessmanagementsystem/service/KomunikacijaService.java,b\4\b4508b19c3d8b33a1c61da907d84c647b448480a
-Ñ
-Tsrc/main/java/com/example/smallbusinessmanagementsystem/service/FinansasService.java,8\a\8a4553162383de3edc39a40b8faaa0f758ee5060
 É
 Ssrc/main/java/com/example/smallbusinessmanagementsystem/utilities/FinansoTipas.java,6\4\6461a2d9e9f04aba7f84337760eb87f597413afc
 ä
 Zsrc/main/java/com/example/smallbusinessmanagementsystem/utilities/ControllerOperation.java,7\e\7e78ed7d3193225816d2796dadabe896bf7e0e99
-ù
-msrc/main/java/com/example/smallbusinessmanagementsystem/controller/Pardavimai/ManagePardavimasController.java,3\c\3c6ee343098cf2b2d2efc3ab85350096777064fb

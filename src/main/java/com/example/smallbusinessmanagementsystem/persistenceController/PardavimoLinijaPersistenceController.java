@@ -2,10 +2,7 @@ package com.example.smallbusinessmanagementsystem.persistenceController;
 
 import com.example.smallbusinessmanagementsystem.model.PardavimoLinija;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
@@ -129,5 +126,20 @@ public class PardavimoLinijaPersistenceController {
             entityManager.close();
         }
         return sum;
+    }
+    public List<PardavimoLinija> getPardavimoLinijosByPardavimas(int pardavimoId) {
+        List<PardavimoLinija> pardavimoLinijos = null;
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String jpql = "SELECT p FROM PardavimoLinija p WHERE p.pardavimas.id = :pardavimoId";
+            TypedQuery<PardavimoLinija> query = entityManager.createQuery(jpql, PardavimoLinija.class);
+            query.setParameter("pardavimoId", pardavimoId);
+            pardavimoLinijos = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return pardavimoLinijos;
     }
 }

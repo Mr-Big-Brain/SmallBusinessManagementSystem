@@ -55,18 +55,6 @@ public class PardavimoLinijaService {
     }
     public List<PardavimoLinija> getPardavimoLinijosByPardavimas(int pardavimoId)
     {
-        List<PardavimoLinija> visosPardavimoLinijos = getVisosPardavimoLinijos();
-        List<PardavimoLinija> pardavimoPardavimoLinijos = new ArrayList<>();
-        if(visosPardavimoLinijos!=null && !visosPardavimoLinijos.isEmpty())
-        {
-            for(int i=0;i<visosPardavimoLinijos.size();i++)
-            {
-                if(visosPardavimoLinijos.get(i).getPardavimas().getId()==pardavimoId)
-                {
-                    pardavimoPardavimoLinijos.add(visosPardavimoLinijos.get(i));
-                }
-            }
-        }
-        return pardavimoPardavimoLinijos;
+        return pardavimoLinijaPersistenceController.getPardavimoLinijosByPardavimas(pardavimoId);
     }
 }
