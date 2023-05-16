@@ -47,19 +47,7 @@ public class PardavimoLinijaService {
     }
     public double getPardavimoSuma(Integer pardavimoId)
     {
-        double suma = 0;
-        List<PardavimoLinija> visosPardavimoLinijos = getVisosPardavimoLinijos();
-        if(visosPardavimoLinijos!=null && !visosPardavimoLinijos.isEmpty())
-        {
-            for(int i=0;i<visosPardavimoLinijos.size();i++)
-            {
-                if(visosPardavimoLinijos.get(i).getPardavimas().getId()==pardavimoId)
-                {
-                    suma+=visosPardavimoLinijos.get(i).getKiekis()*visosPardavimoLinijos.get(i).getKainaUzViena();
-                }
-            }
-        }
-        return suma;
+        return pardavimoLinijaPersistenceController.getPardavimoSuma(pardavimoId);
     }
     public List<PardavimoLinija> getVisosPardavimoLinijos()
     {

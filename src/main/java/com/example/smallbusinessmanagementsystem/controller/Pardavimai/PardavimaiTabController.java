@@ -101,6 +101,7 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void naujasPardavimas(ActionEvent event) {
+        System.out.println(pardavimoLinijaService.getPardavimoSuma(1));
         windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null,null);
     }
 
@@ -122,9 +123,7 @@ public class PardavimaiTabController implements Initializable {
         columnPardavimaiDarbuotojas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getPardavejas()!=null)
             {
-                int vartotojoId = cellData.getValue().getPardavejas().getId();
-                Vartotojas vartotojasTemp = vartotojasService.getVartotojasById(vartotojoId);
-                String vartotojas = (vartotojasTemp != null) ? vartotojasTemp.getVardas() + ", " + vartotojasTemp.getPavarde() : "";
+                String vartotojas = cellData.getValue().getPardavejas().getVardas() + " " + cellData.getValue().getPardavejas().getPavarde();
                 return new SimpleStringProperty(vartotojas);
             }
             else return new SimpleStringProperty("");
@@ -133,10 +132,8 @@ public class PardavimaiTabController implements Initializable {
         columnPardavimaiPirkejas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getKlientas()!=null)
             {
-                int klientoId = cellData.getValue().getKlientas().getId();
-                Klientas klientasTemp = klientasService.getKlientasById(klientoId);
-                String vartotojas = (klientasTemp != null) ? klientasTemp.getId() + ", " + klientasTemp.getPavarde() : "";
-                return new SimpleStringProperty(vartotojas);
+                String klientas = cellData.getValue().getKlientas().getId() + ", " + cellData.getValue().getKlientas().getPavarde();
+                return new SimpleStringProperty(klientas);
             }
             else return new SimpleStringProperty("");
         });

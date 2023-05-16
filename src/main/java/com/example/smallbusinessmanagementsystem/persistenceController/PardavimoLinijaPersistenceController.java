@@ -115,4 +115,19 @@ public class PardavimoLinijaPersistenceController {
             }
         }
     }
+    public Double getPardavimoSuma(int pardavimasId) {
+        Double sum = null;
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String jpql = "SELECT SUM(p.kainaUzViena * p.kiekis) FROM PardavimoLinija p WHERE p.pardavimas.id = :pardavimasId";
+            Query query = entityManager.createQuery(jpql);
+            query.setParameter("pardavimasId", pardavimasId);
+            sum = (Double) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return sum;
+    }
 }
