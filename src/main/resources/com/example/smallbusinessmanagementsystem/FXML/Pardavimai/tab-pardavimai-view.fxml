@@ -9,11 +9,11 @@
 
 <AnchorPane prefHeight="524.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Pardavimai.PardavimaiTabController">
     <children>
-        <Button fx:id="buttonNaujasPardavimas" layoutX="625.0" layoutY="14.0" onAction="#naujasPardavimas" text="Naujas pardavimas" />
-        <Button fx:id="buttonRedaguotiPardavima" layoutX="625.0" layoutY="57.0" mnemonicParsing="false" onAction="#redaguotiPardavima" text="Redaguoti pardavimą" />
-        <Button fx:id="buttonIstrintiPardavima" layoutX="625.0" layoutY="101.0" mnemonicParsing="false" onAction="#istrintiPardavima" text="Ištrinti pardavimą" />
-        <Button fx:id="buttonRastiPardavima" layoutX="625.0" layoutY="143.0" mnemonicParsing="false" onAction="#rastiPardavima" text="Rasti pardavimą" />
-        <TableView fx:id="tableVIewPardavimai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+        <Button fx:id="buttonNaujasPardavimas" layoutX="625.0" layoutY="14.0" onAction="#naujasPardavimas" stylesheets="@../../CSS/ButtonCreate.css" text="Naujas pardavimas" />
+        <Button fx:id="buttonRedaguotiPardavima" layoutX="625.0" layoutY="57.0" mnemonicParsing="false" onAction="#redaguotiPardavima" stylesheets="@../../CSS/ButtonUpdate.css" text="Redaguoti pardavimą" />
+        <Button fx:id="buttonIstrintiPardavima" layoutX="625.0" layoutY="101.0" mnemonicParsing="false" onAction="#istrintiPardavima" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti pardavimą" />
+        <Button fx:id="buttonRastiPardavima" layoutX="625.0" layoutY="143.0" mnemonicParsing="false" onAction="#rastiPardavima" stylesheets="@../../CSS/ButtonOptional.css" text="Rasti pardavimą" />
+        <TableView fx:id="tableVIewPardavimai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../CSS/TableView.css">
             <columns>
                 <TableColumn fx:id="columnPardavimaiID" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="columnPardavimaiData" prefWidth="118.0" text="Data" />
@@ -24,7 +24,7 @@
         </TableView>
         <DatePicker fx:id="datePickerNuo" layoutX="14.0" layoutY="455.0" />
         <DatePicker fx:id="datePickerIki" layoutX="227.0" layoutY="455.0" />
-        <Label layoutX="14.0" layoutY="438.0" text="Nuo" />
-        <Label layoutX="227.0" layoutY="438.0" text="Iki" />
+        <Label layoutX="14.0" layoutY="438.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
+        <Label layoutX="227.0" layoutY="438.0" stylesheets="@../../CSS/Label.css" text="Iki" />
     </children>
 </AnchorPane>

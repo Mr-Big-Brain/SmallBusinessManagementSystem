@@ -26,7 +26,7 @@
             </columns>
         </TableView>
         <ChoiceBox fx:id="choiceBoxTipas" layoutX="14.0" layoutY="14.0" onAction="#sortFinansai" prefWidth="150.0" stylesheets="@../../CSS/ChoiceBox.css" />
-      <Button fx:id="buttonPerziuretiFinansa" layoutX="836.0" layoutY="213.0" mnemonicParsing="false" onAction="#perziuretiFinansa" text="Peržiūrėti finansą" />
+      <Button fx:id="buttonPerziuretiFinansa" layoutX="836.0" layoutY="213.0" mnemonicParsing="false" onAction="#perziuretiFinansa" stylesheets="@../../CSS/ButtonOptional.css" text="Peržiūrėti finansą" />
       <TextField fx:id="textFieldPaieska" layoutX="14.0" layoutY="485.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="766.0" />
       <Label layoutX="14.0" layoutY="468.0" stylesheets="@../../CSS/Label.css" text="Paieška" />
       <DatePicker layoutX="247.0" layoutY="14.0" />

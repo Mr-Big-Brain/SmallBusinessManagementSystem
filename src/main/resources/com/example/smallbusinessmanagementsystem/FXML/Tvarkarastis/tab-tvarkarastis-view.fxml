@@ -18,7 +18,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="tableViewManoTvarkarastis" onMouseClicked="#openManoAprasymas" layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                <TableView fx:id="tableViewManoTvarkarastis" layoutX="14.0" layoutY="47.0" onMouseClicked="#openManoAprasymas" prefHeight="250.0" prefWidth="350.0" stylesheets="@../../CSS/TableView.css">
                                     <columns>
                                         <TableColumn fx:id="columnManoData" prefWidth="75.0" text="Data" />
                                         <TableColumn fx:id="columnManoPavadinimas" prefWidth="88.0" text="Pavadinimas" />
@@ -26,11 +26,11 @@
                                     </columns>
                                 </TableView>
                                 <DatePicker fx:id="datePickerManoNuo" layoutX="52.0" layoutY="14.0" onAction="#atnaujintiManoTvarkarasti" prefHeight="25.0" prefWidth="115.0" />
-                                <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                <Label layoutX="14.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
                                 <DatePicker fx:id="datePickerManoIki" layoutX="249.0" layoutY="14.0" onAction="#atnaujintiManoTvarkarasti" prefHeight="25.0" prefWidth="115.0" />
-                                <Label layoutX="211.0" layoutY="18.0" text="Iki" />
+                                <Label layoutX="211.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Iki" />
                         <TextArea fx:id="textAreaManoAprasymas" layoutX="391.0" layoutY="74.0" prefHeight="223.0" prefWidth="289.0" />
-                        <Label layoutX="391.0" layoutY="57.0" text="Aprašymas" />
+                        <Label layoutX="391.0" layoutY="57.0" stylesheets="@../../CSS/Label.css" text="Aprašymas" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -39,7 +39,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="tableViewSukurtasTvarkarastis" onMouseClicked="#openSukurtasAprasymas" layoutX="14.0" layoutY="47.0" prefHeight="250.0" prefWidth="350.0">
+                                <TableView fx:id="tableViewSukurtasTvarkarastis" layoutX="14.0" layoutY="47.0" onMouseClicked="#openSukurtasAprasymas" prefHeight="250.0" prefWidth="350.0" stylesheets="@../../CSS/TableView.css">
                                     <columns>
                                         <TableColumn fx:id="columnSukurtiData" prefWidth="75.0" text="Data" />
                                         <TableColumn fx:id="columnSukurtiPavadinimas" prefWidth="87.0" text="Pavadinimas" />
@@ -47,12 +47,12 @@
                                     </columns>
                                 </TableView>
                                 <DatePicker fx:id="datePickerSukurtiNuo" layoutX="52.0" layoutY="14.0" onAction="#atnaujintiSukurtusTvarkarascius" prefHeight="25.0" prefWidth="115.0" />
-                                <Label layoutX="14.0" layoutY="18.0" text="Nuo" />
+                                <Label layoutX="14.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
                                 <DatePicker fx:id="datePickerSukurtiIki" layoutX="249.0" layoutY="14.0" onAction="#atnaujintiSukurtusTvarkarascius" prefHeight="25.0" prefWidth="115.0" />
-                                <Label layoutX="211.0" layoutY="18.0" text="Iki" />
-                                <Button fx:id="buttonSukurtiRengini" layoutX="16.0" layoutY="312.0" mnemonicParsing="false" onAction="#sukurtiRengini" text="Sukurti renginį" />
-                                <Button fx:id="buttonIstrintiRengini" layoutX="132.0" layoutY="312.0" mnemonicParsing="false" onAction="#istrintiRengini" text="Ištrinti renginį" />
-                                <Button fx:id="buttonAtnaujintiRengini" layoutX="253.0" layoutY="312.0" mnemonicParsing="false" onAction="#atnaujintiRengini" text="Atnaujinti renginį" />
+                                <Label layoutX="211.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+                                <Button fx:id="buttonSukurtiRengini" layoutX="16.0" layoutY="312.0" mnemonicParsing="false" onAction="#sukurtiRengini" stylesheets="@../../CSS/ButtonCreate.css" text="Sukurti renginį" />
+                                <Button fx:id="buttonIstrintiRengini" layoutX="132.0" layoutY="312.0" mnemonicParsing="false" onAction="#istrintiRengini" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti renginį" />
+                                <Button fx:id="buttonAtnaujintiRengini" layoutX="253.0" layoutY="312.0" mnemonicParsing="false" onAction="#atnaujintiRengini" stylesheets="@../../CSS/ButtonUpdate.css" text="Atnaujinti renginį" />
                         <Label layoutX="390.0" layoutY="56.0" text="Aprašymas" />
                         <TextArea fx:id="textAreaSukurtiAprasymas" layoutX="390.0" layoutY="73.0" prefHeight="224.0" prefWidth="290.0" />
                             </children>
