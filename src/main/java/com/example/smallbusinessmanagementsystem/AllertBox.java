@@ -15,8 +15,14 @@ public class AllertBox {
 
         Label label = new Label();
         label.setText(message);
+        label.setStyle("-fx-text-fill: white;");
+
         Button button = new Button("OK");
         button.setOnAction(e -> window.close());
+        button.setStyle("-fx-background-color: #666666; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px;");
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #235a96; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #666666; -fx-text-fill: white; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px;"));
+
 
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -25,6 +31,7 @@ public class AllertBox {
         VBox layout = new VBox();
         layout.getChildren().addAll(label, button);
         layout.setAlignment(Pos.CENTER);
+        layout.setStyle("-fx-background-color: #404040; -fx-padding: 10px;");
 
         Scene scene = new Scene(layout);
         window.setScene(scene);
