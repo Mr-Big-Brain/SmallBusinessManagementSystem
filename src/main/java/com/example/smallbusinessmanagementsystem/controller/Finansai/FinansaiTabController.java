@@ -174,11 +174,11 @@ public class FinansaiTabController implements Initializable {
         }
         if(finansoTipas == FinansoTipas.IŠLAIDOS)
         {
-            finansai = FXCollections.observableList(finansasService.getAllIslaidos());
+            finansai = FXCollections.observableList(finansasService.getAllByTipas(FinansoTipas.IŠLAIDOS));
         }
         if(finansoTipas == FinansoTipas.PAJAMOS)
         {
-            finansai = FXCollections.observableList(finansasService.getAllPajamos());
+            finansai = FXCollections.observableList(finansasService.getAllByTipas(FinansoTipas.PAJAMOS));
         }
         tableViewFinansai.setItems(finansai);
     }

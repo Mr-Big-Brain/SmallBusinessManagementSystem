@@ -41,35 +41,9 @@ public class FinansasService {
     {
         return finansasPersistenceController.getFinansasListFromDatabase();
     }
-    public List<Finansas> getAllPajamos()
+    public List<Finansas> getAllByTipas(FinansoTipas finansoTipas)
     {
-        List<Finansas> finansai = finansasPersistenceController.getFinansasListFromDatabase();
-        if(finansai!=null)
-        {
-            for(int i=finansai.size()-1;i>=0;i--)
-            {
-                if(finansai.get(i).getTipas()!=FinansoTipas.PAJAMOS)
-                {
-                    finansai.remove(i);
-                }
-            }
-        }
-        return finansai;
-    }
-    public List<Finansas> getAllIslaidos()
-    {
-        List<Finansas> finansai = finansasPersistenceController.getFinansasListFromDatabase();
-        if(finansai!=null)
-        {
-            for(int i=finansai.size()-1;i>=0;i--)
-            {
-                if(finansai.get(i).getTipas()!=FinansoTipas.IŠLAIDOS)
-                {
-                    finansai.remove(i);
-                }
-            }
-        }
-        return finansai;
+        return finansasPersistenceController.getFinansasListByFinansoTipas(finansoTipas);
     }
     private boolean validatePavadinimas(String pavadinimas)
     {

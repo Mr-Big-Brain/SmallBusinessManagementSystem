@@ -1,11 +1,10 @@
 package com.example.smallbusinessmanagementsystem.persistenceController;
 
 import com.example.smallbusinessmanagementsystem.model.Finansas;
+import com.example.smallbusinessmanagementsystem.model.PardavimoLinija;
+import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
@@ -77,6 +76,21 @@ public class FinansasPersistenceController {
             }
         }
         return null;
+    }
+    public List<Finansas> getFinansasListByFinansoTipas(FinansoTipas finansoTipas) {
+        List<Finansas> finansai = null;
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String jpql = "SELECT f FROM Finansas f WHERE f.tipas = :finansoTipas";
+            TypedQuery<Finansas> query = entityManager.createQuery(jpql, Finansas.class);
+            query.setParameter("finansoTipas", finansoTipas);
+            finansai = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return finansai;
     }
     public Finansas getFinansasById(int id) {
         EntityManager entityManager = null;
