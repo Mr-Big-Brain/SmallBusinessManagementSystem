@@ -166,7 +166,7 @@ public class KlientaiTabController implements Initializable {
     }
     public void fillKomunikacijosTable(Klientas klientas)
     {
-        ObservableList<Komunikacija> komunikacijos = FXCollections.observableList(klientasService.getKomunikacijosByKlientas(klientas));
+        ObservableList<Komunikacija> komunikacijos = FXCollections.observableList(komunikacijaService.getKomunikacijosByKlientas(klientas));
         columnKomunikacijosID.setCellValueFactory(new PropertyValueFactory<Komunikacija,Integer>("id"));
         columnKomunikacijosApibrezimas.setCellValueFactory(new PropertyValueFactory<Komunikacija,String>("apibrezimas"));
         columnKomunikacijosData.setCellValueFactory(new PropertyValueFactory<Komunikacija,LocalDate>("data"));

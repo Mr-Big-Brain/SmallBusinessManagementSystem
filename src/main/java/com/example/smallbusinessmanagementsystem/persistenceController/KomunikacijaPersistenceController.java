@@ -1,11 +1,11 @@
 package com.example.smallbusinessmanagementsystem.persistenceController;
 
+import com.example.smallbusinessmanagementsystem.model.Finansas;
+import com.example.smallbusinessmanagementsystem.model.Klientas;
 import com.example.smallbusinessmanagementsystem.model.Komunikacija;
+import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
@@ -92,6 +92,21 @@ public class KomunikacijaPersistenceController {
             System.out.println("Komunikacija su tokiu ID neegzistuoja");
         }
         return komunikacija;
+    }
+    public List<Komunikacija> getKomunijacijosByKlientas(Klientas klientas) {
+        List<Komunikacija> komunikacijos = null;
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String jpql = "SELECT k FROM Komunikacija k WHERE k.klientas = :klientas";
+            TypedQuery<Komunikacija> query = entityManager.createQuery(jpql, Komunikacija.class);
+            query.setParameter("klientas", klientas);
+            komunikacijos = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return komunikacijos;
     }
     public void delete(int id) {
         EntityManager entityManager = null;

@@ -1,6 +1,7 @@
 package com.example.smallbusinessmanagementsystem.service;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
+import com.example.smallbusinessmanagementsystem.model.Klientas;
 import com.example.smallbusinessmanagementsystem.model.Komunikacija;
 import com.example.smallbusinessmanagementsystem.persistenceController.KomunikacijaPersistenceController;
 
@@ -40,6 +41,10 @@ public class KomunikacijaService {
     public List<Komunikacija> getAllKomunikacijos()
     {
         return komunikacijaPersistenceController.getKomunikacijaListFromDatabase();
+    }
+    public List<Komunikacija> getKomunikacijosByKlientas(Klientas klientas)
+    {
+        return komunikacijaPersistenceController.getKomunijacijosByKlientas(klientas);
     }
     private boolean validateEmptyFields(Komunikacija komunikacija)
     {

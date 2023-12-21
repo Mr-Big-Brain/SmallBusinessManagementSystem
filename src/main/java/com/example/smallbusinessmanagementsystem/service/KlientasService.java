@@ -28,7 +28,7 @@ public class KlientasService {
     }
     public boolean tryDeleteKlientas(int id)
     {
-        List<Komunikacija> komunikacijos = getKomunikacijosByKlientas(getKlientasById(id));
+        List<Komunikacija> komunikacijos = komunikacijaService.getKomunikacijosByKlientas(getKlientasById(id));
         if(komunikacijos!=null)
         {
             for(int i=komunikacijos.size()-1;i>=0;i--)
@@ -38,21 +38,6 @@ public class KlientasService {
         }
         klientasPersistenceController.delete(id);
         return true;
-    }
-    public List<Komunikacija> getKomunikacijosByKlientas(Klientas klientas)
-    {
-        List<Komunikacija> visosKomunikacijos = komunikacijaService.getAllKomunikacijos();
-        if(!visosKomunikacijos.isEmpty())
-        {
-            for(int i=visosKomunikacijos.size()-1;i>=0;i--)
-            {
-                if(visosKomunikacijos.get(i).getKlientas().getId()!=klientas.getId())
-                {
-                    visosKomunikacijos.remove(i);
-                }
-            }
-        }
-        return visosKomunikacijos;
     }
     public Klientas getKlientasById(int id)
     {
