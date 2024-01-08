@@ -113,6 +113,12 @@ public class PardavimaiTabController implements Initializable {
     void redaguotiPardavima(ActionEvent event) {
         windowManager.showManagePardavimas(event, ControllerOperation.UPDATE,tableVIewPardavimai.getSelectionModel().getSelectedItem(),pardavimoLinijaService.getPardavimoLinijosByPardavimas(tableVIewPardavimai.getSelectionModel().getSelectedItem().getId()));
     }
+
+    @FXML
+    void atnaujintiPardavimus(ActionEvent event) {
+        fillTable();
+    }
+
     private void fillTable()
     {
         ObservableList<Pardavimas> pardavimai = FXCollections.observableList(pardavimasService.getAllPardavimai(datePickerNuo.getValue(),datePickerIki.getValue()));
@@ -143,7 +149,5 @@ public class PardavimaiTabController implements Initializable {
                 return new SimpleStringProperty(String.valueOf(suma));
         });
         tableVIewPardavimai.setItems(pardavimai);
-
-
     }
 }

@@ -68,11 +68,11 @@ public class PardavimasService {
         {
             for(int i=visiPardavimai.size()-1;i>=0;i--)
             {
-                if(nuo!=null && visiPardavimai.get(i).getData().isBefore(ChronoLocalDateTime.from(nuo)))
+                if(nuo!=null && visiPardavimai.get(i).getData().toLocalDate().isBefore(nuo))
                 {
                     visiPardavimai.remove(i);
                 }
-                else if(iki!=null && visiPardavimai.get(i).getData().isAfter(ChronoLocalDateTime.from(iki)))
+                else if(iki!=null && visiPardavimai.get(i).getData().toLocalDate().isAfter(iki))
                 {
                     visiPardavimai.remove(i);
                 }

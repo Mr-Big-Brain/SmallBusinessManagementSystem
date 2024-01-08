@@ -22,8 +22,8 @@
                 <TableColumn fx:id="columnPardavimaiPirkejas" prefWidth="112.0" text="Pirkėjas" />
             </columns>
         </TableView>
-        <DatePicker fx:id="datePickerNuo" layoutX="14.0" layoutY="455.0" />
-        <DatePicker fx:id="datePickerIki" layoutX="227.0" layoutY="455.0" />
+        <DatePicker fx:id="datePickerNuo" layoutX="14.0" onAction="#atnaujintiPardavimus" layoutY="455.0" />
+        <DatePicker fx:id="datePickerIki" layoutX="227.0" onAction="#atnaujintiPardavimus" layoutY="455.0" />
         <Label layoutX="14.0" layoutY="438.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
         <Label layoutX="227.0" layoutY="438.0" stylesheets="@../../CSS/Label.css" text="Iki" />
     </children>
