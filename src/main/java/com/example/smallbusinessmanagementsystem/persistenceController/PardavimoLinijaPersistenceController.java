@@ -127,6 +127,7 @@ public class PardavimoLinijaPersistenceController {
         }
         return sum;
     }
+
     public List<PardavimoLinija> getPardavimoLinijosByPardavimas(int pardavimoId) {
         List<PardavimoLinija> pardavimoLinijos = null;
         EntityManager entityManager = entityManagerFactory.createEntityManager();
