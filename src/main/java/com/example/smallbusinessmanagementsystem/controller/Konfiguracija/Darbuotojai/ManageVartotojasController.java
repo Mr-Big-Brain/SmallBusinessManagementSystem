@@ -12,10 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -52,7 +49,7 @@ public class ManageVartotojasController implements Initializable {
             textFieldPavarde.setText(vartotojasModifikacijai.getPavarde());
             textFieldTelefonas.setText(vartotojasModifikacijai.getTelefonas());
             textFieldVardas.setText(vartotojasModifikacijai.getVardas());
-            textFieldSlaptazodis.setText(vartotojasModifikacijai.getSlaptazodis());
+            passwordFieldSlaptazodis.setText(vartotojasModifikacijai.getSlaptazodis());
             textFieldPrisijungimoVardas.setText(vartotojasModifikacijai.getPrisijungimoVardas());
         }
     }
@@ -73,7 +70,7 @@ public class ManageVartotojasController implements Initializable {
     private TextField textFieldPrisijungimoVardas;
 
     @FXML
-    private TextField textFieldSlaptazodis;
+    private PasswordField passwordFieldSlaptazodis;
 
     @FXML
     private TableView<VartotojoTipas> tableViewRoles;
@@ -94,7 +91,7 @@ public class ManageVartotojasController implements Initializable {
             if(vartotojasService.tryCreateVartotojas(
                 textFieldVardas.getText(),textFieldPavarde.getText(),
                 textFieldTelefonas.getText(),textFieldApibrezimas.getText(),
-                textFieldPrisijungimoVardas.getText(),textFieldSlaptazodis.getText(),
+                textFieldPrisijungimoVardas.getText(),passwordFieldSlaptazodis.getText(),
                 tableViewRoles.getSelectionModel().getSelectedItem()))
             {
                 AllertBox.display("Pavyko","Vartotojas sukurtas");
@@ -105,7 +102,7 @@ public class ManageVartotojasController implements Initializable {
         {
             Vartotojas naujasVartotojas = new Vartotojas(textFieldVardas.getText(),textFieldPavarde.getText(),
                     textFieldTelefonas.getText(),textFieldApibrezimas.getText(),
-                    textFieldPrisijungimoVardas.getText(),textFieldSlaptazodis.getText(),
+                    textFieldPrisijungimoVardas.getText(),passwordFieldSlaptazodis.getText(),
                     tableViewRoles.getSelectionModel().getSelectedItem());
             naujasVartotojas.setId(vartotojasModifikacijai.getId());
 

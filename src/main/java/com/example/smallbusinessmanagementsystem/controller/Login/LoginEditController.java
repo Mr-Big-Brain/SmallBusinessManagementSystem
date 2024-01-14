@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -31,13 +32,13 @@ public class LoginEditController {
     private TextField TextFieldVardasSenas;
 
     @FXML
-    private TextField TextFieldSlaptazodisSenas;
-
-    @FXML
     private TextField TextFieldVardasNaujas;
 
     @FXML
-    private TextField TextFieldSlaptazodisNaujas;
+    private PasswordField passwordFieldSlaptazodisSenas;
+
+    @FXML
+    private PasswordField passwordFieldSlaptazodisNaujas;
 
     @FXML
     private Button buttonKeistiDuomenis;
@@ -52,12 +53,12 @@ public class LoginEditController {
 
     @FXML
     void keistiDuomenis(ActionEvent event) {
-        if(vartotojasService.prisijungimasEgzistuoja(TextFieldVardasSenas.getText(), TextFieldSlaptazodisSenas.getText()))
+        if(vartotojasService.prisijungimasEgzistuoja(TextFieldVardasSenas.getText(), passwordFieldSlaptazodisSenas.getText()))
         {
             Vartotojas senasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
             Vartotojas naujasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
             naujasVartotojas.setPrisijungimoVardas(TextFieldVardasNaujas.getText());
-            naujasVartotojas.setSlaptazodis(TextFieldSlaptazodisNaujas.getText());
+            naujasVartotojas.setSlaptazodis(passwordFieldSlaptazodisNaujas.getText());
             if(vartotojasService.tryUpdateVartotojas(naujasVartotojas, senasVartotojas))
             {
                 AllertBox.display("Pavyko","Vartotojas atnaujintas");

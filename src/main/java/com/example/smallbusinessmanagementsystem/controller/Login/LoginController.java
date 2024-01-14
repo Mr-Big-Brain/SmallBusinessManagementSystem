@@ -6,6 +6,7 @@ import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -30,16 +31,16 @@ public class LoginController {
     private TextField textFieldVardas;
 
     @FXML
-    private TextField textFieldSlaptazodis;
+    private PasswordField passwordFieldSlaptazodis;
 
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
 
-        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(),textFieldSlaptazodis.getText()))
+        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(), passwordFieldSlaptazodis.getText()))
         {
             CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
-            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
+            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(), passwordFieldSlaptazodis.getText()));
             windowManager.showTabTvarkarastis(event);
         }
     }
