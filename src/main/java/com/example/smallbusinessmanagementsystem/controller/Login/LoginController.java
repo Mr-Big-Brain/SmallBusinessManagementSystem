@@ -34,14 +34,13 @@ public class LoginController {
 
     @FXML
     void prisijungti(ActionEvent event) throws IOException {
-//        windowManager.showTabKonfiguracijaZymes(event);
         vartotojasService.createAdminIfNoUsers();
 
         if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(),textFieldSlaptazodis.getText()))
         {
             CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
             currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(),textFieldSlaptazodis.getText()));
-            windowManager.showTabStatistikaProduktai(event,null,null,null);
+            windowManager.showTabTvarkarastis(event);
         }
     }
     @FXML

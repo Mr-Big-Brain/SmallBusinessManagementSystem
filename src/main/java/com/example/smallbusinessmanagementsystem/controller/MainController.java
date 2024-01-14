@@ -1,11 +1,14 @@
 package com.example.smallbusinessmanagementsystem.controller;
 
 import com.example.smallbusinessmanagementsystem.controller.Klientai.KlientaiTabController;
+import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
+import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
 import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
@@ -15,14 +18,23 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
     WindowManager windowManager;
     WindowLoader windowLoader;
+    CurrentVartotojas currentVartotojas;
     public MainController()
     {
         windowManager = new WindowManager();
         windowLoader = WindowLoader.getInstance();
+        currentVartotojas = CurrentVartotojas.getInstance();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hideTabs();
     }
 
     @FXML
@@ -123,5 +135,34 @@ public class MainController {
 
     public TabPane getTabPaneKategorijos() {
         return tabPaneKategorijos;
+    }
+
+    private void hideTabs() {
+        VartotojoTipas vartotojoTipas;
+        vartotojoTipas = currentVartotojas.getVartotojas().getVartotojoTipas();
+        if(!vartotojoTipas.getFinansai())
+        {
+            tabPaneKategorijos.getTabs().remove(tabFinansai);
+        }
+        if(!vartotojoTipas.getKlientai())
+        {
+            tabPaneKategorijos.getTabs().remove(tabKlientai);
+        }
+        if(!vartotojoTipas.getStatistika())
+        {
+            tabPaneKategorijos.getTabs().remove(tabStatistika);
+        }
+        if(!vartotojoTipas.getSandelis())
+        {
+            tabPaneKategorijos.getTabs().remove(tabSandelis);
+        }
+        if(!vartotojoTipas.getKonfiguracija())
+        {
+            tabPaneKategorijos.getTabs().remove(tabKonfiguracija);
+        }
+        if(!vartotojoTipas.getPardavimai())
+        {
+            tabPaneKategorijos.getTabs().remove(tabPardavimai);
+        }
     }
 }
