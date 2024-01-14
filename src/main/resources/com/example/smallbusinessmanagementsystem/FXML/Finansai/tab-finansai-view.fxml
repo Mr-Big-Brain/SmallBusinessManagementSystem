@@ -29,8 +29,8 @@
       <Button fx:id="buttonPerziuretiFinansa" layoutX="836.0" layoutY="213.0" mnemonicParsing="false" onAction="#perziuretiFinansa" stylesheets="@../../CSS/ButtonOptional.css" text="Peržiūrėti finansą" />
       <TextField fx:id="textFieldPaieska" layoutX="14.0" layoutY="485.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="766.0" />
       <Label layoutX="14.0" layoutY="468.0" stylesheets="@../../CSS/Label.css" text="Paieška" />
-      <DatePicker layoutX="247.0" layoutY="14.0" />
-      <DatePicker layoutX="469.0" layoutY="14.0" />
+      <DatePicker fx:id="datePickerNuo" layoutX="247.0" layoutY="14.0" onAction="#filterFinansai" />
+      <DatePicker fx:id="datePickerIki" layoutX="469.0" layoutY="14.0" onAction="#filterFinansai" />
       <Label layoutX="212.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
       <Label layoutX="447.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Iki" />
     </children>

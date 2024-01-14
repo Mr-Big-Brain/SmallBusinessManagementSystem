@@ -2,7 +2,6 @@ package com.example.smallbusinessmanagementsystem.controller.Finansai;
 
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Finansas;
-import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.FinansasService;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
@@ -44,7 +43,7 @@ public class FinansaiTabController implements Initializable {
         if(windowLoader.isTabFinansai())
         {
             fillChoiceBox(FinansoTipas.VISI);
-            fillTableViewFinansai(FinansoTipas.VISI);
+            fillTableViewFinansai(FinansoTipas.VISI, null, null, "");
         }
     }
     @FXML
@@ -58,6 +57,12 @@ public class FinansaiTabController implements Initializable {
 
     @FXML
     private Button buttonPerziuretiFinansa;
+
+    @FXML
+    private DatePicker datePickerNuo;
+
+    @FXML
+    private DatePicker datePickerIki;
 
     @FXML
     private TableView<Finansas> tableViewFinansai;
@@ -94,7 +99,7 @@ public class FinansaiTabController implements Initializable {
         if(finansasService.tryDeleteFinansas(tableViewFinansai.getSelectionModel().getSelectedItem().getId()))
         {
             AllertBox.display("Pavyko", "Finansas ištrintas");
-            fillTableViewFinansai(choiceBoxTipas.getValue());
+            fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
         }
     }
 
@@ -106,7 +111,13 @@ public class FinansaiTabController implements Initializable {
     }
 
     @FXML
+    void filterFinansai(ActionEvent event) {
+        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
+    }
+
+    @FXML
     void ieskoti(ActionEvent event) {
+        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
     }
     @FXML
     void perziuretiFinansa(ActionEvent event) {
@@ -119,7 +130,7 @@ public class FinansaiTabController implements Initializable {
     }
     @FXML
     void sortFinansai(ActionEvent event) {
-        fillTableViewFinansai(choiceBoxTipas.getValue());
+        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
     }
     private void fillChoiceBox(FinansoTipas finansoTipas)
     {
@@ -127,9 +138,8 @@ public class FinansaiTabController implements Initializable {
         choiceBoxTipas.getItems().addAll(FinansoTipas.VISI,FinansoTipas.IŠLAIDOS,FinansoTipas.PAJAMOS);
         choiceBoxTipas.setValue(finansoTipas);
     }
-    private void fillTableViewFinansai(FinansoTipas finansoTipas)
+    private void fillTableViewFinansai(FinansoTipas finansoTipas, LocalDate nuo, LocalDate iki, String searchString)
     {
-        ObservableList<Finansas> finansai = FXCollections.observableArrayList();
         columnID.setCellValueFactory(new PropertyValueFactory<Finansas, Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Finansas,String>("pavadinimas"));
         columnData.setCellValueFactory(new PropertyValueFactory<Finansas, LocalDate>("data"));
@@ -168,18 +178,7 @@ public class FinansaiTabController implements Initializable {
             }
             else return new SimpleStringProperty("");
         });
-        if(finansoTipas == FinansoTipas.VISI)
-        {
-            finansai = FXCollections.observableList(finansasService.getAllFinanasai());
-        }
-        if(finansoTipas == FinansoTipas.IŠLAIDOS)
-        {
-            finansai = FXCollections.observableList(finansasService.getAllByTipas(FinansoTipas.IŠLAIDOS));
-        }
-        if(finansoTipas == FinansoTipas.PAJAMOS)
-        {
-            finansai = FXCollections.observableList(finansasService.getAllByTipas(FinansoTipas.PAJAMOS));
-        }
-        tableViewFinansai.setItems(finansai);
+
+        tableViewFinansai.setItems(FXCollections.observableList(finansasService.getAllFinansaiForTable(finansoTipas, nuo, iki, searchString)));
     }
 }
