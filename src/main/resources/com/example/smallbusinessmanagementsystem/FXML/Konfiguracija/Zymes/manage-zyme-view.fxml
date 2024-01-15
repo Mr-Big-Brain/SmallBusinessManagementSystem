@@ -6,14 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="273.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="273.0" prefWidth="263.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldPavadinimas" layoutX="50.0" layoutY="81.0" />
-      <Label layoutX="50.0" layoutY="64.0" text="Pavadinimas" />
-      <ChoiceBox fx:id="choiceBoxTipas" layoutX="50.0" layoutY="136.0" prefWidth="150.0" />
-      <Label layoutX="50.0" layoutY="119.0" text="Tipas" />
-      <Button fx:id="buttonAtgal" layoutX="50.0" layoutY="189.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="148.0" layoutY="189.0" mnemonicParsing="false" onAction="#action" text="Action" />
+      <Label layoutX="50.0" layoutY="64.0" stylesheets="@../../../CSS/Label.css" text="Pavadinimas" />
+      <ChoiceBox fx:id="choiceBoxTipas" layoutX="50.0" layoutY="136.0" prefWidth="150.0" stylesheets="@../../../CSS/ChoiceBox.css" />
+      <Label layoutX="50.0" layoutY="119.0" stylesheets="@../../../CSS/Label.css" text="Tipas" />
+      <Button fx:id="buttonAtgal" layoutX="50.0" layoutY="189.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="148.0" layoutY="189.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
    </children>
 </AnchorPane>

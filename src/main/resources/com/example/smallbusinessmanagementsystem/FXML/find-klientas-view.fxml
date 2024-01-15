@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="480.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="480.0" prefWidth="838.0" styleClass="anchorPane" stylesheets="@../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tableViewKlientai" layoutX="40.0" layoutY="29.0" prefHeight="265.0" prefWidth="738.0">
+      <TableView fx:id="tableViewKlientai" layoutX="40.0" layoutY="29.0" prefHeight="265.0" prefWidth="738.0" stylesheets="@../CSS/TableView.css">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="columnVardas" prefWidth="118.0" text="Vardas" />
@@ -18,14 +18,14 @@
             <TableColumn fx:id="columnPastas" prefWidth="151.0" text="El. Paštas" />
         </columns>
       </TableView>
-      <Button fx:id="buttonAtgal" layoutX="40.0" layoutY="337.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="727.0" layoutY="337.0" mnemonicParsing="false" onAction="#action" text="Action" />
-      <Button fx:id="buttonPaieska" layoutX="381.0" layoutY="337.0" mnemonicParsing="false" onAction="#ieskoti" text="Paieška" />
+      <Button fx:id="buttonAtgal" layoutX="40.0" layoutY="337.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="727.0" layoutY="337.0" mnemonicParsing="false" onAction="#action" stylesheets="@../CSS/ButtonCreate.css" text="Action" />
+      <Button fx:id="buttonPaieska" layoutX="381.0" layoutY="337.0" mnemonicParsing="false" onAction="#ieskoti" stylesheets="@../CSS/ButtonOptional.css" text="Paieška" />
       <TextField fx:id="textFieldId" layoutX="40.0" layoutY="294.0" prefHeight="25.0" prefWidth="68.0" />
       <TextField fx:id="textFieldVardas" layoutX="108.0" layoutY="294.0" prefHeight="25.0" prefWidth="119.0" />
       <TextField fx:id="textFieldPavarde" layoutX="227.0" layoutY="294.0" prefHeight="25.0" prefWidth="143.0" />
       <TextField fx:id="textFieldImone" layoutX="370.0" layoutY="294.0" prefHeight="25.0" prefWidth="119.0" />
       <TextField fx:id="textFieldTelefonas" layoutX="489.0" layoutY="294.0" prefHeight="25.0" prefWidth="143.0" />
-      <TextField fx:id="textFieldPastas" layoutX="632.0" layoutY="294.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="textFieldPastas" layoutX="632.0" layoutY="294.0" prefHeight="25.0" prefWidth="146.0" />
    </children>
 </AnchorPane>

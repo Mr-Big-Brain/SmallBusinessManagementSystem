@@ -6,19 +6,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="545.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="545.0" prefWidth="354.0" styleClass="anchorPane" stylesheets="@../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tableViewZymes" layoutX="32.0" layoutY="36.0" prefHeight="335.0" prefWidth="298.0">
+      <TableView fx:id="tableViewZymes" layoutX="32.0" layoutY="36.0" prefHeight="335.0" prefWidth="298.0" stylesheets="@../CSS/TableView.css">
         <columns>
           <TableColumn fx:id="columnID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="columnPavadinimas" prefWidth="222.0" text="Pavadinimas" />
         </columns>
       </TableView>
-      <Button fx:id="buttonIeskoti" layoutX="152.0" layoutY="436.0" mnemonicParsing="false" onAction="#ieskoti" text="Ieškoti" />
+      <Button fx:id="buttonIeskoti" layoutX="152.0" layoutY="436.0" mnemonicParsing="false" onAction="#ieskoti" stylesheets="@../CSS/ButtonOptional.css" text="Ieškoti" />
       <TextField fx:id="textFieldID" layoutX="31.0" layoutY="390.0" prefHeight="25.0" prefWidth="67.0" />
       <TextField fx:id="textFieldPavadinimas" layoutX="113.0" layoutY="390.0" prefHeight="25.0" prefWidth="218.0" />
-      <Button fx:id="buttonPasirinkti" layoutX="267.0" layoutY="436.0" mnemonicParsing="false" onAction="#pasirinkti" text="Pasirinkti" />
-      <Button fx:id="buttonAtgal" layoutX="31.0" layoutY="436.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
+      <Button fx:id="buttonPasirinkti" layoutX="267.0" layoutY="436.0" mnemonicParsing="false" onAction="#pasirinkti" stylesheets="@../CSS/ButtonCreate.css" text="Pasirinkti" />
+      <Button fx:id="buttonAtgal" layoutX="31.0" layoutY="436.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../CSS/ButtonOptional.css" text="Atgal" />
    </children>
 </AnchorPane>

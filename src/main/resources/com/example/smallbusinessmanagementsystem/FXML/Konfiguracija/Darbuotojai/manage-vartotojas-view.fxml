@@ -8,26 +8,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="642.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="642.0" prefWidth="602.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="36.0" layoutY="42.0" text="Vardas" />
+        <Label layoutX="36.0" layoutY="42.0" stylesheets="@../../../CSS/Label.css" text="Vardas" />
         <TextField fx:id="textFieldVardas" layoutX="36.0" layoutY="59.0" />
-        <Label layoutX="36.0" layoutY="98.0" text="Pavardė" />
+        <Label layoutX="36.0" layoutY="98.0" stylesheets="@../../../CSS/Label.css" text="Pavardė" />
         <TextField fx:id="textFieldPavarde" layoutX="36.0" layoutY="115.0" />
-        <Label layoutX="36.0" layoutY="158.0" text="Telefono numeris" />
+        <Label layoutX="36.0" layoutY="158.0" stylesheets="@../../../CSS/Label.css" text="Telefono numeris" />
         <TextField fx:id="textFieldTelefonas" layoutX="36.0" layoutY="175.0" prefWidth="149.0" />
-        <Label layoutX="36.0" layoutY="334.0" text="Apibrėžimas" />
+        <Label layoutX="36.0" layoutY="334.0" stylesheets="@../../../CSS/Label.css" text="Apibrėžimas" />
         <TextField fx:id="textFieldApibrezimas" layoutX="36.0" layoutY="351.0" prefHeight="139.0" prefWidth="149.0" />
-        <TableView fx:id="tableViewRoles" layoutX="301.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0">
+        <TableView fx:id="tableViewRoles" layoutX="301.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../CSS/TableView.css">
             <columns>
                 <TableColumn fx:id="columnRole" prefWidth="199.0" text="Rolė" />
             </columns>
         </TableView>
-        <Button fx:id="buttonAction" layoutX="405.0" layoutY="511.0" mnemonicParsing="false" onAction="#action" text="Action" />
-        <Button fx:id="buttonAtgal" layoutX="36.0" layoutY="511.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
-      <Label layoutX="36.0" layoutY="218.0" text="Prisijungimo vardas" />
+        <Button fx:id="buttonAction" layoutX="405.0" layoutY="511.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
+        <Button fx:id="buttonAtgal" layoutX="36.0" layoutY="511.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
+      <Label layoutX="36.0" layoutY="218.0" stylesheets="@../../../CSS/Label.css" text="Prisijungimo vardas" />
       <TextField fx:id="textFieldPrisijungimoVardas" layoutX="36.0" layoutY="235.0" prefWidth="149.0" />
-      <Label layoutX="36.0" layoutY="279.0" text="Slaptažodis" />
+      <Label layoutX="36.0" layoutY="279.0" stylesheets="@../../../CSS/Label.css" text="Slaptažodis" />
       <PasswordField fx:id="passwordFieldSlaptazodis" layoutX="36.0" layoutY="296.0" />
     </children>
 </AnchorPane>

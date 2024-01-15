@@ -6,17 +6,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="542.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="542.0" prefWidth="351.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldPavadinimas" layoutX="38.0" layoutY="60.0" />
-      <Label layoutX="38.0" layoutY="43.0" text="Pavadinimas" />
+      <Label layoutX="38.0" layoutY="43.0" stylesheets="@../../../CSS/Label.css" text="Pavadinimas" />
       <TextField fx:id="textFieldPirkimoKaina" layoutX="38.0" layoutY="118.0" />
-      <Label layoutX="38.0" layoutY="101.0" text="Pirkimo kaina" />
+      <Label layoutX="38.0" layoutY="101.0" stylesheets="@../../../CSS/Label.css" text="Pirkimo kaina" />
       <TextField fx:id="textFieldRekomenduojamaKaina" layoutX="38.0" layoutY="175.0" />
-      <Label layoutX="38.0" layoutY="158.0" text="Rekomenduojama kaina" />
-      <Button fx:id="buttonAtgal" layoutX="38.0" layoutY="418.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" onAction="#action" text="Action" />
+      <Label layoutX="38.0" layoutY="158.0" stylesheets="@../../../CSS/Label.css" text="Rekomenduojama kaina" />
+      <Button fx:id="buttonAtgal" layoutX="38.0" layoutY="418.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
       <TextArea fx:id="textAreaApibrezimas" layoutX="38.0" layoutY="236.0" prefHeight="168.0" prefWidth="282.0" />
-      <Label layoutX="38.0" layoutY="219.0" text="Apibrėžimas" />
+      <Label layoutX="38.0" layoutY="219.0" stylesheets="@../../../CSS/Label.css" text="Apibrėžimas" />
    </children>
 </AnchorPane>

@@ -6,17 +6,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <CheckBox fx:id="checkBoxPardavimai" layoutX="33.0" layoutY="85.0" mnemonicParsing="false" text="Pardavimų posistemis" />
-        <CheckBox fx:id="checkBoxFinansai" layoutX="33.0" layoutY="115.0" mnemonicParsing="false" text="Finansų posistemis" />
-        <CheckBox fx:id="checkBoxSandelis" layoutX="33.0" layoutY="142.0" mnemonicParsing="false" text="Sandėlio posistemis" />
-        <CheckBox fx:id="checkBoxKlientai" layoutX="201.0" layoutY="88.0" mnemonicParsing="false" text="Klientų posistemis" />
-        <CheckBox fx:id="checkBoxStatistika" layoutX="201.0" layoutY="116.0" mnemonicParsing="false" text="Statistikos posistemis" />
-        <CheckBox fx:id="checkBoxKonfiguracija" layoutX="201.0" layoutY="142.0" mnemonicParsing="false" text="Konfigūracijos posistemis" />
+        <CheckBox fx:id="checkBoxPardavimai" layoutX="33.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Pardavimų posistemis" />
+        <CheckBox fx:id="checkBoxFinansai" layoutX="33.0" layoutY="115.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Finansų posistemis" />
+        <CheckBox fx:id="checkBoxSandelis" layoutX="33.0" layoutY="142.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Sandėlio posistemis" />
+        <CheckBox fx:id="checkBoxKlientai" layoutX="201.0" layoutY="88.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Klientų posistemis" />
+        <CheckBox fx:id="checkBoxStatistika" layoutX="201.0" layoutY="116.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Statistikos posistemis" />
+        <CheckBox fx:id="checkBoxKonfiguracija" layoutX="201.0" layoutY="142.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Konfigūracijos posistemis" />
         <TextField fx:id="textFieldPavadinimas" layoutX="27.0" layoutY="51.0" />
-        <Label layoutX="27.0" layoutY="33.0" text="Pavadinimas" />
-        <Button fx:id="buttonAction" layoutX="208.0" layoutY="200.0" mnemonicParsing="false" onAction="#action" text="Action" />
-        <Button fx:id="buttonAtgal" layoutX="27.0" layoutY="200.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
+        <Label layoutX="27.0" layoutY="33.0" stylesheets="@../../../CSS/Label.css" text="Pavadinimas" />
+        <Button fx:id="buttonAction" layoutX="208.0" layoutY="200.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
+        <Button fx:id="buttonAtgal" layoutX="27.0" layoutY="200.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
     </children>
 </AnchorPane>

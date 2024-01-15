@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Login.LoginEditController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Login.LoginEditController">
    <children>
       <TextField fx:id="TextFieldVardasSenas" layoutX="57.0" layoutY="102.0" />
-      <Label layoutX="57.0" layoutY="85.0" text="Prisijungimo vardas" />
-      <Label layoutX="57.0" layoutY="136.0" text="Slaptažodis" />
-      <Line endX="-100.0" endY="138.0" layoutX="347.0" layoutY="47.0" startX="-100.0" />
-      <Label layoutX="75.0" layoutY="30.0" text="Seni duomenis" />
-      <Label layoutX="301.0" layoutY="30.0" text="Nauji duomenis" />
+      <Label layoutX="57.0" layoutY="85.0" stylesheets="@../../CSS/Label.css" text="Prisijungimo vardas" />
+      <Label layoutX="57.0" layoutY="136.0" stylesheets="@../../CSS/Label.css" text="Slaptažodis" />
+      <Line endX="-100.0" endY="138.0" layoutX="347.0" layoutY="47.0" startX="-100.0" stroke="WHITE" />
+      <Label layoutX="75.0" layoutY="30.0" stylesheets="@../../CSS/Label.css" text="Seni duomenis" />
+      <Label layoutX="301.0" layoutY="30.0" stylesheets="@../../CSS/Label.css" text="Nauji duomenis" />
       <TextField fx:id="TextFieldVardasNaujas" layoutX="268.0" layoutY="104.0" />
-      <Label layoutX="268.0" layoutY="85.0" text="Prisijungimo vardas" />
-      <Label layoutX="268.0" layoutY="136.0" text="Slaptažodis" />
-      <Button fx:id="buttonKeistiDuomenis" layoutX="257.0" layoutY="246.0" mnemonicParsing="false" onAction="#keistiDuomenis" text="Keisti duomenis" />
-      <Button fx:id="buttonAtgal" layoutX="66.0" layoutY="246.0" mnemonicParsing="false" onAction="#griztiAtgal" text="Atgal" />
+      <Label layoutX="268.0" layoutY="85.0" stylesheets="@../../CSS/Label.css" text="Prisijungimo vardas" />
+      <Label layoutX="268.0" layoutY="136.0" stylesheets="@../../CSS/Label.css" text="Slaptažodis" />
+      <Button fx:id="buttonKeistiDuomenis" layoutX="257.0" layoutY="246.0" mnemonicParsing="false" onAction="#keistiDuomenis" stylesheets="@../../CSS/ButtonOptional.css" text="Keisti duomenis" />
+      <Button fx:id="buttonAtgal" layoutX="66.0" layoutY="246.0" mnemonicParsing="false" onAction="#griztiAtgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
       <PasswordField fx:id="passwordFieldSlaptazodisSenas" layoutX="57.0" layoutY="151.0" />
       <PasswordField fx:id="passwordFieldSlaptazodisNaujas" layoutX="268.0" layoutY="153.0" />
    </children>

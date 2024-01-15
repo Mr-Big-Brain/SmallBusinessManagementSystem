@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="430.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="430.0" prefWidth="685.0" styleClass="anchorPane" stylesheets="@../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tableViewVartotojai" layoutX="50.0" layoutY="29.0" prefHeight="294.0" prefWidth="569.0">
+      <TableView fx:id="tableViewVartotojai" layoutX="50.0" layoutY="29.0" prefHeight="294.0" prefWidth="569.0" stylesheets="@../CSS/TableView.css">
         <columns>
           <TableColumn fx:id="columnPrisijungimas" prefWidth="139.0" text="Prisijungimo vardas" />
           <TableColumn fx:id="columnVardas" prefWidth="104.0" text="Vardas" />
@@ -16,7 +15,7 @@
             <TableColumn fx:id="columnRole" prefWidth="192.0" text="Rolė" />
         </columns>
       </TableView>
-      <Button fx:id="buttonAtgal" layoutX="50.0" layoutY="343.0" mnemonicParsing="false" onAction="#atgal" text="Atgal" />
-      <Button fx:id="buttonPasirinkti" layoutX="555.0" layoutY="343.0" mnemonicParsing="false" onAction="#pasirinkti" text="Pasirinkti" />
+      <Button fx:id="buttonAtgal" layoutX="50.0" layoutY="343.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonPasirinkti" layoutX="555.0" layoutY="343.0" mnemonicParsing="false" onAction="#pasirinkti" stylesheets="@../CSS/ButtonCreate.css" text="Pasirinkti" />
    </children>
 </AnchorPane>
