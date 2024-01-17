@@ -15,8 +15,8 @@
         </columns>
       </TableView>
       <Button fx:id="buttonIeskoti" layoutX="152.0" layoutY="436.0" mnemonicParsing="false" onAction="#ieskoti" stylesheets="@../CSS/ButtonOptional.css" text="Ieškoti" />
-      <TextField fx:id="textFieldID" layoutX="31.0" layoutY="390.0" prefHeight="25.0" prefWidth="67.0" />
-      <TextField fx:id="textFieldPavadinimas" layoutX="113.0" layoutY="390.0" prefHeight="25.0" prefWidth="218.0" />
+      <TextField fx:id="textFieldID" layoutX="31.0" layoutY="390.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="67.0" />
+      <TextField fx:id="textFieldPavadinimas" layoutX="113.0" layoutY="390.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="218.0" />
       <Button fx:id="buttonPasirinkti" layoutX="267.0" layoutY="436.0" mnemonicParsing="false" onAction="#pasirinkti" stylesheets="@../CSS/ButtonCreate.css" text="Pasirinkti" />
       <Button fx:id="buttonAtgal" layoutX="31.0" layoutY="436.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../CSS/ButtonOptional.css" text="Atgal" />
    </children>
