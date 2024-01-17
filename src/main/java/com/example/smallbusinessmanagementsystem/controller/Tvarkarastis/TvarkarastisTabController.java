@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TvarkarastisTabController implements Initializable {
@@ -45,6 +46,10 @@ public class TvarkarastisTabController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(windowLoader.isTabTvarkarastis()) {
+            datePickerManoNuo.setValue(LocalDate.now());
+            datePickerSukurtiNuo.setValue(LocalDate.now());
+            hideManoAprasymas();
+            hideSukurtiAprasymas();
             fillTableManoRenginiai(datePickerManoNuo.getValue(), datePickerManoIki.getValue());
             fillTableSukurtiRenginiai(datePickerSukurtiNuo.getValue(), datePickerSukurtiIki.getValue());
         }
@@ -87,6 +92,12 @@ public class TvarkarastisTabController implements Initializable {
 
     @FXML
     private DatePicker datePickerSukurtiIki;
+
+    @FXML
+    private Label labelManoAprasymas;
+
+    @FXML
+    private Label labelSukurtiAprasymas;
 
     @FXML
     private Button buttonSukurtiRengini;
@@ -151,11 +162,23 @@ public class TvarkarastisTabController implements Initializable {
     }
     @FXML
     void openManoAprasymas(MouseEvent event) {
-        textAreaManoAprasymas.setText(tableViewManoTvarkarastis.getSelectionModel().getSelectedItem().getAprasymas());
+        hideManoAprasymas();
+        String aprasymas = tableViewManoTvarkarastis.getSelectionModel().getSelectedItem().getAprasymas();
+        if(!Objects.equals(aprasymas, "")){
+            showManoAprasymas();
+            textAreaManoAprasymas.setText(aprasymas);
+        }
+
     }
     @FXML
     void openSukurtasAprasymas(MouseEvent event) {
-        textAreaSukurtiAprasymas.setText(tableViewSukurtasTvarkarastis.getSelectionModel().getSelectedItem().getAprasymas());
+        hideSukurtiAprasymas();
+        String aprasymas = tableViewSukurtasTvarkarastis.getSelectionModel().getSelectedItem().getAprasymas();
+        if(!Objects.equals(aprasymas, "")){
+            showSukurtiAprasymas();
+            textAreaSukurtiAprasymas.setText(aprasymas);
+        }
+
     }
     private void fillTableSukurtiRenginiai(LocalDate dateFrom, LocalDate dateUntil)
     {
@@ -202,5 +225,25 @@ public class TvarkarastisTabController implements Initializable {
             }
         }
         return tvarkarasciai;
+    }
+
+    private void showManoAprasymas() {
+        labelManoAprasymas.setVisible(true);
+        textAreaManoAprasymas.setVisible(true);
+    }
+
+    private void hideManoAprasymas() {
+        labelManoAprasymas.setVisible(false);
+        textAreaManoAprasymas.setVisible(false);
+    }
+
+    private void showSukurtiAprasymas() {
+        labelSukurtiAprasymas.setVisible(true);
+        textAreaSukurtiAprasymas.setVisible(true);
+    }
+
+    private void hideSukurtiAprasymas() {
+        labelSukurtiAprasymas.setVisible(false);
+        textAreaSukurtiAprasymas.setVisible(false);
     }
 }

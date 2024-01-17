@@ -30,7 +30,7 @@
                                 <DatePicker fx:id="datePickerManoIki" layoutX="249.0" layoutY="14.0" onAction="#atnaujintiManoTvarkarasti" prefHeight="25.0" prefWidth="115.0" />
                                 <Label layoutX="211.0" layoutY="18.0" stylesheets="@../../CSS/Label.css" text="Iki" />
                         <TextArea fx:id="textAreaManoAprasymas" layoutX="391.0" layoutY="74.0" prefHeight="223.0" prefWidth="289.0" />
-                        <Label layoutX="391.0" layoutY="57.0" stylesheets="@../../CSS/Label.css" text="Aprašymas" />
+                        <Label fx:id="labelManoAprasymas" layoutX="391.0" layoutY="57.0" stylesheets="@../../CSS/Label.css" text="Aprašymas" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -53,7 +53,7 @@
                                 <Button fx:id="buttonSukurtiRengini" layoutX="16.0" layoutY="312.0" mnemonicParsing="false" onAction="#sukurtiRengini" stylesheets="@../../CSS/ButtonCreate.css" text="Sukurti renginį" />
                                 <Button fx:id="buttonIstrintiRengini" layoutX="132.0" layoutY="312.0" mnemonicParsing="false" onAction="#istrintiRengini" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti renginį" />
                                 <Button fx:id="buttonAtnaujintiRengini" layoutX="253.0" layoutY="312.0" mnemonicParsing="false" onAction="#atnaujintiRengini" stylesheets="@../../CSS/ButtonUpdate.css" text="Atnaujinti renginį" />
-                        <Label layoutX="390.0" layoutY="56.0" text="Aprašymas" />
+                        <Label fx:id="labelSukurtiAprasymas" layoutX="390.0" layoutY="56.0" stylesheets="@../../CSS/Label.css" text="Aprašymas" />
                         <TextArea fx:id="textAreaSukurtiAprasymas" layoutX="390.0" layoutY="73.0" prefHeight="224.0" prefWidth="290.0" />
                             </children>
                         </AnchorPane>
