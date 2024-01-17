@@ -17,7 +17,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class FindKlientasController implements Initializable {
     ControllerOperation controllerOperation;
@@ -122,18 +124,56 @@ public class FindKlientasController implements Initializable {
 
     @FXML
     void ieskoti(ActionEvent event) {
-
+        fillKlientasTable();
     }
 
     private void fillKlientasTable()
     {
-        ObservableList<Klientas> klientai = FXCollections.observableList(klientasService.getAllKlientai());
+        List<Klientas> klientai = klientasService.getAllKlientai();
+
+        if(!Objects.equals(textFieldId.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getId() == Integer.parseInt(textFieldId.getText()))
+                    .collect(Collectors.toList());
+        }
+        if(!Objects.equals(textFieldImone.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getImone().contains(textFieldImone.getText()))
+                    .collect(Collectors.toList());
+        }
+
+        if(!Objects.equals(textFieldPastas.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getPastas().contains(textFieldPastas.getText()))
+                    .collect(Collectors.toList());
+        }
+
+        if(!Objects.equals(textFieldPavarde.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getPavarde().contains(textFieldPavarde.getText()))
+                    .collect(Collectors.toList());
+        }
+
+        if(!Objects.equals(textFieldTelefonas.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getTelefonas().contains(textFieldTelefonas.getText()))
+                    .collect(Collectors.toList());
+        }
+
+        if(!Objects.equals(textFieldVardas.getText(), "")) {
+            klientai = klientai.stream()
+                    .filter(klientas -> klientas.getVardas().contains(textFieldVardas.getText()))
+                    .collect(Collectors.toList());
+        }
+
+        ObservableList<Klientas> filteredKlientai = FXCollections.observableList(klientai);
+
         columnId.setCellValueFactory(new PropertyValueFactory<Klientas,Integer>("id"));
         columnImone.setCellValueFactory(new PropertyValueFactory<Klientas,String>("imone"));
         columnPastas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("pastas"));
         columnPavarde.setCellValueFactory(new PropertyValueFactory<Klientas,String>("pavarde"));
         columnVardas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("vardas"));
         columnTelefonas.setCellValueFactory(new PropertyValueFactory<Klientas,String>("telefonas"));
-        tableViewKlientai.setItems(klientai);
+        tableViewKlientai.setItems(filteredKlientai);
     }
 }

@@ -21,11 +21,11 @@
       <Button fx:id="buttonAtgal" layoutX="40.0" layoutY="337.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../CSS/ButtonOptional.css" text="Atgal" />
       <Button fx:id="buttonAction" layoutX="727.0" layoutY="337.0" mnemonicParsing="false" onAction="#action" stylesheets="@../CSS/ButtonCreate.css" text="Action" />
       <Button fx:id="buttonPaieska" layoutX="381.0" layoutY="337.0" mnemonicParsing="false" onAction="#ieskoti" stylesheets="@../CSS/ButtonOptional.css" text="Paieška" />
-      <TextField fx:id="textFieldId" layoutX="40.0" layoutY="294.0" prefHeight="25.0" prefWidth="68.0" />
-      <TextField fx:id="textFieldVardas" layoutX="108.0" layoutY="294.0" prefHeight="25.0" prefWidth="119.0" />
-      <TextField fx:id="textFieldPavarde" layoutX="227.0" layoutY="294.0" prefHeight="25.0" prefWidth="143.0" />
-      <TextField fx:id="textFieldImone" layoutX="370.0" layoutY="294.0" prefHeight="25.0" prefWidth="119.0" />
-      <TextField fx:id="textFieldTelefonas" layoutX="489.0" layoutY="294.0" prefHeight="25.0" prefWidth="143.0" />
-      <TextField fx:id="textFieldPastas" layoutX="632.0" layoutY="294.0" prefHeight="25.0" prefWidth="146.0" />
+      <TextField fx:id="textFieldId" layoutX="40.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="68.0" />
+      <TextField fx:id="textFieldVardas" layoutX="108.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="textFieldPavarde" layoutX="227.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="textFieldImone" layoutX="370.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="textFieldTelefonas" layoutX="489.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="textFieldPastas" layoutX="632.0" layoutY="294.0" onAction="#ieskoti" prefHeight="25.0" prefWidth="146.0" />
    </children>
 </AnchorPane>
