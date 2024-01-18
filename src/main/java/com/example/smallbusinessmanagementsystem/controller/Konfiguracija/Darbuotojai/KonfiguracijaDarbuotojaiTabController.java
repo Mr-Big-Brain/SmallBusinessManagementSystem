@@ -179,8 +179,7 @@ public class KonfiguracijaDarbuotojaiTabController implements Initializable {
         columnDarbuotojaiPrisijungimas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("prisijungimoVardas"));
         columnDarbuotojaiRole.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vartotojoTipas"));
         columnDarbuotojaiRole.setCellValueFactory(cellData -> {
-            int rolesId = cellData.getValue().getVartotojoTipas().getId();
-            VartotojoTipas vartotojoTipas = vartotojoTipasService.getVartotojoTipasById(rolesId);
+            VartotojoTipas vartotojoTipas = cellData.getValue().getVartotojoTipas();
             String vartotojoTipoPavadinimas = (vartotojoTipas != null) ? vartotojoTipas.getPavadinimas() : "";
             return new SimpleStringProperty(vartotojoTipoPavadinimas);
         });

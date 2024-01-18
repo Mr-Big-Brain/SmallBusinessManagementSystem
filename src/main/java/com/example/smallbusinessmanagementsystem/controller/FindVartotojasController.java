@@ -98,8 +98,7 @@ public class FindVartotojasController implements Initializable {
             columnVardas.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vardas"));
             columnRole.setCellValueFactory(new PropertyValueFactory<Vartotojas,String>("vartotojoTipas"));
             columnRole.setCellValueFactory(cellData -> {
-                int rolesId = cellData.getValue().getVartotojoTipas().getId();
-                VartotojoTipas vartotojoTipas = vartotojoTipasService.getVartotojoTipasById(rolesId);
+                VartotojoTipas vartotojoTipas = cellData.getValue().getVartotojoTipas();
                 String vartotojoTipoPavadinimas = (vartotojoTipas != null) ? vartotojoTipas.getPavadinimas() : "";
                 return new SimpleStringProperty(vartotojoTipoPavadinimas);
             });

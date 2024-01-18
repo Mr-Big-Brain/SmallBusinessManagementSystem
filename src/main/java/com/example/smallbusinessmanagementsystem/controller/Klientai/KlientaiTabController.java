@@ -175,8 +175,7 @@ public class KlientaiTabController implements Initializable {
         columnKomunikacijosProduktas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getProduktas()!=null)
             {
-                int produktoId = cellData.getValue().getProduktas().getId();
-                Produktas produktas = produktasService.getProduktasById(produktoId);
+                Produktas produktas = cellData.getValue().getProduktas();
                 String produktoPavadinimas = (produktas != null) ? produktas.getId() + ", " + produktas.getPavadinimas() : "";
                 return new SimpleStringProperty(produktoPavadinimas);
             }

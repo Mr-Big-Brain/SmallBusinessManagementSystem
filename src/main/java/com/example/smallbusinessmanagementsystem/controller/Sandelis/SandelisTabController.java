@@ -117,8 +117,7 @@ public class SandelisTabController implements Initializable {
         columnSandelisProduktas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getProduktas()!=null)
             {
-                int produktoId = cellData.getValue().getProduktas().getId();
-                Produktas produktasTemp = produktasService.getProduktasById(produktoId);
+                Produktas produktasTemp = cellData.getValue().getProduktas();
                 String produktoPavadinimas = (produktasTemp != null) ? produktasTemp.getId() + ", " + produktasTemp.getPavadinimas() : "";
                 return new SimpleStringProperty(produktoPavadinimas);
             }

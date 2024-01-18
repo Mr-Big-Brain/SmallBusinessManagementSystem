@@ -143,7 +143,7 @@ public class TvarkarastisTabController implements Initializable {
             if(cellData.getValue().getKasSukure()!=null)
             {
                 int vartotojoId = cellData.getValue().getKasSukure().getId();
-                Vartotojas vartotojasTemp = vartotojasService.getVartotojasById(vartotojoId);
+                Vartotojas vartotojasTemp = cellData.getValue().getKasSukure();
                 String vartotojas = (vartotojasTemp != null) ? vartotojasTemp.getVardas() + ", " + vartotojasTemp.getPavarde() : "";
                 return new SimpleStringProperty(vartotojas);
             }
@@ -190,8 +190,7 @@ public class TvarkarastisTabController implements Initializable {
         columnSukurtiKamSukurtas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getKamSukure()!=null)
             {
-                int vartotojoId = cellData.getValue().getKamSukure().getId();
-                Vartotojas vartotojasTemp = vartotojasService.getVartotojasById(vartotojoId);
+                Vartotojas vartotojasTemp = cellData.getValue().getKamSukure();
                 String vartotojas = (vartotojasTemp != null) ? vartotojasTemp.getVardas() + ", " + vartotojasTemp.getPavarde() : "";
                 return new SimpleStringProperty(vartotojas);
             }
