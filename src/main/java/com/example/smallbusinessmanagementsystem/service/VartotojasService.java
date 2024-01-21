@@ -5,6 +5,7 @@ import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.model.VartotojoTipas;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.VartotojoTipasPersistenceController;
+import com.example.smallbusinessmanagementsystem.utilities.Md5Converter;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,10 +13,12 @@ import java.util.Objects;
 public class VartotojasService {
     VartotojasPersistenceController vartotojasPersistenceController;
     VartotojoTipasPersistenceController vartotojoTipasPersistenceController;
+    Md5Converter md5Converter;
     public VartotojasService()
     {
         vartotojasPersistenceController = new VartotojasPersistenceController();
         vartotojoTipasPersistenceController = new VartotojoTipasPersistenceController();
+        md5Converter = new Md5Converter();
     }
     public boolean validateVartotojoTipas(Vartotojas vartotojas)
     {
@@ -96,7 +99,7 @@ public class VartotojasService {
             VartotojoTipas vartotojoTipas = new VartotojoTipas("Administratorius", true,true,true,true,true,true);
             vartotojoTipasPersistenceController.create(vartotojoTipas);
 
-            Vartotojas vartotojas = new Vartotojas("Vardas","Pavarde","Telefonas","Apibrėžimas","admin","admin",vartotojoTipas);
+            Vartotojas vartotojas = new Vartotojas("Vardas","Pavarde","Telefonas","Apibrėžimas","admin",md5Converter.getMD5Hash("admin"), vartotojoTipas);
             vartotojasPersistenceController.create(vartotojas);
 
 

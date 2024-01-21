@@ -3,6 +3,7 @@ package com.example.smallbusinessmanagementsystem.controller.Login;
 import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Vartotojas;
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
+import com.example.smallbusinessmanagementsystem.utilities.Md5Converter;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ public class LoginEditController {
     public VartotojasService vartotojasService;
     WindowManager windowManager;
 
+    private Md5Converter md5Converter;
     //FXML
     private Stage stage;
     private Parent root;
@@ -26,6 +28,7 @@ public class LoginEditController {
     public LoginEditController() {
         vartotojasService = new VartotojasService();
         windowManager = new WindowManager();
+        md5Converter = new Md5Converter();
     }
 
     @FXML
@@ -53,12 +56,12 @@ public class LoginEditController {
 
     @FXML
     void keistiDuomenis(ActionEvent event) {
-        if(vartotojasService.prisijungimasEgzistuoja(TextFieldVardasSenas.getText(), passwordFieldSlaptazodisSenas.getText()))
+        if(vartotojasService.prisijungimasEgzistuoja(TextFieldVardasSenas.getText(), md5Converter.getMD5Hash(passwordFieldSlaptazodisSenas.getText())))
         {
             Vartotojas senasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
             Vartotojas naujasVartotojas = vartotojasService.getVartotojasByPrisijungimoVardas(TextFieldVardasSenas.getText());
             naujasVartotojas.setPrisijungimoVardas(TextFieldVardasNaujas.getText());
-            naujasVartotojas.setSlaptazodis(passwordFieldSlaptazodisNaujas.getText());
+            naujasVartotojas.setSlaptazodis(md5Converter.getMD5Hash(passwordFieldSlaptazodisNaujas.getText()));
             if(vartotojasService.tryUpdateVartotojas(naujasVartotojas, senasVartotojas))
             {
                 AllertBox.display("Pavyko","Vartotojas atnaujintas");

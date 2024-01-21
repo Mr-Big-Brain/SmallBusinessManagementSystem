@@ -2,6 +2,7 @@ package com.example.smallbusinessmanagementsystem.controller.Login;
 
 import com.example.smallbusinessmanagementsystem.service.VartotojasService;
 import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
+import com.example.smallbusinessmanagementsystem.utilities.Md5Converter;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,8 +16,9 @@ public class LoginController {
 
     public VartotojasService vartotojasService;
     public WindowManager windowManager;
-
+    public Md5Converter md5Converter;
     public LoginController() {
+        md5Converter = new Md5Converter();
         vartotojasService = new VartotojasService();
         windowManager = new WindowManager();
     }
@@ -37,10 +39,10 @@ public class LoginController {
     void prisijungti(ActionEvent event) throws IOException {
         vartotojasService.createAdminIfNoUsers();
 
-        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(), passwordFieldSlaptazodis.getText()))
+        if(vartotojasService.prisijungimasEgzistuoja(textFieldVardas.getText(), md5Converter.getMD5Hash(passwordFieldSlaptazodis.getText())))
         {
             CurrentVartotojas currentVartotojas = CurrentVartotojas.getInstance();
-            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(), passwordFieldSlaptazodis.getText()));
+            currentVartotojas.setVartotojas(vartotojasService.getVartotojasByPrisijungimasSlaptazodis(textFieldVardas.getText(), md5Converter.getMD5Hash(passwordFieldSlaptazodis.getText())));
             windowManager.showTabTvarkarastis(event);
         }
     }
