@@ -106,7 +106,8 @@ public class FindProduktasController implements Initializable {
 
     @FXML
     void atgal(ActionEvent event) {
-
+        if(controllerOperation == ControllerOperation.INCREASE || controllerOperation == ControllerOperation.DECREASE)
+            windowManager.showManageSandelioPreke(event,controllerOperation,null);
     }
 
     @FXML
