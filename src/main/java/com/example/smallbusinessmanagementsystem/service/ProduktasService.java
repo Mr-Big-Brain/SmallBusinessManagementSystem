@@ -6,8 +6,10 @@ import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.persistenceController.ProduktasPersistenceController;
 import com.example.smallbusinessmanagementsystem.persistenceController.ZymePersistenceController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ProduktasService {
     ProduktasPersistenceController produktasPersistenceController;
@@ -74,8 +76,33 @@ public class ProduktasService {
     {
         return produktasPersistenceController.getProduktasListFromDatabase();
     }
+    public List<Produktas> getAllProduktai(String id, String pavadinimas)
+    {
+        List<Produktas> produktai = new ArrayList<>();
+        if(!Objects.equals(id, "") && stringToIntParses(id)) {
+            produktai.add(produktasPersistenceController.getProduktasById(Integer.parseInt(id)));
+        }
+        else
+            produktai = produktasPersistenceController.getProduktasListFromDatabase();
+        if(!pavadinimas.equals("")) {
+            produktai = produktai.stream()
+                    .filter(produktas -> produktas.getPavadinimas().contains(pavadinimas))
+                    .collect(Collectors.toList());
+        }
+        return produktai;
+    }
     public Produktas getProduktasById(int id)
     {
         return produktasPersistenceController.getProduktasById(id);
     }
+
+    private boolean stringToIntParses(String text){
+        try {
+            int parsedNumber = Integer.parseInt(text);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 }

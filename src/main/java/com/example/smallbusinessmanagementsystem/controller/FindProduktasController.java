@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.List;
@@ -78,25 +79,10 @@ public class FindProduktasController implements Initializable {
     private TableColumn<Zyme, String> columnProduktoZyme;
 
     @FXML
-    private Button buttonPrideti;
-
-    @FXML
-    private Button buttonIstrinti;
-
-    @FXML
     private TextField textFieldID;
 
     @FXML
     private TextField textFieldPavadinimas;
-
-    @FXML
-    private TableView<Zyme> tableViewZymeFiltras;
-
-    @FXML
-    private TableColumn<Zyme, String> columnZymeFiltras;
-
-    @FXML
-    private Button buttonFiltruoti;
 
     @FXML
     private Button buttonPasirinkti;
@@ -111,13 +97,8 @@ public class FindProduktasController implements Initializable {
     }
 
     @FXML
-    void filtruoti(ActionEvent event) {
-
-    }
-
-    @FXML
-    void istrinti(ActionEvent event) {
-
+    void ieskoti(ActionEvent event) {
+        fillProduktasTable();
     }
 
     @FXML
@@ -170,11 +151,24 @@ public class FindProduktasController implements Initializable {
     void prideti(ActionEvent event) {
 
     }
+
+    @FXML
+    void showZymes(MouseEvent event) {
+        fillZymesTableView(tableViewProduktai.getSelectionModel().getSelectedItem());
+    }
+
     private void fillProduktasTable()
     {
-        ObservableList<Produktas> produktai = FXCollections.observableList(produktasService.getAllProduktai());
+        ObservableList<Produktas> produktai = FXCollections.observableList(produktasService.getAllProduktai(textFieldID.getText(), textFieldPavadinimas.getText()));
         columnID.setCellValueFactory(new PropertyValueFactory<Produktas,Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("pavadinimas"));
         tableViewProduktai.setItems(produktai);
+    }
+
+    private void fillZymesTableView(Produktas produktas)
+    {
+        ObservableList<Zyme> zymes = FXCollections.observableList(produktas.getZymes());
+        columnProduktoZyme.setCellValueFactory(new PropertyValueFactory<Zyme,String>("pavadinimas"));
+        tableViewProduktuZymes.setItems(zymes);
     }
 }
