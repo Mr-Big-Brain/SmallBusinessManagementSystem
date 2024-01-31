@@ -10,8 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -45,6 +44,20 @@ public class StatistikaProduktaiTabController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(windowLoader.isTabStatistikaProduktai()) {
+            final CategoryAxis xAxis = new CategoryAxis();
+            final NumberAxis yAxis = new NumberAxis();
+
+            barChartProduktai.setTitle("Country Summary");
+            xAxis.setLabel("Country");
+            yAxis.setLabel("Value");
+
+            XYChart.Series series1 = new XYChart.Series();
+            series1.getData().add(new XYChart.Data("austria", 15.34));
+            series1.getData().add(new XYChart.Data("brazil", 43.82));
+            series1.getData().add(new XYChart.Data("france", 344));
+            series1.getData().add(new XYChart.Data("italy", 1060.15));
+            barChartProduktai.getData().addAll(series1);
+            barChartProduktai.setLegendVisible(false);
 
         }
     }
@@ -67,7 +80,7 @@ public class StatistikaProduktaiTabController implements Initializable {
     private DatePicker datePickerIki;
 
     @FXML
-    private BarChart<String, Double> barChartProduktai;
+    private BarChart<String, Number> barChartProduktai;
 
     @FXML
     void pasalintiProdukta(ActionEvent event) {
