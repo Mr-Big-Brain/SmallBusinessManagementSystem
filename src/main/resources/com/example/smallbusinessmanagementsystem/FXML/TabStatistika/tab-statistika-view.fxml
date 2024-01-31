@@ -15,17 +15,17 @@
                 </Tab>
                 <Tab fx:id="tabKlientai" text="Klientai">
                     <content>
-                        <fx:include source="tab-statistika-klientai-view.fxml" />
+
                     </content>
                 </Tab>
                 <Tab fx:id="tabFinansai" text="Finansai">
                     <content>
-                        <fx:include source="tab-statistika-finansai-view.fxml" />
+
                     </content>
                 </Tab>
                 <Tab fx:id="tabZymes" text="Žymės">
                     <content>
-                        <fx:include source="tab-statistika-zymes-view.fxml" />
+
                     </content>
                 </Tab>
             </tabs>

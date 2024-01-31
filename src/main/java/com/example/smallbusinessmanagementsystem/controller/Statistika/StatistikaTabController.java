@@ -44,19 +44,19 @@ public class StatistikaTabController {
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabKlientai)
         {
             windowLoader.setTabStatistikaKlientai(true);
-            //windowManager.showTabKonfiguracijaProduktai(actionEvent);
+            windowManager.showTabStatistikaKlientai(actionEvent);
             windowLoader.setTabStatistikaKlientai(false);
         }
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabFinansai)
         {
             windowLoader.setTabStatistikaFinansai(true);
-            //windowManager.showTabKonfiguracijaZymes(actionEvent);
+            windowManager.showTabStatistikaFinansai(actionEvent);
             windowLoader.setTabStatistikaFinansai(false);
         }
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabZymes)
         {
             windowLoader.setTabStatistikaZymes(true);
-            //windowManager.showTabKonfiguracijaZymes(actionEvent);
+            windowManager.showTabStatistikaZymes(actionEvent);
             windowLoader.setTabStatistikaZymes(false);
         }
     }

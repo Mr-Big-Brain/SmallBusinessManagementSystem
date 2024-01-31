@@ -11,7 +11,6 @@
 <?import javafx.scene.chart.NumberAxis?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes.StatistikaZymesTabController"
             prefHeight="400.0" prefWidth="600.0">
     <children>
         <LineChart fx:id="lineChart" layoutX="28.0" layoutY="55.0">

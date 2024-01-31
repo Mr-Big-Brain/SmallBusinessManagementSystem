@@ -12,8 +12,11 @@ import com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimasController;
 import com.example.smallbusinessmanagementsystem.controller.Pardavimai.ManagePardavimoLinijaController;
 import com.example.smallbusinessmanagementsystem.controller.Sandelis.ManageSandelioPrekeController;
+import com.example.smallbusinessmanagementsystem.controller.Statistika.Finansai.StatistikaFinansaiTabController;
+import com.example.smallbusinessmanagementsystem.controller.Statistika.Klientai.StatistikaKlientaiTabController;
 import com.example.smallbusinessmanagementsystem.controller.Statistika.Produktai.StatistikaProduktaiTabController;
 import com.example.smallbusinessmanagementsystem.controller.Statistika.StatistikaTabController;
+import com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes.StatistikaZymesTabController;
 import com.example.smallbusinessmanagementsystem.controller.Tvarkarastis.ManageRenginisController;
 import com.example.smallbusinessmanagementsystem.model.*;
 import javafx.event.ActionEvent;
@@ -302,11 +305,8 @@ public void showLogin(ActionEvent event) {
 
             tabController.showTabProduktai();
 
-            //mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot); it was here
-
             Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            //new starts
             FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-produktai-view.fxml"));
             StatistikaProduktaiTabController statistikaProduktaiTabControllernew = new StatistikaProduktaiTabController(produktasList,nuo,iki);
             subTabLoader.setController(statistikaProduktaiTabControllernew);
@@ -316,7 +316,7 @@ public void showLogin(ActionEvent event) {
 
             tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
             mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
-            //new ends
+
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
             nestedTabStage.setTitle("Pagrindinis");
@@ -325,6 +325,125 @@ public void showLogin(ActionEvent event) {
             nestedTabStage.show();
 
             windowLoader.setTabStatistikaProduktai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showTabStatistikaKlientai(ActionEvent event) {
+        try {
+            windowLoader.setTabStatistikaKlientai(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabKlientai();
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-klientai-view.fxml"));
+            StatistikaKlientaiTabController statistikaKlientaiTabControllernew = new StatistikaKlientaiTabController();
+            subTabLoader.setController(statistikaKlientaiTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaKlientaiTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaProduktai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showTabStatistikaFinansai(ActionEvent event) {
+        try {
+            windowLoader.setTabStatistikaFinansai(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabFinansai();
+
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-finansai-view.fxml"));
+            StatistikaFinansaiTabController statistikaFinansaiTabControllernew = new StatistikaFinansaiTabController();
+            subTabLoader.setController(statistikaFinansaiTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaFinansaiTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaFinansai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showTabStatistikaZymes(ActionEvent event) {
+        try {
+            windowLoader.setTabStatistikaZymes(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabZymes();
+
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-zymes-view.fxml"));
+            StatistikaZymesTabController statistikaZymesTabControllernew = new StatistikaZymesTabController();
+            subTabLoader.setController(statistikaZymesTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaZymesTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaZymes(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
