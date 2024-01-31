@@ -102,6 +102,12 @@ public class MainController implements Initializable {
             windowManager.showTabKonfiguracijaDarbuotojai(actionEvent);
             windowLoader.setTabKonfiguracijaDarbuotojai(false);
         }
+        if(tabPaneKategorijos.getSelectionModel().getSelectedItem()==tabStatistika)
+        {
+            windowLoader.setTabStatistikaProduktai(true);
+            windowManager.showTabStatistikaProduktai(actionEvent, null, null, null);
+            windowLoader.setTabStatistikaProduktai(false);
+        }
     }
 
     public void showTabKlientai()

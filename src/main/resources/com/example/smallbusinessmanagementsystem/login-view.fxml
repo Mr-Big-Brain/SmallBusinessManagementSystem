@@ -8,11 +8,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Login.LoginController">
    <children>
-      <Button fx:id="buttonPrisijungti" layoutX="69.0" layoutY="219.0" mnemonicParsing="false" onAction="#prisijungti" stylesheets="@CSS/ButtonOptional.css" text="Prisijungi" />
+      <Button fx:id="buttonPrisijungti" layoutX="69.0" layoutY="219.0" mnemonicParsing="false" onAction="#prisijungti" stylesheets="@CSS/ButtonOptional.css" text="Prisijungti" />
       <Button fx:id="buttonRedaguoti" layoutX="253.0" layoutY="219.0" mnemonicParsing="false" onAction="#redaguotiPaskyra" stylesheets="@CSS/ButtonUpdate.css" text="Redaguoti savo paskyrą" />
       <TextField fx:id="textFieldVardas" layoutX="70.0" layoutY="69.0" />
       <Label layoutX="70.0" layoutY="52.0" stylesheets="@CSS/Label.css" text="Vartotojo vardas:" />
-      <Label layoutX="70.0" layoutY="128.0" stylesheets="@CSS/Label.css" text="Slapražodis:" />
+      <Label layoutX="70.0" layoutY="128.0" stylesheets="@CSS/Label.css" text="Slaptažodis:" />
       <PasswordField fx:id="passwordFieldSlaptazodis" layoutX="70.0" layoutY="145.0" />
    </children>
 </AnchorPane>
