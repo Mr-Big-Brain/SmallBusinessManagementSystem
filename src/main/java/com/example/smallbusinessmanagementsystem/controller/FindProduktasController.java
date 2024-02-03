@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,10 +31,14 @@ public class FindProduktasController implements Initializable {
     SandelioPreke sandelioPrekeModifikacijai;
     Pardavimas pardavimasModifikacijai;
     List<PardavimoLinija> pardavimoLinijosModifikacijai;
+    List<Produktas> produktasListStatistikai;
     Integer linijosNum;
     ProduktasService produktasService;
     SandelioPrekeService sandelioPrekeService;
     ZymeService zymeService;
+    LocalDate nuoStatistikai;
+    LocalDate ikiStatistikai;
+
     public FindProduktasController(ControllerOperation controllerOperationn, Object object) {
         controllerOperation = controllerOperationn;
         windowManager = new WindowManager();
@@ -58,6 +63,14 @@ public class FindProduktasController implements Initializable {
         pardavimasModifikacijai = pardavimas;
         pardavimoLinijosModifikacijai = pardavimoLinijos;
         linijosNum = linijosNumm;
+    }
+    public FindProduktasController(List<Produktas> produktasList, LocalDate nuo, LocalDate iki, ControllerOperation controllerOperationn){
+        produktasService = new ProduktasService();
+        produktasListStatistikai = produktasList;
+        controllerOperation = controllerOperationn;
+        windowManager = new WindowManager();
+        nuoStatistikai = nuo;
+        ikiStatistikai = iki;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,6 +107,8 @@ public class FindProduktasController implements Initializable {
     void atgal(ActionEvent event) {
         if(controllerOperation == ControllerOperation.INCREASE || controllerOperation == ControllerOperation.DECREASE)
             windowManager.showManageSandelioPreke(event,controllerOperation,null);
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_PRODUKTAI)
+            windowManager.showTabStatistikaProduktai(event, produktasListStatistikai,nuoStatistikai, ikiStatistikai);
     }
 
     @FXML
@@ -145,6 +160,11 @@ public class FindProduktasController implements Initializable {
             pardavimoLinijosModifikacijai.get(linijosNum).setKainaUzViena(tableViewProduktai.getSelectionModel().getSelectedItem().getRekomenduojamaKaina());
             windowManager.showManagePardavimoLinija(event,ControllerOperation.CREATE,pardavimasModifikacijai,pardavimoLinijosModifikacijai,linijosNum);
         }
+        else if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_PRODUKTAI)
+        {
+            produktasListStatistikai.add(tableViewProduktai.getSelectionModel().getSelectedItem());
+            windowManager.showTabStatistikaProduktai(event, produktasListStatistikai,nuoStatistikai,ikiStatistikai);
+        }
     }
 
     @FXML
@@ -159,7 +179,10 @@ public class FindProduktasController implements Initializable {
 
     private void fillProduktasTable()
     {
-        ObservableList<Produktas> produktai = FXCollections.observableList(produktasService.getAllProduktai(textFieldID.getText(), textFieldPavadinimas.getText()));
+        List<Produktas> filteredList = produktasService.getAllProduktai(textFieldID.getText(), textFieldPavadinimas.getText());
+        if(produktasListStatistikai!=null)
+            filteredList.removeAll(produktasListStatistikai);
+        ObservableList<Produktas> produktai = FXCollections.observableList(filteredList);
         columnID.setCellValueFactory(new PropertyValueFactory<Produktas,Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("pavadinimas"));
         tableViewProduktai.setItems(produktai);

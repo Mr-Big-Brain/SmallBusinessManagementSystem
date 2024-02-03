@@ -701,6 +701,24 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void showFindProduktas(ActionEvent event, List<Produktas> produktasList, LocalDate nuo, LocalDate iki, ControllerOperation controllerOperation) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-produktas-view.fxml"));
+            FindProduktasController findProduktasController = new FindProduktasController(produktasList,nuo,iki,controllerOperation);
+            loader.setController(findProduktasController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showFindVartotojas(ActionEvent event, ControllerOperation controllerOperation, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-vartotojas-view.fxml"));

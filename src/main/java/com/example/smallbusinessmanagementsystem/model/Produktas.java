@@ -6,6 +6,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Produktas {
@@ -107,5 +108,18 @@ public class Produktas {
                 break;
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produktas produktas = (Produktas) o;
+        return getId() == produktas.getId() && Double.compare(produktas.getPirkimoKaina(), getPirkimoKaina()) == 0 && Double.compare(produktas.getRekomenduojamaKaina(), getRekomenduojamaKaina()) == 0 && Objects.equals(getPavadinimas(), produktas.getPavadinimas()) && Objects.equals(getApibrezimas(), produktas.getApibrezimas());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getPavadinimas(), getApibrezimas(), getPirkimoKaina(), getRekomenduojamaKaina(), getZymes());
     }
 }
