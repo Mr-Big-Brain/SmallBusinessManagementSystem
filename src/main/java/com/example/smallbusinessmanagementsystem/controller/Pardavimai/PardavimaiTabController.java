@@ -25,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -119,8 +120,15 @@ public class PardavimaiTabController implements Initializable {
         fillTable();
     }
 
+    private Double roundDouble(Double number)
+    {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String roundedString = decimalFormat.format(number);
+        return Double.parseDouble(roundedString);
+    }
     private void fillTable()
     {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         ObservableList<Pardavimas> pardavimai = FXCollections.observableList(pardavimasService.getAllPardavimai(datePickerNuo.getValue(),datePickerIki.getValue()));
         columnPardavimaiID.setCellValueFactory(new PropertyValueFactory<Pardavimas,Integer>("id"));
         columnPardavimaiData.setCellValueFactory(new PropertyValueFactory<Pardavimas,LocalDateTime>("data"));
@@ -145,7 +153,7 @@ public class PardavimaiTabController implements Initializable {
         columnPardavimaiSuma.setCellValueFactory(new PropertyValueFactory<Pardavimas,String>("id"));
         columnPardavimaiSuma.setCellValueFactory(cellData -> {
                 int pardavimoId = cellData.getValue().getId();
-                double suma = pardavimoLinijaService.getPardavimoSuma(pardavimoId);
+                double suma = roundDouble(pardavimoLinijaService.getPardavimoSuma(pardavimoId));
                 return new SimpleStringProperty(String.valueOf(suma));
         });
         tableVIewPardavimai.setItems(pardavimai);
