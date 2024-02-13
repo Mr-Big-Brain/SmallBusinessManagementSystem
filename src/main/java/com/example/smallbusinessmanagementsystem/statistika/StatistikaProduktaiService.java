@@ -1,10 +1,13 @@
 package com.example.smallbusinessmanagementsystem.statistika;
 
+import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Pardavimas;
 import com.example.smallbusinessmanagementsystem.model.PardavimoLinija;
 import com.example.smallbusinessmanagementsystem.model.Produktas;
 import com.example.smallbusinessmanagementsystem.service.PardavimasService;
 import com.example.smallbusinessmanagementsystem.service.PardavimoLinijaService;
+import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
+import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,36 +19,36 @@ public class StatistikaProduktaiService {
 
     PardavimoLinijaService pardavimoLinijaService;
     PardavimasService pardavimasService;
+    StatistikaProduktaiPersistenceController statistikaProduktaiPersistenceController;
 
     public StatistikaProduktaiService()
     {
         pardavimasService = new PardavimasService();
         pardavimoLinijaService = new PardavimoLinijaService();
         pardavimoLinijos = pardavimoLinijaService.getVisosPardavimoLinijos();
+        statistikaProduktaiPersistenceController = new StatistikaProduktaiPersistenceController();
     }
-    public List<StatistikosElementas> getProduktuKiekiai(List<Produktas> produktaiList,LocalDate nuo, LocalDate iki)
+
+    public List<StatistikosElementas> getProduktoPardavimuSumos(Produktas produktas, LocalDate nuo, LocalDate iki)
     {
-        List<StatistikosElementas> statistikosElementai = new ArrayList<>();
-        StatistikosElementas tempStatistikosElementas = new StatistikosElementas();
-        for(int i=0;i<produktaiList.size();i++)
-        {
-            tempStatistikosElementas = new StatistikosElementas(getProduktoPardavimuSuma(produktaiList.get(i),nuo,iki),produktaiList.get(i).getPavadinimas());
-            statistikosElementai.add(tempStatistikosElementas);
+        if(validateInput(produktas, nuo, iki)) {
+            return statistikaProduktaiPersistenceController.getProductSalesSumsByDays(produktas.getId(), nuo, iki);
         }
-        return statistikosElementai;
+        else
+            return null;
     }
-    public double getProduktoPardavimuSuma(Produktas produktas, LocalDate nuo, LocalDate iki)
-    {
-        double sum = 0;
-        Pardavimas linijosPardavimas;
-        for(int i=0;i<pardavimoLinijos.size();i++)
+
+    public boolean validateInput(Produktas produktas, LocalDate nuo, LocalDate iki) {
+        if(nuo == null || iki == null)
         {
-            linijosPardavimas = pardavimoLinijos.get(i).getPardavimas();
-            if(pardavimoLinijos.get(i).getProduktas().getId() == produktas.getId() && linijosPardavimas.getData().isAfter(nuo.atStartOfDay()) && linijosPardavimas.getData().isBefore(iki.atStartOfDay()))
-            {
-                sum += ((pardavimoLinijos.get(i).getKiekis() * pardavimoLinijos.get(i).getKainaUzViena()) - (pardavimoLinijos.get(i).getKiekis()*pardavimoLinijos.get(i).getProduktas().getPirkimoKaina()));
-            }
+            AllertBox.display("Klaida", "Reikia nurodyti datas");
+            return false;
         }
-        return sum;
+        if(produktas == null)
+        {
+            AllertBox.display("Klaida", "Nepasirinkote produktų");
+            return false;
+        }
+        return true;
     }
 }
