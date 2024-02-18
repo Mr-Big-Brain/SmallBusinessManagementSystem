@@ -37,6 +37,23 @@ public class StatistikaProduktaiService {
         else
             return null;
     }
+    public List<StatistikosElementas> getProduktoPardavimuPelnai(Produktas produktas, LocalDate nuo, LocalDate iki){
+
+        if(validateInput(produktas, nuo, iki)) {
+            return statistikaProduktaiPersistenceController.getProductSalesProfitsByDays(produktas.getId(), nuo, iki);
+        }
+        else
+            return null;
+    }
+    public List<StatistikosElementas> getProduktoPardavimuKiekiai(Produktas produktas, LocalDate nuo, LocalDate iki){
+
+        if(validateInput(produktas, nuo, iki)) {
+            return statistikaProduktaiPersistenceController.getProductSalesCountsByDays(produktas.getId(), nuo, iki);
+        }
+        else
+            return null;
+    }
+
 
     public boolean validateInput(Produktas produktas, LocalDate nuo, LocalDate iki) {
         if(nuo == null || iki == null)

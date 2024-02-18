@@ -109,7 +109,15 @@ public class StatistikaProduktaiTabController implements Initializable {
     void rodyti(ActionEvent event) {
         if(choiceBoxTipas.getValue()==StatistikaProduktaiChoice.PARDAVIMŲ_KIEKIS)
         {
+            List<StatistikosVienetas> statistikosVienetasList = new ArrayList<>();
 
+            for(int i=0;i<produktaiList.size();i++) {
+                statistikosVienetasList.add(new StatistikosVienetas(
+                        statistikaProduktaiService.getProduktoPardavimuKiekiai(produktaiList.get(i), datePickerNuo.getValue(), datePickerIki.getValue()), produktaiList.get(i).getPavadinimas()
+                ));
+            }
+            StatistikosManager statistikosManager = new StatistikosManager();
+            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų sumos per diena");
         }
         else if(choiceBoxTipas.getValue()==StatistikaProduktaiChoice.PARDAVIMŲ_SUMA)
         {
@@ -121,11 +129,19 @@ public class StatistikaProduktaiTabController implements Initializable {
                 ));
             }
             StatistikosManager statistikosManager = new StatistikosManager();
-            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų sumos");
+            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų sumos per diena");
         }
         else if(choiceBoxTipas.getValue()==StatistikaProduktaiChoice.PELNAS)
         {
+            List<StatistikosVienetas> statistikosVienetasList = new ArrayList<>();
 
+            for(int i=0;i<produktaiList.size();i++) {
+                statistikosVienetasList.add(new StatistikosVienetas(
+                        statistikaProduktaiService.getProduktoPardavimuPelnai(produktaiList.get(i), datePickerNuo.getValue(), datePickerIki.getValue()), produktaiList.get(i).getPavadinimas()
+                ));
+            }
+            StatistikosManager statistikosManager = new StatistikosManager();
+            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų pelnas per diena");
         }
     }
 
