@@ -3,6 +3,7 @@ package com.example.smallbusinessmanagementsystem.controller;
 import com.example.smallbusinessmanagementsystem.model.*;
 import com.example.smallbusinessmanagementsystem.service.KlientasService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.StatistikaKlientaiChoice;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -27,6 +29,11 @@ public class FindKlientasController implements Initializable {
     Pardavimas pardavimasModifikacijai;
     KlientasService klientasService;
     List<PardavimoLinija> pardavimoLinijosModifikacijai;
+
+    LocalDate nuo;
+    LocalDate iki;
+    StatistikaKlientaiChoice statistikaKlientaiChoice;
+
     public FindKlientasController(ControllerOperation controllerOperationn, Object object, List<PardavimoLinija> pardavimoLinijos)
     {
         windowManager = new WindowManager();
@@ -38,6 +45,19 @@ public class FindKlientasController implements Initializable {
             pardavimoLinijosModifikacijai = pardavimoLinijos;
         }
     }
+
+    public FindKlientasController(ControllerOperation controllerOperationn, LocalDate nuo, LocalDate iki, StatistikaKlientaiChoice statistikaKlientaiChoice)
+    {
+        windowManager = new WindowManager();
+        controllerOperation = controllerOperationn;
+        klientasService = new KlientasService();
+
+        controllerOperation = controllerOperationn;
+        this.nuo = nuo;
+        this.iki = iki;
+        this.statistikaKlientaiChoice = statistikaKlientaiChoice;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonAction.setText("Pasirinkti");
@@ -105,6 +125,10 @@ public class FindKlientasController implements Initializable {
                 windowManager.showManagePardavimas(event,ControllerOperation.UPDATE,pardavimasModifikacijai,pardavimoLinijosModifikacijai);
             }
         }
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_KLIENTAI)
+        {
+            windowManager.showTabStatistikaKlientai(event, tableViewKlientai.getSelectionModel().getSelectedItem(), nuo, iki, statistikaKlientaiChoice);
+        }
     }
 
     @FXML
@@ -119,6 +143,10 @@ public class FindKlientasController implements Initializable {
             {
                 windowManager.showManagePardavimas(event,ControllerOperation.UPDATE,pardavimasModifikacijai,pardavimoLinijosModifikacijai);
             }
+        }
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_KLIENTAI)
+        {
+            windowManager.showTabStatistikaKlientai(event,null, nuo, iki, statistikaKlientaiChoice);
         }
     }
 

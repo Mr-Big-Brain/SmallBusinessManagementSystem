@@ -44,7 +44,7 @@ public class StatistikaTabController {
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabKlientai)
         {
             windowLoader.setTabStatistikaKlientai(true);
-            windowManager.showTabStatistikaKlientai(actionEvent);
+            windowManager.showTabStatistikaKlientai(actionEvent, null, null, null, null);
             windowLoader.setTabStatistikaKlientai(false);
         }
         if(tabPaneStatistika.getSelectionModel().getSelectedItem()==tabFinansai)

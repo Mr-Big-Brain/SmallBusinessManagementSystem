@@ -329,7 +329,7 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
-    public void showTabStatistikaKlientai(ActionEvent event) {
+    public void showTabStatistikaKlientai(ActionEvent event, Klientas klientas, LocalDate nuo, LocalDate iki, StatistikaKlientaiChoice statistikaKlientaiChoice) {
         try {
             windowLoader.setTabStatistikaKlientai(true);
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
@@ -347,7 +347,7 @@ public void showLogin(ActionEvent event) {
             Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-klientai-view.fxml"));
-            StatistikaKlientaiTabController statistikaKlientaiTabControllernew = new StatistikaKlientaiTabController();
+            StatistikaKlientaiTabController statistikaKlientaiTabControllernew = new StatistikaKlientaiTabController(klientas, nuo, iki, statistikaKlientaiChoice);
             subTabLoader.setController(statistikaKlientaiTabControllernew);
             Parent subTabRoot = subTabLoader.load();
             StatistikaKlientaiTabController subTabController = subTabLoader.getController();
@@ -741,6 +741,24 @@ public void showLogin(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-klientas-view.fxml"));
             FindKlientasController findKlientasController = new FindKlientasController(controllerOperation, object, pardavimoLinijos);
+            loader.setController(findKlientasController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindKlientas(ActionEvent event, ControllerOperation controllerOperationn, LocalDate nuo, LocalDate iki, StatistikaKlientaiChoice statistikaKlientaiChoice) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-klientas-view.fxml"));
+            FindKlientasController findKlientasController = new FindKlientasController(controllerOperationn, nuo, iki, statistikaKlientaiChoice);
             loader.setController(findKlientasController); // set the controller instance
 
             Parent root = loader.load();
