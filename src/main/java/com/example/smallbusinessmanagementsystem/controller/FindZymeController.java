@@ -7,6 +7,8 @@ import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.ProduktasService;
 import com.example.smallbusinessmanagementsystem.service.ZymeService;
 import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
+import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
+import com.example.smallbusinessmanagementsystem.utilities.StatistikaProduktaiChoice;
 import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +35,11 @@ public class FindZymeController implements Initializable {
     Produktas produktasModifikacijai;
     Finansas finansasModifikacijai;
     WindowManager windowManager;
+    List<Zyme> zymeList;
+    LocalDate nuo;
+    LocalDate iki;
+    FinansoTipas finansoTipas;
+    StatistikaProduktaiChoice statistikaProduktaiChoice;
     public FindZymeController(ControllerOperation controllerOperationn, Object object) {
         produktasService = new ProduktasService();
         zymeService = new ZymeService();
@@ -46,6 +54,26 @@ public class FindZymeController implements Initializable {
             finansasModifikacijai = (Finansas) object;
         }
 
+    }
+    public FindZymeController(ControllerOperation controllerOperationn, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, FinansoTipas finansoTipas) {
+        produktasService = new ProduktasService();
+        zymeService = new ZymeService();
+        controllerOperation = controllerOperationn;
+        windowManager = new WindowManager();
+        this.zymeList = zymeList;
+        this.nuo = nuo;
+        this.iki = iki;
+        this.finansoTipas = finansoTipas;
+    }
+    public FindZymeController(ControllerOperation controllerOperationn, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, StatistikaProduktaiChoice statistikaProduktaiChoice) {
+        produktasService = new ProduktasService();
+        zymeService = new ZymeService();
+        controllerOperation = controllerOperationn;
+        windowManager = new WindowManager();
+        this.zymeList = zymeList;
+        this.nuo = nuo;
+        this.iki = iki;
+        this.statistikaProduktaiChoice = statistikaProduktaiChoice;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,7 +105,21 @@ public class FindZymeController implements Initializable {
 
     @FXML
     void atgal(ActionEvent event) {
-        windowManager.showTabKonfiguracijaProduktai(event);
+
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_ZYMES)
+        {
+            windowManager.showTabStatistikaZymes(event, zymeList, nuo, iki, statistikaProduktaiChoice);
+            System.out.println(zymeList + " " + nuo + " " + iki + " " + statistikaProduktaiChoice);
+        }
+        else if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_FINANSAI)
+        {
+            windowManager.showTabStatistikaFinansai(event, zymeList, nuo, iki, finansoTipas);
+            System.out.println(zymeList + " " + nuo + " " + iki + " " + finansoTipas);
+        }
+        else
+        {
+            windowManager.showTabKonfiguracijaProduktai(event);
+        }
     }
 
     @FXML
@@ -107,6 +149,16 @@ public class FindZymeController implements Initializable {
             {
                 windowManager.showManageFinansas(event,ControllerOperation.UPDATE,finansasModifikacijai);
             }
+        }
+        if(controllerOperation==ControllerOperation.FIND_FOR_STATISTIKA_ZYMES)
+        {
+            zymeList.add(tableViewZymes.getSelectionModel().getSelectedItem());
+            windowManager.showTabStatistikaZymes(event, zymeList, nuo, iki, statistikaProduktaiChoice);
+        }
+        if(controllerOperation==ControllerOperation.FIND_FOR_STATISTIKA_FINANSAI)
+        {
+            zymeList.add(tableViewZymes.getSelectionModel().getSelectedItem());
+            windowManager.showTabStatistikaFinansai(event,zymeList, nuo, iki, finansoTipas);
         }
     }
     private void fillTableZyme()
@@ -148,6 +200,41 @@ public class FindZymeController implements Initializable {
                 }
             }
         }
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_FINANSAI)
+        {
+            zymes = FXCollections.observableList(zymeService.getAllFinansaiZyme());
+            if(!zymeList.isEmpty())
+            {
+                for(int i=zymes.size()-1;i>=0;i--)
+                {
+                    for(int j=zymeList.size()-1;j>=0;j--)
+                    {
+                        if(zymes.get(i).getId()==zymeList.get(j).getId())
+                        {
+                            zymes.remove(i);
+                        }
+                    }
+                }
+            }
+        }
+        if(controllerOperation == ControllerOperation.FIND_FOR_STATISTIKA_ZYMES)
+        {
+            zymes = FXCollections.observableList(zymeService.getAllProduktaiZyme());
+            if(!zymeList.isEmpty())
+            {
+                for(int i=zymes.size()-1;i>=0;i--)
+                {
+                    for(int j=zymeList.size()-1;j>=0;j--)
+                    {
+                        if(zymes.get(i).getId()==zymeList.get(j).getId())
+                        {
+                            zymes.remove(i);
+                        }
+                    }
+                }
+            }
+        }
+
         columnID.setCellValueFactory(new PropertyValueFactory<Zyme,Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Zyme,String>("pavadinimas"));
         tableViewZymes.setItems(zymes);

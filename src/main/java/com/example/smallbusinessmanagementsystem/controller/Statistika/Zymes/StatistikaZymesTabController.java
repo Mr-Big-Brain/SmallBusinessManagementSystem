@@ -1,24 +1,32 @@
 package com.example.smallbusinessmanagementsystem.controller.Statistika.Zymes;
 
-import com.example.smallbusinessmanagementsystem.utilities.WindowLoader;
-import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
+import com.example.smallbusinessmanagementsystem.model.Klientas;
+import com.example.smallbusinessmanagementsystem.model.Produktas;
+import com.example.smallbusinessmanagementsystem.model.Zyme;
+import com.example.smallbusinessmanagementsystem.utilities.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class StatistikaZymesTabController implements Initializable {
     WindowLoader windowLoader;
     WindowManager windowManager;
+    List<Zyme> zymeList;
+    LocalDate nuo;
+    LocalDate iki;
+    StatistikaProduktaiChoice statistikaProduktaiChoice;
 
     public StatistikaZymesTabController() {
         windowLoader = WindowLoader.getInstance();
@@ -28,17 +36,26 @@ public class StatistikaZymesTabController implements Initializable {
         }
     }
 
+    public StatistikaZymesTabController(List<Zyme> zymeList, LocalDate nuo, LocalDate iki, StatistikaProduktaiChoice statistikaProduktaiChoice) {
+        windowLoader = WindowLoader.getInstance();
+        if(windowLoader.isTabStatistikaZymes()) {
+            windowManager = new WindowManager();
+            windowLoader = WindowLoader.getInstance();
+            this.zymeList = zymeList;
+            this.nuo = nuo;
+            this.iki = iki;
+            this.statistikaProduktaiChoice = statistikaProduktaiChoice;
+        }
+    }
+
     @FXML
     private LineChart<String, Number> lineChart;
 
     @FXML
-    private TableView<?> tableViewZymes;
+    private TableView<Zyme> tableViewZymes;
 
     @FXML
-    private TableColumn<?, ?> columnZyme;
-
-    @FXML
-    private Button buttonTop;
+    private TableColumn<Zyme, String> columnZyme;
 
     @FXML
     private Button buttonPrideti;
@@ -50,11 +67,23 @@ public class StatistikaZymesTabController implements Initializable {
     private DatePicker datePickerIki;
 
     @FXML
+    private ChoiceBox<StatistikaProduktaiChoice> choiceBoxTipas;
+
+    @FXML
+    private Button buttonRodyti;
+
+    @FXML
     private Button buttonIstrinti;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(windowLoader.isTabStatistikaZymes()) {
+
+            datePickerIki.setValue(iki);
+            datePickerNuo.setValue(nuo);
+            fillChoiceBox(statistikaProduktaiChoice);
+            fillTableView();
+
             NumberAxis xAxis = new NumberAxis();
             NumberAxis yAxis = new NumberAxis();
 
@@ -90,12 +119,32 @@ public class StatistikaZymesTabController implements Initializable {
 
     @FXML
     void prideti(ActionEvent event) {
-
+        windowManager.showFindZyme(event, ControllerOperation.FIND_FOR_STATISTIKA_ZYMES, tableViewZymes.getItems(), datePickerNuo.getValue(), datePickerIki.getValue(), choiceBoxTipas.getValue());
     }
 
     @FXML
-    void top(ActionEvent event) {
+    void rodyti(ActionEvent event) {
 
     }
+    private void fillChoiceBox(StatistikaProduktaiChoice statistikaProduktaiChoice)
+    {
+        choiceBoxTipas.getItems().clear();
+        choiceBoxTipas.getItems().addAll(StatistikaProduktaiChoice.values());
+        choiceBoxTipas.setValue(statistikaProduktaiChoice);
+        if(statistikaProduktaiChoice == null)
+        {
+            choiceBoxTipas.setValue(StatistikaProduktaiChoice.PARDAVIMŲ_KIEKIS);
+        }
+    }
 
+    private void fillTableView()
+    {
+        tableViewZymes.getItems().clear();
+        if(zymeList!=null && !zymeList.isEmpty())
+        {
+            ObservableList<Zyme> produktai = FXCollections.observableList(zymeList);
+            columnZyme.setCellValueFactory(new PropertyValueFactory<Zyme, String>("pavadinimas"));
+            tableViewZymes.setItems(produktai);
+        }
+    }
 }

@@ -408,6 +408,46 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    public void showTabStatistikaFinansai(ActionEvent event, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, FinansoTipas finansoTipas) {
+        try {
+            windowLoader.setTabStatistikaFinansai(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabFinansai();
+
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-finansai-view.fxml"));
+            StatistikaFinansaiTabController statistikaFinansaiTabControllernew = new StatistikaFinansaiTabController(zymeList, nuo, iki, finansoTipas);
+            subTabLoader.setController(statistikaFinansaiTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaFinansaiTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaFinansai(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showTabStatistikaZymes(ActionEvent event) {
         try {
             windowLoader.setTabStatistikaZymes(true);
@@ -428,6 +468,46 @@ public void showLogin(ActionEvent event) {
 
             FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-zymes-view.fxml"));
             StatistikaZymesTabController statistikaZymesTabControllernew = new StatistikaZymesTabController();
+            subTabLoader.setController(statistikaZymesTabControllernew);
+            Parent subTabRoot = subTabLoader.load();
+            StatistikaZymesTabController subTabController = subTabLoader.getController();
+
+
+            tabController.getTabPaneStatistika().getSelectionModel().getSelectedItem().setContent(subTabRoot);
+            mainController.getTabPaneKategorijos().getSelectionModel().getSelectedItem().setContent(tabRoot);
+
+            Scene nestedTabScene = new Scene(mainRoot);
+            nestedTabStage.setScene(nestedTabScene);
+            nestedTabStage.setTitle("Pagrindinis");
+
+
+            nestedTabStage.show();
+
+            windowLoader.setTabStatistikaZymes(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showTabStatistikaZymes(ActionEvent event, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, StatistikaProduktaiChoice statistikaProduktaiChoice) {
+        try {
+            windowLoader.setTabStatistikaZymes(true);
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/main-view.fxml"));
+            Parent mainRoot = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            mainController.showTabStatistika();
+
+            FXMLLoader tabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-view.fxml"));
+            Parent tabRoot = tabLoader.load();
+            StatistikaTabController tabController = tabLoader.getController();
+
+            tabController.showTabZymes();
+
+
+            Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader subTabLoader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/TabStatistika/tab-statistika-zymes-view.fxml"));
+            StatistikaZymesTabController statistikaZymesTabControllernew = new StatistikaZymesTabController(zymeList, nuo, iki, statistikaProduktaiChoice);
             subTabLoader.setController(statistikaZymesTabControllernew);
             Parent subTabRoot = subTabLoader.load();
             StatistikaZymesTabController subTabController = subTabLoader.getController();
@@ -651,6 +731,42 @@ public void showLogin(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
             FindZymeController findZymeController = new FindZymeController(controllerOperation, object);
+            loader.setController(findZymeController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, FinansoTipas finansoTipas) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
+            FindZymeController findZymeController = new FindZymeController(controllerOperation, zymeList, nuo, iki, finansoTipas);
+            loader.setController(findZymeController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Main");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showFindZyme(ActionEvent event, ControllerOperation controllerOperation, List<Zyme> zymeList, LocalDate nuo, LocalDate iki, StatistikaProduktaiChoice statistikaProduktaiChoice) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-zyme-view.fxml"));
+            FindZymeController findZymeController = new FindZymeController(controllerOperation, zymeList, nuo, iki, statistikaProduktaiChoice);
             loader.setController(findZymeController); // set the controller instance
 
             Parent root = loader.load();
