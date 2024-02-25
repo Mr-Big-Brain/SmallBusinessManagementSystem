@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="489.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <BarChart fx:id="barChart" layoutX="24.0" layoutY="75.0">
+        <BarChart fx:id="barChart" layoutX="24.0" layoutY="75.0" stylesheets="@../../CSS/BarChart.css">
             <xAxis>
                 <CategoryAxis side="BOTTOM" />
             </xAxis>
@@ -31,8 +31,9 @@
         <DatePicker fx:id="datePickerNuo" layoutX="91.0" layoutY="19.0" />
         <DatePicker fx:id="datePickerIki" layoutX="309.0" layoutY="19.0" />
         <ChoiceBox fx:id="choiceBoxTipas" layoutX="535.0" layoutY="20.0" prefWidth="150.0" stylesheets="@../../CSS/ChoiceBox.css" />
-        <Button fx:id="buttonRodyti" layoutX="248.0" layoutY="475.0" mnemonicParsing="false" onAction="#rodyti" text="Rodyti" />
+        <Button fx:id="buttonRodyti" layoutX="248.0" layoutY="475.0" mnemonicParsing="false" onAction="#rodyti" stylesheets="@../../CSS/ButtonOptional.css" text="Rodyti" />
       <Label layoutX="63.0" layoutY="24.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
       <Label layoutX="293.0" layoutY="24.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+      <Button fx:id="buttonVisos" layoutX="843.0" layoutY="251.0" mnemonicParsing="false" onAction="#visos" stylesheets="@../../CSS/ButtonOptional.css" text="Visos" />
     </children>
 </AnchorPane>

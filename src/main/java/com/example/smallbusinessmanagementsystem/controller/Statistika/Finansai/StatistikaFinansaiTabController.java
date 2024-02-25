@@ -1,6 +1,9 @@
 package com.example.smallbusinessmanagementsystem.controller.Statistika.Finansai;
 
 import com.example.smallbusinessmanagementsystem.model.Zyme;
+import com.example.smallbusinessmanagementsystem.service.ZymeService;
+import com.example.smallbusinessmanagementsystem.statistika.StatistikaFinansaiService;
+import com.example.smallbusinessmanagementsystem.statistika.StatistikosElementas;
 import com.example.smallbusinessmanagementsystem.utilities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,13 +11,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class StatistikaFinansaiTabController implements Initializable {
     WindowLoader windowLoader;
@@ -23,6 +29,8 @@ public class StatistikaFinansaiTabController implements Initializable {
     LocalDate nuo;
     LocalDate iki;
     FinansoTipas finansoTipas;
+    StatistikaFinansaiService statistikaFinansaiService;
+    ZymeService zymeService;
 
     public StatistikaFinansaiTabController()
     {
@@ -30,6 +38,8 @@ public class StatistikaFinansaiTabController implements Initializable {
         if(windowLoader.isTabStatistikaFinansai()) {
             windowManager = new WindowManager();
             windowLoader = WindowLoader.getInstance();
+            zymeService = new ZymeService();
+            statistikaFinansaiService = new StatistikaFinansaiService();
         }
     }
 
@@ -43,6 +53,8 @@ public class StatistikaFinansaiTabController implements Initializable {
             this.nuo = nuo;
             this.iki = iki;
             this.finansoTipas = finansoTipas;
+            statistikaFinansaiService = new StatistikaFinansaiService();
+            zymeService = new ZymeService();
         }
     }
 
@@ -60,6 +72,9 @@ public class StatistikaFinansaiTabController implements Initializable {
 
     @FXML
     private ChoiceBox<FinansoTipas> choiceBoxTipas;
+
+    @FXML
+    private Button buttonVisos;
 
     @FXML
     private TableView<Zyme> tableViewZymes;
@@ -87,7 +102,10 @@ public class StatistikaFinansaiTabController implements Initializable {
 
     @FXML
     void pasalinti(ActionEvent event) {
-
+        zymeList = zymeList.stream()
+                .filter(zyme -> zyme.getId() != tableViewZymes.getSelectionModel().getSelectedItem().getId())
+                .collect(Collectors.toList());
+        fillTableView();
     }
 
     @FXML
@@ -98,17 +116,30 @@ public class StatistikaFinansaiTabController implements Initializable {
 
     @FXML
     void rodyti(ActionEvent event) {
+        barChart.getData().clear();
 
+        XYChart.Series series = new XYChart.Series();
+        series = contstructDataSeries(constructStatistikosElementasList(tableViewZymes.getItems()));
+
+        barChart.getData().addAll(series);
+        barChart.setLegendVisible(false);
+    }
+
+    @FXML
+    void visos(ActionEvent event) {
+        zymeList = zymeService.getAllFinansaiZyme();
+        fillTableView();
     }
 
     private void fillChoiceBox(FinansoTipas finansoTipas)
     {
         choiceBoxTipas.getItems().clear();
         choiceBoxTipas.getItems().addAll(FinansoTipas.values());
+        choiceBoxTipas.getItems().remove(FinansoTipas.VISI);
         choiceBoxTipas.setValue(finansoTipas);
         if(finansoTipas == null)
         {
-            choiceBoxTipas.setValue(FinansoTipas.VISI);
+            choiceBoxTipas.setValue(FinansoTipas.PAJAMOS);
         }
     }
 
@@ -121,5 +152,27 @@ public class StatistikaFinansaiTabController implements Initializable {
             columnZyme.setCellValueFactory(new PropertyValueFactory<Zyme, String>("pavadinimas"));
             tableViewZymes.setItems(produktai);
         }
+    }
+
+    private List<StatistikosElementas> constructStatistikosElementasList(List<Zyme> zymeList) {
+        List<StatistikosElementas> statistikosElementasList = new ArrayList<>();
+        for(Zyme zyme : zymeList)
+        {
+            statistikosElementasList.add(statistikaFinansaiService.getFinansoZymesStatistika(zyme, datePickerNuo.getValue(), datePickerIki.getValue(), choiceBoxTipas.getValue()));
+        }
+
+        return statistikosElementasList;
+    }
+
+    private XYChart.Series<String, Number> contstructDataSeries(List<StatistikosElementas> statistikosElementasList)
+    {
+        XYChart.Series<String, Number> tempDataSeries = new XYChart.Series<>();
+
+        for(StatistikosElementas statistikosElementas : statistikosElementasList)
+        {
+            tempDataSeries.getData().add(new XYChart.Data(statistikosElementas.getPavadinimas(), statistikosElementas.getKiekis()));
+        }
+
+        return tempDataSeries;
     }
 }

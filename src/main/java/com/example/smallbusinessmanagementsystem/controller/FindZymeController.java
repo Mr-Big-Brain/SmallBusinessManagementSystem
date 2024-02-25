@@ -212,6 +212,7 @@ public class FindZymeController implements Initializable {
                         if(zymes.get(i).getId()==zymeList.get(j).getId())
                         {
                             zymes.remove(i);
+                            break;
                         }
                     }
                 }
