@@ -27,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PardavimaiTabController implements Initializable {
@@ -36,6 +37,7 @@ public class PardavimaiTabController implements Initializable {
     VartotojasService vartotojasService;
     KlientasService klientasService;
     PardavimoLinijaService pardavimoLinijaService;
+
     public PardavimaiTabController()
     {
         windowLoader = WindowLoader.getInstance();
@@ -74,7 +76,7 @@ public class PardavimaiTabController implements Initializable {
     private TableColumn<Pardavimas, Integer> columnPardavimaiID;
 
     @FXML
-    private TableColumn<Pardavimas, LocalDateTime> columnPardavimaiData;
+    private TableColumn<Pardavimas, String> columnPardavimaiData;
 
     @FXML
     private TableColumn<Pardavimas, String> columnPardavimaiSuma;
@@ -129,9 +131,13 @@ public class PardavimaiTabController implements Initializable {
     private void fillTable()
     {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
         ObservableList<Pardavimas> pardavimai = FXCollections.observableList(pardavimasService.getAllPardavimai(datePickerNuo.getValue(),datePickerIki.getValue()));
         columnPardavimaiID.setCellValueFactory(new PropertyValueFactory<Pardavimas,Integer>("id"));
-        columnPardavimaiData.setCellValueFactory(new PropertyValueFactory<Pardavimas,LocalDateTime>("data"));
+        columnPardavimaiData.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(dateTimeFormatter.format(cellData.getValue().getData()));
+        });
         columnPardavimaiDarbuotojas.setCellValueFactory(new PropertyValueFactory<Pardavimas,String>("pardavejas"));
         columnPardavimaiDarbuotojas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getPardavejas()!=null)
