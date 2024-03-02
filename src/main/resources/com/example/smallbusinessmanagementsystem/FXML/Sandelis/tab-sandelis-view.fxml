@@ -8,20 +8,20 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Sandelis.SandelisTabController">
     <children>
-        <Button fx:id="buttonPridetiProdukta" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti produktą">
+        <Button fx:id="buttonPridetiProdukta" layoutX="586.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" text="Pridėti produktą">
          <stylesheets>
             <URL value="@../../CSS/ButtonCreate.css" />
             <URL value="@../../CSS/ButtonUpdate.css" />
          </stylesheets></Button>
-        <Button fx:id="buttonIstrintiProdukta" layoutX="427.0" layoutY="87.0" mnemonicParsing="false" onAction="#istrintiProdukta" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti produktą" />
-        <Button fx:id="buttonRastiProdukta" layoutX="426.0" layoutY="124.0" mnemonicParsing="false" onAction="#rastiProdukta" stylesheets="@../../CSS/ButtonOptional.css" text="Rasti produkto kiekį" />
-        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="403.0" stylesheets="@../../CSS/TableView.css">
+        <Button fx:id="buttonIstrintiProdukta" layoutX="587.0" layoutY="87.0" mnemonicParsing="false" onAction="#istrintiProdukta" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti produktą" />
+        <Button fx:id="buttonRastiProdukta" layoutX="586.0" layoutY="124.0" mnemonicParsing="false" onAction="#rastiProdukta" stylesheets="@../../CSS/ButtonOptional.css" text="Rasti produkto kiekį" />
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="532.0" stylesheets="@../../CSS/TableView.css">
             <columns>
-                <TableColumn fx:id="columnSandelisProduktas" prefWidth="294.0" text="Produktas" />
-                <TableColumn fx:id="columnSandelisKiekis" prefWidth="108.0" text="Kiekis" />
+                <TableColumn fx:id="columnSandelisProduktas" prefWidth="386.0" text="Produktas" />
+                <TableColumn fx:id="columnSandelisKiekis" prefWidth="145.0" text="Kiekis" />
             </columns>
         </TableView>
-      <Button fx:id="buttonNurasytiProdukta" layoutX="426.0" layoutY="49.0" mnemonicParsing="false" onAction="#nurasytiProdukta" text="Nurašyti produktą">
+      <Button fx:id="buttonNurasytiProdukta" layoutX="586.0" layoutY="49.0" mnemonicParsing="false" onAction="#nurasytiProdukta" text="Nurašyti produktą">
          <stylesheets>
             <URL value="@../../CSS/ButtonDelete.css" />
             <URL value="@../../CSS/ButtonUpdate.css" />

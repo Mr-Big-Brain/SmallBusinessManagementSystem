@@ -10,9 +10,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="589.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <BarChart fx:id="barChart" layoutX="14.0" layoutY="58.0" prefHeight="390.0" prefWidth="812.0" stylesheets="@../../CSS/BarChart.css">
+        <BarChart fx:id="barChart" layoutX="14.0" layoutY="58.0" prefHeight="522.0" prefWidth="1262.0" stylesheets="@../../CSS/BarChart.css">
             <xAxis>
                 <CategoryAxis side="BOTTOM" />
             </xAxis>
@@ -20,14 +20,15 @@
                 <NumberAxis side="LEFT" />
             </yAxis>
         </BarChart>
-        <Button fx:id="buttonPasirinkti" layoutX="818.0" layoutY="22.0" mnemonicParsing="false" onAction="#pasirinkti" stylesheets="@../../CSS/ButtonOptional.css" text="..." />
-        <Button fx:id="buttonRodyti" layoutX="385.0" layoutY="458.0" mnemonicParsing="false" onAction="#rodyti" stylesheets="@../../CSS/ButtonOptional.css" text="Rodyti" />
-        <DatePicker fx:id="datePickerNuo" layoutX="57.0" layoutY="24.0" />
-        <DatePicker fx:id="datePickerIki" layoutX="272.0" layoutY="24.0" />
-        <Label layoutX="669.0" layoutY="4.0" stylesheets="@../../CSS/Label.css" text="Klientas" />
-      <ChoiceBox fx:id="choiceBoxTipas" layoutX="483.0" layoutY="24.0" prefWidth="150.0" stylesheets="@../../CSS/ChoiceBox.css" />
-      <TextField fx:id="textFieldKlientas" editable="false" layoutX="669.0" layoutY="22.0" />
-      <Label layoutX="57.0" layoutY="6.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
-      <Label layoutX="272.0" layoutY="6.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+        <Button fx:id="buttonPasirinkti" layoutX="830.0" layoutY="32.0" mnemonicParsing="false" onAction="#pasirinkti" stylesheets="@../../CSS/ButtonOptional.css" text="..." />
+        <Button fx:id="buttonRodyti" layoutX="607.0" layoutY="589.0" mnemonicParsing="false" onAction="#rodyti" stylesheets="@../../CSS/ButtonOptional.css" text="Rodyti" />
+        <DatePicker fx:id="datePickerNuo" layoutX="69.0" layoutY="34.0" />
+        <DatePicker fx:id="datePickerIki" layoutX="284.0" layoutY="34.0" />
+        <Label layoutX="681.0" layoutY="14.0" stylesheets="@../../CSS/Label.css" text="Klientas" />
+      <ChoiceBox fx:id="choiceBoxTipas" layoutX="495.0" layoutY="34.0" prefWidth="150.0" stylesheets="@../../CSS/ChoiceBox.css" />
+      <TextField fx:id="textFieldKlientas" editable="false" layoutX="681.0" layoutY="32.0" />
+      <Label layoutX="69.0" layoutY="16.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
+      <Label layoutX="284.0" layoutY="16.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+      <Label layoutX="495.0" layoutY="16.0" stylesheets="@../../CSS/Label.css" text="Tipas" />
     </children>
 </AnchorPane>

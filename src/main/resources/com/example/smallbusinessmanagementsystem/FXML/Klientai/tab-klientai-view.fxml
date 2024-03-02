@@ -7,30 +7,30 @@
 
 <AnchorPane prefHeight="573.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Klientai.KlientaiTabController">
     <children>
-        <TableView fx:id="tableViewKlientai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openKomunikacijos" prefHeight="393.0" prefWidth="565.0" stylesheets="@../../CSS/TableView.css">
+        <TableView fx:id="tableViewKlientai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openKomunikacijos" prefHeight="510.0" prefWidth="611.0" stylesheets="@../../CSS/TableView.css">
             <columns>
-                <TableColumn fx:id="columnKlientaiID" prefWidth="27.0" text="ID" />
-                <TableColumn fx:id="columnKlientaiVardas" prefWidth="82.0" text="Vardas" />
-                <TableColumn fx:id="columnKlientaiPavarde" prefWidth="82.0" text="Pavardė" />
-                <TableColumn fx:id="columnKlientaiImone" minWidth="4.0" prefWidth="128.0" text="Įmonė" />
-                <TableColumn fx:id="columnKlientaiTelefonas" prefWidth="133.0" text="Telefonas" />
-                <TableColumn fx:id="columnKlientaiPastas" prefWidth="112.0" text="El.Paštas" />
+                <TableColumn fx:id="columnKlientaiID" prefWidth="47.0" text="ID" />
+                <TableColumn fx:id="columnKlientaiVardas" prefWidth="87.0" text="Vardas" />
+                <TableColumn fx:id="columnKlientaiPavarde" prefWidth="101.0" text="Pavardė" />
+                <TableColumn fx:id="columnKlientaiImone" minWidth="4.0" prefWidth="125.0" text="Įmonė" />
+                <TableColumn fx:id="columnKlientaiTelefonas" prefWidth="98.0" text="Telefonas" />
+                <TableColumn fx:id="columnKlientaiPastas" prefWidth="151.0" text="El.Paštas" />
             </columns>
         </TableView>
-        <Button fx:id="buttonKlientaiPrideti" layoutX="14.0" layoutY="415.0" mnemonicParsing="false" onAction="#pridetiKlienta" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
-        <Button fx:id="buttonKlientaiRedaguoti" layoutX="101.0" layoutY="415.0" mnemonicParsing="false" onAction="#redaguotiKlienta" stylesheets="@../../CSS/ButtonUpdate.css" text="Redaguoti" />
-        <Button fx:id="buttonKlientaiIstrinti" layoutX="210.0" layoutY="415.0" mnemonicParsing="false" onAction="#istrintiKlienta" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
-        <TableView fx:id="tableViewKomunikacijos" layoutX="625.0" layoutY="14.0" prefHeight="393.0" prefWidth="565.0" stylesheets="@../../CSS/TableView.css">
+        <Button fx:id="buttonKlientaiPrideti" layoutX="14.0" layoutY="532.0" mnemonicParsing="false" onAction="#pridetiKlienta" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonKlientaiRedaguoti" layoutX="101.0" layoutY="532.0" mnemonicParsing="false" onAction="#redaguotiKlienta" stylesheets="@../../CSS/ButtonUpdate.css" text="Redaguoti" />
+        <Button fx:id="buttonKlientaiIstrinti" layoutX="210.0" layoutY="532.0" mnemonicParsing="false" onAction="#istrintiKlienta" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <TableView fx:id="tableViewKomunikacijos" layoutX="710.0" layoutY="14.0" prefHeight="510.0" prefWidth="578.0" stylesheets="@../../CSS/TableView.css">
             <columns>
-                <TableColumn fx:id="columnKomunikacijosID" prefWidth="46.0" text="ID" />
-                <TableColumn fx:id="columnKomunikacijosPavadinimas" prefWidth="144.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnKomunikacijosApibrezimas" prefWidth="134.0" text="Apibrėžimas" />
-                <TableColumn fx:id="columnKomunikacijosProduktas" prefWidth="128.0" text="Produktas" />
-            <TableColumn fx:id="columnKomunikacijosData" prefWidth="112.0" text="Data" />
+                <TableColumn fx:id="columnKomunikacijosID" prefWidth="63.0" text="ID" />
+                <TableColumn fx:id="columnKomunikacijosPavadinimas" prefWidth="135.0" text="Pavadinimas" />
+                <TableColumn fx:id="columnKomunikacijosApibrezimas" prefWidth="142.0" text="Apibrėžimas" />
+                <TableColumn fx:id="columnKomunikacijosProduktas" prefWidth="129.0" text="Produktas" />
+            <TableColumn fx:id="columnKomunikacijosData" prefWidth="108.0" text="Data" />
             </columns>
         </TableView>
-        <Button fx:id="buttonKomunikacijosPrideti" layoutX="625.0" layoutY="415.0" mnemonicParsing="false" onAction="#pridetiKomunikacija" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
-        <Button fx:id="buttonKomunikacijosRedaguoti" layoutX="717.0" layoutY="415.0" mnemonicParsing="false" onAction="#redaguotiKomunikacija" stylesheets="@../../CSS/ButtonUpdate.css" text="Redaguoti" />
-        <Button fx:id="buttonKomunikacijosIstrinti" layoutX="834.0" layoutY="415.0" mnemonicParsing="false" onAction="#istrintiKomunikacija" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <Button fx:id="buttonKomunikacijosPrideti" layoutX="710.0" layoutY="532.0" mnemonicParsing="false" onAction="#pridetiKomunikacija" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonKomunikacijosRedaguoti" layoutX="802.0" layoutY="532.0" mnemonicParsing="false" onAction="#redaguotiKomunikacija" stylesheets="@../../CSS/ButtonUpdate.css" text="Redaguoti" />
+        <Button fx:id="buttonKomunikacijosIstrinti" layoutX="919.0" layoutY="532.0" mnemonicParsing="false" onAction="#istrintiKomunikacija" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
     </children>
 </AnchorPane>

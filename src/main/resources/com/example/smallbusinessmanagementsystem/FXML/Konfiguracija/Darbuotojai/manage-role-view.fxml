@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="272.0" prefWidth="407.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <CheckBox fx:id="checkBoxPardavimai" layoutX="33.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Pardavimų posistemis" />
         <CheckBox fx:id="checkBoxFinansai" layoutX="33.0" layoutY="115.0" mnemonicParsing="false" stylesheets="@../../../CSS/CheckBox.css" text="Finansų posistemis" />

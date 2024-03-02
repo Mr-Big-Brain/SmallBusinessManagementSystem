@@ -8,16 +8,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Zymes.KonfiguracijaZymesTabController">
     <children>
-        <TableView fx:id="tableViewZymes" layoutX="14.0" layoutY="53.0" prefHeight="316.0" prefWidth="357.0" stylesheets="@../../../CSS/TableView.css">
+        <TableView fx:id="tableViewZymes" layoutX="14.0" layoutY="53.0" prefHeight="316.0" prefWidth="404.0" stylesheets="@../../../CSS/TableView.css">
             <columns>
-                <TableColumn fx:id="columnZymesID" prefWidth="55.0" text="ID" />
-                <TableColumn fx:id="columnZymesPavadinimas" prefWidth="182.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnZymesTipas" prefWidth="119.0" text="Tipas" />
+                <TableColumn fx:id="columnZymesID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="columnZymesPavadinimas" prefWidth="195.0" text="Pavadinimas" />
+                <TableColumn fx:id="columnZymesTipas" prefWidth="133.0" text="Tipas" />
             </columns>
         </TableView>
         <ChoiceBox fx:id="choiceBoxZymiuTipai" layoutX="14.0" layoutY="14.0" onAction="#sortZymes" prefWidth="150.0" stylesheets="@../../../CSS/ChoiceBox.css" />
-        <Button fx:id="buttonZymesPrideti" layoutX="382.0" layoutY="53.0" mnemonicParsing="false" onAction="#pridetiZyme" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
-        <Button fx:id="buttonZymesPervadinti" layoutX="382.0" layoutY="90.0" mnemonicParsing="false" onAction="#pervadintiZyme" stylesheets="@../../../CSS/ButtonUpdate.css" text="Pervadinti" />
-        <Button fx:id="buttonZymesIstrinti" layoutX="383.0" layoutY="129.0" mnemonicParsing="false" onAction="#istrintiZyme" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <Button fx:id="buttonZymesPrideti" layoutX="432.0" layoutY="53.0" mnemonicParsing="false" onAction="#pridetiZyme" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonZymesPervadinti" layoutX="432.0" layoutY="90.0" mnemonicParsing="false" onAction="#pervadintiZyme" stylesheets="@../../../CSS/ButtonUpdate.css" text="Pervadinti" />
+        <Button fx:id="buttonZymesIstrinti" layoutX="433.0" layoutY="129.0" mnemonicParsing="false" onAction="#istrintiZyme" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
     </children>
 </AnchorPane>

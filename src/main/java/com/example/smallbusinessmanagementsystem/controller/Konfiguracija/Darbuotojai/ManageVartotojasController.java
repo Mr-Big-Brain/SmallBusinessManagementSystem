@@ -54,7 +54,7 @@ public class ManageVartotojasController implements Initializable {
 
             fillRolesTable();
             tableViewRoles.getSelectionModel().select(tableViewRoles.getItems().indexOf(vartotojasModifikacijai.getVartotojoTipas()));
-            textFieldApibrezimas.setText(vartotojasModifikacijai.getApibrezimas());
+            textAreaApibrezimas.setText(vartotojasModifikacijai.getApibrezimas());
             textFieldPavarde.setText(vartotojasModifikacijai.getPavarde());
             textFieldTelefonas.setText(vartotojasModifikacijai.getTelefonas());
             textFieldVardas.setText(vartotojasModifikacijai.getVardas());
@@ -76,7 +76,7 @@ public class ManageVartotojasController implements Initializable {
     private TextField textFieldTelefonas;
 
     @FXML
-    private TextField textFieldApibrezimas;
+    private TextArea textAreaApibrezimas;
 
     @FXML
     private TextField textFieldPrisijungimoVardas;
@@ -102,7 +102,7 @@ public class ManageVartotojasController implements Initializable {
         {
             if(vartotojasService.tryCreateVartotojas(
                 textFieldVardas.getText(),textFieldPavarde.getText(),
-                textFieldTelefonas.getText(),textFieldApibrezimas.getText(),
+                textFieldTelefonas.getText(),textAreaApibrezimas.getText(),
                 textFieldPrisijungimoVardas.getText(), md5Converter.getMD5Hash(passwordFieldSlaptazodis.getText()),
                 tableViewRoles.getSelectionModel().getSelectedItem()))
             {
@@ -117,7 +117,7 @@ public class ManageVartotojasController implements Initializable {
                 password = md5Converter.getMD5Hash(passwordFieldSlaptazodis.getText());
 
             Vartotojas naujasVartotojas = new Vartotojas(textFieldVardas.getText(),textFieldPavarde.getText(),
-                    textFieldTelefonas.getText(),textFieldApibrezimas.getText(),
+                    textFieldTelefonas.getText(),textAreaApibrezimas.getText(),
                     textFieldPrisijungimoVardas.getText(),password,
                     tableViewRoles.getSelectionModel().getSelectedItem());
             naujasVartotojas.setId(vartotojasModifikacijai.getId());

@@ -5,19 +5,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="411.0" prefWidth="239.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="411.0" prefWidth="374.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="41.0" layoutY="51.0" stylesheets="@../../CSS/Label.css" text="Vardas" />
-      <TextField fx:id="textFieldVardas" layoutX="41.0" layoutY="68.0" />
+      <TextField fx:id="textFieldVardas" layoutX="41.0" layoutY="68.0" prefHeight="25.0" prefWidth="295.0" />
       <Label layoutX="41.0" layoutY="105.0" stylesheets="@../../CSS/Label.css" text="Pavardė" />
-      <TextField fx:id="textFieldPavarde" layoutX="41.0" layoutY="122.0" />
+      <TextField fx:id="textFieldPavarde" layoutX="41.0" layoutY="122.0" prefHeight="25.0" prefWidth="295.0" />
       <Label layoutX="41.0" layoutY="160.0" stylesheets="@../../CSS/Label.css" text="Įmonė" />
-      <TextField fx:id="textFieldImone" layoutX="41.0" layoutY="177.0" />
+      <TextField fx:id="textFieldImone" layoutX="41.0" layoutY="177.0" prefHeight="25.0" prefWidth="295.0" />
       <Label layoutX="41.0" layoutY="221.0" stylesheets="@../../CSS/Label.css" text="Telefono numeris" />
-      <TextField fx:id="textFieldTelefonoNumeris" layoutX="41.0" layoutY="238.0" />
+      <TextField fx:id="textFieldTelefonoNumeris" layoutX="41.0" layoutY="238.0" prefHeight="25.0" prefWidth="295.0" />
       <Label layoutX="41.0" layoutY="281.0" stylesheets="@../../CSS/Label.css" text="Elektoroninis paštas" />
-      <TextField fx:id="textFieldElektroninisPastas" layoutX="41.0" layoutY="298.0" />
-      <Button fx:id="buttonAtgal" layoutX="37.0" layoutY="343.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="134.0" layoutY="343.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
+      <TextField fx:id="textFieldElektroninisPastas" layoutX="41.0" layoutY="298.0" prefHeight="25.0" prefWidth="295.0" />
+      <Button fx:id="buttonAtgal" layoutX="40.0" layoutY="343.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="283.0" layoutY="343.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
    </children>
 </AnchorPane>
