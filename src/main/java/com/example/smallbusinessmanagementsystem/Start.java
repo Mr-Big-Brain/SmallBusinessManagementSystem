@@ -13,6 +13,7 @@ public class Start extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Start.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 365, 401);
         stage.setScene(scene);
+        stage.setTitle("Prisijungimas");
         stage.show();
     }
 

@@ -43,7 +43,7 @@ public class WindowManager {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Pagrindinis");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public void showLogin(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Main");
+        stage.setTitle("Prisijungimas");
         stage.show();
     } catch (IOException e) {
         e.printStackTrace();
@@ -70,7 +70,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Keisti prisijungimo duomenis");
 
             stage.show();
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Pardavimai");
 
             stage.show();
             windowLoader.setTabPardavimai(false);
@@ -105,7 +105,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Sandėlis");
 
             stage.show();
             windowLoader.setTabSandelis(false);
@@ -123,7 +123,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Tvarkaraštis");
 
             stage.show();
             windowLoader.setTabTvarkarastis(false);
@@ -141,7 +141,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Klientai");
 
             stage.show();
             windowLoader.setTabKlientai(false);
@@ -160,7 +160,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Finansai");
 
             stage.show();
             windowLoader.setTabFinansai(false);
@@ -177,7 +177,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Statistika");
 
             stage.show();
         } catch (IOException e) {
@@ -193,7 +193,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Konfigūracija");
 
             stage.show();
         } catch (IOException e) {
@@ -221,7 +221,7 @@ public void showLogin(ActionEvent event) {
             Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Žymės");
 
 
             nestedTabStage.show();
@@ -251,7 +251,7 @@ public void showLogin(ActionEvent event) {
             Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Darbuotojai");
 
 
             nestedTabStage.show();
@@ -281,7 +281,7 @@ public void showLogin(ActionEvent event) {
             Stage nestedTabStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Produktai");
 
 
             nestedTabStage.show();
@@ -319,7 +319,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Produktų statistika");
 
 
             nestedTabStage.show();
@@ -358,7 +358,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Klientų statistika");
 
 
             nestedTabStage.show();
@@ -398,7 +398,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Finansų statistika");
 
 
             nestedTabStage.show();
@@ -438,7 +438,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Finansų statistika");
 
 
             nestedTabStage.show();
@@ -478,7 +478,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Žymių statistika");
 
 
             nestedTabStage.show();
@@ -518,7 +518,7 @@ public void showLogin(ActionEvent event) {
 
             Scene nestedTabScene = new Scene(mainRoot);
             nestedTabStage.setScene(nestedTabScene);
-            nestedTabStage.setTitle("Pagrindinis");
+            nestedTabStage.setTitle("Žymių statistika");
 
 
             nestedTabStage.show();
@@ -539,7 +539,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rolė");
 
             stage.show();
         } catch (IOException e) {
@@ -558,7 +558,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Finansas");
 
             stage.show();
         } catch (IOException e) {
@@ -576,7 +576,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Klientas");
 
             stage.show();
         } catch (IOException e) {
@@ -594,7 +594,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Darbuotojas");
 
             stage.show();
         } catch (IOException e) {
@@ -612,7 +612,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Produktas");
 
             stage.show();
         } catch (IOException e) {
@@ -630,7 +630,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Žymė");
 
             stage.show();
         } catch (IOException e) {
@@ -648,7 +648,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Pardavimas");
 
             stage.show();
         } catch (IOException e) {
@@ -666,7 +666,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Pardavimo linija");
 
             stage.show();
         } catch (IOException e) {
@@ -684,7 +684,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Sandėlio prekė");
 
             stage.show();
         } catch (IOException e) {
@@ -702,7 +702,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Renginys");
 
             stage.show();
         } catch (IOException e) {
@@ -720,7 +720,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Komunikacija");
 
             stage.show();
         } catch (IOException e) {
@@ -738,7 +738,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Žymė");
 
             stage.show();
         } catch (IOException e) {
@@ -756,7 +756,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti žymę");
 
             stage.show();
         } catch (IOException e) {
@@ -774,7 +774,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti žymę");
 
             stage.show();
         } catch (IOException e) {
@@ -792,7 +792,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti produktą");
 
             stage.show();
         } catch (IOException e) {
@@ -810,7 +810,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti produktą");
 
             stage.show();
         } catch (IOException e) {
@@ -828,7 +828,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti produktą");
 
             stage.show();
         } catch (IOException e) {
@@ -846,7 +846,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti vartotoją");
 
             stage.show();
         } catch (IOException e) {
@@ -864,7 +864,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti klientą");
 
             stage.show();
         } catch (IOException e) {
@@ -882,7 +882,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Main");
+            stage.setTitle("Rasti klientą");
 
             stage.show();
         } catch (IOException e) {
