@@ -5,14 +5,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="263.0" prefWidth="444.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="371.0" prefWidth="444.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldProduktas" layoutX="62.0" layoutY="67.0" prefHeight="25.0" prefWidth="284.0" />
       <Button fx:id="buttonPasirinktiProdukta" layoutX="345.0" layoutY="66.0" mnemonicParsing="false" onAction="#pasirinktiProdukta" prefHeight="25.0" prefWidth="31.0" stylesheets="@../../CSS/ButtonOptional.css" text="Button" />
       <Label layoutX="62.0" layoutY="50.0" stylesheets="@../../CSS/Label.css" text="Produktas" />
       <TextField fx:id="textFieldKiekis" layoutX="62.0" layoutY="134.0" prefHeight="25.0" prefWidth="284.0" />
       <Label layoutX="62.0" layoutY="117.0" stylesheets="@../../CSS/Label.css" text="Kiekis" />
-      <Button fx:id="buttonAtgal" layoutX="62.0" layoutY="188.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="323.0" layoutY="188.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
+      <Button fx:id="buttonAtgal" layoutX="64.0" layoutY="256.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="328.0" layoutY="256.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
+      <TextField fx:id="textFieldPirkimoKaina" layoutX="62.0" layoutY="196.0" prefHeight="25.0" prefWidth="284.0" />
+      <Label layoutX="62.0" layoutY="177.0" stylesheets="@../../CSS/Label.css" text="Pirkimo kaina" />
    </children>
 </AnchorPane>

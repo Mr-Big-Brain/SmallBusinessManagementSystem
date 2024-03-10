@@ -15,31 +15,31 @@ public class SandelioPrekeService {
     }
     public boolean tryCreateSandelioPreke(SandelioPreke sandelioPreke)
     {
-        if(sandelioPreke.getProduktas()!=null && getSandelioPrekeByProduktas(sandelioPreke.getProduktas().getId())==null)
+        if(sandelioPreke.getProduktas()!=null && getSandelioPrekeByProduktasIrPirkimoKaina(sandelioPreke.getProduktas().getId(), sandelioPreke.getPirkimoKaina())==null)
         {
             sandelioPrekePersistenceController.create(sandelioPreke);
         }
         return false;
     }
-    public boolean tryIncreaseSandelioPreke(Produktas produktas, int kiekis)
+    public boolean tryIncreaseSandelioPreke(Produktas produktas, int kiekis, double pirkimoKaina)
     {
-        if(getSandelioPrekeByProduktas(produktas.getId())!=null)
+        if(getSandelioPrekeByProduktasIrPirkimoKaina(produktas.getId(), pirkimoKaina)!=null)
         {
-            SandelioPreke sandelioPreke = getSandelioPrekeByProduktas(produktas.getId());
+            SandelioPreke sandelioPreke = getSandelioPrekeByProduktasIrPirkimoKaina(produktas.getId(), pirkimoKaina);
             sandelioPreke.setKiekis(sandelioPreke.getKiekis()+kiekis);
             sandelioPrekePersistenceController.update(sandelioPreke);
         }
         else
         {
-            tryCreateSandelioPreke(new SandelioPreke(kiekis, produktas));
+            tryCreateSandelioPreke(new SandelioPreke(kiekis, produktas, pirkimoKaina));
         }
         return true;
     }
-    public boolean tryDecreaseSandelioPreke(Produktas produktas, int kiekis)
+    public boolean tryDecreaseSandelioPreke(Produktas produktas, int kiekis, double pirkimoKaina)
     {
-        if(getSandelioPrekeByProduktas(produktas.getId())!=null)
+        if(getSandelioPrekeByProduktasIrPirkimoKaina(produktas.getId(), pirkimoKaina)!=null)
         {
-            SandelioPreke sandelioPreke = getSandelioPrekeByProduktas(produktas.getId());
+            SandelioPreke sandelioPreke = getSandelioPrekeByProduktasIrPirkimoKaina(produktas.getId(), pirkimoKaina);
             sandelioPreke.setKiekis(sandelioPreke.getKiekis()-kiekis);
             if(sandelioPreke.getKiekis()<0)
             {
@@ -70,14 +70,14 @@ public class SandelioPrekeService {
     {
         return sandelioPrekePersistenceController.getSandelioPrekeListFromDatabase();
     }
-    public SandelioPreke getSandelioPrekeByProduktas(int produktasId)
+    public SandelioPreke getSandelioPrekeByProduktasIrPirkimoKaina(int produktasId, double pirkimoKaina)
     {
         List<SandelioPreke> visosSandelioPrekes = getAllSandelioPrekes();
         if(!visosSandelioPrekes.isEmpty())
         {
             for(int i=0;i<visosSandelioPrekes.size();i++)
             {
-                if(visosSandelioPrekes.get(i).getProduktas().getId()==produktasId)
+                if(visosSandelioPrekes.get(i).getProduktas().getId()==produktasId && visosSandelioPrekes.get(i).getPirkimoKaina()==pirkimoKaina)
                 {
                     return visosSandelioPrekes.get(i);
                 }
@@ -89,14 +89,34 @@ public class SandelioPrekeService {
             return null;
         }
     }
-    public boolean canBeDecreased(Produktas produktas, Integer kiekis)
+    public boolean canBeDecreased(Produktas produktas, Integer kiekis, double pirkimoKaina)
     {
-        SandelioPreke sandelioPreke = getSandelioPrekeByProduktas(produktas.getId());
+        SandelioPreke sandelioPreke = getSandelioPrekeByProduktasIrPirkimoKaina(produktas.getId(), pirkimoKaina);
         if(sandelioPreke!=null && sandelioPreke.getKiekis()>=kiekis)
         {
             return true;
         }
         return false;
+    }
+    public int getProduktoBendrasKiekisSandelyje(Produktas produktas)
+    {
+        List<SandelioPreke> visosSandelioPrekes = getAllSandelioPrekes();
+        if(!visosSandelioPrekes.isEmpty())
+        {
+            int sum = 0;
+            for(int i=0;i<visosSandelioPrekes.size();i++)
+            {
+                if(visosSandelioPrekes.get(i).getProduktas().getId()==produktas.getId())
+                {
+                    sum+=visosSandelioPrekes.get(i).getKiekis();
+                }
+            }
+            return sum;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
 

@@ -32,6 +32,8 @@ public class ManageSandelioPrekeController implements Initializable{
     {
         textFieldProduktas.setEditable(false);
         fillTextFieldProduktas();
+        fillTextFieldPirkimoKaina();
+
         if(sandelioPrekeModifikacijai!=null)
         {
             buttonPasirinktiProdukta.setVisible(false);
@@ -55,6 +57,9 @@ public class ManageSandelioPrekeController implements Initializable{
     private TextField textFieldKiekis;
 
     @FXML
+    private TextField textFieldPirkimoKaina;
+
+    @FXML
     private Button buttonAtgal;
 
     @FXML
@@ -68,7 +73,7 @@ public class ManageSandelioPrekeController implements Initializable{
             {
                 if(validateEmptyKiekis())
                 {
-                    if(sandelioPrekeService.tryIncreaseSandelioPreke(sandelioPrekeModifikacijai.getProduktas(),getIntegerFromKiekis()))
+                    if(sandelioPrekeService.tryIncreaseSandelioPreke(sandelioPrekeModifikacijai.getProduktas(),getIntegerFromKiekis(), getDoubleFromPirkimoKaina()))
                     {
                         AllertBox.display("Pavyko","Prekės pridėtos");
                         windowManager.showTabSandelis(event);
@@ -91,7 +96,7 @@ public class ManageSandelioPrekeController implements Initializable{
         {
             if(sandelioPrekeModifikacijai!=null && validateIntegerKiekis())
             {
-                if(sandelioPrekeService.tryDecreaseSandelioPreke(sandelioPrekeModifikacijai.getProduktas(),getIntegerFromKiekis()))
+                if(sandelioPrekeService.tryDecreaseSandelioPreke(sandelioPrekeModifikacijai.getProduktas(),getIntegerFromKiekis(),getDoubleFromPirkimoKaina()))
                 {
                     AllertBox.display("Pavyko","Prekės nurašytos");
                     windowManager.showTabSandelis(event);
@@ -136,6 +141,13 @@ public class ManageSandelioPrekeController implements Initializable{
             textFieldProduktas.setText(sandelioPrekeModifikacijai.getProduktas().getId() + ", " + sandelioPrekeModifikacijai.getProduktas().getPavadinimas());
         }
     }
+    private void fillTextFieldPirkimoKaina()
+    {
+        if(sandelioPrekeModifikacijai!=null && sandelioPrekeModifikacijai.getProduktas()!=null)
+        {
+            textFieldPirkimoKaina.setText(String.valueOf(sandelioPrekeModifikacijai.getPirkimoKaina()));
+        }
+    }
     private boolean validateEmptyKiekis()
     {
         if(Objects.equals(textFieldKiekis.getText(), ""))
@@ -166,5 +178,9 @@ public class ManageSandelioPrekeController implements Initializable{
     private Integer getIntegerFromKiekis()
     {
         return Integer.parseInt(textFieldKiekis.getText());
+    }
+    private Double getDoubleFromPirkimoKaina()
+    {
+        return Double.parseDouble(textFieldPirkimoKaina.getText());
     }
 }

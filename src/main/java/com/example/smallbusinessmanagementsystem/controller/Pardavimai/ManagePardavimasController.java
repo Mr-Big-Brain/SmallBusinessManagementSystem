@@ -81,6 +81,9 @@ public class ManagePardavimasController implements Initializable {
     private TableColumn<PardavimoLinija, Double> columnKainaVieneto;
 
     @FXML
+    private TableColumn<PardavimoLinija, Double> columnPirkimoKaina;
+
+    @FXML
     private TextField textFieldPirkejas;
 
     @FXML
@@ -144,14 +147,23 @@ public class ManagePardavimasController implements Initializable {
 
     @FXML
     void pakeistiPardavimoLinija(ActionEvent event) {
-        windowManager.showManagePardavimoLinija(event,ControllerOperation.UPDATE,pardavimasModifikacijai,pardavimoLinijosModifikacijai,tableViewPardavimoLinijos.getSelectionModel().getSelectedIndex());
+        if(tableViewPardavimoLinijos.getSelectionModel().getSelectedItem()!=null)
+        {
+            windowManager.showManagePardavimoLinija(event,ControllerOperation.UPDATE_PARDAVIMAS,pardavimasModifikacijai,pardavimoLinijosModifikacijai,tableViewPardavimoLinijos.getSelectionModel().getSelectedIndex());
+        }
     }
 
     @FXML
     void pridetiPardavimoLinija(ActionEvent event) {
-        if(tryConstructEverything())
+        if(tryConstructEverything() && (controllerOperation == ControllerOperation.CREATE_PARDAVIMAS || controllerOperation == ControllerOperation.UPDATE_PARDAVIMAS))
         {
-            windowManager.showManagePardavimoLinija(event,controllerOperation,pardavimasModifikacijai,pardavimoLinijosModifikacijai,-1);
+            if(pardavimoLinijosModifikacijai==null)
+            {
+                pardavimoLinijosModifikacijai = new ArrayList<>();
+            }
+
+            pardavimoLinijosModifikacijai.add(new PardavimoLinija());
+            windowManager.showManagePardavimoLinija(event,ControllerOperation.CREATE_PARDAVIMAS, pardavimasModifikacijai,pardavimoLinijosModifikacijai,pardavimoLinijosModifikacijai.size()-1);
         }
     }
 
@@ -235,6 +247,7 @@ public class ManagePardavimasController implements Initializable {
     {
         ObservableList<PardavimoLinija> pardavimoLinijos = FXCollections.observableList(pardavimoLinijosModifikacijai);
         columnKainaVieneto.setCellValueFactory(new PropertyValueFactory<PardavimoLinija,Double>("kainaUzViena"));
+        columnPirkimoKaina.setCellValueFactory(new PropertyValueFactory<PardavimoLinija,Double>("pirkimoKaina"));
         columnKiekis.setCellValueFactory(new PropertyValueFactory<PardavimoLinija,Integer>("kiekis"));
         columnProduktas.setCellValueFactory(new PropertyValueFactory<PardavimoLinija,String>("produktas"));
         columnProduktas.setCellValueFactory(cellData -> {
@@ -276,7 +289,7 @@ public class ManagePardavimasController implements Initializable {
         {
             for(int j=i;j<pardavimoLinijosModifikacijai.size();j++)
             {
-                if(i!=j && pardavimoLinijosModifikacijai.get(i).getProduktas().getId() == pardavimoLinijosModifikacijai.get(j).getProduktas().getId())
+                if(i!=j && pardavimoLinijosModifikacijai.get(i).getProduktas().getId() == pardavimoLinijosModifikacijai.get(j).getProduktas().getId() && pardavimoLinijosModifikacijai.get(i).getPirkimoKaina() == pardavimoLinijosModifikacijai.get(j).getPirkimoKaina())
                 {
                     AllertBox.display("Klaida", "Pardavimo linijose yra vienodų produktų");
                     return false;
@@ -290,7 +303,7 @@ public class ManagePardavimasController implements Initializable {
         for(int i=0;i<pardavimoLinijosModifikacijai.size();i++)
         {
             if(!sandelioPrekeService.canBeDecreased(pardavimoLinijosModifikacijai.get(i).getProduktas(),
-                    pardavimoLinijosModifikacijai.get(i).getKiekis()-findDeletedKiekis(pardavimoLinijosModifikacijai.get(i).getProduktas())))
+                    pardavimoLinijosModifikacijai.get(i).getKiekis()-findDeletedKiekis(pardavimoLinijosModifikacijai.get(i).getProduktas()),pardavimoLinijosModifikacijai.get(i).getPirkimoKaina()))
             {
                 AllertBox.display("Klaida", "Tiek " + pardavimoLinijosModifikacijai.get(i).getProduktas().getPavadinimas() + " produkto sandelyje nėra");
                 return false;
@@ -318,6 +331,7 @@ public class ManagePardavimasController implements Initializable {
         if(pardavimasModifikacijai.getId()!=0)
         {
             pardavimoLinijaService.deleteAllPardavimoPardavimoLinijas(pardavimasModifikacijai);
+            pardavimoLinijaService.tryCreatePardavimoLinijos(pardavimoLinijosModifikacijai, pardavimasModifikacijai.getId());
             pardavimasService.tryUpdatePardavimas(pardavimasModifikacijai);
         }
         else

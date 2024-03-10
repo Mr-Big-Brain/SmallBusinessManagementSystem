@@ -50,9 +50,6 @@ public class KonfiguracijaProduktaiTabController implements Initializable {
     private TableColumn<Produktas, String> columnProduktaiPavadinimas;
 
     @FXML
-    private TableColumn<Produktas, Double> columnProduktaiPirkimoKaina;
-
-    @FXML
     private TableColumn<Produktas, Double> columnProduktaiRekomenduojamaKaina;
 
     @FXML
@@ -123,7 +120,6 @@ public class KonfiguracijaProduktaiTabController implements Initializable {
         columnProduktaiID.setCellValueFactory(new PropertyValueFactory<Produktas,Integer>("id"));
         columnProduktaiPavadinimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("pavadinimas"));
         columnProduktaiApibrezimas.setCellValueFactory(new PropertyValueFactory<Produktas,String>("apibrezimas"));
-        columnProduktaiPirkimoKaina.setCellValueFactory(new PropertyValueFactory<Produktas,Double>("pirkimoKaina"));
         columnProduktaiRekomenduojamaKaina.setCellValueFactory(new PropertyValueFactory<Produktas,Double>("rekomenduojamaKaina"));
         tableViewProduktai.setItems(produktai);
     }

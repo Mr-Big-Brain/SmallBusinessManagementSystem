@@ -40,15 +40,11 @@ public class ManageProduktasController implements Initializable {
 
             textFieldPavadinimas.setText(produktasModifikacijai.getPavadinimas());
             textAreaApibrezimas.setText(produktasModifikacijai.getApibrezimas());
-            textFieldPirkimoKaina.setText(String.valueOf(produktasModifikacijai.getPirkimoKaina()));
             textFieldRekomenduojamaKaina.setText(String.valueOf(produktasModifikacijai.getRekomenduojamaKaina()));
         }
     }
     @FXML
     private TextField textFieldPavadinimas;
-
-    @FXML
-    private TextField textFieldPirkimoKaina;
 
     @FXML
     private TextField textFieldRekomenduojamaKaina;
@@ -67,8 +63,7 @@ public class ManageProduktasController implements Initializable {
         if(validateKainos()) {
             if (controllerOperation == ControllerOperation.CREATE) {
                 if (produktasService.tryCreateProduktas(
-                        textFieldPavadinimas.getText(), textAreaApibrezimas.getText(),
-                        Double.parseDouble(textFieldPirkimoKaina.getText()), Double.parseDouble(textFieldRekomenduojamaKaina.getText())))
+                        textFieldPavadinimas.getText(), textAreaApibrezimas.getText(), Double.parseDouble(textFieldRekomenduojamaKaina.getText())))
                 {
                     AllertBox.display("Pavyko", "Produktas sukurtas");
                     windowManager.showTabKonfiguracijaProduktai(event);
@@ -76,8 +71,7 @@ public class ManageProduktasController implements Initializable {
             }
             if (controllerOperation == ControllerOperation.UPDATE) {
                 Produktas naujasProduktas = new Produktas(
-                        textFieldPavadinimas.getText(), textAreaApibrezimas.getText(),
-                        Double.parseDouble(textFieldPirkimoKaina.getText()), Double.parseDouble(textFieldRekomenduojamaKaina.getText()));
+                        textFieldPavadinimas.getText(), textAreaApibrezimas.getText(), Double.parseDouble(textFieldRekomenduojamaKaina.getText()));
 
                 naujasProduktas.setId(produktasModifikacijai.getId());
 
@@ -96,14 +90,13 @@ public class ManageProduktasController implements Initializable {
 
     private boolean validateKainos()
     {
-        if(Objects.equals(textFieldPirkimoKaina.getText(), "")||Objects.equals(textFieldRekomenduojamaKaina.getText(),""))
+        if(Objects.equals(textFieldRekomenduojamaKaina.getText(),""))
         {
             AllertBox.display("Klaida","Negalima palikti tuščių kainų");
             return false;
         }
         try {
-            double value = Double.parseDouble(textFieldPirkimoKaina.getText());
-            value = Double.parseDouble(textFieldRekomenduojamaKaina.getText());
+            double value = Double.parseDouble(textFieldRekomenduojamaKaina.getText());
             return true;
         } catch (NumberFormatException e) {
             AllertBox.display("Klaida","Blogas kainos formatas");

@@ -835,6 +835,25 @@ public void showLogin(ActionEvent event) {
             e.printStackTrace();
         }
     }
+
+    public void showFindSandelioPreke(ActionEvent event, ControllerOperation controllerOperation, List<PardavimoLinija> pardavimoLinijaList, Pardavimas pardavimas, int linijosNum) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-sandelio-preke-view.fxml"));
+            FindSandelioPrekeController findSandelioPrekeController = new FindSandelioPrekeController(controllerOperation, pardavimoLinijaList, pardavimas, linijosNum);
+            loader.setController(findSandelioPrekeController); // set the controller instance
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Rasti prekę");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showFindVartotojas(ActionEvent event, ControllerOperation controllerOperation, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/smallbusinessmanagementsystem/FXML/find-vartotojas-view.fxml"));

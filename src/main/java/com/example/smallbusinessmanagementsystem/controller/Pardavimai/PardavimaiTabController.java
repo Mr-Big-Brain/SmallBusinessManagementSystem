@@ -104,7 +104,7 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void naujasPardavimas(ActionEvent event) {
-        windowManager.showManagePardavimas(event, ControllerOperation.CREATE,null,null);
+        windowManager.showManagePardavimas(event, ControllerOperation.CREATE_PARDAVIMAS,null,null);
     }
 
     @FXML
@@ -114,7 +114,7 @@ public class PardavimaiTabController implements Initializable {
 
     @FXML
     void redaguotiPardavima(ActionEvent event) {
-        windowManager.showManagePardavimas(event, ControllerOperation.UPDATE,tableVIewPardavimai.getSelectionModel().getSelectedItem(),pardavimoLinijaService.getPardavimoLinijosByPardavimas(tableVIewPardavimai.getSelectionModel().getSelectedItem().getId()));
+        windowManager.showManagePardavimas(event, ControllerOperation.UPDATE_PARDAVIMAS,tableVIewPardavimai.getSelectionModel().getSelectedItem(),pardavimoLinijaService.getPardavimoLinijosByPardavimas(tableVIewPardavimai.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML

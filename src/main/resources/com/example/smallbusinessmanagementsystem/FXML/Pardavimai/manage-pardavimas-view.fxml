@@ -10,11 +10,12 @@
 
 <AnchorPane prefHeight="705.0" prefWidth="589.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tableViewPardavimoLinijos" layoutX="54.0" layoutY="232.0" prefHeight="200.0" prefWidth="326.0" stylesheets="@../../CSS/TableView.css">
+      <TableView fx:id="tableViewPardavimoLinijos" layoutX="54.0" layoutY="232.0" prefHeight="200.0" prefWidth="480.0" stylesheets="@../../CSS/TableView.css">
         <columns>
           <TableColumn fx:id="columnProduktas" prefWidth="104.0" text="Produktas" />
           <TableColumn fx:id="columnKiekis" prefWidth="105.0" text="Kiekis" />
             <TableColumn fx:id="columnKainaVieneto" prefWidth="117.0" text="Kaina už vienetą" />
+            <TableColumn fx:id="columnPirkimoKaina" prefWidth="153.0" text="Pirkimo kaina" />
         </columns>
       </TableView>
       <TextField fx:id="textFieldPirkejas" layoutX="54.0" layoutY="45.0" />

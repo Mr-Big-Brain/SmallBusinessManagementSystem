@@ -60,6 +60,9 @@ public class SandelisTabController implements Initializable {
     private TableColumn<SandelioPreke, String> columnSandelisProduktas;
 
     @FXML
+    private TableColumn<SandelioPreke, Double> columnSandelisPirkimoKaina;
+
+    @FXML
     private TableColumn<SandelioPreke, Integer> columnSandelisKiekis;
 
     @FXML
@@ -114,6 +117,7 @@ public class SandelisTabController implements Initializable {
         ObservableList<SandelioPreke> sandelioPrekes = FXCollections.observableList(sandelioPrekeService.getAllSandelioPrekes());
         columnSandelisKiekis.setCellValueFactory(new PropertyValueFactory<SandelioPreke,Integer>("kiekis"));
         columnSandelisProduktas.setCellValueFactory(new PropertyValueFactory<SandelioPreke,String>("produktas"));
+        columnSandelisPirkimoKaina.setCellValueFactory(new PropertyValueFactory<SandelioPreke, Double>("pirkimoKaina"));
         columnSandelisProduktas.setCellValueFactory(cellData -> {
             if(cellData.getValue().getProduktas()!=null)
             {

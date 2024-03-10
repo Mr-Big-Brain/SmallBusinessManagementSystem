@@ -12,6 +12,8 @@ public class SandelioPreke {
     private int id;
     @Column
     private int kiekis;
+    @Column
+    private double pirkimoKaina;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
     private Produktas produktas;
@@ -19,9 +21,10 @@ public class SandelioPreke {
     public SandelioPreke() {
     }
 
-    public SandelioPreke(int kiekis, Produktas produktas) {
+    public SandelioPreke(int kiekis, Produktas produktas, double pirkimoKaina) {
         this.kiekis = kiekis;
         this.produktas = produktas;
+        this.pirkimoKaina = pirkimoKaina;
     }
 
     public int getId() {
@@ -46,5 +49,13 @@ public class SandelioPreke {
 
     public void setProduktas(Produktas produktas) {
         this.produktas = produktas;
+    }
+
+    public double getPirkimoKaina() {
+        return pirkimoKaina;
+    }
+
+    public void setPirkimoKaina(double pirkimoKaina) {
+        this.pirkimoKaina = pirkimoKaina;
     }
 }

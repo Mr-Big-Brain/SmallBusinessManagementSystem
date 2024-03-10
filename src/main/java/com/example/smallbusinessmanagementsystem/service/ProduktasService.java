@@ -19,9 +19,9 @@ public class ProduktasService {
         produktasPersistenceController = new ProduktasPersistenceController();
         zymePersistenceController = new ZymePersistenceController();
     }
-    public boolean tryCreateProduktas(String pavadinimas, String apibrezimas, Double pirkimoKaina, Double rekomenduojamaKaina)
+    public boolean tryCreateProduktas(String pavadinimas, String apibrezimas, Double pirkimoKaina)
     {
-        Produktas produktas = new Produktas(pavadinimas,apibrezimas,pirkimoKaina,rekomenduojamaKaina);
+        Produktas produktas = new Produktas(pavadinimas,apibrezimas,pirkimoKaina);
         if(validateEmptyValues(produktas) && validateNegativeValues(produktas))
         {
             produktasPersistenceController.create(produktas);
@@ -65,7 +65,7 @@ public class ProduktasService {
     }
     private boolean validateNegativeValues(Produktas produktas)
     {
-        if(produktas.getPirkimoKaina()<0||produktas.getRekomenduojamaKaina()<0)
+        if(produktas.getRekomenduojamaKaina()<0)
         {
             AllertBox.display("Klaida","Neigiamos kainos nepriimtinos");
             return false;

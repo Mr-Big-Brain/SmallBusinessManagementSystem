@@ -48,6 +48,9 @@ public class ManagePardavimoLinijaController implements Initializable{
     private TextField textFieldKainaVieneto;
 
     @FXML
+    private TextField textFieldPirkimoKaina;
+
+    @FXML
     private TextField textFieldKiekis;
 
     @FXML
@@ -70,13 +73,16 @@ public class ManagePardavimoLinijaController implements Initializable{
 
     @FXML
     void atgal(ActionEvent event) {
+        if(controllerOperation==ControllerOperation.CREATE_PARDAVIMAS)
+        {
+            pardavimoLinijosModifikacijai.remove(pardavimoLinijosModifikacijai.size()-1);
+        }
         windowManager.showManagePardavimas(event,controllerOperation,pardavimasModifikacijai,pardavimoLinijosModifikacijai);
     }
 
     @FXML
     void pridetiProdukta(ActionEvent event) {
-        constructPardavimoLinija();
-        windowManager.showFindProduktas(event,ControllerOperation.FIND_FOR_PARDAVIMAS,pardavimasModifikacijai,pardavimoLinijosModifikacijai,linijosNumeris);
+        windowManager.showFindSandelioPreke(event,controllerOperation,pardavimoLinijosModifikacijai, pardavimasModifikacijai,linijosNumeris);
     }
     private boolean validatePardavimoLinija()
     {
@@ -144,10 +150,9 @@ public class ManagePardavimoLinijaController implements Initializable{
     {
         if(linijosNumeris==-1)
         {
-            AllertBox.display("Klaida", "Nepasirinktas produktas");
-            return false;
+            linijosNumeris = pardavimoLinijosModifikacijai.size()-1;
         }
-        else if(pardavimoLinijosModifikacijai.get(linijosNumeris).getProduktas()==null)
+        if(pardavimoLinijosModifikacijai.get(linijosNumeris).getProduktas()==null)
         {
             AllertBox.display("Klaida", "Nepasirinktas produktas");
             return false;
@@ -188,21 +193,36 @@ public class ManagePardavimoLinijaController implements Initializable{
     }
     private void fillData()
     {
-        if(linijosNumeris!=-1)
+        if(pardavimoLinijosModifikacijai!=null && pardavimoLinijosModifikacijai.size()!=0 && pardavimoLinijosModifikacijai.size()>linijosNumeris)
         {
-            if(pardavimoLinijosModifikacijai.get(linijosNumeris).getKainaUzViena()!=0)
+            if(linijosNumeris == -1)
             {
-                textFieldKainaVieneto.setText(String.valueOf(pardavimoLinijosModifikacijai.get(linijosNumeris).getKainaUzViena()));
+                insertData(0);
             }
-            if(pardavimoLinijosModifikacijai.get(linijosNumeris).getKiekis()!=0)
+            else
             {
-                textFieldKiekis.setText(String.valueOf(pardavimoLinijosModifikacijai.get(linijosNumeris).getKiekis()));
+                insertData(linijosNumeris);
             }
-            if(pardavimoLinijosModifikacijai.get(linijosNumeris).getProduktas()!=null)
-            {
-                Produktas produktas = pardavimoLinijosModifikacijai.get(linijosNumeris).getProduktas();
-                textFieldProduktas.setText(produktas.getId() +  ", " + produktas.getPavadinimas());
-            }
+
+        }
+    }
+    private void insertData(int lineNo) {
+        if(pardavimoLinijosModifikacijai.get(lineNo).getKainaUzViena()!=0)
+        {
+            textFieldKainaVieneto.setText(String.valueOf(pardavimoLinijosModifikacijai.get(lineNo).getKainaUzViena()));
+        }
+        if(pardavimoLinijosModifikacijai.get(lineNo).getPirkimoKaina()!=0)
+        {
+            textFieldPirkimoKaina.setText(String.valueOf(pardavimoLinijosModifikacijai.get(lineNo).getPirkimoKaina()));
+        }
+        if(pardavimoLinijosModifikacijai.get(lineNo).getKiekis()!=0)
+        {
+            textFieldKiekis.setText(String.valueOf(pardavimoLinijosModifikacijai.get(lineNo).getKiekis()));
+        }
+        if(pardavimoLinijosModifikacijai.get(lineNo).getProduktas()!=null)
+        {
+            Produktas produktas = pardavimoLinijosModifikacijai.get(lineNo).getProduktas();
+            textFieldProduktas.setText(produktas.getId() +  ", " + produktas.getPavadinimas());
         }
     }
 

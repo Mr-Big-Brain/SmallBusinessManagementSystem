@@ -10,10 +10,9 @@
         <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="490.0" prefWidth="695.0" stylesheets="@../../../CSS/TableView.css">
             <columns>
                 <TableColumn fx:id="columnProduktaiID" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="151.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnProduktaiPirkimoKaina" prefWidth="155.0" text="Pirkimo kaina" />
-                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="166.0" text="Rekomenduojama kaina" />
-            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="172.0" text="Apibrėžimas" />
+                <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="252.0" text="Pavadinimas" />
+                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="173.0" text="Rekomenduojama kaina" />
+            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="219.0" text="Apibrėžimas" />
             </columns>
         </TableView>
         <TableView fx:id="tableViewZymes" layoutX="901.0" layoutY="11.0" prefHeight="490.0" prefWidth="216.0" stylesheets="@../../../CSS/TableView.css">

@@ -18,8 +18,6 @@ public class Produktas {
     @Column
     private String apibrezimas;
     @Column
-    private double pirkimoKaina;
-    @Column
     private double rekomenduojamaKaina;
     @ManyToMany
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -28,17 +26,15 @@ public class Produktas {
     public Produktas() {
     }
 
-    public Produktas(String pavadinimas, String apibrezimas, double pirkimoKaina, double rekomenduojamaKaina) {
+    public Produktas(String pavadinimas, String apibrezimas, double rekomenduojamaKaina) {
         this.pavadinimas = pavadinimas;
         this.apibrezimas = apibrezimas;
-        this.pirkimoKaina = pirkimoKaina;
         this.rekomenduojamaKaina = rekomenduojamaKaina;
     }
 
-    public Produktas(String pavadinimas, String apibrezimas, double pirkimoKaina, double rekomenduojamaKaina, List<Zyme> zymes) {
+    public Produktas(String pavadinimas, String apibrezimas, double rekomenduojamaKaina, List<Zyme> zymes) {
         this.pavadinimas = pavadinimas;
         this.apibrezimas = apibrezimas;
-        this.pirkimoKaina = pirkimoKaina;
         this.rekomenduojamaKaina = rekomenduojamaKaina;
         this.zymes = zymes;
     }
@@ -65,14 +61,6 @@ public class Produktas {
 
     public void setApibrezimas(String apibrezimas) {
         this.apibrezimas = apibrezimas;
-    }
-
-    public double getPirkimoKaina() {
-        return pirkimoKaina;
-    }
-
-    public void setPirkimoKaina(double pirkimoKaina) {
-        this.pirkimoKaina = pirkimoKaina;
     }
 
     public double getRekomenduojamaKaina() {
@@ -115,11 +103,11 @@ public class Produktas {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Produktas produktas = (Produktas) o;
-        return getId() == produktas.getId() && Double.compare(produktas.getPirkimoKaina(), getPirkimoKaina()) == 0 && Double.compare(produktas.getRekomenduojamaKaina(), getRekomenduojamaKaina()) == 0 && Objects.equals(getPavadinimas(), produktas.getPavadinimas()) && Objects.equals(getApibrezimas(), produktas.getApibrezimas());
+        return getId() == produktas.getId() && Double.compare(produktas.getRekomenduojamaKaina(), getRekomenduojamaKaina()) == 0 && Objects.equals(getPavadinimas(), produktas.getPavadinimas()) && Objects.equals(getApibrezimas(), produktas.getApibrezimas());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPavadinimas(), getApibrezimas(), getPirkimoKaina(), getRekomenduojamaKaina(), getZymes());
+        return Objects.hash(getId(), getPavadinimas(), getApibrezimas(), getRekomenduojamaKaina(), getZymes());
     }
 }

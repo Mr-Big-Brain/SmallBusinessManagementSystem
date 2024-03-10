@@ -10,8 +10,6 @@
    <children>
       <TextField fx:id="textFieldPavadinimas" layoutX="38.0" layoutY="60.0" prefHeight="25.0" prefWidth="282.0" />
       <Label layoutX="38.0" layoutY="43.0" stylesheets="@../../../CSS/Label.css" text="Pavadinimas" />
-      <TextField fx:id="textFieldPirkimoKaina" layoutX="38.0" layoutY="118.0" />
-      <Label layoutX="38.0" layoutY="101.0" stylesheets="@../../../CSS/Label.css" text="Pirkimo kaina" />
       <TextField fx:id="textFieldRekomenduojamaKaina" layoutX="38.0" layoutY="175.0" />
       <Label layoutX="38.0" layoutY="158.0" stylesheets="@../../../CSS/Label.css" text="Rekomenduojama kaina" />
       <Button fx:id="buttonAtgal" layoutX="38.0" layoutY="418.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />

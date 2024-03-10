@@ -143,14 +143,14 @@ public class FindProduktasController implements Initializable {
         else if(controllerOperation == ControllerOperation.FIND_FOR_SANDELIS)
         {
             Produktas produktas = tableViewProduktai.getSelectionModel().getSelectedItem();
-            SandelioPreke sandelioPreke = sandelioPrekeService.getSandelioPrekeByProduktas(produktas.getId());
-            if(sandelioPreke == null || sandelioPreke.getKiekis()==0)
+            int kiekis  = sandelioPrekeService.getProduktoBendrasKiekisSandelyje(produktas);
+            if(kiekis == 0)
             {
                 AllertBox.display("Informacija", produktas.getPavadinimas() + " produkto sandėlyje nėra");
             }
             else
             {
-                AllertBox.display("Informacija","Liko " + sandelioPreke.getKiekis() + " " + produktas.getPavadinimas() + " vienetų");
+                AllertBox.display("Informacija","Liko " + kiekis + " " + produktas.getPavadinimas() + " vienetų");
             }
             windowManager.showTabSandelis(event);
         }

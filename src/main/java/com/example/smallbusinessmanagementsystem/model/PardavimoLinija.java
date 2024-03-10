@@ -13,6 +13,8 @@ public class PardavimoLinija {
     @Column
     private int kiekis;
     @Column
+    private double pirkimoKaina;
+    @Column
     private double kainaUzViena;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne
@@ -24,8 +26,9 @@ public class PardavimoLinija {
     public PardavimoLinija() {
     }
 
-    public PardavimoLinija(int kiekis, double kainaUzViena, Produktas produktas, Pardavimas pardavimas) {
+    public PardavimoLinija(int kiekis, double pirkimoKaina, double kainaUzViena, Produktas produktas, Pardavimas pardavimas) {
         this.kiekis = kiekis;
+        this.pirkimoKaina = pirkimoKaina;
         this.kainaUzViena = kainaUzViena;
         this.produktas = produktas;
         this.pardavimas = pardavimas;
@@ -46,6 +49,10 @@ public class PardavimoLinija {
     public void setKiekis(int kiekis) {
         this.kiekis = kiekis;
     }
+
+    public double getPirkimoKaina() { return pirkimoKaina;};
+
+    public void setPirkimoKaina(double pirkimoKaina) {this.pirkimoKaina = pirkimoKaina;}
 
     public double getKainaUzViena() {
         return kainaUzViena;
