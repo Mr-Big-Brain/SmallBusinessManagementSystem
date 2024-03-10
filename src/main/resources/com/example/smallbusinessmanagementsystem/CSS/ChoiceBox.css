@@ -1,5 +1,10 @@
 .choice-box {
-    -fx-background-color: red;
+    -fx-background-color: #666666;
+    -fx-text-fill: white;
+}
+
+.choice-box .label{
+    -fx-text-fill: white;
 }
 
 .choice-box .list-cell:filled:selected {
@@ -11,13 +16,22 @@
 }
 
 .choice-box .context-menu {
-    -fx-background-color: pink;
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
 }
 
 .choice-box .context-menu .menu-item {
-    -fx-border-color: orange;
+    -fx-border-color: #6e6e6e;
+    -fx-text-fill: white;
     -fx-border-width: 1px;
 }
 .choice-box .arrow-button {
     -fx-background-color: violet;
+}
+
+.choice-box .context-menu .menu-item:hover {
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-text-fill: white;
+    -fx-background-color: #666666;
 }
