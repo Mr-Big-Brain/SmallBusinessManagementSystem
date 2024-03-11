@@ -8,30 +8,30 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="705.0" prefWidth="589.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="595.0" prefWidth="890.0" styleClass="anchorPane" stylesheets="@../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tableViewPardavimoLinijos" layoutX="54.0" layoutY="232.0" prefHeight="200.0" prefWidth="480.0" stylesheets="@../../CSS/TableView.css">
+      <TableView fx:id="tableViewPardavimoLinijos" layoutX="54.0" layoutY="232.0" prefHeight="200.0" prefWidth="779.0" stylesheets="@../../CSS/TableView.css">
         <columns>
-          <TableColumn fx:id="columnProduktas" prefWidth="104.0" text="Produktas" />
-          <TableColumn fx:id="columnKiekis" prefWidth="105.0" text="Kiekis" />
-            <TableColumn fx:id="columnKainaVieneto" prefWidth="117.0" text="Kaina už vienetą" />
-            <TableColumn fx:id="columnPirkimoKaina" prefWidth="153.0" text="Pirkimo kaina" />
+          <TableColumn fx:id="columnProduktas" prefWidth="453.0" text="Produktas" />
+          <TableColumn fx:id="columnKiekis" prefWidth="76.0" text="Kiekis" />
+            <TableColumn fx:id="columnKainaVieneto" prefWidth="133.0" text="Kaina už vienetą(Eur)" />
+            <TableColumn fx:id="columnPirkimoKaina" prefWidth="116.0" text="Pirkimo kaina(Eur)" />
         </columns>
       </TableView>
-      <TextField fx:id="textFieldPirkejas" layoutX="54.0" layoutY="45.0" />
+      <TextField fx:id="textFieldPirkejas" layoutX="54.0" layoutY="45.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="54.0" layoutY="28.0" stylesheets="@../../CSS/Label.css" text="Pirkėjas" />
-      <Button fx:id="buttonPridetiPirkeja" layoutX="217.0" layoutY="45.0" mnemonicParsing="false" onAction="#pridetiPirkeja" prefHeight="25.0" prefWidth="33.0" stylesheets="@../../CSS/ButtonOptional.css" text="+" />
-      <TextField fx:id="textFieldDarbuotojas" layoutX="54.0" layoutY="101.0" />
+      <Button fx:id="buttonPridetiPirkeja" layoutX="255.0" layoutY="44.0" mnemonicParsing="false" onAction="#pridetiPirkeja" prefHeight="25.0" prefWidth="33.0" stylesheets="@../../CSS/ButtonOptional.css" text="+" />
+      <TextField fx:id="textFieldDarbuotojas" layoutX="54.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="54.0" layoutY="84.0" stylesheets="@../../CSS/Label.css" text="Darbuotojas" />
-      <Button fx:id="buttonPridetiPardavimoLinija" layoutX="61.0" layoutY="454.0" mnemonicParsing="false" onAction="#pridetiPardavimoLinija" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
-      <Button fx:id="buttonPakeistiPardavimoLinija" layoutX="189.0" layoutY="454.0" mnemonicParsing="false" onAction="#pakeistiPardavimoLinija" stylesheets="@../../CSS/ButtonUpdate.css" text="Pakeisti" />
-      <Button fx:id="buttonIstrintiPardavimoLinija" layoutX="330.0" layoutY="454.0" mnemonicParsing="false" onAction="#istrintiPardavimoLinija" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
+      <Button fx:id="buttonPridetiPardavimoLinija" layoutX="54.0" layoutY="454.0" mnemonicParsing="false" onAction="#pridetiPardavimoLinija" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
+      <Button fx:id="buttonPakeistiPardavimoLinija" layoutX="414.0" layoutY="454.0" mnemonicParsing="false" onAction="#pakeistiPardavimoLinija" stylesheets="@../../CSS/ButtonUpdate.css" text="Pakeisti" />
+      <Button fx:id="buttonIstrintiPardavimoLinija" layoutX="781.0" layoutY="454.0" mnemonicParsing="false" onAction="#istrintiPardavimoLinija" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
       <Label layoutX="55.0" layoutY="215.0" stylesheets="@../../CSS/Label.css" text="Pardavimo linijos" />
-      <Button fx:id="buttonAtgal" layoutX="65.0" layoutY="525.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="329.0" layoutY="525.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
-      <DatePicker fx:id="datePickerData" layoutX="54.0" layoutY="160.0" />
+      <Button fx:id="buttonAtgal" layoutX="57.0" layoutY="525.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="781.0" layoutY="525.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
+      <DatePicker fx:id="datePickerData" layoutX="54.0" layoutY="160.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="55.0" layoutY="143.0" stylesheets="@../../CSS/Label.css" text="Data" />
-      <TextField fx:id="textFieldLaikas" layoutX="255.0" layoutY="160.0" prefHeight="25.0" prefWidth="109.0" />
-      <Label layoutX="255.0" layoutY="143.0" stylesheets="@../../CSS/Label.css" text="Laikas" />
+      <TextField fx:id="textFieldLaikas" layoutX="272.0" layoutY="160.0" prefHeight="25.0" prefWidth="109.0" />
+      <Label layoutX="272.0" layoutY="143.0" stylesheets="@../../CSS/Label.css" text="Laikas" />
    </children>
 </AnchorPane>

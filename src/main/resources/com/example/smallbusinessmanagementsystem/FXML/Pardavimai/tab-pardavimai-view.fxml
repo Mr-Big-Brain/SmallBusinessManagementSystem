@@ -17,7 +17,7 @@
             <columns>
                 <TableColumn fx:id="columnPardavimaiID" prefWidth="124.0" text="ID" />
                 <TableColumn fx:id="columnPardavimaiData" prefWidth="146.0" text="Data" />
-                <TableColumn fx:id="columnPardavimaiSuma" prefWidth="150.0" text="Suma" />
+                <TableColumn fx:id="columnPardavimaiSuma" prefWidth="150.0" text="Suma(Eur)" />
                 <TableColumn fx:id="columnPardavimaiDarbuotojas" prefWidth="182.0" text="Darbuotojas" />
                 <TableColumn fx:id="columnPardavimaiPirkejas" prefWidth="239.0" text="Pirkėjas" />
             </columns>

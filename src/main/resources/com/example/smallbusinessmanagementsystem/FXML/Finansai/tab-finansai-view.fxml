@@ -19,7 +19,7 @@
                 <TableColumn fx:id="columnID" prefWidth="48.0" text="ID" />
                 <TableColumn fx:id="columnTipas" prefWidth="83.0" text="Tipas" />
                 <TableColumn fx:id="columnPavadinimas" prefWidth="196.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnKiekis" prefWidth="124.0" text="Kiekis" />
+                <TableColumn fx:id="columnKiekis" prefWidth="124.0" text="Kiekis(Eur)" />
                 <TableColumn fx:id="columnData" prefWidth="109.0" text="Data" />
                 <TableColumn fx:id="columnZymes" prefWidth="234.0" text="Žymės" />
                 <TableColumn fx:id="columnDarbuotojas" prefWidth="187.0" text="Darbuotojas" />

@@ -7,23 +7,23 @@
 
 <AnchorPane prefHeight="513.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smallbusinessmanagementsystem.controller.Konfiguracija.Produktai.KonfiguracijaProduktaiTabController">
     <children>
-        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="490.0" prefWidth="695.0" stylesheets="@../../../CSS/TableView.css">
+        <TableView fx:id="tableViewProduktai" layoutX="14.0" layoutY="14.0" onMouseClicked="#openZymes" prefHeight="490.0" prefWidth="770.0" stylesheets="@../../../CSS/TableView.css">
             <columns>
                 <TableColumn fx:id="columnProduktaiID" prefWidth="50.0" text="ID" />
                 <TableColumn fx:id="columnProduktaiPavadinimas" prefWidth="252.0" text="Pavadinimas" />
-                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="173.0" text="Rekomenduojama kaina" />
-            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="219.0" text="Apibrėžimas" />
+                <TableColumn fx:id="columnProduktaiRekomenduojamaKaina" prefWidth="173.0" text="Rekomenduojama kaina(Eur)" />
+            <TableColumn fx:id="columnProduktaiApibrezimas" prefWidth="294.0" text="Apibrėžimas" />
             </columns>
         </TableView>
-        <TableView fx:id="tableViewZymes" layoutX="901.0" layoutY="11.0" prefHeight="490.0" prefWidth="216.0" stylesheets="@../../../CSS/TableView.css">
+        <TableView fx:id="tableViewZymes" layoutX="959.0" layoutY="12.0" prefHeight="490.0" prefWidth="216.0" stylesheets="@../../../CSS/TableView.css">
             <columns>
                 <TableColumn fx:id="columnZyme" prefWidth="215.0" text="Žymė" />
             </columns>
         </TableView>
-        <Button fx:id="buttonProduktaiPrideti" layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
-        <Button fx:id="buttonProduktaiRedaguoti" layoutX="721.0" layoutY="55.0" mnemonicParsing="false" onAction="#redaguotiProdukta" stylesheets="@../../../CSS/ButtonUpdate.css" text="Redaguoti" />
-        <Button fx:id="buttonProduktaiIštrinti" layoutX="722.0" layoutY="98.0" mnemonicParsing="false" onAction="#istrintiProdukta" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
-        <Button fx:id="buttonZymePrideti" layoutX="1127.0" layoutY="11.0" mnemonicParsing="false" onAction="#pridetiZyme" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
-        <Button fx:id="buttonZymeIstrinti" layoutX="1128.0" layoutY="52.0" mnemonicParsing="false" onAction="#istrintiZyme" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <Button fx:id="buttonProduktaiPrideti" layoutX="789.0" layoutY="14.0" mnemonicParsing="false" onAction="#pridetiProdukta" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonProduktaiRedaguoti" layoutX="789.0" layoutY="55.0" mnemonicParsing="false" onAction="#redaguotiProdukta" stylesheets="@../../../CSS/ButtonUpdate.css" text="Redaguoti" />
+        <Button fx:id="buttonProduktaiIštrinti" layoutX="790.0" layoutY="98.0" mnemonicParsing="false" onAction="#istrintiProdukta" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <Button fx:id="buttonZymePrideti" layoutX="1185.0" layoutY="12.0" mnemonicParsing="false" onAction="#pridetiZyme" stylesheets="@../../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonZymeIstrinti" layoutX="1186.0" layoutY="53.0" mnemonicParsing="false" onAction="#istrintiZyme" stylesheets="@../../../CSS/ButtonDelete.css" text="Ištrinti" />
     </children>
 </AnchorPane>

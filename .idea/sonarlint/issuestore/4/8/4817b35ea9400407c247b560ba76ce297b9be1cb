@@ -1,0 +1,13 @@
+
+J
+java:S3740?"/Provide the parametrized type for this generic.(Ù‹É¤ûÿÿÿÿ
+P
+java:S1141f"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨º
+T
+java:S2589J"7Remove this expression which always evaluates to "true"(İİÇ„8«¥ğÑ1
+S	java:S106""9Replace this use of System.out or System.err by a logger.(Ñ³èÕüÿÿÿÿ
+H
+java:S1168O"+Return an empty collection instead of null.(¥¹ï8À¥ğÑ1
+U	java:S106\"9Replace this use of System.out or System.err by a logger.(œ™äÔ8Ë¥ğÑ1
+U	java:S106j"9Replace this use of System.out or System.err by a logger.(œ™äÔ8’”¦ğÑ1

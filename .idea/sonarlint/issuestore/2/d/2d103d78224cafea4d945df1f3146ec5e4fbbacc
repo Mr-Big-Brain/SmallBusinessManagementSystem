@@ -1,0 +1,8 @@
+
+J
+java:S1066p"/Merge this if statement with the enclosing one.(ÀŠ¤ÿüÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Áÿäì
+P
+java:S1854Ú"9Remove this useless assignment to local variable "value".(ïÂß÷
+A
+java:S1481Ú"*Remove this unused "value" local variable.(ïÂß÷
