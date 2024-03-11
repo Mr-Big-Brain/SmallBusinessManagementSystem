@@ -11,9 +11,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="618.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <LineChart fx:id="lineChart" layoutX="28.0" layoutY="55.0" prefHeight="400.0" prefWidth="646.0" stylesheets="@../../CSS/LineChart.css">
+        <LineChart fx:id="lineChart" layoutX="28.0" layoutY="55.0" prefHeight="536.0" prefWidth="982.0" stylesheets="@../../CSS/LineChart.css">
             <xAxis>
                 <CategoryAxis side="BOTTOM" />
             </xAxis>
@@ -21,18 +21,19 @@
                 <NumberAxis side="LEFT" />
             </yAxis>
         </LineChart>
-        <TableView fx:id="tableViewZymes" layoutX="729.0" layoutY="33.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../CSS/TableView.css">
+        <TableView fx:id="tableViewZymes" layoutX="1045.0" layoutY="69.0" prefHeight="241.0" prefWidth="235.0" stylesheets="@../../CSS/TableView.css">
             <columns>
-                <TableColumn fx:id="columnZyme" prefWidth="199.0" text="Žymė" />
+                <TableColumn fx:id="columnZyme" prefWidth="234.0" text="Žymė" />
             </columns>
         </TableView>
-        <Button fx:id="buttonPrideti" layoutX="729.0" layoutY="243.0" mnemonicParsing="false" onAction="#prideti" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
+        <Button fx:id="buttonPrideti" layoutX="1045.0" layoutY="324.0" mnemonicParsing="false" onAction="#prideti" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
         <DatePicker fx:id="datePickerNuo" layoutX="73.0" layoutY="20.0" />
         <DatePicker fx:id="datePickerIki" layoutX="298.0" layoutY="20.0" />
-        <Button fx:id="buttonIstrinti" layoutX="872.0" layoutY="243.0" mnemonicParsing="false" onAction="#istrinti" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
+        <Button fx:id="buttonIstrinti" layoutX="1228.0" layoutY="324.0" mnemonicParsing="false" onAction="#istrinti" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
       <ChoiceBox fx:id="choiceBoxTipas" layoutX="544.0" layoutY="20.0" prefWidth="150.0" stylesheets="@../../CSS/ChoiceBox.css" />
-      <Button fx:id="buttonRodyti" layoutX="314.0" layoutY="468.0" mnemonicParsing="false" onAction="#rodyti" stylesheets="@../../CSS/ButtonOptional.css" text="Rodyti" />
-      <Label layoutX="45.0" layoutY="25.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
-      <Label layoutX="278.0" layoutY="24.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+      <Button fx:id="buttonRodyti" layoutX="505.0" layoutY="591.0" mnemonicParsing="false" onAction="#rodyti" stylesheets="@../../CSS/ButtonOptional.css" text="Rodyti" />
+      <Label layoutX="73.0" layoutY="5.0" stylesheets="@../../CSS/Label.css" text="Nuo" />
+      <Label layoutX="298.0" layoutY="5.0" stylesheets="@../../CSS/Label.css" text="Iki" />
+      <Label layoutX="544.0" layoutY="4.0" stylesheets="@../../CSS/Label.css" text="Tipas" />
     </children>
 </AnchorPane>

@@ -117,7 +117,7 @@ public class StatistikaProduktaiTabController implements Initializable {
                 ));
             }
             StatistikosManager statistikosManager = new StatistikosManager();
-            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų sumos per diena");
+            constructLineChart(statistikosManager.fillMissingDates(statistikosVienetasList),"Pardavimų kiekiai per diena");
         }
         else if(choiceBoxTipas.getValue()==StatistikaProduktaiChoice.PARDAVIMŲ_SUMA)
         {
