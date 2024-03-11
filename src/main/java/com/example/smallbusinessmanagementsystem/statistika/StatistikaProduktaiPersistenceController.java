@@ -60,7 +60,7 @@ public class StatistikaProduktaiPersistenceController {
         EntityManager entityManager = null;
         try {
             entityManager = getEntityManager();
-            String sql = "select SUM((pl.kainaUzViena - pr.pirkimoKaina) * pl.kiekis), DATE(pa.data) from pardavimas pa INNER JOIN pardavimolinija pl ON pa.id = pl.pardavimas_id INNER JOIN produktas pr ON pr.id = pl.produktas_id where pr.id = :produktoId AND pa.data BETWEEN :nuo AND :iki GROUP by DATE(pa.data)";
+            String sql = "select SUM((pl.kainaUzViena - pl.pirkimoKaina) * pl.kiekis), DATE(pa.data) from pardavimas pa INNER JOIN pardavimolinija pl ON pa.id = pl.pardavimas_id INNER JOIN produktas pr ON pr.id = pl.produktas_id where pr.id = :produktoId AND pa.data BETWEEN :nuo AND :iki GROUP by DATE(pa.data)";
             Query query = entityManager.createNativeQuery(sql);
             query.setParameter("produktoId", produktoId);
             query.setParameter("nuo", nuo);
