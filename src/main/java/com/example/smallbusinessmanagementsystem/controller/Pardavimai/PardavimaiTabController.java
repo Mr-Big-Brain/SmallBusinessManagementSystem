@@ -26,8 +26,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class PardavimaiTabController implements Initializable {
@@ -124,13 +126,12 @@ public class PardavimaiTabController implements Initializable {
 
     private Double roundDouble(Double number)
     {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        DecimalFormat decimalFormat = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance(Locale.US));
         String roundedString = decimalFormat.format(number);
         return Double.parseDouble(roundedString);
     }
     private void fillTable()
     {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         ObservableList<Pardavimas> pardavimai = FXCollections.observableList(pardavimasService.getAllPardavimai(datePickerNuo.getValue(),datePickerIki.getValue()));
