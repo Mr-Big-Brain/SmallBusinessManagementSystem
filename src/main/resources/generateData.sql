@@ -51,6 +51,25 @@ Galia: 800 W"),
 Grilis: ne
 Galia: 700 W");
 
+insert into tvarkarastis(id, aprasymas,	data, pavadinimas, kamSukure_id, kasSukure_id)
+VALUES
+    (1, NULL, "2024-05-07", "15:00 - 20:00 dirbate", 1, 3),
+    (2, NULL, "2024-05-08", "12:00 - 20:00 dirbate", 1, 3),
+    (3, NULL, "2024-05-09", "12:00 - 20:00 dirbate", 1, 3),
+    (4, NULL, "2024-05-10", "12:00 - 20:00 dirbate", 1, 3),
+    (5, NULL, "2024-05-13", "12:00 - 20:00 dirbate", 1, 3),
+    (6, NULL, "2024-05-14", "15:00 - 20:00 dirbate", 1, 3),
+    (7, NULL, "2024-05-15", "15:00 - 20:00 dirbate", 1, 3),
+    (8, NULL, "2024-05-16", "15:00 - 20:00 dirbate", 1, 3),
+    (9, NULL, "2024-05-17", "15:00 - 20:00 dirbate", 1, 3),
+    (10, "Mašina atvažiuos 10:00,
+Kylus klausimams kreiptis pas Algirdą
++37054825488", "2024-05-18", "Priimti užsakymą nuo maximos", 3, 1),
+    (11, "Vakar Paulius nerado Beko mikrobangių krosnelės,
+Tai kai busi laisvas pažiūrėk ir pranešk man", "2024-05-20", "Patikrinti, kas atsitiko sandėlyje", 2, 1),
+    (12, "Padaryk buhalterijos ataskaitą iki sausio 24d. ", "2024-05-22", "Padaryk buhalterijos ataskait", 4, 1);
+
+
 insert into sandeliopreke(id, kiekis, produktas_id, pirkimoKaina)
 VALUES
     (1,23,1,950),

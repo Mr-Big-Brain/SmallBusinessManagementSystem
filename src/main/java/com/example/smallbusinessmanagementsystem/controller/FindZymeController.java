@@ -177,6 +177,7 @@ public class FindZymeController implements Initializable {
                         if(zymes.get(i).getId()==produktasZymes.get(j).getId())
                         {
                             zymes.remove(i);
+                            break;
                         }
                     }
                 }
@@ -195,6 +196,7 @@ public class FindZymeController implements Initializable {
                         if(zymes.get(i).getId()==finansasZymes.get(j).getId())
                         {
                             zymes.remove(i);
+                            break;
                         }
                     }
                 }
@@ -230,6 +232,7 @@ public class FindZymeController implements Initializable {
                         if(zymes.get(i).getId()==zymeList.get(j).getId())
                         {
                             zymes.remove(i);
+                            break;
                         }
                     }
                 }

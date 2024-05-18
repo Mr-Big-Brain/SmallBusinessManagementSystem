@@ -6,15 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="542.0" prefWidth="369.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="425.0" prefWidth="369.0" styleClass="anchorPane" stylesheets="@../../../CSS/AnchorPane.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="textFieldPavadinimas" layoutX="38.0" layoutY="60.0" prefHeight="25.0" prefWidth="282.0" />
       <Label layoutX="38.0" layoutY="43.0" stylesheets="@../../../CSS/Label.css" text="Pavadinimas" />
-      <TextField fx:id="textFieldRekomenduojamaKaina" layoutX="38.0" layoutY="175.0" />
-      <Label layoutX="38.0" layoutY="158.0" stylesheets="@../../../CSS/Label.css" text="Rekomenduojama kaina" />
-      <Button fx:id="buttonAtgal" layoutX="38.0" layoutY="418.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
-      <TextArea fx:id="textAreaApibrezimas" layoutX="38.0" layoutY="236.0" prefHeight="168.0" prefWidth="282.0" />
-      <Label layoutX="38.0" layoutY="219.0" stylesheets="@../../../CSS/Label.css" text="Apibrėžimas" />
+      <TextField fx:id="textFieldRekomenduojamaKaina" layoutX="37.0" layoutY="120.0" />
+      <Label layoutX="37.0" layoutY="103.0" stylesheets="@../../../CSS/Label.css" text="Rekomenduojama kaina" />
+      <Button fx:id="buttonAtgal" layoutX="37.0" layoutY="363.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../../CSS/ButtonOptional.css" text="Atgal" />
+      <Button fx:id="buttonAction" layoutX="268.0" layoutY="363.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../../CSS/ButtonCreate.css" text="Action" />
+      <TextArea fx:id="textAreaApibrezimas" layoutX="37.0" layoutY="181.0" prefHeight="168.0" prefWidth="282.0" />
+      <Label layoutX="37.0" layoutY="164.0" stylesheets="@../../../CSS/Label.css" text="Apibrėžimas" />
    </children>
 </AnchorPane>

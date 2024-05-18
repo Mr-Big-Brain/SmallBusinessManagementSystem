@@ -25,7 +25,7 @@
       <Label layoutX="35.0" layoutY="257.0" stylesheets="@../../CSS/Label.css" text="Tipas" />
       <Label layoutX="35.0" layoutY="322.0" stylesheets="@../../CSS/Label.css" text="Apibūdinimas" />
       <Button fx:id="buttonAtgal" layoutX="34.0" layoutY="456.0" mnemonicParsing="false" onAction="#atgal" stylesheets="@../../CSS/ButtonOptional.css" text="Atgal" />
-      <Button fx:id="buttonAction" layoutX="110.0" layoutY="456.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Action" />
+      <Button fx:id="buttonAction" layoutX="444.0" layoutY="456.0" mnemonicParsing="false" onAction="#action" stylesheets="@../../CSS/ButtonCreate.css" text="Atnaujinti" />
       <Button fx:id="buttonPridetiZyme" layoutX="314.0" layoutY="274.0" mnemonicParsing="false" onAction="#prideti" stylesheets="@../../CSS/ButtonCreate.css" text="Pridėti" />
       <Button fx:id="buttonIstrintiZyme" layoutX="464.0" layoutY="274.0" mnemonicParsing="false" onAction="#istrinti" stylesheets="@../../CSS/ButtonDelete.css" text="Ištrinti" />
       <TableView fx:id="tableViewZymes" layoutX="314.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../CSS/TableView.css">
@@ -33,6 +33,6 @@
           <TableColumn fx:id="columnZyme" prefWidth="199.0" text="Žymė" />
         </columns>
       </TableView>
-      <TextArea fx:id="textAreaApibudinimas" layoutX="36.0" layoutY="339.0" prefHeight="109.0" prefWidth="472.0" />
+      <TextArea fx:id="textAreaApibudinimas" layoutX="36.0" layoutY="339.0" prefHeight="109.0" prefWidth="479.0" />
    </children>
 </AnchorPane>
