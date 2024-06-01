@@ -9,7 +9,6 @@ import com.example.smallbusinessmanagementsystem.service.ZymeService;
 import com.example.smallbusinessmanagementsystem.utilities.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,8 +41,8 @@ public class FinansaiTabController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if(windowLoader.isTabFinansai())
         {
-            fillChoiceBox(FinansoTipas.VISI);
-            fillTableViewFinansai(FinansoTipas.VISI, null, null, "");
+            fillChoiceBoxes(FinansoTipas.VISI, FinansoStatusas.UŽBAIGTA);
+            fillTableViewFinansai(FinansoTipas.VISI, FinansoStatusas.UŽBAIGTA, null, null, "");
         }
     }
     @FXML
@@ -92,6 +91,9 @@ public class FinansaiTabController implements Initializable {
     private ChoiceBox<FinansoTipas> choiceBoxTipas;
 
     @FXML
+    private ChoiceBox<FinansoStatusas> choiceBoxStatusas;
+
+    @FXML
     private TextField textFieldPaieska;
 
     @FXML
@@ -99,7 +101,7 @@ public class FinansaiTabController implements Initializable {
         if(finansasService.tryDeleteFinansas(tableViewFinansai.getSelectionModel().getSelectedItem().getId()))
         {
             AllertBox.display("Pavyko", "Finansas ištrintas");
-            fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
+            fillTableViewFinansai(choiceBoxTipas.getValue(), choiceBoxStatusas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
         }
     }
 
@@ -112,12 +114,12 @@ public class FinansaiTabController implements Initializable {
 
     @FXML
     void filterFinansai(ActionEvent event) {
-        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
+        fillTableViewFinansai(choiceBoxTipas.getValue(), choiceBoxStatusas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
     }
 
     @FXML
     void ieskoti(ActionEvent event) {
-        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
+        fillTableViewFinansai(choiceBoxTipas.getValue(), choiceBoxStatusas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
     }
     @FXML
     void perziuretiFinansa(ActionEvent event) {
@@ -130,15 +132,33 @@ public class FinansaiTabController implements Initializable {
     }
     @FXML
     void sortFinansai(ActionEvent event) {
-        fillTableViewFinansai(choiceBoxTipas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
+
+        FinansoStatusas chosenFinansoStatusas = choiceBoxStatusas.getValue();
+
+        if (chosenFinansoStatusas != null) {
+            switch (chosenFinansoStatusas) {
+                case UŽBAIGTA -> buttonRedaguotiFinansa.setVisible(false);
+                case LAUKIAMA -> buttonRedaguotiFinansa.setVisible(true);
+                case ATŠAUKTA -> buttonRedaguotiFinansa.setVisible(false);
+                default -> buttonRedaguotiFinansa.setVisible(true);
+            }
+        } else {
+            buttonRedaguotiFinansa.setVisible(true);
+        }
+
+        fillTableViewFinansai(choiceBoxTipas.getValue(), choiceBoxStatusas.getValue(), datePickerNuo.getValue(), datePickerIki.getValue(), textFieldPaieska.getText());
     }
-    private void fillChoiceBox(FinansoTipas finansoTipas)
+    private void fillChoiceBoxes(FinansoTipas finansoTipas, FinansoStatusas finansoStatusas)
     {
         choiceBoxTipas.getItems().clear();
         choiceBoxTipas.getItems().addAll(FinansoTipas.VISI,FinansoTipas.IŠLAIDOS,FinansoTipas.PAJAMOS);
         choiceBoxTipas.setValue(finansoTipas);
+
+        choiceBoxStatusas.getItems().clear();
+        choiceBoxStatusas.getItems().addAll(FinansoStatusas.UŽBAIGTA, FinansoStatusas.LAUKIAMA, FinansoStatusas.ATŠAUKTA);
+        choiceBoxStatusas.setValue(finansoStatusas);
     }
-    private void fillTableViewFinansai(FinansoTipas finansoTipas, LocalDate nuo, LocalDate iki, String searchString)
+    private void fillTableViewFinansai(FinansoTipas finansoTipas, FinansoStatusas finansoStatusas, LocalDate nuo, LocalDate iki, String searchString)
     {
         columnID.setCellValueFactory(new PropertyValueFactory<Finansas, Integer>("id"));
         columnPavadinimas.setCellValueFactory(new PropertyValueFactory<Finansas,String>("pavadinimas"));
@@ -179,6 +199,6 @@ public class FinansaiTabController implements Initializable {
             else return new SimpleStringProperty("");
         });
 
-        tableViewFinansai.setItems(FXCollections.observableList(finansasService.getAllFinansaiForTable(finansoTipas, nuo, iki, searchString)));
+        tableViewFinansai.setItems(FXCollections.observableList(finansasService.getAllFinansaiForTable(finansoTipas, finansoStatusas, nuo, iki, searchString)));
     }
 }

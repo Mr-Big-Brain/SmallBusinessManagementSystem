@@ -35,7 +35,7 @@ public class StatistikaFinansaiPersistenceController {
 
         try {
             entityManager = getEntityManager();
-            String sql = "SELECT SUM(fi.kiekis), zi.pavadinimas from finansas fi INNER JOIN finansas_zyme fz on fi.id = fz.Finansas_id INNER JOIN zyme zi on fz.zymes_id = zi.id WHERE fi.data BETWEEN :nuo AND :iki AND fi.tipas = :finanansoTipasDB AND zi.id = :zymeId GROUP BY zi.id";
+            String sql = "SELECT SUM(fi.kiekis), zi.pavadinimas from finansas fi INNER JOIN finansas_zyme fz on fi.id = fz.Finansas_id INNER JOIN zyme zi on fz.zymes_id = zi.id WHERE fi.data BETWEEN :nuo AND :iki AND fi.tipas = :finanansoTipasDB AND fi.finansoStatusas = 0 AND zi.id = :zymeId GROUP BY zi.id";
             Query query = entityManager.createNativeQuery(sql);
             query.setParameter("zymeId", zymeId);
             query.setParameter("nuo", nuo);

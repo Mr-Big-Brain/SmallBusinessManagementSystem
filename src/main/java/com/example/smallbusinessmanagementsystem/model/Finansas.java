@@ -1,5 +1,6 @@
 package com.example.smallbusinessmanagementsystem.model;
 
+import com.example.smallbusinessmanagementsystem.utilities.FinansoStatusas;
 import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -15,6 +16,8 @@ public class Finansas {
     private int id;
     @Column
     private FinansoTipas tipas;
+    @Column
+    private FinansoStatusas finansoStatusas;
     @Column
     private double kiekis;
     @Column
@@ -56,6 +59,14 @@ public class Finansas {
 
     public void setTipas(FinansoTipas tipas) {
         this.tipas = tipas;
+    }
+
+    public FinansoStatusas getFinansoStatusas() {
+        return finansoStatusas;
+    }
+
+    public void setFinansoStatusas(FinansoStatusas finansoStatusas) {
+        this.finansoStatusas = finansoStatusas;
     }
 
     public double getKiekis() {

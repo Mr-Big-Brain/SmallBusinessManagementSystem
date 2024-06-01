@@ -6,23 +6,23 @@
   <persistence-unit name="persistence" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <properties>
-<!--        If something goes wrong with DB use this config(it's a bit slower, but stable      -->
-<!--      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/businessDB?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;"/>-->
-<!--      <property name="javax.persistence.jdbc.user" value="root" />-->
-<!--      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
-<!--      <property name="javax.persistence.jdbc.password" value="" />-->
-<!--      <property name="hibernate.hbm2ddl.auto" value="update" />-->
-<!--      <property name="hibernate.show_sql" value="true" />-->
+<!--        If something goes wrong with DB use this config(it's a bit slower, but stable-->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/businessDB5?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;"/>
+      <property name="javax.persistence.jdbc.user" value="root" />
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="" />
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <property name="hibernate.show_sql" value="true" />
 
-      <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider" />
-      <property name="hibernate.hikari.dataSourceClassName" value="com.mysql.cj.jdbc.MysqlDataSource" />
-      <property name="hibernate.hikari.dataSource.url" value="jdbc:mysql://localhost:3306/businessDB?createDatabaseIfNotExist=true&amp;useUnicode=yes" />
-      <property name="hibernate.hikari.dataSource.user" value="root" />
-      <property name="hibernate.hikari.dataSource.password" value="" />
-      <property name="hibernate.hikari.maximumPoolSize" value="1" />
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-      <property name="hibernate.format_sql" value="true" />
-      <property name="hibernate.use_sql_comments" value="true" />
+<!--      <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider" />-->
+<!--      <property name="hibernate.hikari.dataSourceClassName" value="com.mysql.cj.jdbc.MysqlDataSource" />-->
+<!--      <property name="hibernate.hikari.dataSource.url" value="jdbc:mysql://localhost:3306/businessDB5?createDatabaseIfNotExist=true&amp;useUnicode=yes" />-->
+<!--      <property name="hibernate.hikari.dataSource.user" value="root" />-->
+<!--      <property name="hibernate.hikari.dataSource.password" value="" />-->
+<!--      <property name="hibernate.hikari.maximumPoolSize" value="1" />-->
+<!--      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />-->
+<!--      <property name="hibernate.format_sql" value="true" />-->
+<!--      <property name="hibernate.use_sql_comments" value="true" />-->
 
     </properties>
 

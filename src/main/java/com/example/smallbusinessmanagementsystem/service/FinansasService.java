@@ -4,6 +4,7 @@ import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Finansas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.persistenceController.FinansasPersistenceController;
+import com.example.smallbusinessmanagementsystem.utilities.FinansoStatusas;
 import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
 
 import java.time.LocalDate;
@@ -51,12 +52,20 @@ public class FinansasService {
             return finansasPersistenceController.getFinansasListFromDatabase();
         return finansasPersistenceController.getFinansasListByFinansoTipas(finansoTipas);
     }
-    public List<Finansas> getAllFinansaiForTable(FinansoTipas finansoTipas, LocalDate nuo, LocalDate iki, String searchString)
+    public List<Finansas> getAllFinansaiForTable(FinansoTipas finansoTipas, FinansoStatusas finansoStatusas, LocalDate nuo, LocalDate iki, String searchString)
     {
         List<Finansas> finansai= new ArrayList<>(getAllByTipas(finansoTipas));
 
         if(finansai.isEmpty()) {
             return Collections.emptyList();
+        }
+
+        for(int i = finansai.size()-1; i>=0; i--)
+        {
+            if(finansai.get(i).getFinansoStatusas()!=finansoStatusas)
+            {
+                finansai.remove(i);
+            }
         }
 
         if(nuo!=null)

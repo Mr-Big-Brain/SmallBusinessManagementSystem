@@ -53,21 +53,21 @@ Galia: 700 W");
 
 insert into tvarkarastis(id, aprasymas,	data, pavadinimas, kamSukure_id, kasSukure_id)
 VALUES
-    (1, NULL, "2024-05-07", "15:00 - 20:00 dirbate", 1, 3),
-    (2, NULL, "2024-05-08", "12:00 - 20:00 dirbate", 1, 3),
-    (3, NULL, "2024-05-09", "12:00 - 20:00 dirbate", 1, 3),
-    (4, NULL, "2024-05-10", "12:00 - 20:00 dirbate", 1, 3),
-    (5, NULL, "2024-05-13", "12:00 - 20:00 dirbate", 1, 3),
-    (6, NULL, "2024-05-14", "15:00 - 20:00 dirbate", 1, 3),
-    (7, NULL, "2024-05-15", "15:00 - 20:00 dirbate", 1, 3),
-    (8, NULL, "2024-05-16", "15:00 - 20:00 dirbate", 1, 3),
-    (9, NULL, "2024-05-17", "15:00 - 20:00 dirbate", 1, 3),
+    (1, NULL, "2024-05-27", "15:00 - 20:00 dirbate", 1, 3),
+    (2, NULL, "2024-05-28", "12:00 - 20:00 dirbate", 1, 3),
+    (3, NULL, "2024-05-29", "12:00 - 20:00 dirbate", 1, 3),
+    (4, NULL, "2024-05-30", "12:00 - 20:00 dirbate", 1, 3),
+    (5, NULL, "2024-06-03", "12:00 - 20:00 dirbate", 1, 3),
+    (6, NULL, "2024-06-04", "15:00 - 20:00 dirbate", 1, 3),
+    (7, NULL, "2024-06-05", "15:00 - 20:00 dirbate", 1, 3),
+    (8, NULL, "2024-06-06", "15:00 - 20:00 dirbate", 1, 3),
+    (9, NULL, "2024-06-07", "15:00 - 20:00 dirbate", 1, 3),
     (10, "Mašina atvažiuos 10:00,
 Kylus klausimams kreiptis pas Algirdą
-+37054825488", "2024-05-18", "Priimti užsakymą nuo maximos", 3, 1),
++37054825488", "2024-05-24", "Priimti užsakymą nuo maximos", 3, 1),
     (11, "Vakar Paulius nerado Beko mikrobangių krosnelės,
-Tai kai busi laisvas pažiūrėk ir pranešk man", "2024-05-20", "Patikrinti, kas atsitiko sandėlyje", 2, 1),
-    (12, "Padaryk buhalterijos ataskaitą iki sausio 24d. ", "2024-05-22", "Padaryk buhalterijos ataskait", 4, 1);
+Tai kai busi laisvas pažiūrėk ir pranešk man", "2024-05-26", "Patikrinti, kas atsitiko sandėlyje", 2, 1),
+    (12, "Padaryk buhalterijos ataskaitą iki sausio 24d. ", "2024-05-28", "Padaryk buhalterijos ataskaitą", 4, 1);
 
 
 insert into sandeliopreke(id, kiekis, produktas_id, pirkimoKaina)
@@ -156,100 +156,100 @@ VALUES
     (3, "Paprašė pranešti", "Paprašė pranešti kai atsiras indaplovės", "2024-02-03", 2, NULL);
 
 
-INSERT INTO finansas(id, tipas, data, vartotojas_id, kiekis, pavadinimas, apibudinimas)
+INSERT INTO finansas(id, tipas, finansoStatusas, data, vartotojas_id, kiekis, pavadinimas, apibudinimas)
 VALUES
 
-    (1, 0,"2023-09-01",3,80000, "Investicijos", "investicijos nuo remėjų"),
+    (1, 0, 0, "2023-09-01",3,80000, "Investicijos", "investicijos nuo remėjų"),
 
-    (2, 1,"2023-09-05",7,1400, "Alga ", "Alga Tomui"),
-    (3, 1,"2023-09-05",7,1600, "Alga ", "Alga Gintarei"),
-    (4, 1,"2023-09-05",7,2000, "Alga ", "Alga Jonui"),
-    (5, 1,"2023-09-05",7,1900, "Alga ", "Alga Petrui"),
-    (6, 1,"2023-09-05",7,1300, "Alga ", "Alga Giedriui"),
-    (7, 1,"2023-09-05",7,1700, "Alga ", "Alga Laurai"),
-    (8, 1,"2023-09-05",7,2200, "Alga ", "Alga Jurgai"),
+    (2, 1, 0, "2023-09-05",7,1400, "Alga ", "Alga Tomui"),
+    (3, 1, 0, "2023-09-05",7,1600, "Alga ", "Alga Gintarei"),
+    (4, 1, 0, "2023-09-05",7,2000, "Alga ", "Alga Jonui"),
+    (5, 1, 0, "2023-09-05",7,1900, "Alga ", "Alga Petrui"),
+    (6, 1, 0, "2023-09-05",7,1300, "Alga ", "Alga Giedriui"),
+    (7, 1, 0, "2023-09-05",7,1700, "Alga ", "Alga Laurai"),
+    (8, 1, 0, "2023-09-05",7,2200, "Alga ", "Alga Jurgai"),
 
 
-    (9, 1,"2023-09-08",11,45852, "Pirkimas ", "
+    (9, 1, 0, "2023-09-08",11,45852, "Pirkimas ", "
 Užsakymas iš UAB BUITINĖ TECHNIKA:
  23 AEG L9WBCN61B Skalbimo mašinos
  13 Samsung WW60A3120WE/ LE Skalbimo mašinos
  45 Šaldytuvai Samsung RB38A7B4EB1/ EF"),
-    (10, 0,"2023-10-01",11,44000.50, "Draudimas ", "Draudimo išmoka nuo COMPENSA už potvynį"),
+    (10, 0, 0, "2023-10-01",11,44000.50, "Draudimas ", "Draudimo išmoka nuo COMPENSA už potvynį"),
 
-    (11, 1,"2023-10-05",7,1400, "Alga ", "Alga Tomui"),
-    (12, 1,"2023-10-05",7,1600, "Alga ", "Alga Gintarei"),
-    (13, 1,"2023-10-05",7,2000, "Alga ", "Alga Jonui"),
-    (14, 1,"2023-10-05",7,1900, "Alga ", "Alga Petrui"),
-    (15, 1,"2023-10-05",7,1300, "Alga ", "Alga Giedriui"),
-    (16, 1,"2023-10-05",7,1700, "Alga ", "Alga Laurai"),
-    (17, 1,"2023-10-05",7,2200, "Alga ", "Alga Jurgai"),
-
-
-    (18, 0,"2023-10-25",3,44000.50, "Draudimas ", "Draudimo išmoka nuo COMPENSA už sugadintas prekes"),
+    (11, 1, 0, "2023-10-05",7,1400, "Alga ", "Alga Tomui"),
+    (12, 1, 2, "2023-10-05",7,1600, "Alga ", "Alga Gintarei"),
+    (13, 1, 0, "2023-10-05",7,2000, "Alga ", "Alga Jonui"),
+    (14, 1, 0, "2023-10-05",7,1900, "Alga ", "Alga Petrui"),
+    (15, 1, 0, "2023-10-05",7,1300, "Alga ", "Alga Giedriui"),
+    (16, 1, 0, "2023-10-05",7,1700, "Alga ", "Alga Laurai"),
+    (17, 1, 0, "2023-10-05",7,2200, "Alga ", "Alga Jurgai"),
 
 
-    (19, 1,"2023-11-05",11,1400, "Alga ", "Alga Tomui"),
-    (20, 1,"2023-11-05",11,1600, "Alga ", "Alga Gintarei"),
-    (21, 1,"2023-11-05",11,2000, "Alga ", "Alga Jonui"),
-    (22, 1,"2023-11-05",11,1900, "Alga ", "Alga Petrui"),
-    (23, 1,"2023-11-05",11,1300, "Alga ", "Alga Giedriui"),
-    (24, 1,"2023-11-05",11,1700, "Alga ", "Alga Laurai"),
-    (25, 1,"2023-11-05",11,2200, "Alga ", "Alga Jurgai"),
-    (26, 1,"2023-11-05",11,1100, "Alga ", "Alga Rokui"),
+    (18, 0, 0, "2023-10-25",3,44000.50, "Draudimas ", "Draudimo išmoka nuo COMPENSA už sugadintas prekes"),
 
 
-    (27, 1,"2023-11-06",7,19829.8, "Pirkimas ", "
+    (19, 1, 0, "2023-11-05",11,1400, "Alga ", "Alga Tomui"),
+    (20, 1, 1, "2023-11-05",11,1600, "Alga ", "Alga Gintarei"),
+    (21, 1, 0, "2023-11-05",11,2000, "Alga ", "Alga Jonui"),
+    (22, 1, 0, "2023-11-05",11,1900, "Alga ", "Alga Petrui"),
+    (23, 1, 0, "2023-11-05",11,1300, "Alga ", "Alga Giedriui"),
+    (24, 1, 0, "2023-11-05",11,1700, "Alga ", "Alga Laurai"),
+    (25, 1, 0, "2023-11-05",11,2200, "Alga ", "Alga Jurgai"),
+    (26, 1, 0, "2023-11-05",11,1100, "Alga ", "Alga Rokui"),
+
+
+    (27, 1, 0, "2023-11-06",7,19829.8, "Pirkimas ", "
 Užsakymas iš UAB BUITINĖ TECHNIKA:
  12 AEG L9WBCN61B Skalbimo mašinos
  15 Samsung WW60A3120WE/ LE Skalbimo mašinos
  16 Samsung WW60A3120BE/ LE Skalbimo mašinos"),
 
 
-    (28, 1,"2023-12-05",3,1400, "Alga ", "Alga Tomui"),
-    (29, 1,"2023-12-05",3,1600, "Alga ", "Alga Gintarei"),
-    (30, 1,"2023-12-05",3,2000, "Alga ", "Alga Jonui"),
-    (31, 1,"2023-12-05",3,1900, "Alga ", "Alga Petrui"),
-    (32, 1,"2023-12-05",3,1300, "Alga ", "Alga Giedriui"),
-    (33, 1,"2023-12-05",3,1700, "Alga ", "Alga Laurai"),
-    (34, 1,"2023-12-05",3,2200, "Alga ", "Alga Jurgai"),
-    (35, 1,"2023-12-05",3,1100, "Alga ", "Alga Rokui"),
-    (36, 1,"2023-12-05",3,1200, "Alga ", "Alga Eglei"),
+    (28, 1, 0, "2023-12-05",3,1400, "Alga ", "Alga Tomui"),
+    (29, 1, 0, "2023-12-05",3,1600, "Alga ", "Alga Gintarei"),
+    (30, 1, 0, "2023-12-05",3,2000, "Alga ", "Alga Jonui"),
+    (31, 1, 1, "2023-12-05",3,1900, "Alga ", "Alga Petrui"),
+    (32, 1, 0, "2023-12-05",3,1300, "Alga ", "Alga Giedriui"),
+    (33, 1, 0, "2023-12-05",3,1700, "Alga ", "Alga Laurai"),
+    (34, 1, 0, "2023-12-05",3,2200, "Alga ", "Alga Jurgai"),
+    (35, 1, 0, "2023-12-05",3,1100, "Alga ", "Alga Rokui"),
+    (36, 1, 0, "2023-12-05",3,1200, "Alga ", "Alga Eglei"),
 
 
-    (37, 1,"2023-12-13",7,8750, "Pirkimas ", "
+    (37, 1, 0, "2023-12-13",7,8750, "Pirkimas ", "
 Užsakymas iš UAB BUITINĖ TECHNIKA:
  8 Samsung WW60A3120BE/ LE Skalbimo mašinos
  12 Šaldytuvai Hisense RR58D4AWF
  13 Šaldytuvai Samsung RB38A7B4EB1/ EF"),
 
 
-    (38, 1,"2024-01-05",11,1400, "Alga ", "Alga Tomui"),
-    (39, 1,"2024-01-05",11,1600, "Alga ", "Alga Gintarei"),
-    (40, 1,"2024-01-05",11,2000, "Alga ", "Alga Jonui"),
-    (41, 1,"2024-01-05",11,1900, "Alga ", "Alga Petrui"),
-    (42, 1,"2024-01-05",11,1300, "Alga ", "Alga Giedriui"),
-    (43, 1,"2024-01-05",11,1700, "Alga ", "Alga Laurai"),
-    (44, 1,"2024-01-05",11,2200, "Alga ", "Alga Jurgai"),
-    (45, 1,"2024-01-05",11,1100, "Alga ", "Alga Rokui"),
-    (46, 1,"2024-01-05",11,1200, "Alga ", "Alga Eglei"),
-    (47, 1,"2024-01-05",11,1100, "Alga ", "Alga Ritai"),
+    (38, 1, 0, "2024-01-05",11,1400, "Alga ", "Alga Tomui"),
+    (39, 1, 2, "2024-01-05",11,1600, "Alga ", "Alga Gintarei"),
+    (40, 1, 2, "2024-01-05",11,2000, "Alga ", "Alga Jonui"),
+    (41, 1, 0, "2024-01-05",11,1900, "Alga ", "Alga Petrui"),
+    (42, 1, 0, "2024-01-05",11,1300, "Alga ", "Alga Giedriui"),
+    (43, 1, 0, "2024-01-05",11,1700, "Alga ", "Alga Laurai"),
+    (44, 1, 0, "2024-01-05",11,2200, "Alga ", "Alga Jurgai"),
+    (45, 1, 0, "2024-01-05",11,1100, "Alga ", "Alga Rokui"),
+    (46, 1, 0, "2024-01-05",11,1200, "Alga ", "Alga Eglei"),
+    (47, 1, 0, "2024-01-05",11,1100, "Alga ", "Alga Ritai"),
 
 
-    (48, 0,"2024-01-06",3,80000, "Investicijos", "investicijos nuo remėjų"),
-    (49, 1,"2024-01-06",7,2000, "Draudimas", "Draudimo mokėstis"),
+    (48, 0, 1, "2024-01-06",3,80000, "Investicijos", "investicijos nuo remėjų"),
+    (49, 1, 0, "2024-01-06",7,2000, "Draudimas", "Draudimo mokėstis"),
 
 
-    (50, 1,"2024-02-05",3,1400, "Alga ", "Alga Tomui"),
-    (51, 1,"2024-02-05",3,1600, "Alga ", "Alga Gintarei"),
-    (52, 1,"2024-02-05",3,2000, "Alga ", "Alga Jonui"),
-    (53, 1,"2024-02-05",3,1900, "Alga ", "Alga Petrui"),
-    (54, 1,"2024-02-05",3,1300, "Alga ", "Alga Giedriui"),
-    (55, 1,"2024-02-05",3,1700, "Alga ", "Alga Laurai"),
-    (56, 1,"2024-02-05",3,2200, "Alga ", "Alga Jurgai"),
-    (57, 1,"2024-02-05",3,1100, "Alga ", "Alga Rokui"),
-    (58, 1,"2024-02-05",3,1200, "Alga ", "Alga Eglei"),
-    (59, 1,"2024-02-05",3,1100, "Alga ", "Alga Ritai");
+    (50, 1, 0, "2024-02-05",3,1400, "Alga ", "Alga Tomui"),
+    (51, 1, 0, "2024-02-05",3,1600, "Alga ", "Alga Gintarei"),
+    (52, 1, 2, "2024-02-05",3,2000, "Alga ", "Alga Jonui"),
+    (53, 1, 0, "2024-02-05",3,1900, "Alga ", "Alga Petrui"),
+    (54, 1, 0, "2024-02-05",3,1300, "Alga ", "Alga Giedriui"),
+    (55, 1, 0, "2024-02-05",3,1700, "Alga ", "Alga Laurai"),
+    (56, 1, 0, "2024-02-05",3,2200, "Alga ", "Alga Jurgai"),
+    (57, 1, 0, "2024-02-05",3,1100, "Alga ", "Alga Rokui"),
+    (58, 1, 1, "2024-02-05",3,1200, "Alga ", "Alga Eglei"),
+    (59, 1, 0, "2024-02-05",3,1100, "Alga ", "Alga Ritai");
 
 INSERT INTO finansas_zyme(Finansas_id, zymes_id)
 VALUES

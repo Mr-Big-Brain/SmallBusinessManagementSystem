@@ -4,10 +4,7 @@ import com.example.smallbusinessmanagementsystem.AllertBox;
 import com.example.smallbusinessmanagementsystem.model.Finansas;
 import com.example.smallbusinessmanagementsystem.model.Zyme;
 import com.example.smallbusinessmanagementsystem.service.FinansasService;
-import com.example.smallbusinessmanagementsystem.utilities.ControllerOperation;
-import com.example.smallbusinessmanagementsystem.utilities.CurrentVartotojas;
-import com.example.smallbusinessmanagementsystem.utilities.FinansoTipas;
-import com.example.smallbusinessmanagementsystem.utilities.WindowManager;
+import com.example.smallbusinessmanagementsystem.utilities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,7 +34,7 @@ public class ManageFinansasController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textFieldDarbuotojas.setEditable(false);
-        fillChoiceBox(FinansoTipas.IŠLAIDOS);
+        fillChoiceBoxes(FinansoTipas.IŠLAIDOS, FinansoStatusas.LAUKIAMA);
         if(controllerOperation == ControllerOperation.UPDATE)
         {
             buttonAction.setText("Atnaujinti");
@@ -79,6 +76,9 @@ public class ManageFinansasController implements Initializable{
 
     @FXML
     private ChoiceBox<FinansoTipas> choiceBoxTipas;
+
+    @FXML
+    private ChoiceBox<FinansoStatusas> choiceBoxStatusas;
 
     @FXML
     private TextArea textAreaApibudinimas;
@@ -170,6 +170,10 @@ public class ManageFinansasController implements Initializable{
             {
                 choiceBoxTipas.setValue(finansas.getTipas());
             }
+            if(finansas.getFinansoStatusas()!=null)
+            {
+                choiceBoxStatusas.setValue(finansas.getFinansoStatusas());
+            }
             if(finansas.getVartotojas()!=null)
             {
                 textFieldDarbuotojas.setText(finansas.getVartotojas().getVardas() + " " + finansas.getVartotojas().getPavarde());
@@ -188,6 +192,7 @@ public class ManageFinansasController implements Initializable{
             finansasModifikacijai.setKiekis(Double.parseDouble(textFieldKiekis.getText()));
         }
         finansasModifikacijai.setTipas(choiceBoxTipas.getValue());
+        finansasModifikacijai.setFinansoStatusas(choiceBoxStatusas.getValue());
         if(finansasModifikacijai.getVartotojas()==null)
         {
             finansasModifikacijai.setVartotojas(currentVartotojas.getVartotojas());
@@ -222,11 +227,15 @@ public class ManageFinansasController implements Initializable{
             return false;
         }
     }
-    private void fillChoiceBox(FinansoTipas finansoTipas)
+    private void fillChoiceBoxes(FinansoTipas finansoTipas, FinansoStatusas finansoStatusas)
     {
         choiceBoxTipas.getItems().clear();
         choiceBoxTipas.getItems().addAll(FinansoTipas.IŠLAIDOS,FinansoTipas.PAJAMOS);
         choiceBoxTipas.setValue(finansoTipas);
+
+        choiceBoxStatusas.getItems().clear();
+        choiceBoxStatusas.getItems().addAll(FinansoStatusas.LAUKIAMA, FinansoStatusas.ATŠAUKTA, FinansoStatusas.UŽBAIGTA);
+        choiceBoxStatusas.setValue(finansoStatusas);
     }
 }
 

@@ -558,7 +558,7 @@ public void showLogin(ActionEvent event) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Finansas");
+            stage.setTitle("Finansų įrašas");
 
             stage.show();
         } catch (IOException e) {
